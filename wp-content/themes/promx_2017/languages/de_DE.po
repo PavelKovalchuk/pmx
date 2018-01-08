@@ -1,0 +1,1622 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: proRm Website\n"
+"POT-Creation-Date: 2016-12-16 17:56+0200\n"
+"PO-Revision-Date: 2016-12-16 17:57+0200\n"
+"Last-Translator: Max Gopey <Maxim.Gopey@promx.net>\n"
+"Language-Team: \n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.8\n"
+"X-Poedit-KeywordsList: __;_e;_n\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: ../category.php:29 ../content-category.php:30 ../content-front.php:20
+#: ../content-video.php:11 ../video.php:11
+msgid "more"
+msgstr "mehr"
+
+#: ../content-app.php:45 ../content-inside.php:12 ../content-packages.php:12
+#: ../content-shop.php:18
+msgid "Overview"
+msgstr "Überblick"
+
+#: ../content-app.php:62 ../content-business-consulting.php:376
+#: ../content-construction-industry.php:367
+#: ../content-discrete-manufacturing.php:380 ../content-inside.php:27
+#: ../content-it-consultancy.php:368 ../content-packages.php:29
+#: ../content-shop.php:32 ../content-software-industry.php:377
+#: ../content.php:65 ../content.php:252
+msgid "Pages:"
+msgstr "Seiten:"
+
+#: ../content-app.php:71 ../content-business-consulting.php:385
+#: ../content-construction-industry.php:376
+#: ../content-discrete-manufacturing.php:389 ../content-inside.php:36
+#: ../content-it-consultancy.php:377 ../content-packages.php:38
+#: ../content-shop.php:41 ../content-software-industry.php:386
+#: ../content.php:272
+msgid "Edit"
+msgstr "Bearbeiten"
+
+#: ../content-category.php:14 ../content-category.php:38
+#: ../functions/news.php:60 ../parts/newsroom/categ-blocks.php:20
+#, php-format
+msgid "View all posts in %s"
+msgstr "Alle Beiträge in %s"
+
+#: ../content-category.php:39
+msgid "all"
+msgstr "alle"
+
+#: ../content-cebit.php:156 ../content-cebit.php:219 ../content-cebit.php:232
+#: ../content-traviata.php:166 ../content-traviata.php:235
+#: ../content-traviata.php:426 ../content-traviata.php:432
+#: ../content-traviata.php:505 ../content-traviata.php:591
+#: ../content-traviata.php:637 ../forms/cebits.php:31
+#: ../forms/traviata-contact.php:30 ../forms/traviata-contacts.php:30
+msgid "Termin vereinbaren"
+msgstr ""
+
+#: ../content-cebit.php:401 ../content-crm-summit.php:383
+#: ../content-crm-workshop-kostenlos.php:134
+#: ../content-dienstleistungsunternehmen.php:449 ../content-dinner.php:291
+#: ../content-event-landing.php:408 ../content-fertigungsunternehmen.php:455
+#: ../content-partner.php:392 ../content-promxPartner.php:575
+#: ../content-prostorage.php:575 ../content-roadshow.php:759
+#: ../content-traviata.php:698 ../footer.php:94
+msgid ""
+"I accept that this site uses cookies for analysis, personalized content and "
+"advertisment."
+msgstr ""
+"Ich stimme zu, dass diese Seite Cookies fur Analysen, personalisierte "
+"Inhalte und Werbung verwendet."
+
+#: ../content-cebit.php:408 ../content-crm-summit.php:390
+#: ../content-crm-workshop-kostenlos.php:141
+#: ../content-dienstleistungsunternehmen.php:456 ../content-dinner.php:298
+#: ../content-event-landing.php:415 ../content-fertigungsunternehmen.php:462
+#: ../content-partner.php:399 ../content-promxPartner.php:582
+#: ../content-prostorage.php:582 ../content-roadshow.php:766
+#: ../content-traviata.php:705 ../footer.php:101 ../functions/cards.php:17
+#, fuzzy
+msgid "Learn more"
+msgstr ""
+"#-#-#-#-#  0catalog.po (proRm Website)  #-#-#-#-#\n"
+"Erfahren Sie mehr\n"
+"#-#-#-#-#  0catalog.po (proRm Website)  #-#-#-#-#\n"
+"Mehr erfahren"
+
+#: ../content-dienstleistungsunternehmen.php:206
+#: ../content-dienstleistungsunternehmen.php:320
+#: ../content-dienstleistungsunternehmen.php:382
+#: ../content-fertigungsunternehmen.php:206
+#: ../content-fertigungsunternehmen.php:322
+#: ../content-fertigungsunternehmen.php:385 ../content-roadshow.php:182
+#: ../content-roadshow.php:213 ../content-roadshow.php:345
+#: ../content-roadshow.php:421 ../content-roadshow.php:570
+#: ../content-roadshow.php:601
+msgid "Agenda herunterladen"
+msgstr ""
+
+#: ../content-dienstleistungsunternehmen.php:247
+#: ../content-fertigungsunternehmen.php:247
+msgid "Jetzt anmelden"
+msgstr ""
+
+#: ../content-no-posts.php:7
+msgid "No posts to display"
+msgstr "Keine Beiträge vorhanden"
+
+#: ../content-no-posts.php:11
+#, php-format
+msgid "Ready to publish your first post? <a href=\"%s\">Get started here</a>."
+msgstr ""
+"Sind Sie bereit Ihren ersten Beitrag zu veröffentlichen? <a href=\"%s"
+"\">Legen Sie hier los</a>."
+
+#: ../content-no-posts.php:19
+msgid "Nothing Found"
+msgstr "Es wurde nichts gefunden"
+
+#: ../content-no-posts.php:23
+msgid ""
+"Apologies, but no results were found. Perhaps searching will help find a "
+"related post."
+msgstr ""
+"Leider wurden keine Ergebnisse gefunden. Nutzen Sie bitte die Suchen-"
+"Funktion, um entsprechende Beiträge zu finden."
+
+#: ../content-partner.php:309 ../content-partner.php:312
+#: ../content-promxPartner.php:406 ../functions/forms/meet-us.php:102
+#: ../functions/forms/meet-us.php:160 ../functions/forms/microsoft.php:102
+#: ../functions/forms/microsoft.php:160
+msgid "Agenda"
+msgstr ""
+
+#: ../content-promxPartner.php:407
+msgid "Registration"
+msgstr ""
+
+#: ../content-roadshow.php:281 ../content-roadshow.php:367
+#: ../content-roadshow.php:385 ../content-roadshow.php:520
+#: ../content-roadshow.php:669 ../content-roadshow.php:677
+#: ../content-roadshow.php:725 ../content-roadshow.php:736
+msgid "Jetzt Anmelden"
+msgstr ""
+
+#: ../content-traviata.php:287 ../content-traviata.php:645
+msgid "Travi@ta-Lösungsbroschüre herunterladen"
+msgstr ""
+
+#: ../forms.php:372 ../forms.php:384 ../functions/forms.php:389
+#: ../functions/forms.php:401 ../functions/settings.php:131
+msgid "Forms"
+msgstr "Formulare"
+
+#: ../forms.php:373 ../functions/forms.php:390
+#, fuzzy
+msgid "Form"
+msgstr "Formulare"
+
+#: ../forms.php:374 ../functions/cards.php:185 ../functions/forms.php:391
+#: ../functions/testimonials.php:119 ../functions/webinars.php:58
+msgid "Add New"
+msgstr "Neu hinzufügen"
+
+#: ../forms.php:375 ../functions/forms.php:392
+#, fuzzy
+msgid "Add New Form"
+msgstr "Neue Registerkarte hinzufügen"
+
+#: ../forms.php:376 ../functions/forms.php:393
+#, fuzzy
+msgid "Edit Form"
+msgstr "Registerkarte bearbeiten"
+
+#: ../forms.php:377 ../functions/forms.php:394
+#, fuzzy
+msgid "New Form"
+msgstr "Neue Registerkarte"
+
+#: ../forms.php:378 ../functions/forms.php:395
+#, fuzzy
+msgid "All Forms"
+msgstr "Formulare"
+
+#: ../forms.php:379 ../functions/forms.php:396
+#, fuzzy
+msgid "View Form"
+msgstr "Registerkarte ansehen"
+
+#: ../forms.php:380 ../functions/forms.php:397
+#, fuzzy
+msgid "Search Forms"
+msgstr "Nach Registerkarten suchen"
+
+#: ../forms.php:381 ../functions/forms.php:398
+#, fuzzy
+msgid "No Forms found"
+msgstr "Es wurden keine Registerkarten gefunden"
+
+#: ../forms.php:382 ../functions/forms.php:399
+#, fuzzy
+msgid "No Forms found in Trash"
+msgstr "Es wurden keine Registerkarten im Papierkorb gefunden"
+
+#: ../forms.php:415 ../functions/forms.php:432
+#, fuzzy
+msgid "Form Attributes"
+msgstr "Registerkartenattribute"
+
+#: ../forms.php:419 ../functions/forms.php:436
+msgid "Success Message"
+msgstr ""
+
+#: ../forms.php:422 ../functions/forms.php:439
+msgid "Appears after successful form submission."
+msgstr ""
+
+#: ../forms/branchentreff-footer.php:13 ../forms/branchentreff.php:14
+#: ../forms/business-packages.php:24 ../forms/ceb.php:13
+#: ../forms/cebitf-mobile.php:13 ../forms/cebitf.php:12 ../forms/cebits.php:18
+#: ../forms/conference-contact.php:16
+#: ../forms/conference-washington-partners-f-2017.php:16
+#: ../forms/conference-washington-partners-h-2017-mobile.php:14
+#: ../forms/conference-washington-partners-h-2017.php:14
+#: ../forms/dinner-contact.php:16 ../forms/enterprise.php:15
+#: ../forms/fertigungsunternehmen-footer.php:13
+#: ../forms/fertigungsunternehmen.php:14 ../forms/partner-conference.php:13
+#: ../forms/partner-contact.php:16 ../forms/partner-dinner-mobi.php:13
+#: ../forms/partner-dinner.php:13 ../forms/promx-conference-mobi.php:13
+#: ../forms/promx-conference.php:13 ../forms/roadshow-contact.php:18
+#: ../forms/roadshow-mobile.php:13 ../forms/roadshow.php:13
+#: ../forms/traviata-contact.php:18 ../forms/traviata-contacts.php:18
+#: ../forms/traviata-mobile.php:13 ../forms/traviata.php:9
+msgid "Name"
+msgstr "Name"
+
+#: ../forms/branchentreff-footer.php:16 ../forms/branchentreff.php:17
+#: ../forms/business-packages.php:25 ../forms/ceb.php:16
+#: ../forms/cebitf-mobile.php:16 ../forms/cebitf.php:15 ../forms/cebits.php:19
+#: ../forms/common/contact-info.php:4 ../forms/conference-contact.php:17
+#: ../forms/conference-washington-partners-f-2017.php:17
+#: ../forms/conference-washington-partners-h-2017-mobile.php:17
+#: ../forms/conference-washington-partners-h-2017.php:17
+#: ../forms/dinner-contact.php:17 ../forms/enterprise.php:16
+#: ../forms/fertigungsunternehmen-footer.php:16
+#: ../forms/fertigungsunternehmen.php:17 ../forms/licence30days.php:45
+#: ../forms/newsletter.php:16 ../forms/partner-conference.php:16
+#: ../forms/partner-contact.php:17 ../forms/partner-dinner-mobi.php:16
+#: ../forms/partner-dinner.php:16 ../forms/promx-conference-mobi.php:16
+#: ../forms/promx-conference.php:16 ../forms/roadshow-contact.php:19
+#: ../forms/roadshow-mobile.php:17 ../forms/roadshow.php:16
+#: ../forms/subscribe.php:16 ../forms/traviata-contact.php:19
+#: ../forms/traviata-contacts.php:19 ../forms/traviata-mobile.php:17
+#: ../forms/traviata.php:12 ../functions/fetcher.php:89
+#: ../functions/fetcher.php:100 ../functions/fetchers/licence30days.php:68
+#: ../functions/fetchers/newsletter.php:25
+#: ../functions/fetchers/subscribe.php:25 ../sidebar-offices.php:29
+msgid "Company"
+msgstr "Firma"
+
+#: ../forms/branchentreff-footer.php:19 ../forms/branchentreff.php:20
+#: ../forms/business-packages.php:26 ../forms/ceb.php:19
+#: ../forms/cebitf-mobile.php:19 ../forms/cebitf.php:18 ../forms/cebits.php:20
+#: ../forms/common/address-info.php:6 ../forms/conference-contact.php:18
+#: ../forms/conference-washington-partners-f-2017.php:18
+#: ../forms/conference-washington-partners-h-2017-mobile.php:20
+#: ../forms/conference-washington-partners-h-2017.php:20
+#: ../forms/dinner-contact.php:18 ../forms/enterprise.php:17
+#: ../forms/fertigungsunternehmen-footer.php:19
+#: ../forms/fertigungsunternehmen.php:20 ../forms/licence30days.php:43
+#: ../forms/newsletter.php:17 ../forms/partner-conference.php:19
+#: ../forms/partner-contact.php:18 ../forms/partner-dinner-mobi.php:19
+#: ../forms/partner-dinner.php:19 ../forms/promx-conference-mobi.php:19
+#: ../forms/promx-conference.php:19 ../forms/roadshow-contact.php:20
+#: ../forms/roadshow-mobile.php:21 ../forms/roadshow.php:19
+#: ../forms/subscribe.php:17 ../forms/traviata-contact.php:20
+#: ../forms/traviata-contacts.php:20 ../forms/traviata-mobile.php:21
+#: ../forms/traviata.php:15 ../functions/fetcher.php:93
+#: ../functions/fetcher.php:104 ../functions/fetchers/licence30days.php:67
+#: ../functions/fetchers/newsletter.php:26
+#: ../functions/fetchers/subscribe.php:26
+msgid "E-Mail"
+msgstr "E-Mail"
+
+#: ../forms/branchentreff-footer.php:24 ../forms/branchentreff.php:25
+#: ../forms/fertigungsunternehmen-footer.php:24
+#: ../forms/fertigungsunternehmen.php:25 ../forms/roadshow-mobile.php:38
+#: ../forms/roadshow.php:32
+msgid "Anmelden"
+msgstr ""
+
+#: ../forms/business-packages.php:27 ../forms/ceb.php:22
+#: ../forms/cebitf-mobile.php:22 ../forms/cebitf.php:21 ../forms/cebits.php:21
+#: ../forms/common/address-info.php:7 ../forms/conference-contact.php:19
+#: ../forms/conference-washington-partners-f-2017.php:19
+#: ../forms/conference-washington-partners-h-2017-mobile.php:23
+#: ../forms/conference-washington-partners-h-2017.php:23
+#: ../forms/dinner-contact.php:19 ../forms/enterprise.php:18
+#: ../forms/fields/phone_valid.php:4 ../forms/licence30days.php:51
+#: ../forms/partner-conference.php:22 ../forms/partner-contact.php:19
+#: ../forms/partner-dinner-mobi.php:22 ../forms/partner-dinner.php:22
+#: ../forms/promx-conference-mobi.php:22 ../forms/promx-conference.php:22
+#: ../forms/roadshow-contact.php:21 ../forms/roadshow-mobile.php:25
+#: ../forms/roadshow.php:22 ../forms/traviata-contact.php:21
+#: ../forms/traviata-contacts.php:21 ../forms/traviata-mobile.php:25
+#: ../forms/traviata.php:18 ../functions/fetcher.php:92
+#: ../functions/fetcher.php:103 ../functions/fetchers/licence30days.php:73
+msgid "Phone"
+msgstr "Telefon"
+
+#: ../forms/business-packages.php:35 ../forms/conference-contact.php:24
+#: ../forms/conference-washington-partners-f-2017.php:22
+#: ../forms/dinner-contact.php:24 ../forms/enterprise.php:26
+#: ../forms/fields/send_button.php:2 ../forms/partner-contact.php:24
+msgid "Send"
+msgstr "Absenden"
+
+#: ../forms/business-packages.php:39 ../forms/enterprise.php:30
+msgid "Senden"
+msgstr ""
+
+#: ../forms/business.php:36 ../forms/itbusiness.php:34
+#: ../forms/summit-first.php:31 ../forms/summit-mobile-first.php:31
+#: ../forms/summit-mobile-second.php:31 ../forms/summit.php:31
+#: ../forms/wpc.php:34
+msgid "Telefon"
+msgstr ""
+
+#: ../forms/business.php:39 ../forms/itbusiness.php:37
+#: ../forms/summit-first.php:34 ../forms/summit-mobile-first.php:34
+#: ../forms/summit-mobile-second.php:34 ../forms/summit.php:34
+#: ../forms/wpc.php:37
+msgid "jetzt anmelden!"
+msgstr ""
+
+#: ../forms/common/address-info.php:1
+msgid "Street"
+msgstr "Straße"
+
+#: ../forms/common/address-info.php:2 ../forms/licence30days.php:48
+#: ../functions/fetchers/licence30days.php:70
+msgid "Zip Code"
+msgstr "PLZ"
+
+#: ../forms/common/address-info.php:3 ../forms/licence30days.php:49
+#: ../functions/fetchers/licence30days.php:71
+msgid "City"
+msgstr "Ort"
+
+#: ../forms/common/contact-info.php:2 ../forms/licence30days.php:41
+#: ../forms/newsletter.php:13 ../forms/subscribe.php:13
+msgid "First Name"
+msgstr "Vorname"
+
+#: ../forms/common/contact-info.php:3 ../forms/licence30days.php:42
+#: ../forms/newsletter.php:14 ../forms/subscribe.php:14
+#: ../functions/fetcher.php:91 ../functions/fetcher.php:101
+#: ../functions/fetcher.php:102 ../functions/fetchers/licence30days.php:66
+#: ../functions/fetchers/newsletter.php:24
+#: ../functions/fetchers/subscribe.php:24
+msgid "Last Name"
+msgstr "Nachname"
+
+#: ../forms/common/contact-info.php:5
+msgid "Position"
+msgstr "Position"
+
+#: ../forms/common/messages.php:4
+msgid "Thank you for your request."
+msgstr "Vielen Dank für Ihre Anfrage."
+
+#: ../forms/fields/country.php:6 ../functions/fetchers/licence30days.php:72
+msgid "Country"
+msgstr "Land"
+
+#: ../forms/fields/crm_organisation.php:5
+#, fuzzy
+msgid "CRM Organisation"
+msgstr "CRM Organisation"
+
+#: ../forms/fields/data_usage.php:4
+msgid ""
+"I agree that proMX collects, processes and uses my personal data provided "
+"here. I also agree that my personal data can be shared with the reseller "
+"network of proMX, but not to third parties. Any time I can written revoke my "
+"permission."
+msgstr ""
+"Ich stimme zu, dass meine persönlichen Daten zum Zweck der Kundenberatung "
+"und -betreuung durch die proMX GmbH gespeichert und verarbeitet werden. "
+"Ferner stimme ich zu, dass die proMX GmbH meine persönlichen Daten an seine "
+"Kooperationspartner zur dortigen Datenspeicherung weitergibt. Eine "
+"Weitergabe an sonstige Dritte erfolgt nicht. Diese Einwilligung kann ich "
+"jederzeit schriftlich widerrufen."
+
+#: ../forms/fields/date.php:7 ../forms/fields/date_mobile.php:7
+#: ../forms/fields/edition.php:5 ../forms/fields/package.php:5
+#: ../forms/fields/packages.php:5 ../forms/fields/product.php:5
+#: ../forms/fields/products.php:5 ../forms/fields/productswebinar.php:5
+#: ../forms/fields/test_package.php:5 ../forms/fields/webinars.php:5
+#: ../forms/support-request.php:7 ../forms/support.php:7
+#: ../functions/forms/abstract.php:98
+msgid "select please"
+msgstr "Bitte wählen Sie aus"
+
+#: ../forms/fields/edition.php:15 ../forms/fields/product.php:15
+msgid "What products  you are interested in?"
+msgstr ""
+
+#: ../forms/fields/form_comment.php:2
+msgid "Fields marked with * must be filled"
+msgstr "Die mit * markierten Felder müssen ausgefüllt werden."
+
+#: ../forms/fields/message.php:2
+msgid "Message"
+msgstr "Anmerkungen"
+
+#: ../forms/fields/microsoft_desired_date.php:9
+msgid "Please select desired date"
+msgstr "Wählen Sie Ihren Wunschtermin aus"
+
+#: ../forms/fields/notes.php:2 ../forms/support-request.php:33
+#: ../forms/support.php:33 ../functions/fetcher.php:105
+#: ../functions/fetchers/service-request.php:19
+#: ../functions/fetchers/support-request.php:19
+#: ../functions/fetchers/support.php:19
+msgid "Notes"
+msgstr "Anmerkungen"
+
+#: ../forms/fields/number_of_users.php:5 ../functions/fetchers/microsoft.php:16
+#: ../functions/fetchers/testing.php:16 ../functions/fetchers/webinar.php:27
+msgid "Number of users"
+msgstr "Anzahl der Benutzer"
+
+#: ../forms/fields/package.php:10 ../forms/fields/test_package.php:10
+msgid "Select your preferred package"
+msgstr ""
+
+#: ../forms/fields/packages.php:13
+msgid "What packages  you are interested in?"
+msgstr ""
+
+#: ../forms/fields/products.php:16
+msgid "Please choose the solution you would like to test:"
+msgstr ""
+
+#: ../forms/fields/products.php:20
+msgid "Bitte wählen Sie die Lösung aus, die Sie ausprobieren möchten:"
+msgstr ""
+
+#: ../forms/fields/productswebinar.php:16
+msgid "Webcast on the topic:"
+msgstr ""
+
+#: ../forms/fields/productswebinar.php:20
+msgid "Webinar zum Thema:"
+msgstr ""
+
+#: ../forms/fields/salutation.php:3 ../forms/fields/salutation.php:4
+msgid "Mr."
+msgstr "Herr"
+
+#: ../forms/fields/salutation.php:5
+msgid "Ms."
+msgstr "Frau"
+
+#: ../forms/fields/salutation.php:7 ../functions/fetcher.php:90
+#: ../functions/fetchers/licence30days.php:64
+#: ../functions/fetchers/newsletter.php:23
+#: ../functions/fetchers/subscribe.php:23
+msgid "Salutation"
+msgstr "Anrede"
+
+#: ../forms/fields/subscription.php:4
+msgid "I would like to have more information about proMX."
+msgstr ""
+"Ich möchte weitere Informationen über die proMX Produktpalette erhalten."
+
+#: ../forms/fields/webinars.php:6
+msgid "Desired Appointment"
+msgstr "Wunschtermin"
+
+#: ../forms/fields/webinars.php:10 ../functions/webinars.php:57
+msgid "Webinar"
+msgstr ""
+
+#: ../forms/licence30days.php:8
+msgid "Yes"
+msgstr "Ja"
+
+#: ../forms/licence30days.php:9
+msgid "No"
+msgstr "Nein"
+
+#: ../forms/licence30days.php:12
+msgid "1"
+msgstr ""
+
+#: ../forms/licence30days.php:13
+msgid "2"
+msgstr ""
+
+#: ../forms/licence30days.php:14
+msgid "3"
+msgstr ""
+
+#: ../forms/licence30days.php:15
+msgid "4"
+msgstr ""
+
+#: ../forms/licence30days.php:16
+msgid "5"
+msgstr ""
+
+#: ../forms/licence30days.php:19
+msgid "1-5"
+msgstr ""
+
+#: ../forms/licence30days.php:20
+msgid "6-10"
+msgstr ""
+
+#: ../forms/licence30days.php:21
+msgid "11-20"
+msgstr ""
+
+#: ../forms/licence30days.php:22
+msgid "21-50"
+msgstr ""
+
+#: ../forms/licence30days.php:23
+msgid "51-100"
+msgstr ""
+
+#: ../forms/licence30days.php:24
+msgid ">101"
+msgstr ""
+
+#: ../forms/licence30days.php:27
+msgid "On Premise"
+msgstr "On Premise"
+
+#: ../forms/licence30days.php:28
+msgid "MS Dynamics CRM Online"
+msgstr "MS Dynamics CRM Online"
+
+#: ../forms/licence30days.php:29
+msgid "Partner Cloud"
+msgstr "Partner Cloud"
+
+#: ../forms/licence30days.php:37
+msgid "Customer Number"
+msgstr "Lizenzschlüssel"
+
+#: ../forms/licence30days.php:46 ../functions/fetchers/licence30days.php:69
+msgid "Company Address"
+msgstr "Strasse 1"
+
+#: ../forms/licence30days.php:47
+msgid "Company Address 2"
+msgstr "Strasse 2"
+
+#: ../forms/licence30days.php:53 ../functions/fetchers/licence30days.php:74
+msgid "CRM Installation"
+msgstr "CRM Installation"
+
+#: ../forms/licence30days.php:55 ../functions/fetchers/licence30days.php:75
+msgid "Are you a Microsoft CRM Partner?"
+msgstr "Sind Sie Microsoft CRM Partner?"
+
+#: ../forms/licence30days.php:56 ../functions/fetchers/licence30days.php:76
+msgid "Do you have a dedicated MS CRM Partner?"
+msgstr "Ist MS CRM Partner vorhanden?"
+
+#: ../forms/licence30days.php:57
+msgid "If “yes”, what is the name and address of your Partner?"
+msgstr ""
+"Wenn “Ja”, geben Sie bitte den Namen und die Anschrift des Partners an."
+
+#: ../forms/licence30days.php:58 ../functions/fetchers/licence30days.php:77
+msgid "Number of potential proRM Users"
+msgstr "Anzahl der proRM User"
+
+#: ../forms/licence30days.php:59 ../functions/fetchers/licence30days.php:78
+msgid "Number of Microsoft Dynamics CRM User"
+msgstr "Anzahl der Microsoft Dynamics CRM User"
+
+#: ../forms/licence30days.php:64
+msgid ""
+"How would you rate proRM Business Solutions on a scale from 1 (poor) to 5 "
+"(very good)?"
+msgstr ""
+"Bitte bewerten Sie proRM Business Solutions auf einer Skala von 1 (schlecht) "
+"bis 5 (sehr gut)?"
+
+#: ../forms/licence30days.php:67
+msgid "Price:"
+msgstr "Preis:"
+
+#: ../forms/licence30days.php:68
+msgid "Time of Installation:"
+msgstr "Installationszeit:"
+
+#: ../forms/licence30days.php:69
+msgid "Functionality:"
+msgstr "Funktionalität:"
+
+#: ../forms/licence30days.php:70
+msgid "Compatibility:"
+msgstr "Kompatibilität:"
+
+#: ../forms/licence30days.php:71
+msgid "Performance:"
+msgstr "Performance:"
+
+#: ../forms/licence30days.php:72
+msgid "Please give us proRM’s pros"
+msgstr "Positives"
+
+#: ../forms/licence30days.php:73
+msgid "Please give us proRM’s cons"
+msgstr "Negatives"
+
+#: ../forms/licence30days.php:75
+msgid "Do you want to buy proRM licenses?"
+msgstr "proRM Lizenz kaufen?"
+
+#: ../forms/licence30days.php:76
+msgid "If “yes”, how many?"
+msgstr "Wenn “Ja”, wie viele?"
+
+#: ../forms/licence30days.php:77 ../functions/fetchers/licence30days.php:84
+msgid ""
+"Do you want to be informed for upcoming proRM Applications and proRM "
+"Editions?"
+msgstr ""
+"Möchten Sie über die neuen proRM Apps und proRM Editionen informiert werden?"
+
+#: ../forms/licence30days.php:78
+msgid "Do you want to receive further information about other proRM products?"
+msgstr ""
+"Möchten Sie die aktuellen Informationen über die anderen proRM Produkte "
+"bekommen?"
+
+#: ../forms/newsletter.php:19 ../forms/subscribe.php:19
+msgid "Subscribe"
+msgstr "Anmelden"
+
+#: ../forms/roadshow-contact.php:26
+msgid "Absenden"
+msgstr ""
+
+#: ../forms/support-request.php:23 ../forms/support.php:23
+msgid "What topic do you<br>have question about?"
+msgstr "Zu welchem Thema<br>benötigen Sie Hilfe?"
+
+#: ../forms/traviata-mobile.php:52
+msgid "Anmdelen"
+msgstr ""
+
+#: ../forms/webinar.php:13
+msgid ""
+"If there is no suitable value please set your own date / time in Notes field "
+"and we do our best to arrange an appointment."
+msgstr ""
+"Sollten Sie keinen der angegebenen Termine wahrnehmen können, vermerken Sie "
+"bitte Ihren Wunschtermin im Feld Anmerkungen. Wir werden dann versuchen, "
+"diesen Termin zu realisieren."
+
+#: ../forms/workshop.php:50 ../forms/workshopmobile.php:47
+msgid "Telefonnummer"
+msgstr ""
+
+#: ../forms/workshop.php:58 ../forms/workshopmobile.php:54
+msgid "GESCHENK SICHERN"
+msgstr ""
+
+#: ../functions/cards.php:183 ../functions/cards.php:195
+msgid "Cards"
+msgstr "Registerkarten"
+
+#: ../functions/cards.php:184
+msgid "Card"
+msgstr "Registerkarte"
+
+#: ../functions/cards.php:186
+msgid "Add New Card"
+msgstr "Neue Registerkarte hinzufügen"
+
+#: ../functions/cards.php:187
+msgid "Edit Card"
+msgstr "Registerkarte bearbeiten"
+
+#: ../functions/cards.php:188
+msgid "New Card"
+msgstr "Neue Registerkarte"
+
+#: ../functions/cards.php:189
+msgid "All Cards"
+msgstr "Alle Registerkarten"
+
+#: ../functions/cards.php:190
+msgid "View Card"
+msgstr "Registerkarte ansehen"
+
+#: ../functions/cards.php:191
+msgid "Search Cards"
+msgstr "Nach Registerkarten suchen"
+
+#: ../functions/cards.php:192
+msgid "No Cards found"
+msgstr "Es wurden keine Registerkarten gefunden"
+
+#: ../functions/cards.php:193
+msgid "No Cards found in Trash"
+msgstr "Es wurden keine Registerkarten im Papierkorb gefunden"
+
+#: ../functions/cards.php:227
+msgid "Card attributes"
+msgstr "Registerkartenattribute"
+
+#: ../functions/cards.php:231
+msgid "Title text"
+msgstr "Überschrift"
+
+#: ../functions/cards.php:235
+msgid "Used as main card title (default title is ignored)."
+msgstr ""
+"Wird als Hauptregisterkartenüberschrift benutzt (Standardüberschrift wird "
+"ignoriert)."
+
+#: ../functions/cards.php:241
+msgid "Big Image"
+msgstr ""
+
+#: ../functions/cards.php:250
+msgid "Small Image"
+msgstr ""
+
+#: ../functions/cards.php:259
+msgid "Background Image"
+msgstr ""
+
+#: ../functions/cards.php:268
+msgid "Linked page"
+msgstr "Verlinkte Seite"
+
+#: ../functions/cards.php:272
+msgid "The page where user goes when clicks 'Learn more' button"
+msgstr ""
+"Die Seite, welche der Benutzer ansteuert, wenn er auf die \"Mehr erfahren\"-"
+"Schalftfläche klickt."
+
+#: ../functions/cards.php:282
+msgid "\"Learn more\" button text"
+msgstr "\"Mehr erfahren\" Schaltflächentext"
+
+#: ../functions/cards.php:286
+msgid "Defaults to <strong>\""
+msgstr "Ist im Standard stark betont <strong>\""
+
+#: ../functions/cards.php:293
+msgid "Html 'class' attribute"
+msgstr "HTML Klassen-Attribut"
+
+#: ../functions/cards.php:297
+msgid "Used to customize styles via CSS rules."
+msgstr "Wird verwendet um Stile mit Hilfe von CSS Regeln anzupassen."
+
+#: ../functions/cards.php:303
+msgid "CSS Styles"
+msgstr "CSS Stile"
+
+#: ../functions/cards.php:307
+#, php-format
+msgid "Use <strong>#card-%d</strong> to add styles to this card."
+msgstr ""
+"Verwenden Sie <strong>#card-%d</strong> um dieser Registerkarte Stile "
+"hinzuzufügen."
+
+#: ../functions/crm-client.php:77
+msgid "Sorry but sending failed. Please try again later."
+msgstr ""
+"Leider ist der Sendevorgang fehlgeschlagen. Bitte versuchen Sie es später "
+"noch einmal."
+
+#: ../functions/custom-author.php:21 ../functions/custom-fields.php:20
+msgid "Page attributes"
+msgstr "Seitenattribute"
+
+#: ../functions/custom-author.php:27
+msgid "Author"
+msgstr ""
+
+#: ../functions/custom-author.php:38
+msgid "Gender"
+msgstr ""
+
+#: ../functions/custom-fields.php:24
+msgid "Hide Title"
+msgstr "Titel ausblenden"
+
+#: ../functions/custom-fields.php:28
+msgid "Hide standard title allowing to add custom H1 in content."
+msgstr ""
+"Ausblenden Standardtitel ermöglicht, benutzerdefinierte H1 in Inhalt "
+"hinzufügen."
+
+#: ../functions/custom-fields.php:34
+msgid "Show links to siblings"
+msgstr "Anzeigen Links zu Geschwistern"
+
+#: ../functions/custom-fields.php:38
+msgid "Show links to previous/next page on child pages."
+msgstr ""
+"Links zum vorherigen / nächsten Seite auf untergeordneten Seiten anzeigen."
+
+#: ../functions/custom-fields.php:44
+msgid "Show breadcrumbs"
+msgstr "Paniermehl anzeigen"
+
+#: ../functions/custom-fields.php:48
+msgid "Show breadcrumbs on page."
+msgstr "Paniermehl anzeigen auf Seite."
+
+#: ../functions/fetcher.php:145
+msgid "Please fill all required fields"
+msgstr "Bitte füllen Sie alle erforderlichen Felder aus."
+
+#: ../functions/fetcher.php:163
+msgid "Please check this fields, they must contain only valid characters"
+msgstr ""
+"Überprüfen Sie bitte diese Felder, sie müssen nur die gültigen Zeichen "
+"enthalten."
+
+#: ../functions/fetcher.php:172 ../functions/fetcher.php:179
+msgid "Please check this field, it must contain only valid characters"
+msgstr ""
+"Überprüfen Sie bitte dieses Feld, es muss nur die gültigen Zeichen enthalten."
+
+#: ../functions/fetcher.php:175
+msgid "Please enter numbers only (+ and - are accepted)."
+msgstr "Bitte geben Sie nur Zahlen ein (+ und - sind möglich)."
+
+#: ../functions/fetcher.php:200 ../functions/fetcher.php:204
+msgid "This field is required."
+msgstr "Dieses Feld ist erforderlich."
+
+#: ../functions/fetcher.php:273
+msgid ""
+"Please check this field, it is required and must contain a valid phone "
+"number."
+msgstr ""
+"Überprüfen Sie bitte Ihre Eingabe. Dieses Feld muss eine gültige "
+"Telefonnummer enthalten."
+
+#: ../functions/fetchers/licence30days.php:63
+msgid "CRM Organization"
+msgstr "CRM Organisation"
+
+#: ../functions/fetchers/licence30days.php:79
+#, fuzzy
+msgid "Price"
+msgstr "Preis:"
+
+#: ../functions/fetchers/licence30days.php:80
+msgid "Deployment Time"
+msgstr ""
+
+#: ../functions/fetchers/licence30days.php:81
+#, fuzzy
+msgid "Functionality"
+msgstr "Funktionalität:"
+
+#: ../functions/fetchers/licence30days.php:82
+#, fuzzy
+msgid "Compatibility"
+msgstr "Kompatibilität:"
+
+#: ../functions/fetchers/licence30days.php:83
+#, fuzzy
+msgid "Performance"
+msgstr "Performance:"
+
+#: ../functions/fetchers/licence30days.php:85
+msgid "Data usage"
+msgstr "Datennutzung"
+
+#: ../functions/fetchers/meet-us.php:15 ../functions/fetchers/microsoft.php:15
+#, fuzzy
+msgid "Event Name"
+msgstr "Nachname"
+
+#: ../functions/forms/meet-us.php:21 ../functions/forms/microsoft.php:21
+msgid "Microsoft Form Attributes"
+msgstr ""
+
+#: ../functions/forms/meet-us.php:25 ../functions/forms/microsoft.php:25
+#: ../functions/settingsform.php:44
+msgid "Events"
+msgstr ""
+
+#: ../functions/forms/meet-us.php:31 ../functions/forms/microsoft.php:31
+msgid "Event name (for CRM)"
+msgstr ""
+
+#: ../functions/forms/meet-us.php:45 ../functions/forms/microsoft.php:45
+msgid "Start Date"
+msgstr ""
+
+#: ../functions/forms/meet-us.php:59 ../functions/forms/microsoft.php:59
+msgid "End Date"
+msgstr ""
+
+#: ../functions/forms/meet-us.php:73 ../functions/forms/microsoft.php:73
+msgid "Title (for website)"
+msgstr ""
+
+#: ../functions/forms/meet-us.php:87 ../functions/forms/microsoft.php:87
+msgid "Description (for CRM)"
+msgstr ""
+
+#: ../functions/forms/meet-us.php:112 ../functions/forms/microsoft.php:112
+#: ../functions/forms/packages-request.php:61
+#: ../functions/forms/products-request.php:62
+#: ../functions/forms/quick-check.php:61
+#: ../functions/forms/request-products.php:62 ../functions/forms/request.php:62
+#: ../functions/forms/roadshow-mobile.php:78 ../functions/forms/roadshow.php:78
+#: ../functions/forms/service-request.php:62
+#: ../functions/forms/support-request.php:62 ../functions/forms/support.php:62
+#: ../functions/forms/testing.php:61 ../functions/forms/webcast.php:62
+msgid "Add Option"
+msgstr ""
+
+#: ../functions/forms/packages-request.php:21 ../functions/forms/testing.php:21
+#, fuzzy
+msgid "Testing Form Attributes"
+msgstr "Referenzeigenschaften"
+
+#: ../functions/forms/packages-request.php:25 ../functions/forms/testing.php:25
+#, fuzzy
+msgid "Test Packages"
+msgstr "Testpakete"
+
+#: ../functions/forms/packages-request.php:31
+#: ../functions/forms/products-request.php:32
+#: ../functions/forms/quick-check.php:31
+#: ../functions/forms/request-products.php:32 ../functions/forms/request.php:32
+#: ../functions/forms/roadshow-mobile.php:32 ../functions/forms/roadshow.php:32
+#: ../functions/forms/service-request.php:32
+#: ../functions/forms/support-request.php:32 ../functions/forms/support.php:32
+#: ../functions/forms/testing.php:31 ../functions/forms/webcast.php:32
+msgid "Value (for CRM)"
+msgstr ""
+
+#: ../functions/forms/packages-request.php:45
+#: ../functions/forms/products-request.php:46
+#: ../functions/forms/quick-check.php:45
+#: ../functions/forms/request-products.php:46 ../functions/forms/request.php:46
+#: ../functions/forms/roadshow-mobile.php:46 ../functions/forms/roadshow.php:46
+#: ../functions/forms/service-request.php:46
+#: ../functions/forms/support-request.php:46 ../functions/forms/support.php:46
+#: ../functions/forms/testing.php:45 ../functions/forms/webcast.php:46
+#, fuzzy
+msgid "Title"
+msgstr "Überschrift"
+
+#: ../functions/forms/products-request.php:22
+#: ../functions/forms/request-products.php:22 ../functions/forms/request.php:22
+#, fuzzy
+msgid "Request Form Attributes"
+msgstr "Referenzeigenschaften"
+
+#: ../functions/forms/products-request.php:26
+#: ../functions/forms/quick-check.php:25
+#: ../functions/forms/request-products.php:26 ../functions/forms/request.php:26
+#: ../functions/forms/webcast.php:26
+msgid "Editions"
+msgstr "Ausgaben"
+
+#: ../functions/forms/quick-check.php:21
+msgid "Quick Form Attributes"
+msgstr ""
+
+#: ../functions/forms/request-products.php:66 ../functions/forms/request.php:66
+msgid "All Apps Link"
+msgstr ""
+
+#: ../functions/forms/request-products.php:73 ../functions/forms/request.php:73
+#, fuzzy
+msgid "All Editions Link"
+msgstr "Ausgaben"
+
+#: ../functions/forms/roadshow-mobile.php:22
+msgid "Roadshow Form Mobile Attributes"
+msgstr ""
+
+#: ../functions/forms/roadshow-mobile.php:26 ../functions/forms/roadshow.php:26
+msgid "Cities"
+msgstr ""
+
+#: ../functions/forms/roadshow-mobile.php:61 ../functions/forms/roadshow.php:61
+msgid "Date"
+msgstr ""
+
+#: ../functions/forms/roadshow.php:22
+msgid "Roadshow Form Attributes"
+msgstr ""
+
+#: ../functions/forms/service-request.php:22
+#: ../functions/forms/support-request.php:22 ../functions/forms/support.php:22
+msgid "Support Form Attributes"
+msgstr ""
+
+#: ../functions/forms/service-request.php:26
+#: ../functions/forms/support-request.php:26 ../functions/forms/support.php:26
+msgid "Topics"
+msgstr ""
+
+#: ../functions/forms/webcast.php:22
+msgid "Webinar Form Attributes"
+msgstr ""
+
+#: ../functions/front-page.php:42
+#, fuzzy
+msgid "Frontpage attributes"
+msgstr "Seitenattribute"
+
+#: ../functions/front-page.php:46
+#, fuzzy
+msgid "Categories"
+msgstr "Kategoriefilter"
+
+#: ../functions/front-page.php:52
+#, fuzzy
+msgid "Category"
+msgstr "Kategoriefilter"
+
+#: ../functions/front-page.php:68
+msgid "Add Category"
+msgstr ""
+
+#: ../functions/settings.php:29
+msgid "Copyright Text"
+msgstr "Copyright Text"
+
+#: ../functions/settings.php:33
+msgid "Slider Interval"
+msgstr ""
+
+#: ../functions/settings.php:37
+msgid "Slider Changing Speed"
+msgstr ""
+
+#: ../functions/settings.php:41
+msgid "Help Text: Enable"
+msgstr ""
+
+#: ../functions/settings.php:45
+msgid "Help Text: Interval (milliseconds)"
+msgstr ""
+
+#: ../functions/settings.php:51
+msgid "Facebook link EN"
+msgstr "Facebook Link EN"
+
+#: ../functions/settings.php:55
+msgid "Twitter link EN"
+msgstr "Twitter Link EN"
+
+#: ../functions/settings.php:59
+msgid "Youtube link EN"
+msgstr "Youtube Link EN"
+
+#: ../functions/settings.php:64
+msgid "Facebook link DE"
+msgstr "Facebook Link DE"
+
+#: ../functions/settings.php:68
+msgid "Twitter link DE"
+msgstr "Twitter Link DE"
+
+#: ../functions/settings.php:72
+msgid "Youtube link DE"
+msgstr "Youtube Link DE"
+
+#: ../functions/settings.php:76
+msgid "Youtube video DE"
+msgstr ""
+
+#: ../functions/settings.php:80
+msgid "Youtube video EN"
+msgstr ""
+
+#: ../functions/settings.php:85
+msgid "Second Youtube video "
+msgstr ""
+
+#: ../functions/settings.php:91
+msgid "Testing Mode"
+msgstr "Test-Modus"
+
+#: ../functions/settings.php:95
+msgid "CRM E-Mail"
+msgstr "CRM E-Mail"
+
+#: ../functions/settings.php:99
+msgid "CRM Test E-Mail"
+msgstr "CRM Test E-Mail"
+
+#: ../functions/settings.php:103
+msgid "E-Mail for support requests"
+msgstr "E-Mail für Support-Anfragen"
+
+#: ../functions/settings.php:127
+msgid "General"
+msgstr "General"
+
+#: ../functions/settings.php:129
+msgid "Social"
+msgstr "Social"
+
+#: ../functions/settingsform.php:20
+msgid "Add events to email"
+msgstr ""
+
+#: ../functions/settingsform.php:24
+msgid "Events EN"
+msgstr ""
+
+#: ../functions/settingsform.php:28
+msgid "Events DE"
+msgstr ""
+
+#: ../functions/testimonials.php:17
+msgid "Go to success story"
+msgstr "Zur Erfolgsstory"
+
+#: ../functions/testimonials.php:117 ../functions/testimonials.php:129
+msgid "Testimonials"
+msgstr "Referenzen"
+
+#: ../functions/testimonials.php:118
+msgid "Testimonial"
+msgstr "Referenz"
+
+#: ../functions/testimonials.php:120
+msgid "Add New Testimonial"
+msgstr "Neue Referenz hinzufügen"
+
+#: ../functions/testimonials.php:121
+msgid "Edit Testimonial"
+msgstr "Referenz beabeiten"
+
+#: ../functions/testimonials.php:122
+msgid "New Testimonial"
+msgstr "Neue Referenz"
+
+#: ../functions/testimonials.php:123
+msgid "All Testimonials"
+msgstr "Alle Referenzen"
+
+#: ../functions/testimonials.php:124
+msgid "View Testimonial"
+msgstr "Referenzen ansehen"
+
+#: ../functions/testimonials.php:125
+msgid "Search Testimonials"
+msgstr "Nach Referenzen suchen"
+
+#: ../functions/testimonials.php:126
+msgid "No Testimonials found"
+msgstr "Es wurden keine Referenzen gefunden"
+
+#: ../functions/testimonials.php:127
+msgid "No Testimonials found in Trash"
+msgstr "Es wurden keine Referenzen im Papierkorb gefunden"
+
+#: ../functions/theme.php:48
+msgid "Side Menu"
+msgstr "Seitenmenü"
+
+#: ../functions/theme.php:49
+msgid "1<sup>st</sup> column in footer"
+msgstr "1<sup>te</sup> Rubrik in Fußzeile"
+
+#: ../functions/theme.php:50
+msgid "2<sup>nd</sup> column in footer"
+msgstr "2<sup>te</sup> Rubrik in Fußzeile"
+
+#: ../functions/theme.php:51
+msgid "3<sup>rd</sup> column in footer"
+msgstr "3<sup>te</sup> Rubrik in Fußzeile"
+
+#: ../functions/theme.php:52
+msgid "Legal pages in footer"
+msgstr "Rechtliche Hinweise in der Fußzeile"
+
+#: ../functions/theme.php:53
+msgid "Bottom Menu"
+msgstr "Unteres Menü"
+
+#: ../functions/theme.php:54
+#, fuzzy
+msgid "Right Menu"
+msgstr "Seitenmenü"
+
+#: ../functions/theme.php:77
+#, php-format
+msgid "Page %s"
+msgstr "Seite %s"
+
+#: ../functions/theme.php:151
+#, php-format
+msgid "Switch to %s"
+msgstr ""
+
+#: ../functions/webinars.php:56 ../functions/webinars.php:68
+msgid "Webinars"
+msgstr ""
+
+#: ../functions/webinars.php:59
+#, fuzzy
+msgid "Add New Webinar"
+msgstr "Neue Registerkarte hinzufügen"
+
+#: ../functions/webinars.php:60
+#, fuzzy
+msgid "Edit Webinar"
+msgstr "Registerkarte bearbeiten"
+
+#: ../functions/webinars.php:61
+#, fuzzy
+msgid "New Webinar"
+msgstr "Neue Registerkarte"
+
+#: ../functions/webinars.php:62
+#, fuzzy
+msgid "All Webinars"
+msgstr "Alle Registerkarten"
+
+#: ../functions/webinars.php:63
+#, fuzzy
+msgid "View Webinar"
+msgstr "Registerkarte ansehen"
+
+#: ../functions/webinars.php:64
+#, fuzzy
+msgid "Search Webinars"
+msgstr "Nach Registerkarten suchen"
+
+#: ../functions/webinars.php:65
+#, fuzzy
+msgid "No Webinars found"
+msgstr "Es wurden keine Registerkarten gefunden"
+
+#: ../functions/webinars.php:66
+#, fuzzy
+msgid "No Webinars found in Trash"
+msgstr "Es wurden keine Registerkarten im Papierkorb gefunden"
+
+#: ../functions/webinars.php:99
+#, fuzzy
+msgid "Webinar Attributes"
+msgstr "Registerkartenattribute"
+
+#: ../functions/webinars.php:103
+msgid "ID"
+msgstr ""
+
+#: ../functions/webinars.php:110
+msgid "Start"
+msgstr ""
+
+#: ../functions/webinars.php:124
+msgid "End"
+msgstr ""
+
+#: ../functions/webinars.php:138
+msgid "MeetingURL"
+msgstr ""
+
+#: ../functions/webinars.php:145
+msgid "MeetingPIN"
+msgstr ""
+
+#: ../functions/webinars.php:152
+msgid "Page Language"
+msgstr ""
+
+#: ../functions/webinars.php:166
+#, fuzzy
+msgid "Webinar Language"
+msgstr "Redirect nach Sprache"
+
+#: ../functions/widgets.php:8
+msgid "Map"
+msgstr "Karte"
+
+#: ../functions/widgets.php:10 ../functions/widgets.php:20
+#: ../functions/widgets.php:30 ../functions/widgets.php:39
+#: ../functions/widgets.php:48 ../functions/widgets.php:57
+#: ../functions/widgets.php:67
+msgid "Appears on contact page"
+msgstr "Erscheint auf der Kontaktseite"
+
+#: ../functions/widgets.php:18
+msgid "Contact Info"
+msgstr "Kontaktinformationen"
+
+#: ../functions/widgets.php:28
+msgid "Offices"
+msgstr "Büros"
+
+#: ../functions/widgets.php:37
+#, fuzzy
+msgid "Offices-Europa"
+msgstr "Büros"
+
+#: ../functions/widgets.php:46
+msgid "Offices-N.America"
+msgstr ""
+
+#: ../functions/widgets.php:55
+#, fuzzy
+msgid "Offices-Australia"
+msgstr "Australien"
+
+#: ../functions/widgets.php:65
+msgid "Offices-Africa"
+msgstr ""
+
+#: ../functions/widgets.php:75
+msgid "Awards"
+msgstr "Auszeichnungen"
+
+#: ../functions/widgets.php:77 ../functions/widgets.php:87
+msgid "Appears in footer"
+msgstr "Erscheint in der Fußzeile"
+
+#: ../functions/widgets.php:85
+msgid "Social Icons"
+msgstr "Social Icons"
+
+#: ../functions/widgets.php:95
+msgid "Shows on Partners page."
+msgstr "Dargestellt auf Partner-Seite."
+
+#: ../functions/widgets.php:96
+msgid "Images should the same height to be displayed correctly."
+msgstr "Die Bilder sollten die gleiche Höhe korrekt angezeigt werden müssen."
+
+#: ../functions/widgets.php:99
+msgid "Partners"
+msgstr "Partner"
+
+#: ../functions/widgets.php:109
+msgid "microsoft"
+msgstr ""
+
+#: ../functions/widgets.php:124
+msgid "products"
+msgstr ""
+
+#: ../functions/widgets.php:135
+msgid "microsoftproducts"
+msgstr ""
+
+#: ../functions/widgets.php:145
+msgid "promxproducts"
+msgstr ""
+
+#: ../functions/widgets.php:155
+msgid "partnerproducts"
+msgstr ""
+
+#: ../functions/widgets.php:169
+msgid "references"
+msgstr ""
+
+#: ../functions/widgets.php:179
+msgid "produkte"
+msgstr ""
+
+#: ../functions/widgets.php:189
+msgid "itcg"
+msgstr ""
+
+#: ../functions/widgets.php:199
+msgid "microsoftreferences"
+msgstr ""
+
+#: ../functions/widgets.php:209
+msgid "promxreferences"
+msgstr ""
+
+#: ../functions/widgets.php:219
+msgid "business-consulting"
+msgstr ""
+
+#: ../functions/widgets.php:229
+msgid "it-consultancy"
+msgstr ""
+
+#: ../functions/widgets.php:239
+msgid "software-industry"
+msgstr ""
+
+#: ../functions/widgets.php:249
+msgid "construction-industry"
+msgstr ""
+
+#: ../functions/widgets.php:259
+msgid "discrete"
+msgstr ""
+
+#: ../functions/widgets.php:269
+msgid "cebit"
+msgstr ""
+
+#: ../functions/widgets.php:291
+msgid "Contact Info Offices (text or HTML)."
+msgstr ""
+
+#: ../functions/widgets.php:293 ../sidebar-offices.php:48
+msgid "Our Offices"
+msgstr "Unsere Büros"
+
+#: ../functions/widgets.php:351
+#, fuzzy
+msgid "Title:"
+msgstr "Überschrift"
+
+#: ../functions/widgets.php:353
+#, fuzzy
+msgid "Office Address:"
+msgstr "Büros"
+
+#: ../functions/widgets.php:355
+#, fuzzy
+msgid "Company Name:"
+msgstr "Firma"
+
+#: ../functions/widgets.php:357
+#, fuzzy
+msgid "Office Contacts:"
+msgstr "Kontakt"
+
+#: ../functions/widgets.php:360
+msgid "Automatically add paragraphs"
+msgstr ""
+
+#: ../gallery-single-template.php:19
+msgid "Download high resolution image"
+msgstr ""
+
+#: ../gallery-single-template.php:103
+msgid "Sorry, nothing found."
+msgstr ""
+
+#: ../gallery-single-template.php:124
+msgid "Image"
+msgstr ""
+
+#: ../gallery-template.php:14
+msgid "Gallery Category"
+msgstr ""
+
+#: ../parts/common/content-nav.php:7
+msgid "<span class=\"meta-nav\">&larr;</span> Older articles"
+msgstr "<span class=\"meta-nav\">&larr;</span> Ältere Artikel"
+
+#: ../parts/common/content-nav.php:8
+msgid "Newer articles <span class=\"meta-nav\">&rarr;</span>"
+msgstr "Neuere Artikel <span class=\"meta-nav\">&rarr;</span>"
+
+#: ../parts/newsroom/blog-right-block.php:47
+#: ../parts/newsroom/custom-news-block.php:98
+#: ../parts/newsroom/news-right-block.php:49 ../search.php:288
+msgid "Subscribe to newsletter"
+msgstr "Für den Newsletter anmelden"
+
+#: ../parts/newsroom/blog-right-block.php:49
+#: ../parts/newsroom/custom-news-block.php:100
+#: ../parts/newsroom/news-right-block.php:52 ../search.php:290
+msgid "<p>Thank you for subscription.</p>"
+msgstr "<p>Vielen Dank für Ihre Anmeldung.</p>"
+
+#: ../parts/newsroom/category-filter.php:9
+msgid "Category filter"
+msgstr "Kategoriefilter"
+
+#: ../parts/newsroom/social.php:32
+msgid "Facebook"
+msgstr "Facebook"
+
+#: ../parts/newsroom/social.php:48 ../parts/newsroom/social.php:64
+#: ../parts/newsroom/social.php:83
+msgid "To Profile"
+msgstr "zum Profil"
+
+#: ../parts/newsroom/social.php:55
+msgid "Twitter"
+msgstr "Twitter"
+
+#: ../parts/newsroom/social.php:71
+msgid "Youtube"
+msgstr "Youtube"
+
+#: ../search.php:104
+msgid ""
+"<h3 style='padding-bottom: 20px;color:#000000;font-style:italic;font-"
+"weight:300;border-bottom: 1px solid #cccccc;'>Results for: "
+msgstr ""
+
+#: ../search.php:106
+msgid ""
+"<h3 style='padding-bottom: 20px;color:#000000;font-style:italic;font-"
+"weight:300;border-bottom: 1px solid #cccccc;'>Ergebnisse für: "
+msgstr ""
+
+#: ../sidebar-offices.php:28
+msgid "Location"
+msgstr "Lage"
+
+#: ../sidebar-offices.php:30 ../sidebar-offices.php:37
+msgid "Contact"
+msgstr "Kontakt"
+
+#: ../sidebar-offices.php:36
+msgid "Company, Location"
+msgstr "Lage und Firma"
+
+#: ../sidebar-offices.php:55
+msgid "Europe"
+msgstr "Europa"
+
+#: ../sidebar-offices.php:71
+msgid "North America"
+msgstr "Nordamerika"
+
+#: ../sidebar-offices.php:87
+msgid "Australia"
+msgstr "Australien"
+
+#: ../sidebar-offices.php:104
+msgid "Africa"
+msgstr ""
+
+#~ msgid "Share this:"
+#~ msgstr "Teilen über:"
+
+#~ msgid "Featured Posts"
+#~ msgstr "Ähnliche Beiträte"
+
+#~ msgid "Leave a comment"
+#~ msgstr "Kommentar hinterlassen"
+
+#~ msgid "What proRM editions you are interested in?"
+#~ msgstr "Für welche proRM-Editionen interessieren Sie sich?"
+
+#~ msgid "All Editions at a glance &gt;"
+#~ msgstr "Alle Editionen im Überblick &gt;"
+
+#~ msgid "All Apps at a glance &gt;"
+#~ msgstr "Alle Apps im Überblick &gt;"
+
+#~ msgid "Select your preferred test package"
+#~ msgstr "Wählen Sie Ihr gewünschtes Testpaket aus!"
+
+#~ msgid "To %s %s"
+#~ msgstr "Zum %s %s"
+
+#~ msgid "May"
+#~ msgstr "Mai"
+
+#~ msgid "English version link"
+#~ msgstr "Englisch-Version Link"
+
+#~ msgid "Service request topics"
+#~ msgstr "Service-Anfragen Themen"
+
+#~ msgid "Link Text"
+#~ msgstr "Text verlinken"
+
+#~ msgid "File..."
+#~ msgstr "Datei..."
+
+#~ msgid "... or custom URL"
+#~ msgstr "... oder benutzerdefinierte URL"
+
+#~ msgid "Desired date"
+#~ msgstr "Wunschtermin"
+
+#~ msgid "Name, Vorname"
+#~ msgstr "Name, Vorname"
+
+#~ msgid "You can attach file (max size 2Mb)"
+#~ msgstr "Sie können Datei anhängen (max Größe 2 MB)"
+
+#~ msgid "Delete attached file"
+#~ msgstr "Löschen angehängte Datei"
+
+#~ msgid "digits"
+#~ msgstr "zahlen"
+
+#~ msgid "not mandatory (1-3 digits)"
+#~ msgstr "nicht obligatorisch (1-3 zahlen)"
+
+#~ msgid "Mar"
+#~ msgstr "Mär"
+
+#~ msgid "Oct"
+#~ msgstr "Okt"
+
+#~ msgid "Dec"
+#~ msgstr "Dez"
