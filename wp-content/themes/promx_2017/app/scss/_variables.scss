@@ -1,0 +1,86 @@
+$medium-font: 'proxima_nova_rgregular';
+$bold-font: 'proxima_nova_rgbold';
+$extra-bold-font: 'proxima_nova_thextrabold';
+$light-font: 'proxima_novalight';
+
+$base-size: 16px;
+$base-gap: 32px;
+
+$form-base-size: $base-size * 1.5; //24
+$section-padding: $base-size * 4; // 64
+$elements-gap: $base-size * 3; // 48
+
+$transition-duration: .4s;
+
+$H1-size: $base-size * 3;
+$H1-mobile-size: $base-size * 2;
+$H2-size: $base-size * 1.5;
+
+$arrow-width: $base-size;
+
+$footer-text-size: $base-size;
+
+
+// Colors
+$color-white: #ffffff;
+$color-black: #000000;
+$color-light-grey: #f4f4f4;
+$color-dark-grey: #b5b5b5;
+$text-grey: #696768;
+$text-grey-dark: #454343;
+
+$primary-color: rgba(58,89,102,1);
+$secondary-color: rgba(1,175,176, 1);
+$accent-color: #68103f;
+
+$dark-color: rgba(78,22,36,1);
+$lazure-color: #61acad;
+$footer-bg: #2b465b;
+
+// elements 
+$box-shadow: #c1c1c1;
+
+// forms
+$form-placeholder: #ffffff;
+$form-color: #ffffff;
+$form-texarea-bg: #4a9494;
+
+// Grid breakpoints
+$grid-breakpoints: (
+  xs: 0,
+  sm: 768px,
+  md: 992px,
+  lg: 1200px,
+  xl: 1612px
+) !default;
+
+@include _assert-ascending($grid-breakpoints, "$grid-breakpoints");
+@include _assert-starts-at-zero($grid-breakpoints);
+
+// Usage
+// @include media-breakpoint-down(sm) {}
+
+// @include media-breakpoint-up(sm) {}
+
+// @include media-breakpoint-between(sm, md) {}
+
+
+// Menu settings
+$menu-color: $color-black;
+$active-link-color: $secondary-color;
+$main-menu-font: $extra-bold-font;
+$main-menu-font-size: $base-size;
+
+//Footer Settings
+$footer-font: $medium-font;
+$footer-font-size: $base-size;
+
+// Buttons Setttings
+$button-padding: .625em 3em;
+$button-radius: 21px;
+$primary-bg-color: $secondary-color;
+$primary-transparent-color: rgba(1,175,176, .5);
+$primary-transparent-color-hover:#01cacb;
+$primary-border-color: $secondary-color;
+
+

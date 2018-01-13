@@ -160,12 +160,17 @@ require get_template_directory() . '/inc/bootstrap-walker.php';
  */
 require get_template_directory() . '/inc/template-parts.php';
 
+
+/**
+ * Forms class https://github.com/jbrinley/wp-forms
+ */
+//require get_template_directory() . '/inc/forms.php';
+
 /**
  * Custom ajax handler
  */
 //require get_template_directory() . '/inc/ajax_handler.php';
 
-//https://github.com/jbrinley/wp-forms
 
 /**
  * Custom functions in the admin panel

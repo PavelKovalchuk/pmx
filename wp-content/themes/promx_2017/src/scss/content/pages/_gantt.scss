@@ -1,0 +1,18 @@
+.gantt-project {
+  .howToUse_article {
+    header {
+      margin-top: $base-size;
+    }
+
+    .howToUse_article_right {
+
+      font-family: $light-font;
+      h2 {
+        color: inherit;
+        font-family: $light-font;
+        font-size: $H1-size;
+        margin-top: $elements-gap;
+      }
+    }
+  }
+}

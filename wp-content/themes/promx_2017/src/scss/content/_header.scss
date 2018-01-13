@@ -1,0 +1,41 @@
+.nav-holder {
+  border-top: solid lightgrey 1px;
+}
+
+.header-top {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  padding-top: 11px;
+  padding-bottom: 11px;
+
+  .flag-uk {
+    min-height: 23px;
+    min-width: 28px;
+    margin: -6px 0px 0px -5px;
+  }
+
+  .header-lang {
+    border-right: solid lightgrey 1px;
+    padding-right: 20px;
+    margin: 8px 18px;
+    flex: 0 1 70px;
+  }
+  .custom-btn-group {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    .custom-btn {
+      color: #cecece;
+      cursor: pointer;
+      font-size: 20px;
+      display: inline-block;
+      padding: 8px 10px;
+      text-decoration: none;
+      &:hover,
+      &:focus {
+        color: $active-link-color;
+      }
+    }
+  }
+}

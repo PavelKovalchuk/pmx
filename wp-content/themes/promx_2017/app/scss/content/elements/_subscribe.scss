@@ -1,0 +1,55 @@
+.subscribe {
+  .entry-title {
+    color: $color-white;
+    font-family: $bold-font;
+    font-size: $base-size * 2;
+    margin-bottom: $base-size * 1.5;
+  }
+  .subscribe-text {
+    color: $color-white;
+    font-size: $base-size * 1.5;
+    line-height: 1.1;
+    margin-bottom: 0;
+    @include media-breakpoint-only(xs) {
+      font-size: $base-size;
+      margin-bottom: $base-size;
+    }
+  }
+  .form-group {
+    @include media-breakpoint-only(xs) {
+      margin-bottom: 0;
+    }
+    @include media-breakpoint-only(sm) {
+      margin-top: $base-size * 1.5;
+    }
+    @include media-breakpoint-up(lg) {
+      padding-top: $section-padding;
+      margin-bottom: 0;
+    }
+    & div:first-child {
+      @include media-breakpoint-only(xs) {
+        margin-bottom: $base-size;
+      }
+    }
+  }
+  .form-control {
+    padding-left: 0;
+    &:focus {
+      padding-left: 1em;
+    }
+  }
+  .button-div {
+    @include media-breakpoint-only(xs) {
+      text-align: center;
+      margin-top: $base-size *2;
+    }
+    @include media-breakpoint-only(sm) {
+      text-align: right;
+      margin-top: $base-size *2;
+    }
+    @include media-breakpoint-only(md) {
+      text-align: right;
+      margin-top: $base-size *2;
+    }
+  }
+}

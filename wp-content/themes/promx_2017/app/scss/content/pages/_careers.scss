@@ -1,0 +1,18 @@
+.careers-contact-form {
+  h2 {
+    color: $color-white;
+    font-size: $base-size * 1.5;
+    margin-top: 0;
+    margin-bottom: $elements-gap / 2;
+  }
+  padding: $elements-gap/1.5 $elements-gap/1.5 0;
+  @include media-breakpoint-down(xs) {
+    padding: $elements-gap/2 $elements-gap/2 0;
+  }
+  @include media-breakpoint-only(md) {
+    padding: $elements-gap/2 $elements-gap/2 0;
+  }
+  .form-group {
+    margin-bottom: $elements-gap/1.5
+  }
+}

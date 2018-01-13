@@ -1,0 +1,87 @@
+.ref-items {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  &__item {
+    @include box-shadow();
+    display: flex;
+    flex-direction: column;
+    flex: 0 1 31.3333334%;
+    justify-content: flex-start;
+    margin: $base-size*3.625 1% 0;
+    @include media-breakpoint-only(xs) {
+      flex-basis: 480px;
+      margin-top: $base-gap;
+    }
+    @include media-breakpoint-only(sm) {
+      flex-basis: 48%;
+      margin-top: $base-gap;
+    }
+    &_head {
+      background-color: $color-light-grey;
+      padding: $base-size 0;
+      text-align: center;
+      img {
+        max-height: 52px;
+      }
+    }
+    &_content {
+      padding: $elements-gap;
+      text-align: center;
+      p {
+        margin-bottom: $base-gap;
+        text-align: justify;
+      }
+    }
+  }
+}
+
+.ref-company-article {
+  &__info {
+    margin-top: 0;
+    @include media-breakpoint-up(md) {
+      margin-top: $base-size*5.375;
+    }
+  }
+}
+
+.ref-company-info {
+  @include media-breakpoint-only(sm) {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  &__item {
+    display: table;
+    vertical-align: top;
+    margin-bottom: $base-gap;
+    @include media-breakpoint-only(sm) {
+      flex: 0 1 35%;
+    }
+    &_icon {
+      display: table-cell;
+      i {
+        font-size: $base-size*3;
+        color: $accent-color;
+      }
+    }
+    &_info {
+      display: table-cell;
+      vertical-align: top;
+      padding-left: $base-size*1.5;
+      dl {
+        margin-bottom: 0;
+        dt {
+          font-size: $base-size*1.5;
+        }
+        dd {
+          a {
+            color: inherit;
+          }
+        }
+      }
+    }
+  }
+}

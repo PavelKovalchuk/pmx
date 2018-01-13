@@ -1,0 +1,35 @@
+@import "mixins/breakpoins";
+
+@mixin transition() {
+  transition: all 0.3s;
+}
+
+@mixin transform($transforms) {
+  transform: $transforms;
+}
+
+@mixin translate($x, $y) {
+  @include transform(translate($x, $y));
+}
+
+@mixin transform-all( $s, $r, $sy, $sx, $x, $y ) {
+  transform: scale($s) rotate($r) skewY($sy) skewX($sx) translate($x, $y);
+}
+
+@mixin rotate( $r ) {
+  transform: rotate($r);
+}
+
+@mixin transform-origin($origin) {
+  transform-origin: $origin;
+}
+
+@mixin text-truncate() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin box-shadow() {
+  box-shadow: 0px 2px 10px 2px $box-shadow;
+}

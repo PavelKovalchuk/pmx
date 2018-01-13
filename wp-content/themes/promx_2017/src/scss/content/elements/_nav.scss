@@ -1,0 +1,136 @@
+.navbar-promx {
+  border: medium none;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin-bottom: 9px;
+  padding-top: 20px;
+  @include media-breakpoint-down(xs) {
+    display: block;
+    padding-top: 7px;
+  }
+  @include media-breakpoint-only(sm) {
+    padding-top: 0;
+  }
+  .navbar-header {
+    flex: 1 1 165px;
+    @include media-breakpoint-up(md) {
+      min-width: 165px;
+    }
+    @include media-breakpoint-only(sm) {
+      position: absolute;
+      top: -50px;
+      left: 0;
+    }
+  }
+  .navbar-brand {
+    height: auto;
+    padding: 0;
+    @include media-breakpoint-down(xs) {
+      margin-top: 15px;
+      position: absolute;
+      left: 50%;
+      top: 7px;
+      transform: translateX(-50%);
+    }
+    & img {
+      width: 165px;
+      @include media-breakpoint-down(xs) {
+        width: 72px;
+      }
+      @include media-breakpoint-only(sm) {
+        width: 116px;
+      }
+    }
+  }
+  .navbar-toggle {
+    float: left;
+    .icon-bar {
+      background-color: $color-black;
+      width: 36px;
+      height: 1px;
+      &+.icon-bar {
+        margin-top: 6px;
+      }
+    }
+  }
+  .navbar-collapse {
+    @include media-breakpoint-up(sm) {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+  .navbar-nav {
+    margin-top: 13px;
+    @include media-breakpoint-up(sm) {
+      float: right;
+    }
+    &>li {
+      &.active {
+        &>a {
+          color: $active-link-color;
+        }
+      }
+      @include media-breakpoint-up(sm) {
+        &:first-child {
+          a {
+            padding-left: 0;
+          }
+        }
+      }
+      &>a {
+        color: $menu-color;
+        font-family: $main-menu-font;
+        font-size: $main-menu-font-size;
+        text-transform: uppercase;
+        &:hover,
+        &:focus {
+          background-color: transparent;
+          color: $active-link-color;
+        }
+        @include media-breakpoint-down(md) {
+          font-size: 13px;
+          padding: 16px 6px;
+        }
+        @include media-breakpoint-down(xs) {
+          padding: 16px 16px;
+        }
+        @include media-breakpoint-only(sm) {
+          font-size: 12px;
+          padding: 8px 6px;
+        }
+        @include media-breakpoint-only(lg) {
+          font-size: 16px;
+          padding: 16px 6px;
+        }
+      }
+    }
+  }
+}
+
+.right-menu {
+  min-width: 91px;
+  padding-top: 18px;
+  @include media-breakpoint-down(xs) {
+    min-width: 36px;
+    position: absolute;
+    right: 0;
+    top: 4px;
+  }
+  @include media-breakpoint-only(sm) {
+    padding-top: 16px;
+  }
+  & button.btn {
+    background: white;
+    font-size: 32px;
+    padding: 0 4px;
+    @include media-breakpoint-down(lg) {
+      font-size: 24px;
+    }
+
+    &:hover,
+    &:focus {
+      color: $active-link-color;
+    }
+  }
+}

@@ -2,13 +2,13 @@
 <html <?php language_attributes(); ?>>
 <head>
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-107266316-1"></script>
+    <!--<script async src="https://www.googletagmanager.com/gtag/js?id=UA-107266316-1"></script>-->
     <script>
-        window.dataLayer = window.dataLayer || [];
+       /* window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
 
-        gtag('config', 'UA-107266316-1');
+        gtag('config', 'UA-107266316-1');*/
     </script>
 
 <meta charset="<?php bloginfo( 'charset' ); ?>">
@@ -38,7 +38,6 @@
                  
                  <div class="col-lg-12">
 
-                        <!--<nav class="navbar navbar-toggleable-md header_nav_part navbar-light">-->
                         <nav class="navbar header_nav_part navbar-light">
                             <div class="container header_nav_part_container">
 

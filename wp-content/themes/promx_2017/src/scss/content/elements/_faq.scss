@@ -1,0 +1,48 @@
+.faq_wrap {
+  @include media-breakpoint-down(sm) {
+    margin-bottom: $elements-gap;
+  }
+  &_panel {
+    margin-bottom: 0;
+    background-color: transparent;
+    border: 1px solid transparent;
+    border-top-color: $secondary-color;
+    border-radius: 0;
+    box-shadow: none;
+    &:last-child {
+      border-bottom-color: $secondary-color;
+    }
+    &_heading {
+      position: relative;
+      a {
+        display: block;
+        padding: $elements-gap/2 $elements-gap $elements-gap/2 0;
+        text-decoration: none;
+        &:hover,
+        &:focus {
+          text-decoration: none;
+        }
+      }
+      .panel-title-text {
+        .career-position {
+          font-size: $base-size * 1.5;
+          text-transform: uppercase;
+          @include media-breakpoint-down(xs) {
+            font-size: $base-size * 1.25;
+          }
+        }
+        .career-position-published {
+          color: $color-black;
+        }
+      }
+      .open-icon {
+        font-size: $base-size * 1.5;
+        position: absolute;
+        right: $base-size;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    }
+    &_collapse {}
+  }
+}

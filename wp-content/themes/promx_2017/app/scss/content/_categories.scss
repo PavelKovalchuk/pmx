@@ -1,0 +1,66 @@
+.blog,
+#blog {
+  article.post {
+    font-family: $medium-font;
+    figure img {
+      @include media-breakpoint-down(xs) {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+    & + article {
+      @include media-breakpoint-down(xs) {
+        padding-top: 0;
+      }
+
+      @include media-breakpoint-only(sm) {
+        padding-top: 0;
+      }
+    }
+    .entry-title {
+      color: $dark-color;
+      font-size: $base-size * 2.25;
+      margin-top: 0;
+      margin-bottom: 0;
+      @include media-breakpoint-down(xs) {
+        margin-top: $base-size * 1.5;
+      }
+      @include media-breakpoint-down(sm) {
+        font-size: $base-size * 1.5;
+      }
+      @include media-breakpoint-only(md) {
+        font-size: $base-size * 2;
+      }
+    }
+    .entry-meta {
+      color: $text-grey;
+      font-size: $base-size * 1.5;
+      margin-bottom: $base-size * 2.25;
+      @include media-breakpoint-down(sm) {
+        margin-bottom: $base-size;
+      }
+      @include media-breakpoint-down(md) {
+        font-size: $base-size;
+      }
+    }
+    .entry-content {
+      p {
+        color: $text-grey;
+        font-size: $base-size * 1.5;
+        line-height: 1.1;
+        margin-bottom: $base-size * 1.5;
+        @include media-breakpoint-down(md) {
+          font-size: $base-size;
+          line-height: 1.4;
+        }
+      }
+      @include media-breakpoint-down(xs) {
+        text-align: center;
+        p {
+          text-align: left;
+        }
+      }
+    }
+  }
+}

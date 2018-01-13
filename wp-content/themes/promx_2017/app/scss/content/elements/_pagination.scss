@@ -1,0 +1,41 @@
+.pagination {
+  font-family: $medium-font;
+  font-size: $base-size * 1.5;
+  border-radius: 0;
+  margin: $section-padding 0;
+  &.mt-0 {
+    margin-top: 0;
+  }
+  &.mb-0 {
+    margin-bottom: 0;
+  }
+  &>li {
+    &>a,
+    &>span {
+      border: 0 none;
+      color: $text-grey-dark;
+      font-size: $base-size * 1.5;
+      padding: 0 $base-size;
+      &:hover,
+      &:focus {
+        background-color: transparent;
+      }
+      &.periods {
+        &:hover,
+        &:focus {
+          color: $text-grey-dark;
+        }
+      }
+    }
+    &.active>a,
+    &.active>span {
+      background-color: transparent;
+      color: $secondary-color;
+      &:hover,
+      &:focus {
+        color: $secondary-color;
+        background-color: transparent;
+      }
+    }
+  }
+}

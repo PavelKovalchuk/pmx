@@ -1,0 +1,25 @@
+@import 'fancybox';
+
+.entry-gallery {
+  figure {
+    margin-bottom: $section-padding;
+    img {
+      display: block;
+      height: auto;
+      max-width: 100%;
+      @include media-breakpoint-down(xs) {
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+    figcaption {
+      color: $dark-color;
+      font-size: $base-size * 1.5;
+      line-height: 1.1;
+      margin-top: $base-size * 1.5;
+      @include media-breakpoint-down(md) {
+        font-size: $base-size;
+      }
+    }
+  }
+}

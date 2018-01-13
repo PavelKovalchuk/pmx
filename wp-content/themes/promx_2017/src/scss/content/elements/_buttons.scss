@@ -1,0 +1,48 @@
+.btn {
+  border-radius: $button-radius;
+  transition: all $transition-duration;
+  padding: $button-padding;
+  text-transform: uppercase;
+  &:focus,
+  &:active:focus {
+    outline: none;
+  }
+}
+
+.btn-primary{
+  border-color: $primary-border-color;
+  &:hover,
+  &:focus {
+    border-color: $primary-border-color;
+  }
+  &.btn-outline {
+    background-color: transparent;
+    border-width: 2px;
+    border-color: $primary-border-color;
+    color: $primary-border-color;
+    &:hover,
+    &:focus {
+      background-color: $primary-bg-color;
+      border-color: $primary-border-color;
+      color: $color-white;
+    }
+  }
+  &.btn-outline-inverted {
+    background-color: transparent;
+    border-color: $color-white;
+    border-width: 2px;
+    &:hover,
+    &:focus {
+      background-color: $color-white;
+      border-color: $primary-border-color;
+      color: $primary-border-color;
+    }
+  }
+  &.btn-htransp {
+    background-color: $primary-transparent-color;
+    &:hover,
+    &:focus {
+      background-color: $primary-transparent-color-hover;
+    }
+  }
+}

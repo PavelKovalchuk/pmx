@@ -1,0 +1,166 @@
+.featured-banner {
+  color: $color-white;
+  font-size: $base-size;
+  @include media-breakpoint-down(xs) {
+    font-size: 8px;
+  }
+  @include media-breakpoint-only(sm) {
+    font-size: 12px;
+  }
+  .fullwidth {
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-bottom: 9.063em;
+    padding-top: 9.375em;
+  }
+  & h1.title {
+    color: $color-white;
+    font-family: $bold-font;
+    font-size: 5em;
+    line-height: 0.9;
+    margin-bottom: 0;
+    margin-top: 0;
+    @include media-breakpoint-down(xs) {
+      text-align: center;
+    }
+    img {
+      float: left;
+      max-width: 4.875rem;
+      margin-right: .25em;
+      @include media-breakpoint-down(xs) {
+        max-width: 2.813rem;
+      }
+    }
+  }
+  & .subtitle {
+    color: $color-white;
+    font-family: $medium-font;
+    font-size: 4em;
+    line-height: 0.9;
+    margin-bottom: $elements-gap/2;
+    margin-top: 0;
+    &.light {
+      font-family: $light-font;
+    }
+    img {
+      float: left;
+      max-width: 4.875rem;
+      margin-right: .25em;
+      @include media-breakpoint-down(xs) {
+        max-width: 2.813rem;
+      }
+    }
+  }
+  & .slider-text {
+    margin-bottom: 12px;
+    font-size: 1.5em;
+    @include media-breakpoint-down(xs) {
+      text-align: center;
+    }
+    &.slider-text-quote {
+      padding: $elements-gap/1.5 $elements-gap;
+      @include media-breakpoint-down(md) {
+        padding: $elements-gap/2;
+      }
+      position: relative;
+      &:before,
+      &:after {
+        font-family: 'icomoon' !important;
+        font-size: $base-size*2;
+        position: absolute;
+        @include media-breakpoint-down(sm) {
+          font-size: $base-size*1.5;
+        }
+      }
+      &:before {
+        content: "\e908";
+        left: 0;
+        top: 0;
+      }
+      &:after {
+        content: "\e909";
+        right: 0;
+        bottom: 0;
+      }
+    }
+  }
+  & .btn {
+    @include media-breakpoint-up(sm) {
+      margin-top: 3.125rem;
+    }
+  }
+  .slider-extra-img {
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      z-index: 1;
+      @include media-breakpoint-down(xs) {
+        max-width: 280px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      @include media-breakpoint-up(lg) {
+        position: absolute;
+        top: 48px;
+        max-height: 424px;
+      }
+    }
+    &.slider-extra-img-short {
+      img {
+        @include media-breakpoint-up(lg) {
+          top: 104px;
+        }
+      }
+    }
+  }
+  .banner-person {
+    display: flex;
+    flex-direction: row;
+    margin: 186px 0 0 $elements-gap;
+    @include media-breakpoint-only(xs) {
+      margin: $elements-gap/2 0 0 0;
+    }
+    @include media-breakpoint-only(sm) {
+      margin: 164px 0 0 0;
+    }
+    @include media-breakpoint-only(md) {
+      margin: 186px 0 0 $elements-gap/2;
+    }
+    &_img {
+      flex: 0 1 auto;
+      padding-right: $elements-gap;
+      @include media-breakpoint-only(xs) {
+        padding-right: $elements-gap/2;
+      }
+      @include media-breakpoint-only(sm) {
+        padding-right: $elements-gap/2;
+      }
+      img {
+        border-radius: 50%;
+        @include media-breakpoint-only(xs) {
+          max-width: 100px;
+        }
+        @include media-breakpoint-down(md) {
+          max-width: 120px;
+        }
+      }
+    }
+
+    &_info {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      flex: 1 1 auto;
+      font-size: $base-size*2.25;
+      line-height: 1;
+    
+      @include media-breakpoint-down(md) {
+        font-size: $base-size*1.5;
+      }
+      @include media-breakpoint-only(xs) {
+        font-size: $base-size;
+      }
+    }
+  }
+}

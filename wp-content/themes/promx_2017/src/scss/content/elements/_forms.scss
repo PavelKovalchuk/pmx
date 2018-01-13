@@ -1,0 +1,208 @@
+// Placeholders
+::-webkit-input-placeholder,
+.form-control::-webkit-input-placeholder {
+  color: $form-placeholder;
+}
+
+:-moz-placeholder,
+.form-control:-moz-placeholder {
+  color: $form-placeholder;
+}
+
+::-moz-placeholder,
+.form-control::-moz-placeholder {
+  color: $form-placeholder;
+}
+
+:-ms-input-placeholder,
+.form-control:-ms-input-placeholder {
+  color: $form-placeholder;
+}
+
+@import "select2";
+
+// Inputs override
+.form-control {
+  background-color: transparent;
+  border: medium none;
+  border-bottom: 1px solid $form-color;
+  border-radius: 0;
+  color: $form-color;
+  font-size: $form-base-size;
+  outline: none;
+  box-shadow: none;
+  transition: all .2s;
+  &:focus {
+    border-color: $form-color;
+    outline: 0;
+    box-shadow: none;
+    padding-left: 1em;
+  }
+  @include media-breakpoint-only(xs) {
+    font-size: $form-base-size / 1.5;
+  }
+}
+
+textarea.form-control {
+  background-color: $form-texarea-bg;
+  border: medium none;
+  &:focus {
+    border: none;
+  }
+}
+
+// Custom Radiobuttons
+.promx-radio {
+  font-size: $form-base-size;
+  @include media-breakpoint-only(xs) {
+    font-size: $form-base-size / 1.5;
+  }
+  &+.promx-radio {
+    margin-top: 0;
+  }
+  [type="radio"]:not(:checked),
+  [type="radio"]:checked {
+    position: absolute;
+    left: -9999px;
+  }
+  [type="radio"]:not(:checked)+label,
+  [type="radio"]:checked+label {
+    color: $color-white;
+    cursor: pointer;
+    position: relative;
+    padding-left: 2em;
+    line-height: 1.8;
+    &::before {
+      // radio aspect
+      content: '';
+      border: 1px solid $color-white;
+      background: transparent;
+      border-radius: 8px;
+      width: 1.75em;
+      height: 1.75em;
+      position: absolute;
+      left: 0;
+      top: 0;
+    } // checked mark aspect
+    &:after {
+      content: '';
+      border-radius: 6px;
+      width: 1.417em;
+      height: 1.417em;
+      position: absolute;
+      top: .1667em;
+      left: .1667em;
+      line-height: 0.8;
+      color: $color-white;
+      transition: all .2s;
+    }
+  }
+}
+
+// checked mark aspect changes
+[type="radio"]:not(:checked)+label:after {
+  background: transparent;
+}
+
+[type="radio"]:checked+label:after {
+  background: $color-white;
+  box-shadow: inset 0 1px 3px rgba(255, 255, 255, 0.1);
+}
+
+// disabled checkbox
+[type="radio"]:disabled:not(:checked)+label:before,
+[type="radio"]:disabled:checked+label:before {
+  box-shadow: none;
+  border-color: #bbb;
+  background-color: #ddd;
+}
+
+[type="radio"]:disabled:checked+label:after {
+  color: #999;
+}
+
+[type="radio"]:disabled+label {
+  color: #aaa;
+}
+
+// accessibility
+[type="radio"]:checked:focus+label:before,
+[type="radio"]:not(:checked):focus+label:before {
+  border: 1px dotted $color-white;
+}
+
+.c-file {
+  color: $color-white;
+  font-size: $form-base-size;
+  cursor: pointer;
+  position: relative;
+
+  @include media-breakpoint-only(xs) {
+    font-size: $form-base-size / 1.5;
+  }
+  [type="file"] {
+    position: absolute;
+    left: -9999px;
+    -webkit-appearance: none;
+  }
+  i {
+    transform-origin: center;
+    transform: rotateZ(45deg);
+  }
+}
+
+.contact-form {
+  padding: $elements-gap/1.5 $elements-gap/1.5 0;
+  @include media-breakpoint-down(xs) {
+    margin-left: -16px;
+    margin-right: -16px;
+  }
+  .form-group {
+    margin-bottom: $elements-gap/1.5
+  }
+
+  & .contact-form-title {
+    color: $color-white;
+    font-family: $medium-font;
+    font-size: $H1-size;
+    line-height: 0.9;
+    margin-bottom: $elements-gap;
+    margin-top: 0;
+    @include media-breakpoint-down(xs) {
+      font-size: $H1-mobile-size;
+      margin-bottom: $elements-gap/1.5;
+      text-align: center;
+    }
+    &.light {
+      font-family: $light-font;
+    }
+  }
+}
+
+.send-application {
+  padding: $elements-gap/1.5 $elements-gap/1.5 0;
+
+  .form-group {
+    margin-bottom: $elements-gap/1.5
+  }
+
+  & .contact-form-title {
+    color: $color-white;
+    font-family: $medium-font;
+    font-size: $base-size*2.5;
+    line-height: 0.9;
+    margin-bottom: $elements-gap;
+    margin-top: 0;
+    @include media-breakpoint-down(xs) {
+      font-size: $H1-mobile-size;
+      margin-bottom: $elements-gap/1.5;
+      text-align: center;
+    }
+    @include media-breakpoint-down(md) {
+      font-size: $base-size*1.5;
+    }
+    &.light {
+      font-family: $light-font;
+    }
+  }
+}
