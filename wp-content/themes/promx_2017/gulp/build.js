@@ -1,12 +1,21 @@
 var gulp = require('gulp');
 var runSequence = require('run-sequence');
+var cfg = require('../package.json').config;
 
 gulp.task('build', function () {
   runSequence(
-    'copy',
+
     'sass',
-    'server',
-    'copy:watch',
-    'sass:watch'
+    'copy'
+    //'server',
+    //'copy:watch',
+    //'sass:watch'
   )
+});
+
+
+gulp.task('watch', function () {
+    gulp.watch(cfg.src.sass + '/**/*.{scss,sass}', ['sass']);
+
+
 });

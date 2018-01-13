@@ -1,98 +1,89 @@
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
+
+
 <head>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <!--<script async src="https://www.googletagmanager.com/gtag/js?id=UA-107266316-1"></script>-->
-    <script>
-       /* window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="language" content="<?php echo pll_current_language('slug'); ?>"/>
+    <link rel="profile" href="http://gmpg.org/xfn/11">
+    <link href="<?php echo get_stylesheet_directory_uri(); ?>/favicon/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <!--<title>Home page</title>-->
 
-        gtag('config', 'UA-107266316-1');*/
-    </script>
-
-<meta charset="<?php bloginfo( 'charset' ); ?>">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="language" content="en"/>
-<link rel="profile" href="http://gmpg.org/xfn/11">
-<link href="<?php echo get_stylesheet_directory_uri(); ?>/favicon/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-<?php wp_head(); ?>
+	<?php wp_head(); ?>
 
 </head>
 
-<body <?php body_class(); ?>>
-<div id="page" class="site">
-
-	<header id="masthead" class="site-header" role="banner">
-
-        <div class="container-fluid header_full">
-            
-             <div class="row">
-                 
-                 <div class="col-lg-12">
-
-                        <nav class="navbar header_nav_part navbar-light">
-                            <div class="container header_nav_part_container">
-
-                                <div class="row justify-content-between no-gutters w-100 navbar_row">
-
-                                    <div class="d-flex justify-content-start navbar_brand_outer">
-
-                                        <a class="navbar-brand" href="<?php echo get_home_url(); ?>">
-                                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/build/img/site_logo-min.png" class="site_logo" alt="Site logo">
-                                        </a>
-
-                                    </div>
-
-                                    <div class="d-flex justify-content-end navbar_links_outer">
-
-                                        <button class="navbar-toggler align-self-center navbar-expand-lg ts-nav-menu-toggler"
-                                                type="button" data-toggle="slide-collapse"
-                                                    data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                                            <span class="navbar-toggler-icon"></span>
-                                        </button>
-
-                                        <!--<div class="collapse navbar-collapse h-100" id="navbarNav">-->
-                                        <div class="navbar-collapse h-100" id="navbarNav">
-                                            <?php
-                                            $args = array(
-                                                'theme_location' => 'primary',
-                                                'depth'      => 2,
-                                                'container'  => false,
-                                                'menu_class'     => 'navbar-nav',
-                                                'walker'     => new Bootstrap_Walker_Nav_Menu()
-                                            );
-                                            if (has_nav_menu('primary')) {
-                                                wp_nav_menu($args);
-                                            }
-                                            ?>
-                                        </div>
-
-                                    </div>
 
 
-                                </div>
+<body <?php body_class('home'); ?> >
+<!--[if lt IE 10]>
+<p class="browsehappy">
+    You are using an <strong>outdated</strong> browser. Please
+    <a href="https://browsehappy.com/" target="_blank" rel="nofollow">upgrade your browser</a> to improve your experience.
+</p>
+<![endif]-->
+<header>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 header-top hidden-xs">
 
-                            </div>
-                        </nav>
+                <?php get_template_language_switcher(); ?>
 
-               </div>
+                <?php get_template_social_links(); ?>
 
             </div>
+            <div class="col-sm-12 nav-holder">
+                <nav class="navbar navbar-promx">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#promx-nav" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
 
+                        <a class="navbar-brand"   href="<?php echo get_home_url(); ?>">
+                            <img src="./images/promx.png" alt="Promx logo" class="img-responsive">
+                        </a>
+	                    <?php get_template_header_logo(); var_dump(is_home()); ?>
 
+                    </div>
+                    <div class="collapse navbar-collapse" id="promx-nav">
+
+	                    <?php
+	                    $args = array(
+		                    'theme_location' => 'primary',
+		                    'depth'      => 2,
+		                    'container'  => false,
+		                    'menu_class'     => 'nav navbar-nav',
+		                    'walker'     => new Bootstrap_Walker_Nav_Menu()
+	                    );
+	                    if (has_nav_menu('primary')) {
+		                    wp_nav_menu($args);
+	                    }
+	                    ?>
+
+                    </div>
+                    <div class="right-menu">
+                        <button class="btn hidden-xs">
+                            <i class="fa fa-cog" aria-hidden="true"></i>
+                        </button>
+                        <button class="btn">
+                            <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </nav>
+            </div>
         </div>
-
-
-	</header><!-- #masthead -->
-
-
-
+    </div>
+</header>
 

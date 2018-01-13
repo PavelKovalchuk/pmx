@@ -1,12 +1,10 @@
 <?php
 /**
- * StrapPress functions and definitions
+ * promx_2017 functions and definitions
  *
- * @link https://developer.wordpress.org/themes/basics/theme-functions/
- *
- * @package StrapPress
  */
 
+require get_template_directory() . '/inc/constants.php';
 
 /* Disable WordPress Admin Bar for all users but admins. */
 show_admin_bar(false);
@@ -111,54 +109,42 @@ function get_responsive_image(){
 
 }
 
-/**
- * Set the content width in pixels, based on the theme's design and stylesheet.
- *
- * Priority 0 to make it available to lower priority callbacks.
- *
- * @global int $content_width
- */
-function strappress_content_width() {
-    $GLOBALS['content_width'] = apply_filters( 'strappress_content_width', 640 );
-}
-//add_action( 'after_setup_theme', 'strappress_content_width', 0 );
-
 
 /**
  * Add CSS/JS Scritps
  */
-require get_template_directory() . '/inc/scripts.php';
+require INCLUDES_DIR . 'scripts.php';
 
 /**
  * Register Widget Areas
  */
-require get_template_directory() . '/inc/widgets.php';
+require INCLUDES_DIR . 'widgets.php';
 
 /**
  * Custom template tags for this theme.
  */
-require get_template_directory() . '/inc/template-tags.php';
+require INCLUDES_DIR . 'template-tags.php';
 
 /**
  * Custom functions that act independently of the theme templates.
  */
-require get_template_directory() . '/inc/extras.php';
+require INCLUDES_DIR . 'extras.php';
 
 /**
  * Customizer additions.
  */
-require get_template_directory() . '/inc/customizer.php';
+require INCLUDES_DIR . 'customizer.php';
 
 /**
  * Bootstrap Walker.
  */
-require get_template_directory() . '/inc/bootstrap-walker.php';
+require INCLUDES_DIR . 'bootstrap-walker.php';
 
 
 /**
  * Custom templates 
  */
-require get_template_directory() . '/inc/template-parts.php';
+require INCLUDES_DIR . 'template-parts.php';
 
 
 /**
@@ -177,7 +163,10 @@ require get_template_directory() . '/inc/template-parts.php';
  */
 //require get_template_directory() . '/inc/admin_functions.php';
 
-
+/**
+ * HTML markup parts
+ */
+require get_template_directory() . '/template-parts/template-parts-index.php';
 
 
 
@@ -187,8 +176,23 @@ require get_template_directory() . '/inc/template-parts.php';
 
 if ( is_admin() ) {
 
-	require get_template_directory() . '/inc/classes/option-pages/option-pages.php';
 
-	$ts_options_page = new OptionPages();
+
+	$options_page_options =  array(
+		array(
+			'page_title'	=> 'proMX General Options',
+			'menu_title'	=> 'proMX General Options',
+			'capability'	=> 'manage_options',
+			'menu_slug'		=> 'promx_option_pages',
+			'icon_url'		=> 'dashicons-editor-code',
+			'position'		=> 99,
+			'sections'		=> array(),
+			'subpages'		=> array(),
+		)
+	);
+
+	require INCLUDES_DIR . 'admin_functions.php';
+
+	require INCLUDES_DIR . 'option_pages/option-pages-index.php';
 }
 
