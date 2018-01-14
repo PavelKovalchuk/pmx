@@ -6,8 +6,7 @@
  * Time: 16:54
  */
 
-
-add_subpage_to_general_option_page(
+$options_storage->addSubpageToPromxOptionPages(
 
 	array(
 

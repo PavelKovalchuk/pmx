@@ -11,6 +11,7 @@ jQuery(document).ready(function($){
     // внутри этой функции $ будет работать как jQuery
 
     langSwitcherInit();
+    //dropdownMenuHoverInit();
 
 
 
@@ -34,6 +35,16 @@ jQuery(document).ready(function($){
             secondBlock.removeClass(classHidden).addClass(classShow);
 
         });
+    }
+
+    function dropdownMenuHoverInit(){
+
+        $('ul.nav li.dropdown').hover(function() {
+            $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeIn(500);
+        }, function() {
+            $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeOut(500);
+        });
+
     }
 
     /*function initWOW(){

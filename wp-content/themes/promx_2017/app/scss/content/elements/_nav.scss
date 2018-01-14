@@ -73,7 +73,7 @@
       }
       @include media-breakpoint-up(sm) {
         &:first-child {
-          a {
+          a:not(.dropdown-item) {
             padding-left: 0;
           }
         }
@@ -120,7 +120,8 @@
   @include media-breakpoint-only(sm) {
     padding-top: 16px;
   }
-  & button.btn {
+  & button.btn
+  ,& .header-menu-icon.btn{
     background: white;
     font-size: 32px;
     padding: 0 4px;
@@ -133,4 +134,9 @@
       color: $active-link-color;
     }
   }
+
+  & .header-menu-icon.btn{
+    color: inherit;
+  }
+
 }

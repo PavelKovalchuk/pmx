@@ -51,36 +51,20 @@
                             <span class="icon-bar"></span>
                         </button>
 
-                        <a class="navbar-brand"   href="<?php echo get_home_url(); ?>">
-                            <img src="./images/promx.png" alt="Promx logo" class="img-responsive">
-                        </a>
-	                    <?php get_template_header_logo(); var_dump(is_home()); ?>
+	                    <?php get_template_header_logo(); ?>
 
                     </div>
                     <div class="collapse navbar-collapse" id="promx-nav">
 
-	                    <?php
-	                    $args = array(
-		                    'theme_location' => 'primary',
-		                    'depth'      => 2,
-		                    'container'  => false,
-		                    'menu_class'     => 'nav navbar-nav',
-		                    'walker'     => new Bootstrap_Walker_Nav_Menu()
-	                    );
-	                    if (has_nav_menu('primary')) {
-		                    wp_nav_menu($args);
-	                    }
-	                    ?>
+	                    <?php get_template_header_menu();?>
 
                     </div>
                     <div class="right-menu">
-                        <button class="btn hidden-xs">
-                            <i class="fa fa-cog" aria-hidden="true"></i>
-                        </button>
-                        <button class="btn">
-                            <i class="fa fa-envelope-o" aria-hidden="true"></i>
-                        </button>
+
+	                    <?php get_template_header_menu_icons();?>
+
                     </div>
+
                 </nav>
             </div>
         </div>

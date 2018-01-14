@@ -62,8 +62,11 @@ if ( ! function_exists( 'gm_wp_setup' ) ) :
 
         // This theme uses wp_nav_menu() in two locations.
         register_nav_menus( array(
-            'primary'   => esc_html__( 'Top primary menu', 'gm_wp' ),
-            'categories' => __( 'Categories in left sidebar', 'greenmarket_blog' ),
+            'primary'   => esc_html__( 'Top primary menu', TEXTDOMAIN ),
+            'header icon menu'   => esc_html__( 'Top icon menu', TEXTDOMAIN ),
+            'footer first'   => esc_html__( 'Footer first menu', TEXTDOMAIN ),
+            'footer second'   => esc_html__( 'Footer second menu', TEXTDOMAIN ),
+            'categories' => esc_html__( 'Categories in left sidebar', TEXTDOMAIN ),
         ) );
 
         // This theme uses wp_nav_menu() in one location.
@@ -94,20 +97,6 @@ if ( ! function_exists( 'gm_wp_setup' ) ) :
     }
 endif;
 add_action( 'after_setup_theme', 'gm_wp_setup' );
-
-function get_responsive_image(){
-
-	$html = '<img src="banner.jpg" 
-	srcset="banner.jpg 1280w,
-	banner-300x90.jpg 300w,
-	banner-768x231.jpg 768w,
-	banner-1024x308.jpg 1024w" 
-	sizes="(max-width: 1280px) 100vw, 1280px"
-	alt="Front page banner alt text">';
-
-	return $html;
-
-}
 
 
 /**
@@ -175,21 +164,6 @@ require get_template_directory() . '/template-parts/template-parts-index.php';
 // Admin Section
 
 if ( is_admin() ) {
-
-
-
-	$options_page_options =  array(
-		array(
-			'page_title'	=> 'proMX General Options',
-			'menu_title'	=> 'proMX General Options',
-			'capability'	=> 'manage_options',
-			'menu_slug'		=> 'promx_option_pages',
-			'icon_url'		=> 'dashicons-editor-code',
-			'position'		=> 99,
-			'sections'		=> array(),
-			'subpages'		=> array(),
-		)
-	);
 
 	require INCLUDES_DIR . 'admin_functions.php';
 

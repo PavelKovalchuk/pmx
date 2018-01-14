@@ -11,50 +11,70 @@
 
 ?>
 
-
-
-	<footer id="colophon" class="container-fluid site_footer" role="contentinfo">
-		<div class="container">
-
-            <div class="row footer_social_block social_block">
-                <div class="col-lg-12 justify-content-center">
-
-                        <a class="d-inline-flex align-items-center justify-content-center social_item footer_social_item"
-                           href="<?php echo get_option( '_thoughtscription_option_page_options' )['footer_facebook_link']; ?>">
-                            <i class="social_icon footer_social_icon icon_facebook" aria-hidden="true"></i>
-                        </a>
-
-                        <a class="d-inline-flex align-items-center justify-content-center social_item footer_social_item"
-                           href="<?php echo get_option( '_thoughtscription_option_page_options' )['footer_google_link']; ?>">
-                            <i class="social_icon footer_social_icon icon_google_plus" aria-hidden="true"></i>
-                        </a>
-
-                        <a class="d-inline-flex align-items-center justify-content-center social_item footer_social_item"
-                           href="<?php echo get_option( '_thoughtscription_option_page_options' )['footer_linkediin_link']; ?>">
-                            <i class="social_icon footer_social_icon icon_linkedin" aria-hidden="true"></i>
-                        </a>
-
-                        <a class="d-inline-flex align-items-center justify-content-center social_item footer_social_item"
-                           href="<?php echo get_option( '_thoughtscription_option_page_options' )['footer_twitter_link']; ?>">
-                            <i class="social_icon footer_social_icon icon_twitter" aria-hidden="true"></i>
-                        </a>
-
-
-                </div>
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 col-md-4">
+                <h3>SERVICES</h3>
+                <ul>
+                    <li>
+                        <a href="#">Business Analytics &amp; Collaboration</a>
+                    </li>
+                    <li>Dynamics 365 for Finance &amp; Operations</li>
+                    <li>Dynamics 365 for Sales &amp; Customer Service</li>
+                    <li>Ecommerce</li>
+                    <li>Field Service</li>
+                    <li>Managed Services</li>
+                    <li>PRODUCTS</li>
+                    <li>Microsoft Dynamics 365</li>
+                    <li>Microsoft Dynamics AX</li>
+                    <li>Microsoft Dynamics CRM</li>
+                    <li>Field Service</li>
+                    <li>Ecommerce</li>
+                </ul>
             </div>
-
-            <div class="row footer_copyright_block">
-                <div class="col-lg-12 ">
-                    <p class="footer_copyright_text">
-	                    <?php echo get_option( '_thoughtscription_option_page_options' )['footer_copyright_text']; ?>
+            <div class="col-sm-6 col-md-4">
+                <h3>INDUSTRIES</h3>
+                <ul>
+                    <li>Architecture, Engineering &amp; Construction</li>
+                    <li>Banking &amp; Credit Unions</li>
+                    <li>Capital Markets</li>
+                    <li>Distribution &amp; Transportation</li>
+                    <li>Health Plans</li>
+                    <li>Insurance</li>
+                    <li>Manufacturing</li>
+                    <li>Oil &amp; Gas</li>
+                    <li>Professional Services</li>
+                    <li>Retail
+                </ul>
+            </div>
+            <div class="col-sm-12 col-md-4 footer-promx-col">
+                <div class="second-flex">
+                    <h3>Follow proMX</h3>
+                    <p>
+                        Our expert team is standing by to help answer questions and get you the best solutions.
                     </p>
                 </div>
+                <div>
+                    <button type="button" class="btn btn-primary btn-outline-inverted hidden-xs">CONTACT US</button>
+                </div>
+                <ul class="first-flex">
+                    <li>
+                        <a href="blog.html">blog</a>
+                    </li>
+                    <li>
+                        <a href="support.html">support</a>
+                    </li>
+                </ul>
             </div>
-
-		</div><!--  .container -->
-	</footer><!-- #colophon -->
-
-</div><!-- #page -->
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <p class="copyright">&copy; proMX Gmbh 1994, 2017. All Rights Reserved. Terms of Use Privacy Policy</p>
+            </div>
+        </div>
+    </div>
+</footer>
 
 
 <?php wp_footer(); ?>

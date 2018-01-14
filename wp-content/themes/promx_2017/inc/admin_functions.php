@@ -26,11 +26,3 @@ function ts_mce_before_init_insert_formats( $init_array ) {
 }
 // Attach callback to 'tiny_mce_before_init'
 //add_filter( 'tiny_mce_before_init', 'ts_mce_before_init_insert_formats');
-
-
-
-function add_subpage_to_general_option_page($data_arr){
-	global $options_page_options;
-	$options_page_options[0]['subpages'][] = $data_arr;
-
-}

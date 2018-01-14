@@ -78,16 +78,103 @@ function get_template_social_links(){
 
 function get_template_header_logo(){
 
-	//$url =  get_option( '_promx_options_social_network_links_options' );
+	$logo_data =  get_option( '_promx_images_and_logos_options' );
+	$url = wp_get_attachment_url( $logo_data['logo_image_id'] );
+    $tag  = ( is_front_page() ) ? 'span' : 'a';
 
-    $tag  = ( is_home() ) ? 'span' : 'a';
-
-    echo '<' . $tag . ' class="navbar-brand"   href="' . get_home_url() . '">'
+    echo '<' . $tag . ' class="navbar-brand"   href="' . CURRENT_HOME_URL . '">'
 
 	?>
 
-    <img src="./images/promx.png" alt="Promx logo" class="img-responsive">
+    <?php if($url){ ?>
+
+        <img src="<?php echo $url; ?>" alt="<?php print_image_alt( $logo_data['logo_image_alt']); ?>" class="img-responsive">
+
+	<?php } ?>
 
 	<?php echo '</' . $tag . '>';
+
+}
+
+
+function get_template_header_menu_icons(){
+
+	$args = array(
+		'order'                  => 'ASC',
+		'orderby'                => 'menu_order',
+		'output'                 => ARRAY_A,
+		'output_key'             => 'menu_order',
+		'update_post_term_cache' => false,
+	);
+
+	$items = wp_get_nav_menu_items( 'Header icon menu ' . strtoupper(CURRENT_LANG_CODE), $args );
+
+	if(!$items){
+	    return;
+    }
+
+	?>
+    <div class="dropdown dropdown-inline">
+        <a href="#" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-animations="zoomIn zoomIn zoomIn zoomIn">Dropdown <span class="caret"></span></a>
+        <ul class="dropdown-menu dropdownhover-bottom" role="menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li class="dropdown">
+                <a href="#">Another dropdown <span class="caret"></span></a>
+                <ul class="dropdown-menu dropdownhover-right">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="#">Another dropdown 2 <span class="caret"></span></a>
+                <ul class="dropdown-menu dropdownhover-right">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li class="dropdown">
+                        <a href="#">Another dropdown <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else here</a></li>
+
+                        </ul>
+                    </li>
+
+                </ul>
+            </li>
+            <li><a href="#">Something else here</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+            <li class="divider"></li>
+            <li><a href="#">One more separated link</a></li>
+        </ul>
+    </div>
+
+        <a href="<?php echo $items[0]->url; ?>" class="header-menu-icon btn hidden-xs">
+            <i class="fa fa-cog" aria-hidden="true"></i>
+        </a>
+
+        <a href="<?php echo $items[1]->url; ?>" class="header-menu-icon btn">
+            <i class="fa fa-envelope-o" aria-hidden="true"></i>
+        </a>
+
+	<?php
+}
+
+function get_template_header_menu(){
+
+	$args = array(
+		'theme_location' => 'primary',
+		'depth'      => 3,
+		'container'  => false,
+		'menu_class'     => 'nav navbar-nav',
+		'walker'     => new Bootstrap_Walker_Nav_Menu()
+	);
+	if (has_nav_menu('primary')) {
+		wp_nav_menu($args);
+	}
 
 }

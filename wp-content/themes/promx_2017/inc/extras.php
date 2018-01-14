@@ -130,3 +130,21 @@ function nav_menu_add_classes( $items, $args ) {
 	return $items;
 }
 add_filter( 'wp_nav_menu_objects', 'nav_menu_add_classes', 10, 2 );
+
+function get_image_alt($alt){
+
+	if($alt){
+		return $alt;
+	}
+
+	if( defined('GENERAL_IMAGE_ALT')){
+		return GENERAL_IMAGE_ALT;
+	}
+
+	return FALLBACK_IMAGE_ALT;
+
+}
+
+function print_image_alt($alt){
+	echo get_image_alt($alt);
+}
