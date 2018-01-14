@@ -60,19 +60,15 @@ if ( ! function_exists( 'gm_wp_setup' ) ) :
 
 	    add_image_size( 'post-large-imagee', 1000, 400, true );
 
-        // This theme uses wp_nav_menu() in two locations.
+        // This theme uses wp_nav_menu()
         register_nav_menus( array(
             'primary'   => esc_html__( 'Top primary menu', TEXTDOMAIN ),
-            'header icon menu'   => esc_html__( 'Top icon menu', TEXTDOMAIN ),
-            'footer first'   => esc_html__( 'Footer first menu', TEXTDOMAIN ),
-            'footer second'   => esc_html__( 'Footer second menu', TEXTDOMAIN ),
+            'header_icon_menu'   => esc_html__( 'Top icon menu', TEXTDOMAIN ),
+            'footer_first'   => esc_html__( 'Footer first menu', TEXTDOMAIN ),
+            'footer_second'   => esc_html__( 'Footer second menu', TEXTDOMAIN ),
             'categories' => esc_html__( 'Categories in left sidebar', TEXTDOMAIN ),
         ) );
 
-        // This theme uses wp_nav_menu() in one location.
-        /*register_nav_menus( array(
-            'primary' => esc_html__( 'Primary', 'gm_wp' ),
-        ) );*/
 
         /*
          * Switch default core markup for search form, comment form, and comments
@@ -129,6 +125,11 @@ require INCLUDES_DIR . 'customizer.php';
  */
 require INCLUDES_DIR . 'bootstrap-walker.php';
 
+
+/**
+ * Bootstrap Walker Footer.
+ */
+require INCLUDES_DIR . 'bootstrap-walker-footer.php';
 
 /**
  * Custom templates 

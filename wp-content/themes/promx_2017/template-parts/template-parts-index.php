@@ -7,3 +7,4 @@
  */
 
 require TEMPLATE_PARTS_DIR . 'header-parts.php';
+require TEMPLATE_PARTS_DIR . 'footer-parts.php';

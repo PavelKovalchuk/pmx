@@ -15,7 +15,27 @@
 		    'menu_slug'		=> 'promx_option_pages',
 		    'icon_url'		=> 'dashicons-editor-code',
 		    'position'		=> 99,
-		    'sections'		=> array(),
+		    'sections'		=> array(
+			    //			A new section
+			    array(
+				    'id'	=> 'general_custom_data_id',
+				    'title'	=> 'ProMX 2017',
+				    'fields'		=> array(
+					    //					A new field
+
+					   /* array(
+						    'id'	=> 'header_facebook_link',
+						    'title'	=> 'Facebook link',
+						    'type'	=> 'text',
+						    'description' => 'General social link',
+						    'value' => 'https://uk-ua.facebook.com/',
+					    ),*/
+
+
+				    ),
+			    ),
+
+		    ),
 		    'subpages'		=> array(),
 	    )
     );

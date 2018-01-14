@@ -15,62 +15,69 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-6 col-md-4">
-                <h3>SERVICES</h3>
-                <ul>
-                    <li>
-                        <a href="#">Business Analytics &amp; Collaboration</a>
-                    </li>
-                    <li>Dynamics 365 for Finance &amp; Operations</li>
-                    <li>Dynamics 365 for Sales &amp; Customer Service</li>
-                    <li>Ecommerce</li>
-                    <li>Field Service</li>
-                    <li>Managed Services</li>
-                    <li>PRODUCTS</li>
-                    <li>Microsoft Dynamics 365</li>
-                    <li>Microsoft Dynamics AX</li>
-                    <li>Microsoft Dynamics CRM</li>
-                    <li>Field Service</li>
-                    <li>Ecommerce</li>
-                </ul>
+
+                <?php
+
+                wp_nav_menu( array(
+	                'theme_location'  => '',
+	                'menu'            => 'footer_first',
+	                'container'       => 'div',
+	                'container_class' => 'footer-inner-container',
+	                'container_id'    => '',
+	                'menu_class'      => 'footer-inner-list',
+	                'menu_id'         => '',
+	                'echo'            => true,
+	                'fallback_cb'     => 'wp_page_menu',
+	                'before'          => '',
+	                'after'           => '',
+	                'link_before'     => '',
+	                'link_after'      => '',
+	                'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+	                'depth'           => 0,
+	                'walker'          => new Bootstrap_Walker_Footer_Menu(),
+                ) );
+
+                ?>
+
             </div>
             <div class="col-sm-6 col-md-4">
-                <h3>INDUSTRIES</h3>
-                <ul>
-                    <li>Architecture, Engineering &amp; Construction</li>
-                    <li>Banking &amp; Credit Unions</li>
-                    <li>Capital Markets</li>
-                    <li>Distribution &amp; Transportation</li>
-                    <li>Health Plans</li>
-                    <li>Insurance</li>
-                    <li>Manufacturing</li>
-                    <li>Oil &amp; Gas</li>
-                    <li>Professional Services</li>
-                    <li>Retail
-                </ul>
+	            <?php
+
+	            wp_nav_menu( array(
+		            'theme_location'  => 'footer_second',
+		            'menu'            => '',
+		            'container'       => 'div',
+		            'container_class' => 'footer-inner-container',
+		            'container_id'    => '',
+		            'menu_class'      => 'footer-inner-list',
+		            'menu_id'         => '',
+		            'echo'            => true,
+		            'fallback_cb'     => 'wp_page_menu',
+		            'before'          => '',
+		            'after'           => '',
+		            'link_before'     => '',
+		            'link_after'      => '',
+		            'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+		            'depth'           => 0,
+		            'walker'          => new Bootstrap_Walker_Footer_Menu(),
+	            ) );
+
+	            ?>
             </div>
             <div class="col-sm-12 col-md-4 footer-promx-col">
-                <div class="second-flex">
-                    <h3>Follow proMX</h3>
-                    <p>
-                        Our expert team is standing by to help answer questions and get you the best solutions.
-                    </p>
-                </div>
-                <div>
-                    <button type="button" class="btn btn-primary btn-outline-inverted hidden-xs">CONTACT US</button>
-                </div>
-                <ul class="first-flex">
-                    <li>
-                        <a href="blog.html">blog</a>
-                    </li>
-                    <li>
-                        <a href="support.html">support</a>
-                    </li>
-                </ul>
+
+                <?php $footer_options_data =  get_option( '_promx_options_footer_general_data_options' ); ?>
+
+                <?php get_template_footer_social_block($footer_options_data); ?>
+	            <?php
+	            if ( function_exists('dynamic_sidebar') )
+		            dynamic_sidebar('sidebar-footer-custom-links');
+	            ?>
             </div>
         </div>
         <div class="row">
             <div class="col-sm-12">
-                <p class="copyright">&copy; proMX Gmbh 1994, 2017. All Rights Reserved. Terms of Use Privacy Policy</p>
+                <p class="copyright"><?php echo $footer_options_data['copyright_' . CURRENT_LANG_CODE]; ?></p>
             </div>
         </div>
     </div>
