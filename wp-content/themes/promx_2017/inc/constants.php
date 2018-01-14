@@ -18,6 +18,8 @@ define("IMAGES_DIR", get_template_directory_uri() . "/images/");
 
 define("OPTION_PAGES_DIR", INCLUDES_DIR . "option_pages/pages/");
 
+define("WIDGET_CLASSES_DIR", INCLUDES_DIR . "classes/widgets/");
+
 
 //common used variables
 define("CURRENT_LANG_CODE", pll_current_language('slug'));

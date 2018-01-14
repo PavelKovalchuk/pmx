@@ -4,6 +4,9 @@
  *
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
+
+require WIDGET_CLASSES_DIR . 'LinksWidget.php';
+
 function promx_widgets_init() {
 	register_sidebar( array(
 		'name'          => esc_html__( 'Sidebar', TEXTDOMAIN ),
@@ -24,5 +27,8 @@ function promx_widgets_init() {
 		'before_title'  => '',
 		'after_title'   => '',
 	) );
+
+
+	register_widget( 'LinksWidget' );
 }
 add_action( 'widgets_init', 'promx_widgets_init' );
