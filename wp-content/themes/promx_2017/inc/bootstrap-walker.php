@@ -12,7 +12,7 @@ if ( ! function_exists( 'bootstrap_setup' ) ):
       function start_lvl( &$output, $depth = 0, $args = array() ) {
 
         $indent = str_repeat( "\t", $depth );
-        $output    .= "\n$indent<ul class=\"dropdown-menu\">\n";
+        $output    .= "\n$indent<ul class=\"dropdown-menu" . " animated flipInY dropdown-menu-level-" . $depth . "\">\n";
 
       }
 
@@ -24,7 +24,7 @@ if ( ! function_exists( 'bootstrap_setup' ) ):
         $class_names = $value = '';
 
         $classes = empty( $item->classes ) ? array() : (array) $item->classes;
-        $classes[] = ($args->walker->has_children) ? 'dropdown' : '';
+        $classes[] = ($args->walker->has_children) ? 'dropdown dropdown-submenu' : '';
         $classes[] = ($item->current || $item->current_item_ancestor) ? 'active' : '';
         $classes[] = 'menu-item-' . $item->ID;
         $classes[] = 'nav-item';
@@ -45,9 +45,17 @@ if ( ! function_exists( 'bootstrap_setup' ) ):
         $attributes .= ($args->walker->has_children)      ? ' class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"' : 'class="nav-link"';
 
         $item_output = $args->before;
-        $item_output .= ($depth > 0) ? '<a class="dropdown-item"' . $attributes . '> ' : '<a'. $attributes .'>';
+
+        if(!empty( $item->url )){
+        	$html_tag = 'a';
+        }else{
+	        $html_tag = 'span';
+        }
+
+        $item_output .= ($depth > 0) ? '<' . $html_tag . ' class="dropdown-item"' . $attributes . '> ' : '<' . $html_tag . $attributes .'>';
         $item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
-        $item_output .= '</a>';
+        $item_output .= '</' . $html_tag . '>';
+
         $item_output .= $args->after;
 
         $output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );

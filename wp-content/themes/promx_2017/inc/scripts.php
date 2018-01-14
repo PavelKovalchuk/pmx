@@ -29,7 +29,7 @@ function promx_scripts() {
 
 	wp_enqueue_script( 'circle-progres', get_template_directory_uri() . '/app/js/vendor/jquery-circle-progress-1.2.2/circle-progress.min.js', array('jquery'), '1.2.2', true );
 
-	wp_enqueue_script( 'dropdownhover', get_template_directory_uri() . '/js/libs/dropdownhover/js/bootstrap-dropdownhover.min.js', array('jquery'), '1.0.0', true );
+	//wp_enqueue_script( 'dropdownhover', get_template_directory_uri() . '/js/libs/dropdownhover/js/bootstrap-dropdownhover.min.js', array('jquery'), '1.0.0', true );
 
 	wp_enqueue_script( 'main-js', get_template_directory_uri() . '/app/js/scripts.js', array('jquery'), filemtime( get_theme_file_path('/app/js/scripts.js')), true );
 

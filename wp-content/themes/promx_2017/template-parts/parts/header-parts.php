@@ -114,45 +114,6 @@ function get_template_header_menu_icons(){
     }
 
 	?>
-    <div class="dropdown dropdown-inline">
-        <a href="#" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-animations="zoomIn zoomIn zoomIn zoomIn">Dropdown <span class="caret"></span></a>
-        <ul class="dropdown-menu dropdownhover-bottom" role="menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li class="dropdown">
-                <a href="#">Another dropdown <span class="caret"></span></a>
-                <ul class="dropdown-menu dropdownhover-right">
-                    <li><a href="#">Action</a></li>
-                    <li><a href="#">Another action</a></li>
-
-                </ul>
-            </li>
-            <li class="dropdown">
-                <a href="#">Another dropdown 2 <span class="caret"></span></a>
-                <ul class="dropdown-menu dropdownhover-right">
-                    <li><a href="#">Action</a></li>
-                    <li><a href="#">Another action</a></li>
-                    <li><a href="#">Another action</a></li>
-                    <li class="dropdown">
-                        <a href="#">Another dropdown <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Action</a></li>
-                            <li><a href="#">Another action</a></li>
-                            <li><a href="#">Something else here</a></li>
-
-                        </ul>
-                    </li>
-
-                </ul>
-            </li>
-            <li><a href="#">Something else here</a></li>
-            <li class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-            <li class="divider"></li>
-            <li><a href="#">One more separated link</a></li>
-        </ul>
-    </div>
-
         <a href="<?php echo $items[0]->url; ?>" class="header-menu-icon btn hidden-xs">
             <i class="fa fa-cog" aria-hidden="true"></i>
         </a>
@@ -170,7 +131,7 @@ function get_template_header_menu(){
 		'theme_location' => 'primary',
 		'depth'      => 3,
 		'container'  => false,
-		'menu_class'     => 'nav navbar-nav',
+		'menu_class'     => 'nav navbar-nav multi-level',
 		'walker'     => new Bootstrap_Walker_Nav_Menu()
 	);
 	if (has_nav_menu('primary')) {

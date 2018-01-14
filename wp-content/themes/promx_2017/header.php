@@ -54,7 +54,7 @@
 	                    <?php get_template_header_logo(); ?>
 
                     </div>
-                    <div class="collapse navbar-collapse" id="promx-nav">
+                    <div class="collapse navbar-collapse dropdown" id="promx-nav">
 
 	                    <?php get_template_header_menu();?>
 
