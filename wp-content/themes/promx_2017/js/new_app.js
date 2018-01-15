@@ -21,20 +21,22 @@ jQuery(document).ready(function($){
 
 
     function langSwitcherInit(){
-        $('.lang-box.current-lang').on('click', function() {
 
-            var classShow = 'lang-shown';
-            var classHidden = 'hidden';
-            var secondBlock = $('.js-lang-other');
+        var switcher = $('.js-lang-switcher');
+        var classShown = 'lang-shown';
+        var classHidden = 'hidden fadeInUp';
+        var secondBlock = $('.js-lang-other');
 
-            if(secondBlock.hasClass(classShow)){
-                secondBlock.removeClass(classShow).addClass(classHidden);
-                return;
-            }
+        switcher.bind( "mouseenter mouseleave", function(event) {
 
-            secondBlock.removeClass(classHidden).addClass(classShow);
+            event.stopPropagation();
+
+            secondBlock.toggleClass( classHidden );
+            switcher.toggleClass( classShown );
 
         });
+
+
     }
 
     function dropdownMenuHoverInit(){

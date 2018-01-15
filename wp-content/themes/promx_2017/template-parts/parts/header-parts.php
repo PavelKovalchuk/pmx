@@ -12,12 +12,13 @@ function get_template_language_switcher(){
 
 	?>
 	<div class="header-lang">
+        <div class="js-lang-switcher lang-switcher">
 
 	<?php
 	foreach($translations as $key => $data){
 
 	    $is_current_lang = $data['current_lang'];
-		$class_to_show = ($is_current_lang) ? '' : ' hidden lang-other js-lang-other ';
+		$class_to_show = ($is_current_lang) ? '' : ' hidden animated lang-other js-lang-other ';
 
 		?>
 		<div class="lang-box <?php echo implode(" ", $data['classes']) . $class_to_show; ?> ">
@@ -26,8 +27,9 @@ function get_template_language_switcher(){
                 <a href="<?php echo $data['url']; ?>" class="language_switcher_link">
 	        <?php } ?>
 
-			<img class="flag-uk" src="<?php echo IMAGES_DIR ?>flags/<?php echo $data['slug']; ?>.png" alt="<?php echo $data['name']; ?>">
-			<span><?php echo strtoupper($data['slug']); ?></span>
+			<!--<img class="flag-uk" src="<?php /*echo IMAGES_DIR */?>flags/<?php /*echo $data['slug']; */?>.png" alt="<?php /*echo $data['name']; */?>">-->
+                    <span class="lang-flag flag-<?php echo $data['slug']; ?>"></span>
+			<span class="lang-code"><?php echo strtoupper($data['slug']); ?></span>
 
 	        <?php if(!$is_current_lang){ ?>
                  </a>
@@ -38,7 +40,7 @@ function get_template_language_switcher(){
 	}
 
 	?>
-
+        </div>
 	</div>
 
 <?php

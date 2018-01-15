@@ -42,6 +42,7 @@
         &:hover,
         &:focus {
           color: $active-link-color;
+          text-decoration: none;
         }
       }
     }
@@ -85,7 +86,7 @@
 
   }
   .copyright {
-    font-size: $footer-text-size;
+    font-size: 14px;
     margin-bottom: 0;
     text-align: center;
   }

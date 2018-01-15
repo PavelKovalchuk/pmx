@@ -11,6 +11,8 @@
 
   .lang-box{
     cursor: pointer;
+    padding-left: 15px;
+    padding-right: 15px;
   }
 
   .flag-uk {
@@ -19,11 +21,54 @@
     margin: -6px 0px 0px -5px;
   }
 
+  .lang-flag{
+
+    display: inline-block;
+    vertical-align: middle;
+    width: 21px;
+    height: 16px;
+    margin-bottom: 4px;
+    background: url('/wp-content/themes/promx_2017/images/sprites/sprite_icons-min.png') no-repeat;
+    //margin: -6px 0px 0px -5px;
+
+
+    &.flag-de{
+      background-position: -151px -48px;
+    }
+
+    &.flag-en{
+      background-position:  -120px -48px;
+    }
+  }
+
+  .lang-code{
+    font-size: 16px;
+  }
+
+  .lang-switcher{
+    height: 0px;
+    width: 90px;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    &.lang-shown{
+      height: 60px;
+      z-index: 1;
+    }
+
+  }
+
   .lang-other{
     position: absolute;
-    bottom: -100%;
+    top: 31px;
     left: 0;
+
     z-index: 2;
+    padding-top: 6px;
+    //margin-top: 6px;
+    border-top: 1px solid lightgrey;
+    background-color: $color-white;
   }
 
   .language_switcher_link{
@@ -31,7 +76,7 @@
     text-decoration: none;
     &:hover,
     &:focus {
-      color: $active-link-color;
+      //color: $active-link-color;
       text-decoration: none;
     }
   }
@@ -40,7 +85,7 @@
     border-right: solid lightgrey 1px;
     padding-right: 20px;
     margin: 8px 18px;
-    flex: 0 1 70px;
+    flex: 0 1 90px;
     position: relative;
   }
   .custom-btn-group {
