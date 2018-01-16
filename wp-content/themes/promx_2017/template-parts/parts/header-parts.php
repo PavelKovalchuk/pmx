@@ -24,7 +24,8 @@ function get_template_language_switcher(){
 		<div class="lang-box <?php echo implode(" ", $data['classes']) . $class_to_show; ?> ">
 
             <?php if(!$is_current_lang){ ?>
-                <a href="<?php echo $data['url']; ?>" class="language_switcher_link">
+                <div class="lang-other-inner">
+                    <a href="<?php echo $data['url']; ?>" class="language-switcher-link">
 	        <?php } ?>
 
 			<!--<img class="flag-uk" src="<?php /*echo IMAGES_DIR */?>flags/<?php /*echo $data['slug']; */?>.png" alt="<?php /*echo $data['name']; */?>">-->
@@ -32,7 +33,9 @@ function get_template_language_switcher(){
 			<span class="lang-code"><?php echo strtoupper($data['slug']); ?></span>
 
 	        <?php if(!$is_current_lang){ ?>
-                 </a>
+                    </a>
+                </div>
+
 		    <?php } ?>
 
 		</div>
@@ -49,32 +52,10 @@ function get_template_language_switcher(){
 
 function get_template_social_links(){
 
-	$links =  get_option( '_promx_options_social_network_links_options' );
+	if ( function_exists('dynamic_sidebar') ){
+		dynamic_sidebar('sidebar-social-icons-links');
+    }
 
-?>
-
-    <div class="custom-btn-group">
-        <a href="<?php echo $links['header_facebook_link']; ?>" class="custom-btn">
-            <i class="fa fa-facebook"></i>
-        </a>
-        <a href="<?php echo $links['header_google_link']; ?>" class="custom-btn">
-            <i class="fa fa-google-plus"></i>
-        </a>
-        <a href="<?php echo $links['header_instagram_link']; ?>" class="custom-btn">
-            <i class="fa fa-instagram"></i>
-        </a>
-        <a href="<?php echo $links['header_linkediin_link']; ?>" class="custom-btn">
-            <i class="fa fa-linkedin"></i>
-        </a>
-        <a href="<?php echo $links['header_twitter_link']; ?>" class="custom-btn">
-            <i class="fa fa-twitter"></i>
-        </a>
-        <a href="<?php echo $links['header_youtube_link']; ?>" class="custom-btn">
-            <i class="fa fa-youtube"></i>
-        </a>
-    </div>
-
-<?php
 }
 
 

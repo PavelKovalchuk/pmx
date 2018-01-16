@@ -1,0 +1,19 @@
+.social-links-group{
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+
+  .social-link {
+    color: #cecece;
+    cursor: pointer;
+    font-size: 20px;
+    display: inline-block;
+    padding: 8px 10px;
+    text-decoration: none;
+    &:hover,
+    &:focus {
+      color: $active-link-color;
+    }
+  }
+
+}

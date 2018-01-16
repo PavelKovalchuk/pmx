@@ -45,7 +45,7 @@ if ( ! function_exists( 'gm_wp_setup' ) ) :
         add_theme_support( 'post-thumbnails' );
 
         add_image_size( 'category-post-image', 672, 360, true );
-        add_image_size( 'post-main-image', 973, 500, true );
+        /*add_image_size( 'post-main-image', 973, 500, true );
 	    add_image_size( 'post-carousel-image', 370, 240, true );
 
 	    add_image_size( 'post-tablet-image', 1000, 500, true );
@@ -58,7 +58,7 @@ if ( ! function_exists( 'gm_wp_setup' ) ) :
 
 	    add_image_size( 'post-full-image', 1530, 600, false );
 
-	    add_image_size( 'post-large-imagee', 1000, 400, true );
+	    add_image_size( 'post-large-imagee', 1000, 400, true );*/
 
         // This theme uses wp_nav_menu()
         register_nav_menus( array(
@@ -101,9 +101,16 @@ add_action( 'after_setup_theme', 'gm_wp_setup' );
 require INCLUDES_DIR . 'scripts.php';
 
 /**
- * Register Widget Areas
+ * Register Widgets
  */
-require INCLUDES_DIR . 'widgets.php';
+
+require INCLUDES_DIR . 'option_widgets/widgets-index.php';
+
+/**
+ * Register Sidebars
+ */
+
+require SIDEBARS_DIR . 'sidebars-index.php';
 
 /**
  * Custom template tags for this theme.

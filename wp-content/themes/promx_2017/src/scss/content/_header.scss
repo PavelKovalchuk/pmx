@@ -65,13 +65,16 @@
     left: 0;
 
     z-index: 2;
-    padding-top: 6px;
-    //margin-top: 6px;
-    border-top: 1px solid lightgrey;
     background-color: $color-white;
+
+    .lang-other-inner{
+      padding-top: 6px;
+      border-top: 1px solid lightgrey;
+    }
+
   }
 
-  .language_switcher_link{
+  .language-switcher-link{
     color: $color-black;
     text-decoration: none;
     &:hover,
@@ -88,21 +91,5 @@
     flex: 0 1 90px;
     position: relative;
   }
-  .custom-btn-group {
-    position: relative;
-    display: inline-block;
-    vertical-align: middle;
-    .custom-btn {
-      color: #cecece;
-      cursor: pointer;
-      font-size: 20px;
-      display: inline-block;
-      padding: 8px 10px;
-      text-decoration: none;
-      &:hover,
-      &:focus {
-        color: $active-link-color;
-      }
-    }
-  }
+
 }
