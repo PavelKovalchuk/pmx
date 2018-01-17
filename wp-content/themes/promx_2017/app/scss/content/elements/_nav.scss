@@ -136,7 +136,7 @@
 
 .right-menu {
   min-width: 91px;
-  padding-top: 18px;
+  padding-top: 28px;
   @include media-breakpoint-down(xs) {
     min-width: 36px;
     position: absolute;
@@ -146,23 +146,54 @@
   @include media-breakpoint-only(sm) {
     padding-top: 16px;
   }
+
+
+  .sprite-icon{
+    background: url($sprite-icons-image) no-repeat;
+    display: inline-block;
+    margin: 0 4px;
+  }
+
+  .contact-us-icon{
+    background-position: 0 -75.5px;
+    width: 25px;
+    height: 17px;
+
+    &:hover{
+      background-position: 0 -96px;
+      text-decoration: none;
+    }
+
+  }
+
+  .support-icon{
+    background-position: -34px -75px;
+    width: 15px;
+    height: 17px;
+
+    &:hover{
+      background-position: -34px -96px;
+      text-decoration: none;
+    }
+  }
+
   & button.btn
   ,& .header-menu-icon.btn{
-    background: white;
-    font-size: 32px;
-    padding: 0 4px;
+    //background: white;
+    //font-size: 32px;
+    //padding: 0 4px;
     @include media-breakpoint-down(lg) {
-      font-size: 24px;
+      //font-size: 24px;
     }
 
     &:hover,
     &:focus {
-      color: $active-link-color;
+      //color: $active-link-color;
     }
   }
 
   & .header-menu-icon.btn{
-    color: inherit;
+    //color: inherit;
   }
 
 }

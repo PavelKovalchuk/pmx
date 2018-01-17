@@ -19,6 +19,14 @@ class SocialLinksWidget extends WP_Widget {
 
 	}
 
+	// html форма настроек виджета в Админ-панели
+	function form( $instance ) {
+	}
+
+	// Сохранение настроек виджета (очистка)
+	function update( $new_instance, $old_instance ) {
+	}
+
 	// Вывод виджета
 	function widget( $args, $instance ){
 

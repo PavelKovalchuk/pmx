@@ -28,7 +28,7 @@
     width: 21px;
     height: 16px;
     margin-bottom: 4px;
-    background: url('/wp-content/themes/promx_2017/images/sprites/sprite_icons-min.png') no-repeat;
+    background: url($sprite-icons-image) no-repeat;
     //margin: -6px 0px 0px -5px;
 
 
@@ -91,5 +91,8 @@
     flex: 0 1 90px;
     position: relative;
   }
+
+
+
 
 }

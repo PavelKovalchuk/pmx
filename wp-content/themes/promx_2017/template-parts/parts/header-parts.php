@@ -96,16 +96,11 @@ function get_template_header_menu_icons(){
 	    return;
     }
 
-	?>
-        <a href="<?php echo $items[0]->url; ?>" class="header-menu-icon btn hidden-xs">
-            <i class="fa fa-cog" aria-hidden="true"></i>
-        </a>
+    foreach ($items as $item){ ?>
+        <a href="<?php echo $item->url; ?>" class=" <?php echo implode(' ', $item->classes); ?> sprite-icon ">
 
-        <a href="<?php echo $items[1]->url; ?>" class="header-menu-icon btn">
-            <i class="fa fa-envelope-o" aria-hidden="true"></i>
         </a>
-
-	<?php
+    <?php }
 }
 
 function get_template_header_menu(){
