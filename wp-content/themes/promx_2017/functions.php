@@ -44,7 +44,7 @@ if ( ! function_exists( 'gm_wp_setup' ) ) :
          */
         add_theme_support( 'post-thumbnails' );
 
-        add_image_size( 'category-post-image', 672, 360, true );
+       // add_image_size( 'category-post-image', 672, 360, true );
         /*add_image_size( 'post-main-image', 973, 500, true );
 	    add_image_size( 'post-carousel-image', 370, 240, true );
 

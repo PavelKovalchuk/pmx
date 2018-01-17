@@ -13,7 +13,7 @@ $options_storage->addSubpageToPromxOptionPages(
 		'page_title'	=> 'Buttons',
 		'menu_title'	=> 'Buttons',
 		'capability'	=> 'manage_options',
-		'menu_slug'		=> 'promx_options_buttons',
+		'menu_slug'		=> 'promx_buttons_and_links',
 		'sections'		=> array(
 			//			A new section
 			array(
@@ -22,20 +22,19 @@ $options_storage->addSubpageToPromxOptionPages(
 				'fields'		=> array(
 					//					A new field
 					array(
-						'id'	=> 'read_more_text',
-						'title'	=> 'Read more text',
+						'id'	=> 'read_more_text_de',
+						'title'	=> 'Read more text DE',
 						'type'	=> 'text',
-						'description' => 'Appears in the buttons of the post preview.',
-						'value' => 'Read Full Post',
+						'value' => 'Read it',
 					),
 
 					array(
-						'id'	=> 'get_more_posts_text',
-						'title'	=> 'Get more posts text',
+						'id'	=> 'read_more_text_en',
+						'title'	=> 'Read more text EN',
 						'type'	=> 'text',
-						'description' => 'Appears in the Category page - to get more posts.',
-						'value' => 'More Posts',
+						'value' => 'Read it',
 					),
+
 				),
 			),
 		),

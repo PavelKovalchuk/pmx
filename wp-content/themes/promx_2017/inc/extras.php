@@ -148,3 +148,21 @@ function get_image_alt($alt){
 function print_image_alt($alt){
 	echo get_image_alt($alt);
 }
+
+function get_button_text($text){
+
+	if($text){
+		return $text;
+	}
+
+	if( defined('GENERAL_READ_MORE')){
+		return GENERAL_READ_MORE;
+	}
+
+	return FALLBACK_READ_MORE;
+
+}
+
+function print_button_text($text){
+	echo get_button_text($text);
+}

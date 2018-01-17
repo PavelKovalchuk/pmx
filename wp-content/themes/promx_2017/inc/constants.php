@@ -34,6 +34,11 @@ define("TEXTDOMAIN", 'prorm');
 
 define("MENU_ITEM_SPAN_CLASS", 'menu-item-urlless');
 
+define("GENERAL_READ_MORE", get_option( '_promx_buttons_and_links_options' )['read_more_text_'. CURRENT_LANG_CODE]);
+
+define("FALLBACK_READ_MORE", 'Read');
+
+
 
 
 
