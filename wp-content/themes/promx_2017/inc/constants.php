@@ -10,15 +10,30 @@
 //Path and directories
 define("CURRENT_HOME_URL", pll_home_url());
 
-define("INCLUDES_DIR", get_template_directory() . "/inc/");
+define("TEMPLATE_DIR", get_template_directory() . '/');
 
-define("TEMPLATE_PARTS_DIR", get_template_directory() . "/template-parts/parts/");
+define("TEMPLATE_URI", get_template_directory_uri() . '/');
 
-define("IMAGES_DIR", get_template_directory_uri() . "/images/");
+define("INCLUDES_DIR", TEMPLATE_DIR . "inc/");
 
-define("OPTION_PAGES_DIR", INCLUDES_DIR . "option_pages/pages/");
+define("INCLUDES_CLASSES_DIR", INCLUDES_DIR . "classes/");
 
-define("WIDGET_CLASSES_DIR", INCLUDES_DIR . "option_widgets/widgets/");
+define("TEMPLATE_PARTS_MAIN_DIR", TEMPLATE_DIR . "template_parts/");
+define("TEMPLATE_PARTS_DIR", TEMPLATE_PARTS_MAIN_DIR . "parts/");
+
+define("IMAGES_DIR", TEMPLATE_URI . "images/");
+
+define("OPTION_PAGES_MAIN_DIR", INCLUDES_DIR . "option_pages/");
+define("OPTION_PAGES_DIR", OPTION_PAGES_MAIN_DIR . "pages/");
+
+define("ACF_OPTION_PAGES_MAIN_DIR", INCLUDES_DIR . "acf_option_pages/");
+define("ACF_OPTION_PAGES_DIR", ACF_OPTION_PAGES_MAIN_DIR . "acf_pages/");
+
+define("BOOTSTRAP_WALKERS_MAIN_DIR", INCLUDES_DIR . "bootstrap_walkers/");
+define("BOOTSTRAP_WALKERS_DIR", BOOTSTRAP_WALKERS_MAIN_DIR . "classes/");
+
+define("WIDGET_CLASSES_MAIN_DIR", INCLUDES_DIR . "option_widgets/");
+define("WIDGET_CLASSES_DIR", WIDGET_CLASSES_MAIN_DIR . "widgets/");
 
 define("SIDEBARS_DIR", INCLUDES_DIR . "sidebars/");
 

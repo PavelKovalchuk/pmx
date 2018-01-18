@@ -104,7 +104,7 @@ require INCLUDES_DIR . 'scripts.php';
  * Register Widgets
  */
 
-require INCLUDES_DIR . 'option_widgets/widgets-index.php';
+require WIDGET_CLASSES_MAIN_DIR . 'widgets-index.php';
 
 /**
  * Register Sidebars
@@ -130,16 +130,13 @@ require INCLUDES_DIR . 'customizer.php';
 /**
  * Bootstrap Walker.
  */
-require INCLUDES_DIR . 'bootstrap-walker.php';
-
-
-/**
- * Bootstrap Walker Footer.
- */
-require INCLUDES_DIR . 'bootstrap-walker-footer.php';
+require BOOTSTRAP_WALKERS_MAIN_DIR . 'bootstrap-walker-index.php';
 
 /**
  * Custom templates 
+ */
+/**
+ * TODO - Should be deleted
  */
 require INCLUDES_DIR . 'template-parts.php';
 
@@ -163,7 +160,7 @@ require INCLUDES_DIR . 'template-parts.php';
 /**
  * HTML markup parts
  */
-require get_template_directory() . '/template-parts/template-parts-index.php';
+require TEMPLATE_PARTS_MAIN_DIR . 'template-parts-index.php';
 
 
 
@@ -175,6 +172,8 @@ if ( is_admin() ) {
 
 	require INCLUDES_DIR . 'admin_functions.php';
 
-	require INCLUDES_DIR . 'option_pages/option-pages-index.php';
+	require OPTION_PAGES_MAIN_DIR . 'option-pages-index.php';
+
+	require ACF_OPTION_PAGES_MAIN_DIR . 'acf-option-pages-index.php';
 }
 

@@ -19,7 +19,7 @@ function get_template_simple_text($title, $text){
 		<div class="col-sm-12 text-center">
 			<article class="experienced_article">
 				<header>
-					<h1><?php echo $title; ?></h1>
+					<h2 class="header-title"><?php echo $title; ?></h2>
 				</header>
 				<p><?php echo $text; ?></p>
 			</article>
@@ -42,7 +42,7 @@ function get_template_transformation_blocks($title, $items){
 			<article class="transformation_article">
 
 				<header>
-					<h1><?php echo $title; ?></h1>
+					<h2 class="header-title"><?php echo $title; ?></h2>
 				</header>
 
 				<div class="row">
@@ -68,7 +68,7 @@ function get_template_transformation_blocks($title, $items){
 
 function get_template_product_promo($title, $image, $image_alt, $link_target, $link_text, $text){
 
-	if( !$title || !$image || !$image_alt || !$link_target || !$link_text || !$text){
+	if( !$title || !$image || !$link_target || !$text){
 		return false;
 	}
 
@@ -87,7 +87,7 @@ function get_template_product_promo($title, $image, $image_alt, $link_target, $l
 		</div>
 		<div class="dynamics_article_right">
 			<header>
-				<h1><?php echo $title; ?></h1>
+				<h2 class="header-title"><?php echo $title; ?></h2>
 			</header>
 			<p><?php echo $text; ?></p>
 		</div>
@@ -97,4 +97,5 @@ function get_template_product_promo($title, $image, $image_alt, $link_target, $l
 
 	<?php
 }
+
 

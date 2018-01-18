@@ -57,6 +57,34 @@ get_header(); ?>
 
     </section>
 
+
+    <section id="blogEvents">
+        <div class="fullwidth bg-primary">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+
+	                    <?php
+	                        $events = get_field('promx_events_' . CURRENT_LANG_CODE, 'option');
+
+                            get_template_blog_and_events_block(
+                                                                $data['blog_promo_title_section'],
+                                                                $data['blog_promo_title_subtitle'],
+                                                                $data['blog_promo_image'],
+                                                                $data['blog_promo_image_alt'],
+                                                                $data['blog_promo_link_target'],
+                                                                $data['blog_promo_link_text'],
+                                                                $data['blog_promo_text'],
+		                                                        $data['blog_promo_event_link_text'],
+	                                                            $events
+	                    ); ?>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
 </main>
 
 <?php get_footer(); ?>

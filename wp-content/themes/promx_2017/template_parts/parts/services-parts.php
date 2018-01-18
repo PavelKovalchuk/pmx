@@ -38,7 +38,7 @@ function get_template_services_blocks($title, $items){
 	<article class="services_article">
 
 		<header class="text-center">
-			<h1 class="white small-gap"><?php echo $title; ?></h1>
+			<h2 class="header-title white small-gap"><?php echo $title; ?></h2>
 		</header>
 		<div class="hr dark_hr">&nbsp;</div>
 
@@ -46,35 +46,47 @@ function get_template_services_blocks($title, $items){
 
 			<div class="services_article_row_left">
 
+                <?php if(!empty($items[0])){ ?>
 				<div class="services_article_row_left_first">
 
 					<?php __get_services_image_part($items[0]) ?>
 					<?php __get_services_text_part($items[0], 'bg-dark first-flex'); ?>
 
 				</div>
+                <?php } ?>
+
+	            <?php if(!empty($items[1])){ ?>
 				<div class="services_article_row_left_second">
 
 					<?php __get_services_text_part($items[1], 'bg-secondary'); ?>
 					<?php __get_services_image_part($items[1]) ?>
 
 				</div>
+	            <?php } ?>
 
 			</div>
 
 			<div class="services_article_row_right">
 				<div class="services_article_row_right_wrap">
+
+	                <?php if(!empty($items[2])){ ?>
 					<div class="services_article_row_right_first">
 
 						<?php __get_services_image_part($items[2]) ?>
 						<?php __get_services_text_part($items[2], 'bg-dark first-flex'); ?>
 
 					</div>
+	                <?php } ?>
+
+	                <?php if(!empty($items[3])){ ?>
 					<div class="services_article_row_right_second">
 
 						<?php __get_services_text_part($items[3], 'bg-secondary first-flex'); ?>
 						<?php __get_services_image_part($items[3]) ?>
 
 					</div>
+	                <?php } ?>
+
 				</div>
 			</div>
 

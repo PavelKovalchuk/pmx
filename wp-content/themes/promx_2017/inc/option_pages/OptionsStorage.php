@@ -14,7 +14,7 @@
 		    'capability'	=> 'manage_options',
 		    'menu_slug'		=> 'promx_option_pages',
 		    'icon_url'		=> 'dashicons-editor-code',
-		    'position'		=> 99,
+		    'position'		=> 101,
 		    'sections'		=> array(
 			    //			A new section
 			    array(

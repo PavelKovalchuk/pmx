@@ -5,8 +5,8 @@
  * Date: 13.01.2018
  * Time: 15:55
  */
-require get_template_directory() . '/inc/classes/option-pages/option-pages.php';
-require INCLUDES_DIR . 'option_pages/OptionsStorage.php';
+require INCLUDES_CLASSES_DIR . 'option-pages/option-pages.php';
+require OPTION_PAGES_MAIN_DIR . 'OptionsStorage.php';
 
 $options_storage = new OptionsStorage();
 $options_page = new OptionPages();
