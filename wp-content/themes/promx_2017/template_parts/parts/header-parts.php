@@ -92,7 +92,7 @@ function get_template_header_menu_icons(){
 
 	$items = wp_get_nav_menu_items( 'Header icon menu ' . strtoupper(CURRENT_LANG_CODE), $args );
 
-	if(!$items){
+	if(empty($items)){
 	    return;
     }
 

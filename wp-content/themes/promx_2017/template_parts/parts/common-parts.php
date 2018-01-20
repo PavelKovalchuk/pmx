@@ -31,7 +31,7 @@ function get_template_simple_text($title, $text){
 
 function get_template_transformation_blocks($title, $items){
 
-	if( !$title || !$items){
+	if( !$title || empty($items)){
 		return false;
 	}
 
@@ -93,6 +93,82 @@ function get_template_product_promo($title, $image, $image_alt, $link_target, $l
 		</div>
 	</article>
 
+
+
+	<?php
+}
+
+function get_template_our_numbers($title, $items){
+
+	if( !$title || empty($items)){
+		return false;
+	}
+
+	?>
+
+    <article class="experienced_article">
+        <header>
+            <h2 class="header-title"><?php echo $title; ?></h2>
+        </header>
+        <div class="numbers-wrap">
+
+	        <?php
+            $i = 0;
+            foreach ($items as $item){
+                $i++; ?>
+
+                <div class="numbers-item">
+                    <div id="number<?php echo $i; ?>" data-number-block-item="<?php echo $item['number']; ?>">
+                        <p></p>
+                    </div>
+                    <span><?php echo $item['text']; ?></span>
+                </div>
+
+	        <?php } ?>
+
+
+        </div>
+    </article>
+
+
+	<?php
+}
+
+function get_template_fullwidth_image_part($image, $image_alt, $parent_class){
+	if( !$image || !$image_alt){
+		return false;
+	} ?>
+
+    <div class="fullwidth <?php  echo $parent_class; ?>">
+        <img src="<?php echo $image; ?>" alt="<?php print_image_alt($image_alt); ?>" class="img-responsive">
+    </div>
+
+	<?php
+}
+
+
+function get_template_contact_us_block($title, $text, $person){
+
+	if( !$title || !$text || !$person){
+		return false;
+	}
+
+	?>
+
+    <article class="contact_article">
+        <header>
+            <h2 class="header-title text-center"><?php echo $title; ?></h2>
+        </header>
+        <div class="row">
+            <div class="col-sm-12 col-md-7 col-lg-6">
+                <?php get_form_template_main(); ?>
+            </div>
+            <div class="col-md-5 col-lg-6 hidden-xs hidden-sm">
+                <p class="text-justify contact-text"><?php echo $text; ?></p>
+                <p class="text-right contact-text"><?php echo $person; ?></p>
+            </div>
+        </div>
+    </article>
 
 
 	<?php

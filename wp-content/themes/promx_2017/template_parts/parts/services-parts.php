@@ -29,7 +29,7 @@ function __get_services_text_part($data, $class){
 
 function get_template_services_blocks($title, $items){
 
-	if( !$title || !$items){
+	if( !$title || empty($items)){
 		return false;
 	}
 

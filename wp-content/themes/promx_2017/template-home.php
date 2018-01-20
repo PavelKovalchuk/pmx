@@ -4,9 +4,7 @@ Template Name: Home page
 */
 
 /* variables of content */
- $data = get_fields();
- 
- 
+$data = get_fields();
 
 get_header(); ?>
 
@@ -83,6 +81,36 @@ get_header(); ?>
                 </div>
             </div>
         </div>
+    </section>
+
+    <section id="numbers">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 text-center">
+                    <?php get_template_our_numbers($data['our_numbers_title'], $data['our_numbers_items']); ?>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contactUs" class="contact-us-section">
+        <div class="container contact-us-form">
+            <div class="row">
+                <div class="col-sm-12">
+                    <?php get_template_contact_us_block(
+                            $data['contact_us_image_block_title'],
+                            $data['contact_us_image_block_text'],
+                            $data['contact_us_image_block_text_author']
+                           );
+                    ?>
+                </div>
+            </div>
+        </div>
+        <?php get_template_fullwidth_image_part(
+                    $data['contact_us_image_block_image'],
+	                $data['contact_us_image_block_image_alt'],
+                    'contact-us-img');
+        ?>
     </section>
 
 </main>

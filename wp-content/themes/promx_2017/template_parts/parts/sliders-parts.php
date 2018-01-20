@@ -8,7 +8,7 @@
 
 function get_template_main_slider($sliders){
 
-	if(! $sliders){
+	if(empty($sliders)){
 		return false;
 	}
 
