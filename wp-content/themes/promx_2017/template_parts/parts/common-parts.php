@@ -175,3 +175,74 @@ function get_template_contact_us_block($title, $text, $person){
 }
 
 
+function get_template_assignments_section($items){
+
+	if(empty($items)){
+		return false;
+	}
+
+	?>
+
+    <section id="subslider" class="subslider-section bg-primary">
+        <div class="container">
+            <div class="row">
+
+	            <?php foreach ($items as $item){ ?>
+
+                    <div class="col-sm-4 col-md-4 subslider-section_item">
+                        <h2><?php echo $item['title']; ?></h2>
+                        <p><?php echo $item['text']; ?></p>
+                    </div>
+
+	            <?php } ?>
+
+            </div>
+        </div>
+    </section>
+
+
+	<?php
+}
+
+
+function get_template_instruction_video_section($title, $text, $video_link){
+
+	if( !$title || !$text || !$video_link){
+		return false;
+	}
+
+	?>
+
+    <section id="howToUse">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <article class="howToUse_article">
+                        <div class="row">
+                            <div class="col-sm-6 col-md-6 howToUse_article_left">
+
+                                <div class="embed-responsive embed-responsive-16by9">
+                                    <iframe width="758" height="426" src="<?php echo $video_link; ?>?rel=0&amp;controls=0" frameborder="0" allowfullscreen></iframe>
+                                </div>
+
+                            </div>
+                            <div class="col-sm-6 col-md-6 howToUse_article_right">
+                                <header>
+
+                                    <h2 class="how-use-header-title"><?php echo $title; ?></h2>
+
+                                </header>
+                                <p><?php echo $text; ?></p>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+	<?php
+}
+
+

@@ -60,11 +60,13 @@
   }
   &_right {
     & header {
-      h1 {
+      h1
+      , .how-use-header-title{
         background-color: $secondary-color;
         color: $color-white;
         padding: $section-padding/2 1em;
         position: relative;
+        font-size: $H1-size;
         @include media-breakpoint-down(md) {
           font-size: $base-size*2;
           padding: $section-padding/2 .75em;

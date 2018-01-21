@@ -14,6 +14,7 @@ require TEMPLATE_PARTS_DIR . 'services-parts.php';
 require TEMPLATE_PARTS_DIR . 'event-parts.php';
 require TEMPLATE_PARTS_DIR . 'banners-parts.php';
 require TEMPLATE_PARTS_DIR . 'blog-parts.php';
+require TEMPLATE_PARTS_DIR . 'what-you-get-parts.php';
 
 require TEMPLATE_PARTS_DIR . 'forms/home-contact-form.php';
 require TEMPLATE_PARTS_DIR . 'forms/event-contact-form.php';

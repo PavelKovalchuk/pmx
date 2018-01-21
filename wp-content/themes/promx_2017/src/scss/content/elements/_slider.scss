@@ -105,6 +105,11 @@
   @include media-breakpoint-only(sm) {
     font-size: 12px;
   }
+
+  h2{
+    font-size: inherit;
+  }
+
   .slide {
     .fullwidth {
       background-repeat: no-repeat;
@@ -117,7 +122,11 @@
   .slider-title{
 
     text-transform: uppercase;
-    font-size: $base-size;
+
+    @include media-breakpoint-down(xs) {
+      text-align: center;
+    }
+    //font-size: $base-size;
 
     .title-part{
       color: $color-white;
@@ -126,6 +135,7 @@
       line-height: 0.9;
       margin-bottom: 0;
       margin-top: 0;
+      display: block;
       @include media-breakpoint-down(xs) {
         text-align: center;
       }
@@ -147,6 +157,8 @@
       line-height: 0.9;
       margin-bottom: 24px;
       margin-top: 0;
+      display: block;
+
       @include media-breakpoint-down(xs) {
         text-align: center;
       }
