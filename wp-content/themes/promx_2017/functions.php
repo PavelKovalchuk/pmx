@@ -44,7 +44,7 @@ if ( ! function_exists( 'gm_wp_setup' ) ) :
          */
         add_theme_support( 'post-thumbnails' );
 
-       // add_image_size( 'category-post-image', 672, 360, true );
+        add_image_size( 'preview-post-image', 470, 280, false );
         /*add_image_size( 'post-main-image', 973, 500, true );
 	    add_image_size( 'post-carousel-image', 370, 240, true );
 
@@ -126,6 +126,12 @@ require INCLUDES_DIR . 'extras.php';
  * Customizer additions.
  */
 require INCLUDES_DIR . 'customizer.php';
+
+/**
+ * Pagination
+ */
+
+require INCLUDES_DIR . 'pagination.php';
 
 /**
  * Bootstrap Walker.

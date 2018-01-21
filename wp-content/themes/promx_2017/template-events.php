@@ -13,7 +13,10 @@ get_header(); ?>
 									$data['featured_banner_text'],
 									$data['featured_banner_image'],
 									$data['featured_banner_link_target'],
-									$data['featured_banner_link_text']);
+									$data['featured_banner_link_text'],
+                        false,
+                    false
+);
 ?>
 
 <main class="site-content">

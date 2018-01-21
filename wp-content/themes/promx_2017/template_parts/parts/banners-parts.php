@@ -6,7 +6,7 @@
  * Time: 19:53
  */
 
-function get_template_featured_banner($title, $text, $image, $link_target, $link_text){
+function get_template_featured_banner($title, $text, $image, $link_target, $link_text, $image_subject, $image_subject_alt){
 
 	if( !$title || !$text|| !$image || !$link_target){
 		return false;
@@ -19,6 +19,7 @@ function get_template_featured_banner($title, $text, $image, $link_target, $link
 			<div class="fullwidth" style="background-image: url('<?php echo $image; ?>');">
 				<div class="container">
 					<div class="row">
+
 						<div class="col-sm-7">
 							<h1 class="subtitle light">
 								<?php echo $title; ?>
@@ -28,6 +29,15 @@ function get_template_featured_banner($title, $text, $image, $link_target, $link
 								<a href="<?php echo $link_target; ?>" type="button" class="btn btn-primary btn-htransp"><?php print_button_text($link_text); ?></a>
 							</div>
 						</div>
+
+                        <?php if($image_subject){ ?>
+
+                            <div class="col-sm-5 slider-extra-img">
+                                <img src="<?php echo $image_subject; ?>" alt="<?php print_image_alt($image_subject_alt); ?>">
+                            </div>
+
+                        <?php } ?>
+
 					</div>
 				</div>
 			</div>

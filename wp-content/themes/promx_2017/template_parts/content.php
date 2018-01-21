@@ -15,8 +15,11 @@
 
         <div class="col-lg-12 ">
 
-                <?php if ( has_post_thumbnail() && is_single() ) : ?>
-                    <div class="row no-gutters post-thumbnail">
+            <?php if ( has_post_thumbnail() && is_single() ) :
+
+                    ?>
+
+                    <div class="row post-thumbnail">
                         <?php //the_post_thumbnail('post-full-image-cropped', array('class' => 'rounded post_image')); ?>
 
 
@@ -80,7 +83,7 @@
                         </header><!-- .entry-header -->
 
                         <div class="row entry-content post_content_container">
-                            <?php  get_social_sharing_buttons(); ?>
+                            <?php // get_social_sharing_buttons(); ?>
                             <div class="post_element post_content">
 
 			                    <?php

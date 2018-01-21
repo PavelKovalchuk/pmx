@@ -12,11 +12,11 @@ get_header(); ?>
 
     <main id="main" class="site-content"  role="main">
         <div class="container">
-            <div class="row no-gutters">
+            <div class="row">
 
                          <?php while ( have_posts() ) : the_post();
 
-                                get_template_part( 'template-parts/content', get_post_format() );
+                                get_template_part( 'template_parts/content', get_post_format() );
 
                                 //the_post_navigation();
 
