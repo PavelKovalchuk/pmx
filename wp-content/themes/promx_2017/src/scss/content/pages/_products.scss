@@ -1,7 +1,8 @@
 .subslider-section {
   padding-top: $elements-gap;
   padding-bottom: $elements-gap;
-  h1 {
+  h1
+  , .header-title-white{
     color: $color-white;
     margin-bottom: $elements-gap/1.5;
   }

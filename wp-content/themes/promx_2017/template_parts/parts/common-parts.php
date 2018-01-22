@@ -199,7 +199,7 @@ function get_template_contact_us_block($title, $text, $person){
 }
 
 
-function get_template_assignments_section($items){
+function get_template_assignments_section($items, $title = false){
 
 	if(empty($items)){
 		return false;
@@ -209,12 +209,27 @@ function get_template_assignments_section($items){
 
     <section id="subslider" class="subslider-section bg-primary">
         <div class="container">
+
+            <?php if($title){ ?>
+            <div class="row">
+                <div class="col-sm-12 text-center">
+                    <h2 class="header-title header-title-white"><?php echo $title; ?></h2>
+                </div>
+            </div>
+            <?php } ?>
+
             <div class="row">
 
 	            <?php foreach ($items as $item){ ?>
 
                     <div class="col-sm-4 col-md-4 subslider-section_item">
-                        <h2><?php echo $item['title']; ?></h2>
+                        <h2>
+                            <?php if($item['image']){ ?>
+                                <img src="<?php echo $item['image']; ?>" alt="<?php print_image_alt($item['title']); ?>">
+                            <?php } ?>
+
+                            <?php echo $item['title']; ?>
+                        </h2>
                         <p><?php echo $item['text']; ?></p>
                     </div>
 

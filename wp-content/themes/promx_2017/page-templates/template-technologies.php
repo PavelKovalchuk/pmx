@@ -19,7 +19,7 @@ get_header();
 <main>
 
 	<?php
-    get_template_assignments_section($data['assignments_items']);
+    get_template_assignments_section($data['assignments_items'], $data['assignments_section_title']);
 
     get_template_instruction_video_section(
                                             $data['instruction_video_section_title'],
