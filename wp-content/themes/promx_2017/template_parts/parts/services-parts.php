@@ -35,66 +35,76 @@ function get_template_services_blocks($title, $items){
 
 	?>
 
-	<article class="services_article">
+    <section id="services">
+        <div class="fullwidth bg-primary">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
 
-		<header class="text-center">
-			<h2 class="header-title white small-gap"><?php echo $title; ?></h2>
-		</header>
-		<div class="hr dark_hr">&nbsp;</div>
+                        <article class="services_article">
 
-		<div class="services_article_row">
+                            <header class="text-center">
+                                <h2 class="header-title white small-gap"><?php echo $title; ?></h2>
+                            </header>
+                            <div class="hr dark_hr">&nbsp;</div>
 
-			<div class="services_article_row_left">
+                            <div class="services_article_row">
 
-                <?php if(!empty($items[0])){ ?>
-				<div class="services_article_row_left_first">
+                                <div class="services_article_row_left">
 
-					<?php __get_services_image_part($items[0]) ?>
-					<?php __get_services_text_part($items[0], 'bg-dark first-flex'); ?>
+				                    <?php if(!empty($items[0])){ ?>
+                                        <div class="services_article_row_left_first">
 
-				</div>
-                <?php } ?>
+						                    <?php __get_services_image_part($items[0]) ?>
+						                    <?php __get_services_text_part($items[0], 'bg-dark first-flex'); ?>
 
-	            <?php if(!empty($items[1])){ ?>
-				<div class="services_article_row_left_second">
+                                        </div>
+				                    <?php } ?>
 
-					<?php __get_services_text_part($items[1], 'bg-secondary'); ?>
-					<?php __get_services_image_part($items[1]) ?>
+				                    <?php if(!empty($items[1])){ ?>
+                                        <div class="services_article_row_left_second">
 
-				</div>
-	            <?php } ?>
+						                    <?php __get_services_text_part($items[1], 'bg-secondary'); ?>
+						                    <?php __get_services_image_part($items[1]) ?>
 
-			</div>
+                                        </div>
+				                    <?php } ?>
 
-			<div class="services_article_row_right">
-				<div class="services_article_row_right_wrap">
+                                </div>
 
-	                <?php if(!empty($items[2])){ ?>
-					<div class="services_article_row_right_first">
+                                <div class="services_article_row_right">
+                                    <div class="services_article_row_right_wrap">
 
-						<?php __get_services_image_part($items[2]) ?>
-						<?php __get_services_text_part($items[2], 'bg-dark first-flex'); ?>
+					                    <?php if(!empty($items[2])){ ?>
+                                            <div class="services_article_row_right_first">
 
-					</div>
-	                <?php } ?>
+							                    <?php __get_services_image_part($items[2]) ?>
+							                    <?php __get_services_text_part($items[2], 'bg-dark first-flex'); ?>
 
-	                <?php if(!empty($items[3])){ ?>
-					<div class="services_article_row_right_second">
+                                            </div>
+					                    <?php } ?>
 
-						<?php __get_services_text_part($items[3], 'bg-secondary first-flex'); ?>
-						<?php __get_services_image_part($items[3]) ?>
+					                    <?php if(!empty($items[3])){ ?>
+                                            <div class="services_article_row_right_second">
 
-					</div>
-	                <?php } ?>
+							                    <?php __get_services_text_part($items[3], 'bg-secondary first-flex'); ?>
+							                    <?php __get_services_image_part($items[3]) ?>
 
-				</div>
-			</div>
+                                            </div>
+					                    <?php } ?>
 
-		</div>
+                                    </div>
+                                </div>
 
+                            </div>
 
+                        </article>
 
-	</article>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
 	<?php
 }

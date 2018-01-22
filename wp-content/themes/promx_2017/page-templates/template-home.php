@@ -23,22 +23,9 @@ get_header(); ?>
       </div>
      </section>
 
-    <section id="services">
-        <div class="fullwidth bg-primary">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-12">
-	                    <?php get_template_services_blocks($data['services_title'], $data['services_blocks']); ?>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <section id="dynamics">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12">
+	 <?php get_template_services_blocks($data['services_title'], $data['services_blocks']); ?>
+
 
 	                <?php get_template_product_promo(
 	                                                $data['product_promo_title'],
@@ -49,18 +36,6 @@ get_header(); ?>
                                                     $data['product_promo_text']
                     ); ?>
 
-                </div>
-            </div>
-        </div>
-
-    </section>
-
-
-    <section id="blogEvents">
-        <div class="fullwidth bg-primary">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-12">
 
 	                    <?php
 	                        $events = get_field('promx_events_' . CURRENT_LANG_CODE, 'option');
@@ -77,11 +52,6 @@ get_header(); ?>
 	                                                            $events
 	                    ); ?>
 
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <section id="numbers">
         <div class="container">

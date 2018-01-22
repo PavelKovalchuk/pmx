@@ -59,34 +59,46 @@ function get_template_blog_and_events_block($title, $subtitle, $image, $image_al
 
 	?>
 
-	<article class="blogEvents_article">
-		<header class="text-center">
-			<h2 class="header-title white small-gap"><?php echo $title; ?></h2>
-		</header>
-		<div class="hr dark_hr">&nbsp;</div>
-		<div class="blogEvents_article_row">
-			<div class="blogEvents_article_row_left">
-				<div class="blogEvents_article_row_left_first">
-					<div class="text-part bg-dark first-flex">
-						<h3><?php echo $subtitle; ?></h3>
-						<p class="text-justify"><?php echo $text; ?> </p>
-						<button type="button" class="btn btn-link">Read more</button>
-					</div>
-					<div class="image-part second-flex">
-						<img src="<?php echo $image; ?>" alt="<?php print_image_alt($image_alt) ?>" class="img-responsive">
-						<a href="<?php echo $link_target; ?>" type="button" class="btn btn-primary btn-outline-inverted visible-xs"><?php print_button_text($link_text);?></a>
-					</div>
-				</div>
-			</div>
-			<div class="blogEvents_article_row_right">
-				<div class="blogEvents_article_row_right_wrap">
+    <section id="blogEvents">
+        <div class="fullwidth bg-primary">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
 
-                    <?php __get_promo_events_part($events_filtered, $event_link_text); ?>
+                        <article class="blogEvents_article">
+                            <header class="text-center">
+                                <h2 class="header-title white small-gap"><?php echo $title; ?></h2>
+                            </header>
+                            <div class="hr dark_hr">&nbsp;</div>
+                            <div class="blogEvents_article_row">
+                                <div class="blogEvents_article_row_left">
+                                    <div class="blogEvents_article_row_left_first">
+                                        <div class="text-part bg-dark first-flex">
+                                            <h3><?php echo $subtitle; ?></h3>
+                                            <p class="text-justify"><?php echo $text; ?> </p>
+                                            <button type="button" class="btn btn-link">Read more</button>
+                                        </div>
+                                        <div class="image-part second-flex">
+                                            <img src="<?php echo $image; ?>" alt="<?php print_image_alt($image_alt) ?>" class="img-responsive">
+                                            <a href="<?php echo $link_target; ?>" type="button" class="btn btn-primary btn-outline-inverted visible-xs"><?php print_button_text($link_text);?></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="blogEvents_article_row_right">
+                                    <div class="blogEvents_article_row_right_wrap">
 
-				</div>
-			</div>
-		</div>
-	</article>
+					                    <?php __get_promo_events_part($events_filtered, $event_link_text); ?>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
 	<?php
 }
