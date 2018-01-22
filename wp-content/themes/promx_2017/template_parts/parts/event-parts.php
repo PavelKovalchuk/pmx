@@ -113,56 +113,63 @@ function get_template_events_list($events){
 	$register_text = get_field('promx_events_general_register_name_' . CURRENT_LANG_CODE, 'option');
 
 	?>
+    <section id="events" class="bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-10 col-lg-offset-1">
 
-    <article>
-        <div class="events-list">
+                    <article>
+                        <div class="events-list">
 
-            <?php foreach ($events as $event){ ?>
+			                <?php foreach ($events as $event){ ?>
 
-                <div class="events-list__item">
-                    <div class="events-list__item_img">
-                        <img src="<?php echo $event['image']; ?>" class="img-responsive" alt="<?php print_image_alt($event['image_alt']); ?>">
-                    </div>
-                    <div class="events-list__item_info">
-                        <h2><?php echo $event['title']; ?></h2>
-                        <div class="entry-tag">
-                            <span><?php echo $event['place']; ?></span> /
-                            <span><?php echo $event['time']; ?></span>
+                                <div class="events-list__item">
+                                    <div class="events-list__item_img">
+                                        <img src="<?php echo $event['image']; ?>" class="img-responsive" alt="<?php print_image_alt($event['image_alt']); ?>">
+                                    </div>
+                                    <div class="events-list__item_info">
+                                        <h2><?php echo $event['title']; ?></h2>
+                                        <div class="entry-tag">
+                                            <span><?php echo $event['place']; ?></span> /
+                                            <span><?php echo $event['time']; ?></span>
+                                        </div>
+                                        <p>
+							                <?php echo $event['text']; ?>
+                                        </p>
+                                    </div>
+                                    <div class="events-list__item_links">
+
+						                <?php if($event['link_target']){ ?>
+                                            <a href="<?php echo $event['link_target']; ?>" class="link-item">
+                                                <div>
+                                                    <i class="icon-next"></i>
+                                                </div>
+								                <?php print_button_text($link_text); ?>
+                                            </a>
+						                <?php }else{ ?>
+                                            <span></span>
+						                <?php } ?>
+
+						                <?php // TODO - forms - on click on this - forms should be checked on this event ?>
+                                        <a href="#" class="link-item" data-event-target="<?php echo $event['code']; ?>">
+                                            <div>
+                                                <i class="icon-calendar"></i>
+                                            </div>
+							                <?php print_button_text($register_text); ?>
+                                        </a>
+
+                                    </div>
+                                </div>
+
+			                <?php } ?>
+
+
                         </div>
-                        <p>
-	                        <?php echo $event['text']; ?>
-                        </p>
-                    </div>
-                    <div class="events-list__item_links">
-
-                        <?php if($event['link_target']){ ?>
-                        <a href="<?php echo $event['link_target']; ?>" class="link-item">
-                            <div>
-                                <i class="icon-next"></i>
-                            </div>
-	                        <?php print_button_text($link_text); ?>
-                        </a>
-                        <?php }else{ ?>
-                            <span></span>
-                        <?php } ?>
-
-                        <?php // TODO - forms - on click on this - forms should be checked on this event ?>
-                        <a href="#" class="link-item" data-event-target="<?php echo $event['code']; ?>">
-                            <div>
-                                <i class="icon-calendar"></i>
-                            </div>
-	                        <?php print_button_text($register_text); ?>
-                        </a>
-
-                    </div>
+                    </article>
                 </div>
-
-            <?php } ?>
-
-
+            </div>
         </div>
-    </article>
-
+    </section>
 
 	<?php
 }

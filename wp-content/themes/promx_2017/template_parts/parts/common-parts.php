@@ -114,31 +114,39 @@ function get_template_our_numbers($title, $items){
 	}
 
 	?>
+    <section id="numbers">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 text-center">
 
-    <article class="experienced_article">
-        <header>
-            <h2 class="header-title"><?php echo $title; ?></h2>
-        </header>
-        <div class="numbers-wrap">
+                    <article class="experienced_article">
+                        <header>
+                            <h2 class="header-title"><?php echo $title; ?></h2>
+                        </header>
+                        <div class="numbers-wrap">
 
-	        <?php
-            $i = 0;
-            foreach ($items as $item){
-                $i++; ?>
+			                <?php
+			                $i = 0;
+			                foreach ($items as $item){
+				                $i++; ?>
 
-                <div class="numbers-item">
-                    <div id="number<?php echo $i; ?>" data-number-block-item="<?php echo $item['number']; ?>">
-                        <p></p>
-                    </div>
-                    <span><?php echo $item['text']; ?></span>
+                                <div class="numbers-item">
+                                    <div id="number<?php echo $i; ?>" data-number-block-item="<?php echo $item['number']; ?>">
+                                        <p></p>
+                                    </div>
+                                    <span><?php echo $item['text']; ?></span>
+                                </div>
+
+			                <?php } ?>
+
+
+                        </div>
+                    </article>
+
                 </div>
-
-	        <?php } ?>
-
-
+            </div>
         </div>
-    </article>
-
+    </section>
 
 	<?php
 }
@@ -164,21 +172,28 @@ function get_template_contact_us_block($title, $text, $person){
 
 	?>
 
-    <article class="contact_article">
-        <header>
-            <h2 class="header-title text-center"><?php echo $title; ?></h2>
-        </header>
+    <div class="container contact-us-form">
         <div class="row">
-            <div class="col-sm-12 col-md-7 col-lg-6">
-                <?php get_form_template_main(); ?>
-            </div>
-            <div class="col-md-5 col-lg-6 hidden-xs hidden-sm">
-                <p class="text-justify contact-text"><?php echo $text; ?></p>
-                <p class="text-right contact-text"><?php echo $person; ?></p>
+            <div class="col-sm-12">
+
+                <article class="contact_article">
+                    <header>
+                        <h2 class="header-title text-center"><?php echo $title; ?></h2>
+                    </header>
+                    <div class="row">
+                        <div class="col-sm-12 col-md-7 col-lg-6">
+				            <?php get_form_template_main(); ?>
+                        </div>
+                        <div class="col-md-5 col-lg-6 hidden-xs hidden-sm">
+                            <p class="text-justify contact-text"><?php echo $text; ?></p>
+                            <p class="text-right contact-text"><?php echo $person; ?></p>
+                        </div>
+                    </div>
+                </article>
+
             </div>
         </div>
-    </article>
-
+    </div>
 
 	<?php
 }
