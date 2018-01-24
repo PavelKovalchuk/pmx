@@ -9,7 +9,7 @@ require get_template_directory() . '/inc/constants.php';
 /* Disable WordPress Admin Bar for all users but admins. */
 show_admin_bar(false);
 
-if ( ! function_exists( 'gm_wp_setup' ) ) :
+if ( ! function_exists( 'promx_wp_setup' ) ) :
     /**
      * Sets up theme defaults and registers support for various WordPress features.
      *
@@ -17,14 +17,14 @@ if ( ! function_exists( 'gm_wp_setup' ) ) :
      * runs before the init hook. The init hook is too late for some features, such
      * as indicating support for post thumbnails.
      */
-    function gm_wp_setup() {
+    function promx_wp_setup() {
         /*
          * Make theme available for translation.
          * Translations can be filed in the /languages/ directory.
          * If you're building a theme based on StrapPress, use a find and replace
          * to change 'strappress' to the name of your theme in all the template files.
          */
-        load_theme_textdomain( 'gm_wp', get_template_directory() . '/languages' );
+        load_theme_textdomain( 'promx', get_template_directory() . '/languages' );
 
         // Add default posts and comments RSS feed links to head.
         add_theme_support( 'automatic-feed-links' );
@@ -92,7 +92,7 @@ if ( ! function_exists( 'gm_wp_setup' ) ) :
         add_theme_support( 'customize-selective-refresh-widgets' );
     }
 endif;
-add_action( 'after_setup_theme', 'gm_wp_setup' );
+add_action( 'after_setup_theme', 'promx_wp_setup' );
 
 
 /**
@@ -137,6 +137,11 @@ require INCLUDES_DIR . 'pagination.php';
  * Bootstrap Walker.
  */
 require BOOTSTRAP_WALKERS_MAIN_DIR . 'bootstrap-walker-index.php';
+
+/**
+ * Custom Post Types
+ */
+require CPT_MAIN_DIR . 'cpt-index.php';
 
 /**
  * Custom templates 

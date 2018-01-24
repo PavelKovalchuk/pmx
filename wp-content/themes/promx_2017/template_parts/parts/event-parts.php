@@ -34,7 +34,7 @@ function __get_promo_events_part($events, $event_link_text){
                 <a href="<?php echo $events[$i]['link_target']; ?>" type="button" class="btn btn-primary btn-outline-inverted"><?php print_button_text($event_link_text); ?></a>
             </div>
             <div class="image-part second-flex ">
-                <img src="<?php echo $events[$i]['image']; ?>" alt="<?php print_image_alt($events[$i]['image_alt']) ?>" class="img-responsive">
+                <img src="<?php echo $events[$i]['big_image']; ?>" alt="<?php print_image_alt($events[$i]['image_alt']) ?>" class="img-responsive">
                 <a href="<?php echo $events[$i]['link_target']; ?>" type="button" class="btn btn-primary btn-outline-inverted visible-xs"><?php print_button_text($event_link_text); ?></a>
             </div>
         </div>
@@ -49,13 +49,7 @@ function get_template_blog_and_events_block($title, $subtitle, $image, $image_al
 		return false;
 	}
 
-	$events_filtered = [];
-
-	foreach ($events as $event){
-		if($event['promoted'] == true){
-			$events_filtered[] = $event;
-		}
-	}
+	$events_filtered = array_slice($events, 0, 2);
 
 	?>
 
@@ -109,8 +103,9 @@ function get_template_events_list($events){
 		return false;
 	}
 
-	$link_text = get_field('promx_events_general_buttons_name_' . CURRENT_LANG_CODE, 'option');
-	$register_text = get_field('promx_events_general_register_name_' . CURRENT_LANG_CODE, 'option');
+	$options = get_option( '_promx_events_buttons_options' );
+	$option_read_more = $options['read_more_events_text_' . CURRENT_LANG_CODE];
+	$option_register = $options['register_events_text_' . CURRENT_LANG_CODE];
 
 	?>
     <section id="events" class="bg-light">
@@ -144,7 +139,14 @@ function get_template_events_list($events){
                                                 <div>
                                                     <i class="icon-next"></i>
                                                 </div>
-								                <?php print_button_text($link_text); ?>
+								                <?php
+                                                if($event['link_text']){
+	                                                print_button_text($event['link_text']);
+                                                }else{
+                                                    echo $option_read_more;
+                                                }
+
+                                                ?>
                                             </a>
 						                <?php }else{ ?>
                                             <span></span>
@@ -155,7 +157,7 @@ function get_template_events_list($events){
                                             <div>
                                                 <i class="icon-calendar"></i>
                                             </div>
-							                <?php print_button_text($register_text); ?>
+							                <?php print_button_text($option_register); ?>
                                         </a>
 
                                     </div>

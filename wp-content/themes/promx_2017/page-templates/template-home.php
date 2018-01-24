@@ -37,7 +37,13 @@ get_header(); ?>
                                  $data['product_promo_text']
       );
 
-	 $events = get_field('promx_events_' . CURRENT_LANG_CODE, 'option');
+	 $events = [];
+	 if( !empty($data['upcoming_events']) ){
+
+		 foreach ($data['upcoming_events'] as $event){
+			 $events[] = get_fields($event);
+		 }
+	 }
 
 	 get_template_blog_and_events_block(
                                          $data['blog_promo_title_section'],

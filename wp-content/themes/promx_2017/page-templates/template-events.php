@@ -24,7 +24,13 @@ get_header(); ?>
 
 	<?php
 
-    $events = get_field('promx_events_' . CURRENT_LANG_CODE, 'option');
+	$events = [];
+	if( !empty($data['upcoming_events']) ){
+
+		foreach ($data['upcoming_events'] as $event){
+			$events[] = get_fields($event);
+		}
+	}
 
     get_template_events_list($events);
 

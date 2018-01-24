@@ -37,6 +37,9 @@ define("WIDGET_CLASSES_DIR", WIDGET_CLASSES_MAIN_DIR . "widgets/");
 
 define("SIDEBARS_DIR", INCLUDES_DIR . "sidebars/");
 
+define("CPT_MAIN_DIR", INCLUDES_DIR . "custom_post_types/");
+define("CPT_DIR", CPT_MAIN_DIR . "types/");
+
 
 //common used variables
 define("CURRENT_LANG_CODE", pll_current_language('slug'));

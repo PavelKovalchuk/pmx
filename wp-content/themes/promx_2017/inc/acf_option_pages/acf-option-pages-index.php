@@ -7,5 +7,5 @@
  */
 
 if( function_exists('acf_add_options_page') ) {
-	require ACF_OPTION_PAGES_DIR . 'acf-event-page.php';
+	//require ACF_OPTION_PAGES_DIR . 'acf-event-page.php';
 }
