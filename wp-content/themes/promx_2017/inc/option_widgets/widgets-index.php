@@ -5,8 +5,8 @@
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
 
-require WIDGET_CLASSES_DIR . 'LinksWidget.php';
-require WIDGET_CLASSES_DIR . 'SocialLinksWidget.php';
+require_once(WIDGET_CLASSES_DIR . 'LinksWidget.php');
+require_once(WIDGET_CLASSES_DIR . 'SocialLinksWidget.php');
 
 add_action( 'widgets_init', 'promx_widgets_init' );
 

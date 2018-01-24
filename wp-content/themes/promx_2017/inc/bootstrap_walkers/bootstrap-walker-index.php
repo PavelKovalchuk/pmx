@@ -6,5 +6,5 @@
  * Time: 23:23
  */
 
-require BOOTSTRAP_WALKERS_DIR . 'bootstrap-walker.php';
-require BOOTSTRAP_WALKERS_DIR . 'bootstrap-walker-footer.php';
+require_once(BOOTSTRAP_WALKERS_DIR . 'bootstrap-walker.php');
+require_once(BOOTSTRAP_WALKERS_DIR . 'bootstrap-walker-footer.php');

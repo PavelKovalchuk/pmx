@@ -4,7 +4,7 @@
  *
  */
 
-require get_template_directory() . '/inc/constants.php';
+require_once(get_template_directory() . '/inc/constants.php');
 
 /* Disable WordPress Admin Bar for all users but admins. */
 show_admin_bar(false);
@@ -98,50 +98,50 @@ add_action( 'after_setup_theme', 'promx_wp_setup' );
 /**
  * Add CSS/JS Scritps
  */
-require INCLUDES_DIR . 'scripts.php';
+require_once( INCLUDES_DIR . 'scripts.php');
 
 /**
  * Register Widgets
  */
 
-require WIDGET_CLASSES_MAIN_DIR . 'widgets-index.php';
+require_once( WIDGET_CLASSES_MAIN_DIR . 'widgets-index.php');
 
 /**
  * Register Sidebars
  */
 
-require SIDEBARS_DIR . 'sidebars-index.php';
+require_once( SIDEBARS_DIR . 'sidebars-index.php');
 
 /**
  * Custom template tags for this theme.
  */
-require INCLUDES_DIR . 'template-tags.php';
+require_once( INCLUDES_DIR . 'template-tags.php');
 
 /**
  * Custom functions that act independently of the theme templates.
  */
-require INCLUDES_DIR . 'extras.php';
+require_once( INCLUDES_DIR . 'extras.php');
 
 /**
  * Customizer additions.
  */
-require INCLUDES_DIR . 'customizer.php';
+require_once( INCLUDES_DIR . 'customizer.php');
 
 /**
  * Pagination
  */
 
-require INCLUDES_DIR . 'pagination.php';
+require_once( INCLUDES_DIR . 'pagination.php');
 
 /**
  * Bootstrap Walker.
  */
-require BOOTSTRAP_WALKERS_MAIN_DIR . 'bootstrap-walker-index.php';
+require_once( BOOTSTRAP_WALKERS_MAIN_DIR . 'bootstrap-walker-index.php');
 
 /**
  * Custom Post Types
  */
-require CPT_MAIN_DIR . 'cpt-index.php';
+require_once( CPT_MAIN_DIR . 'cpt-index.php');
 
 /**
  * Custom templates 
@@ -149,7 +149,7 @@ require CPT_MAIN_DIR . 'cpt-index.php';
 /**
  * TODO - Should be deleted
  */
-require INCLUDES_DIR . 'template-parts.php';
+require_once( INCLUDES_DIR . 'template-parts.php');
 
 
 /**
@@ -171,7 +171,7 @@ require INCLUDES_DIR . 'template-parts.php';
 /**
  * HTML markup parts
  */
-require TEMPLATE_PARTS_MAIN_DIR . 'template-parts-index.php';
+require_once( TEMPLATE_PARTS_MAIN_DIR . 'template-parts-index.php');
 
 
 
@@ -181,10 +181,10 @@ require TEMPLATE_PARTS_MAIN_DIR . 'template-parts-index.php';
 
 if ( is_admin() ) {
 
-	require INCLUDES_DIR . 'admin_functions.php';
+	require_once( INCLUDES_DIR . 'admin_functions.php');
 
-	require OPTION_PAGES_MAIN_DIR . 'option-pages-index.php';
+	require_once( OPTION_PAGES_MAIN_DIR . 'option-pages-index.php');
 
-	require ACF_OPTION_PAGES_MAIN_DIR . 'acf-option-pages-index.php';
+	require_once( ACF_OPTION_PAGES_MAIN_DIR . 'acf-option-pages-index.php');
 }
 
