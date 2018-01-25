@@ -61,6 +61,10 @@ p {
   }
 }
 
+.font-big {
+  font-size: $base-size * 1.5;
+}
+
 figure {
   img {
     max-width: 100%;

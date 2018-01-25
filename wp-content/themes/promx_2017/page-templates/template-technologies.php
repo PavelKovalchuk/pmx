@@ -34,15 +34,7 @@ get_header();
                                         $data['what_you_get_section_title_end_small']
     );
 
-	$testimonials_related_items = [];
-	if( !empty($data['testimonials_related_items']) ){
-
-	    foreach ($data['testimonials_related_items'] as $item){
-		    $testimonials_related_items[] = get_fields($item);
-        }
-    }
-
-
+	$testimonials_related_items = get_data_cpt_from_array($data['testimonials_related_items']);
     get_template_testimonials_section(
                                         $data['testimonials_static_title'],
                                         $testimonials_related_items
@@ -55,13 +47,7 @@ get_header();
     );
 
 
-	$products_items = [];
-	if( !empty($data['referant_products_items']) ){
-
-		foreach ($data['referant_products_items'] as $item){
-			$products_items[] = get_fields($item);
-		}
-	}
+	$products_items =  get_data_cpt_from_array($data['referant_products_items']);
 	get_template_referant_section(
 	                                $data['referant_products_title'],
 		                            $products_items

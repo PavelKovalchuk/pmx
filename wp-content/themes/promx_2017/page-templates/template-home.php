@@ -37,14 +37,7 @@ get_header(); ?>
                                  $data['product_promo_text']
       );
 
-	 $events = [];
-	 if( !empty($data['upcoming_events']) ){
-
-		 foreach ($data['upcoming_events'] as $event){
-			 $events[] = get_fields($event);
-		 }
-	 }
-
+	 $events = get_data_cpt_from_array($data['upcoming_events']);
 	 get_template_blog_and_events_block(
                                          $data['blog_promo_title_section'],
                                          $data['blog_promo_title_subtitle'],

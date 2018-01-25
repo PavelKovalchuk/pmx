@@ -24,14 +24,7 @@ get_header(); ?>
 
 	<?php
 
-	$events = [];
-	if( !empty($data['upcoming_events']) ){
-
-		foreach ($data['upcoming_events'] as $event){
-			$events[] = get_fields($event);
-		}
-	}
-
+	$events = get_data_cpt_from_array($data['upcoming_events']);
     get_template_events_list($events);
 
     ?>

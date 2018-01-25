@@ -15,6 +15,7 @@ require_once(TEMPLATE_PARTS_DIR . 'event-parts.php');
 require_once( TEMPLATE_PARTS_DIR . 'banners-parts.php');
 require_once(TEMPLATE_PARTS_DIR . 'blog-parts.php');
 require_once( TEMPLATE_PARTS_DIR . 'what-you-get-parts.php');
+require_once( TEMPLATE_PARTS_DIR . 'office-parts.php');
 
 require_once(TEMPLATE_PARTS_DIR . 'forms/home-contact-form.php');
 require_once( TEMPLATE_PARTS_DIR . 'forms/event-contact-form.php');

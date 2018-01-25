@@ -411,3 +411,18 @@ function get_template_referant_section($title, $items){
 
 	<?php
 }
+
+function get_data_cpt_from_array($cpt_arr){
+
+	if( empty($cpt_arr) || !is_array($cpt_arr)){
+	    return false;
+    }
+
+    $response = [];
+
+	foreach ($cpt_arr as $item){
+		$response[] = get_fields($item);
+	}
+
+	return $response;
+}

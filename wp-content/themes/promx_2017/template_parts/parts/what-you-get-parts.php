@@ -26,16 +26,17 @@ function __get_what_you_get_block_text($title, $text, $number){
 
 
 function __get_what_you_get_block_image($image, $image_alt){
-	if( !$image ){
-		return false;
-	} ?>
 
+?>
 	<div class="col-md-6 hidden-sm hidden-xs whatYouGet-section_row_blank">
-		<figure>
-			<img src="<?php echo $image ?>" class="img-rsponsive" alt="<?php print_image_alt($image_alt); ?>">
-		</figure>
-	</div>
 
+		<?php if( $image ){ ?>
+            <figure>
+                <img src="<?php echo $image ?>" class="img-rsponsive" alt="<?php print_image_alt($image_alt); ?>">
+            </figure>
+		<?php } ?>
+
+	</div>
 
 	<?php
 }
