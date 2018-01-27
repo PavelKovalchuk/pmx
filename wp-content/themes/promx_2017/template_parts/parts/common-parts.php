@@ -424,17 +424,36 @@ function get_template_referant_section($title, $items){
 	<?php
 }
 
-function get_data_cpt_from_array($cpt_arr){
 
-	if( empty($cpt_arr) || !is_array($cpt_arr)){
-	    return false;
-    }
 
-    $response = [];
+function get_template_promo_info_section($title, $text){
 
-	foreach ($cpt_arr as $item){
-		$response[] = get_fields($item);
+	if( !$title || !$text){
+		return false;
 	}
 
-	return $response;
+	?>
+    <section id="aboutMicrosoft">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <article>
+                        <div class="row">
+                            <div class="col-sm-12 col-md-12 col-lg-8 col-lg-offset-2">
+                                <header class="text-center">
+                                    <h2 class="header-title"><?php echo $title; ?></h2>
+
+                                </header>
+                                <div class="entry-content">
+                                    <p class="text-center font-big"><?php echo $text; ?></p>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
+
+	<?php
 }
