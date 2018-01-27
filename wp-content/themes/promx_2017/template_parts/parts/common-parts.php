@@ -205,6 +205,18 @@ function get_template_assignments_section($items, $title = false){
 		return false;
 	}
 
+	$quantity = count($items);
+
+	if( $quantity == 4 ){
+	    $class = 'col-sm-3 col-md-3 subslider-section_item four-items';
+    }elseif ( $quantity < 4 ){
+		$class = 'col-sm-4 col-md-4 subslider-section_item';
+    }else{
+		return false;
+    }
+
+
+
 	?>
 
     <section id="subslider" class="subslider-section bg-primary">
@@ -222,7 +234,7 @@ function get_template_assignments_section($items, $title = false){
 
 	            <?php foreach ($items as $item){ ?>
 
-                    <div class="col-sm-4 col-md-4 subslider-section_item">
+                    <div class="<?php echo $class; ?>">
                         <h2>
                             <?php if($item['image']){ ?>
                                 <img src="<?php echo $item['image']; ?>" alt="<?php print_image_alt($item['title']); ?>">
