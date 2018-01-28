@@ -123,7 +123,7 @@ function get_template_testimonial_content($website, $website_target, $customer_s
                                 <div class="ref-company-info ref-company-article__info">
                                     <div class="ref-company-info__item">
                                         <div class="ref-company-info__item_icon">
-                                            <i class="icon-laptop-text"></i>
+                                            <span class="icon-ref icon-ref-laptop"></span>
                                         </div>
                                         <div class="ref-company-info__item_info">
                                             <dl>
@@ -136,7 +136,7 @@ function get_template_testimonial_content($website, $website_target, $customer_s
                                     </div>
                                     <div class="ref-company-info__item">
                                         <div class="ref-company-info__item_icon">
-                                            <i class="icon-cube-shadow"></i>
+                                            <span class="icon-ref icon-ref-cube"></span>
                                         </div>
                                         <div class="ref-company-info__item_info">
                                             <dl>
@@ -147,7 +147,7 @@ function get_template_testimonial_content($website, $website_target, $customer_s
                                     </div>
                                     <div class="ref-company-info__item">
                                         <div class="ref-company-info__item_icon">
-                                            <i class="icon-globe"></i>
+                                            <span class="icon-ref icon-ref-globe"></span>
                                         </div>
                                         <div class="ref-company-info__item_info">
                                             <dl>
@@ -158,7 +158,7 @@ function get_template_testimonial_content($website, $website_target, $customer_s
                                     </div>
                                     <div class="ref-company-info__item">
                                         <div class="ref-company-info__item_icon">
-                                            <i class="icon-cogwheels"></i>
+                                            <span class="icon-ref icon-ref-cogwheels"></span>
                                         </div>
                                         <div class="ref-company-info__item_info">
                                             <dl>
@@ -169,7 +169,7 @@ function get_template_testimonial_content($website, $website_target, $customer_s
                                     </div>
                                     <div class="ref-company-info__item">
                                         <div class="ref-company-info__item_icon">
-                                            <i class="icon-laptop-code"></i>
+                                            <span class="icon-ref icon-ref-laptop-code"></span>
                                         </div>
                                         <div class="ref-company-info__item_info">
                                             <dl>

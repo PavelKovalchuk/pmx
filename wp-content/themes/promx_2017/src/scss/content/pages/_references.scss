@@ -66,6 +66,44 @@
         font-size: $base-size*3;
         color: $accent-color;
       }
+
+      .icon-ref{
+        background: url($sprite-icons-image) no-repeat;
+        display: inline-block;
+
+        &.icon-ref-laptop{
+          background-position:  0 -143px;
+          width: 37px;
+          height: 22px;
+        }
+
+        &.icon-ref-cube{
+          background-position: -74px -139px;
+          width: 28px;
+          height: 31px;
+        }
+
+        &.icon-ref-globe{
+          background-position: -142px -139px;
+          width: 31px;
+          height: 31px;
+        }
+
+        &.icon-ref-cogwheels{
+          background-position: -211px -138px;
+          width: 31px;
+          height: 32px;
+        }
+
+        &.icon-ref-laptop-code{
+          background-position: -279px -144px;
+          width: 38px;
+          height: 23px;
+        }
+
+      }
+
+
     }
     &_info {
       display: table-cell;
@@ -75,6 +113,8 @@
         margin-bottom: 0;
         dt {
           font-size: $base-size*1.5;
+          line-height: 1;
+          padding-bottom: 10px;
         }
         dd {
           a {
