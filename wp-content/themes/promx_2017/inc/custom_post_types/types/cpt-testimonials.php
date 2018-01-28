@@ -6,6 +6,14 @@
  * Time: 0:31
  */
 
+if( defined('TESTIMONIAL_SLUG')){
+	$slug = TESTIMONIAL_SLUG;
+}else{
+	$slug = false;
+}
+
+
+
 $cpt_storage->addDataArgument(
 
 		'testimonial',
@@ -29,8 +37,8 @@ $cpt_storage->addDataArgument(
 				'all_items'          => __( 'All testimonials', TEXTDOMAIN),
 			),
 			'description'         => '',
-			'public'              => false,
-			'publicly_queryable'  => null,
+			'public'              => true,
+			'publicly_queryable'  => true,
 			'exclude_from_search' => null,
 			'show_ui'             => true,
 			'show_in_menu'        => true, // показывать ли в меню адмнки
@@ -44,10 +52,10 @@ $cpt_storage->addDataArgument(
 			//'capabilities'      => 'post', // массив дополнительных прав для этого типа записи
 			//'map_meta_cap'      => null, // Ставим true чтобы включить дефолтный обработчик специальных прав
 			'hierarchical'        => false,
-			'supports'            => array('title', 'custom-fields'), // 'title','editor','author','thumbnail','excerpt','trackbacks','custom-fields','comments','revisions','page-attributes','post-formats'
+			'supports'            => array('title','editor', 'page-attributes', 'custom-fields'), // 'title','editor','author','thumbnail','excerpt','trackbacks','custom-fields','comments','revisions','page-attributes','post-formats'
 			'taxonomies'          => array(),
 			'has_archive'         => false,
-			'rewrite'             => true,
+			'rewrite'             => array( 'slug' => $slug, 'with_front' => false ),
 			'query_var'           => true,
 
 		)

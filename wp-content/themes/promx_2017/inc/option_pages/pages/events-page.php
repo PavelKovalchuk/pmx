@@ -11,7 +11,7 @@ $options_storage->addSubpageToPromxOptionPages(
 
 	array(
 
-		'page_title'	=> 'Events',
+		'page_title'	=> 'Events setings',
 		'menu_title'	=> 'Events',
 		'capability'	=> 'manage_options',
 		'menu_slug'		=> 'promx_events_buttons',

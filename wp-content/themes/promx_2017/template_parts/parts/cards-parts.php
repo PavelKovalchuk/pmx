@@ -101,3 +101,59 @@ function get_template_modern_cards_block($title, $text, $items){
 
 	<?php
 }
+
+
+function get_template_references_cards_block($title, $text, $items){
+
+	if( !$title || !$text || empty($items)){
+		return false;
+	}
+
+	$link_text = get_option( '_promx_testimonials_data_options' )['testimonials_read_more_text_'. CURRENT_LANG_CODE];
+
+	?>
+
+    <section id="references">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <article>
+                        <div class="row">
+                            <div class="col-sm-12 col-md-12 col-lg-8 col-lg-offset-2">
+                                <header class="text-center">
+                                    <h1>
+										<?php echo $title; ?>
+                                    </h1>
+                                </header>
+                                <div class="entry-content">
+                                    <p class="text-center"><?php echo $text; ?></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="ref-items">
+
+	                        <?php foreach ($items as $id => $item){ ?>
+
+                                <div class="ref-items__item">
+                                    <div class="ref-items__item_head">
+                                        <img src="<?php echo $item['image']; ?>" alt="<?php print_image_alt($item['company']); ?>">
+                                    </div>
+                                    <div class="ref-items__item_content">
+                                        <p><?php echo $item['text']; ?></p>
+                                        <a href="<?php echo get_post_permalink($id); ?>" class="btn btn-primary"><?php print_button_text($link_text); ?></a>
+                                    </div>
+                                </div>
+
+	                        <?php } ?>
+
+                        </div>
+
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
+
+	<?php
+}

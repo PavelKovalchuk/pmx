@@ -18,5 +18,6 @@ require_once(OPTION_PAGES_DIR . 'posts-page.php');
 require_once(OPTION_PAGES_DIR . 'images-page.php');
 require_once(OPTION_PAGES_DIR . 'footer-page.php');
 require_once(OPTION_PAGES_DIR . 'events-page.php');
+require_once(OPTION_PAGES_DIR . 'testimonials-page.php');
 
 $options_page->pages( $options_storage->getGeneralSubpages() );

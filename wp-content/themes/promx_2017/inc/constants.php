@@ -58,6 +58,11 @@ define("FALLBACK_READ_MORE", 'Read');
 
 
 
+//Slugs
+define("TESTIMONIAL_SLUG", get_option( '_promx_testimonials_data_options' )['testimonials_slug_'. CURRENT_LANG_CODE]);
+
+
+
 
 
 

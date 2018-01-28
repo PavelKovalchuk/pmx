@@ -177,7 +177,7 @@ function get_data_cpt_from_array($cpt_arr){
 	$response = [];
 
 	foreach ($cpt_arr as $item){
-		$response[] = get_fields($item);
+		$response[$item] = get_fields($item);
 	}
 
 	return $response;
