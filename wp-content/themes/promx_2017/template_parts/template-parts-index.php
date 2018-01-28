@@ -18,6 +18,7 @@ require_once( TEMPLATE_PARTS_DIR . 'what-you-get-parts.php');
 require_once( TEMPLATE_PARTS_DIR . 'office-parts.php');
 require_once( TEMPLATE_PARTS_DIR . 'cards-parts.php');
 require_once( TEMPLATE_PARTS_DIR . 'technologies-list-parts.php');
+require_once( TEMPLATE_PARTS_DIR . 'testimonials-parts.php');
 
 require_once(TEMPLATE_PARTS_DIR . 'forms/home-contact-form.php');
 require_once( TEMPLATE_PARTS_DIR . 'forms/event-contact-form.php');

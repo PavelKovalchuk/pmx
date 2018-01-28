@@ -64,6 +64,139 @@ $options_storage->addSubpageToPromxOptionPages(
 				),
 			),
 
+			array(
+				'id'	=> 'testimonials_background_id',
+				'title'	=> 'Testimonials background image BY DEFAULT',
+				'fields'		=> array(
+					//					A new field
+					array(
+						'id'	=> 'background_image_id',
+						'title'	=> 'Image ID',
+						'type'	=> 'number',
+						'value' => '',
+						'description' => 'If testimonial does not have its own image, it will be used',
+					),
+
+				),
+			),
+
+
+			array(
+				'id'	=> 'testimonials_headers_title_id',
+				'title'	=> 'Testimonials Headers title',
+				'fields'		=> array(
+					//					A new field
+					array(
+						'id'	=> 'website_de',
+						'title'	=> 'Website title DE',
+						'type'	=> 'text',
+						'value' => 'Website',
+
+					),
+
+					array(
+						'id'	=> 'website_en',
+						'title'	=> 'Website title EN',
+						'type'	=> 'text',
+						'value' => 'Website',
+
+					),
+
+					//					A new field
+					array(
+						'id'	=> 'customer_size_de',
+						'title'	=> 'Customer size DE',
+						'type'	=> 'text',
+						'value' => 'Customer size',
+
+					),
+
+					array(
+						'id'	=> 'customer_size_en',
+						'title'	=> 'Customer size EN',
+						'type'	=> 'text',
+						'value' => 'Customer size',
+
+					),
+
+					//					A new field
+					array(
+						'id'	=> 'country_de',
+						'title'	=> 'Country DE',
+						'type'	=> 'text',
+						'value' => 'Country',
+
+					),
+
+					array(
+						'id'	=> 'country_en',
+						'title'	=> 'Country EN',
+						'type'	=> 'text',
+						'value' => 'Country',
+
+					),
+
+					//					A new field
+					array(
+						'id'	=> 'industry_de',
+						'title'	=> 'Industry DE',
+						'type'	=> 'text',
+						'value' => 'Industry',
+
+					),
+
+					array(
+						'id'	=> 'industry_en',
+						'title'	=> 'Industry EN',
+						'type'	=> 'text',
+						'value' => 'Industry',
+
+					),
+
+					//					A new field
+					array(
+						'id'	=> 'software_de',
+						'title'	=> 'Software DE',
+						'type'	=> 'text',
+						'value' => 'Software and Services',
+
+					),
+
+					array(
+						'id'	=> 'software_en',
+						'title'	=> 'Software EN',
+						'type'	=> 'text',
+						'value' => 'Software and Services',
+
+					),
+
+					//					A new field
+					array(
+						'id'	=> 'inform_title_de',
+						'title'	=> 'Inform title DE',
+						'type'	=> 'text',
+						'value' => '<strong>Customer</strong> MANAGEMENT AND KNOWLEDGE BASE',
+						'args' => array(
+							'html' => true
+						)
+
+					),
+
+					array(
+						'id'	=> 'inform_title_en',
+						'title'	=> 'Inform title EN',
+						'type'	=> 'text',
+						'value' => '<strong>Customer</strong> MANAGEMENT AND KNOWLEDGE BASE',
+						'args' => array(
+							'html' => true
+						)
+
+					),
+
+				),
+			),
+
+
 		),
 
 	)
