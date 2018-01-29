@@ -238,6 +238,8 @@ function get_template_assignments_section($items, $title = false){
                         <h2>
                             <?php if($item['image']){ ?>
                                 <img src="<?php echo $item['image']; ?>" alt="<?php print_image_alt($item['title']); ?>">
+                            <?php }elseif($item['icon']){ ?>
+	                            <i class="fa <?php echo $item['icon']; ?>" aria-hidden="true"></i>
                             <?php } ?>
 
                             <?php echo $item['title']; ?>

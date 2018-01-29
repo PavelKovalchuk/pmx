@@ -3,7 +3,8 @@
  * Enqueue scripts and styles.
  */
 add_action( 'wp_enqueue_scripts', 'promx_scripts', 200 );
-//add_action( 'admin_print_styles', 'ts_admin_menu_assets' );
+add_action( 'admin_print_styles', 'promx_load_wp_admin_assets' );
+add_action( 'admin_enqueue_scripts', 'promx_load_wp_admin_script' );
 
 
 function promx_scripts() {
@@ -50,8 +51,17 @@ function promx_scripts() {
 	}*/
 }
 
-function ts_admin_menu_assets() {
-	wp_enqueue_style( 'TSadminStyle', TEMPLATE_URI . '/css/adminStyle.css' );
+function promx_load_wp_admin_assets() {
+	wp_enqueue_style( 'adminStyle', TEMPLATE_URI . 'admin/css/admin_style.css' );
+
+}
+
+function promx_load_wp_admin_script($hook){
+
+	if($hook == 'toplevel_page_promx-icons-options'){
+		wp_enqueue_script( 'fontawesome', 'https://use.fontawesome.com/063e6393a1.js?ver=4.6.10', array(), '4.6.10', true);
+	}
+
 }
 
 // Async load
