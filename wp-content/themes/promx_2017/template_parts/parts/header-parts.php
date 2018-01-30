@@ -105,13 +105,22 @@ function get_template_header_menu_icons(){
 
 function get_template_header_menu(){
 
-	$args = array(
+	/*$args = array(
 		'theme_location' => 'primary',
 		'depth'      => 3,
 		'container'  => false,
 		'menu_class'     => 'nav navbar-nav multi-level',
 		'walker'     => new Bootstrap_Walker_Nav_Menu()
+	);*/
+
+	$args = array(
+		'theme_location' => 'primary',
+		'depth'      => 2,
+		'container'  => false,
+		'menu_class'     => 'nav navbar-nav js-top-menu',
+		'walker'     => new Bootstrap_Walker_Nav_Menu()
 	);
+
 	if (has_nav_menu('primary')) {
 		wp_nav_menu($args);
 	}

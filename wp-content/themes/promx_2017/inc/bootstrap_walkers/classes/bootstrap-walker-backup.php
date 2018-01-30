@@ -16,32 +16,10 @@ if ( ! function_exists( 'bootstrap_setup' ) ):
 
       }
 
-      function get_image_url($post_id){
-	      $image_url = kdmfi_get_featured_image_src( 'top-menu-image', 'full', $post_id );
-
-	      if(!$image_url){
-	      	return false;
-	      }
-
-	      return $image_url;
-      }
-
-	   function get_menu_excerpt($post_id){
-		   $excerpt = get_the_excerpt( $post_id );
-
-		    if(!$excerpt){
-			    return false;
-		    }
-
-		    return $excerpt;
-	   }
-
-
-
       function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
 
         $indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
-	      //var_dump($item);
+
         $li_attributes = '';
         $class_names = $value = '';
 
@@ -58,31 +36,13 @@ if ( ! function_exists( 'bootstrap_setup' ) ):
         $id = apply_filters( 'nav_menu_item_id', 'menu-item-'. $item->ID, $item, $args );
         $id = strlen( $id ) ? ' id="' . esc_attr( $id ) . '"' : '';
 
-	      //For ajax menu
-	    $data_page_id = strlen( $item->object_id ) ? ' data-page-id="' . esc_attr( $item->object_id ) . '"' : '';
-
-        $output .= $indent . '<li' . $id . $value . $class_names . $data_page_id . $li_attributes . '>';
-
-        /*$menu_image_url = $this->get_image_url($item->object_id);
-
-        if($menu_image_url){
-	        $output .= '<img class="menu-image" src="' . $menu_image_url . '" alt="' . $item->attr_title . '">';
-        }
-
-	    $menu_text = $this->get_menu_excerpt($item->object_id);
-
-        if($menu_text){
-	        $output .= '<p class="menu-text">' . $menu_text . '</p>';
-        }*/
-
-
+        $output .= $indent . '<li' . $id . $value . $class_names . $li_attributes . '>';
 
         $attributes  = ! empty( $item->attr_title ) ? ' title="'  . esc_attr( $item->attr_title ) .'" ' : '';
         $attributes .= ! empty( $item->target )     ? ' target="' . esc_attr( $item->target     ) .'" ' : '';
         $attributes .= ! empty( $item->xfn )        ? ' rel="'    . esc_attr( $item->xfn        ) .'" ' : '';
         $attributes .= ! empty( $item->url )        ? ' href="'   . esc_attr( $item->url        ) .'" ' : '';
         $attributes .= ($args->walker->has_children)      ? ' class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"' : 'class="nav-link"';
-
 
         $item_output = $args->before;
 

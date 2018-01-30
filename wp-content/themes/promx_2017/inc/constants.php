@@ -40,6 +40,13 @@ define("SIDEBARS_DIR", INCLUDES_DIR . "sidebars/");
 define("CPT_MAIN_DIR", INCLUDES_DIR . "custom_post_types/");
 define("CPT_DIR", CPT_MAIN_DIR . "types/");
 
+define("CUSTOM_THUMBNAILS_MAIN_DIR", INCLUDES_DIR . "custom_thumbnails/");
+define("CUSTOM_THUMBNAILS_DIR", CUSTOM_THUMBNAILS_MAIN_DIR . "items/");
+
+
+define("AJAX_HANDLERS_MAIN_DIR", INCLUDES_DIR . "ajax_handlers/");
+define("AJAX_HANDLERS_DIR", AJAX_HANDLERS_MAIN_DIR . "handlers/");
+
 
 //common used variables
 define("CURRENT_LANG_CODE", pll_current_language('slug'));

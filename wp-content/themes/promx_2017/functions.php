@@ -45,6 +45,8 @@ if ( ! function_exists( 'promx_wp_setup' ) ) :
         add_theme_support( 'post-thumbnails' );
 
         add_image_size( 'preview-post-image', 470, 280, false );
+
+	    add_image_size( 'preview-menu-image', 238, 71, false );
         /*add_image_size( 'post-main-image', 973, 500, true );
 	    add_image_size( 'post-carousel-image', 370, 240, true );
 
@@ -95,6 +97,10 @@ endif;
 add_action( 'after_setup_theme', 'promx_wp_setup' );
 
 
+//Customizations of WP behaviour
+
+add_post_type_support( 'page', 'excerpt' );
+
 /**
  * Add CSS/JS Scritps
  */
@@ -142,6 +148,16 @@ require_once( BOOTSTRAP_WALKERS_MAIN_DIR . 'bootstrap-walker-index.php');
  * Custom Post Types
  */
 require_once( CPT_MAIN_DIR . 'cpt-index.php');
+
+/**
+ * Custom Thumbnails - https://wordpress.org/plugins/multiple-featured-images/
+ */
+require_once( CUSTOM_THUMBNAILS_MAIN_DIR . 'custom-thumbnails-index.php');
+
+/**
+ * Custom Post Types
+ */
+require_once( AJAX_HANDLERS_MAIN_DIR . 'ajax-handlers-index.php');
 
 /**
  * Custom templates 
@@ -192,7 +208,6 @@ function add_cpt_to_pll( $post_types, $is_settings ) {
 	}
 	return $post_types;
 }*/
-
 
 // Admin Section
 
