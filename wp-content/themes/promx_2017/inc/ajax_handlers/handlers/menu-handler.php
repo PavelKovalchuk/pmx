@@ -41,11 +41,23 @@ function menu_ajax_handler(){
 
 	$data_from_db = get_promx_menu_items_data($data_pages_id);
 
-	var_dump($data_from_db);
+	$response = [];
+	//var_dump($data_from_db);
+
+	$dir = wp_get_upload_dir();
+
+	foreach ($data_from_db as $key => $object){
+
+		if(isset($object->attached_file)){
+			$object->attached_file = $dir['baseurl'] . '/'. $object->attached_file;
+		}
+
+		$response['pages'][$object->ID] = $object;
+	}
 	/**
 	 * TODO = pack data to answer
 	 */
-	$response = [];
+
 
 	echo json_encode($response);
 
