@@ -56,7 +56,9 @@
                     </div>
                     <div class="collapse navbar-collapse dropdown" id="promx-nav">
 
-	                    <?php get_template_header_menu();?>
+	                    <?php
+                        $menu_handler = new Bootstrap_Walker_Nav_Menu();
+                        get_template_header_menu($menu_handler);?>
 
                     </div>
                     <div class="right-menu">
@@ -69,5 +71,10 @@
             </div>
         </div>
     </div>
+
+	<div class="promx-header-menu-section">
+		<?php get_template_menu_blocks($menu_handler->pages_id, $menu_handler->menu_data); ?>
+    </div>
+
 </header>
 

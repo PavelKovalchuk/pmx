@@ -65,7 +65,7 @@ function menu_ajax_handler(){
 	die; // here we exit the script and even no wp_reset_query() required!
 }
 
-function get_promx_menu_items_data($data){
+function get_promx_menu_items_data_2($data){
 
 	if(!is_array($data) || empty($data)){
 		return false;
