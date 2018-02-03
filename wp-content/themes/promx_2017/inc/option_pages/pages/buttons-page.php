@@ -35,6 +35,20 @@ $options_storage->addSubpageToPromxOptionPages(
 						'value' => 'Read it',
 					),
 
+					array(
+						'id'	=> 'menu_button_text_de',
+						'title'	=> 'Menu button text DE',
+						'type'	=> 'text',
+						'value' => 'Read more',
+					),
+
+					array(
+						'id'	=> 'menu_button_text_en',
+						'title'	=> 'Menu button text EN',
+						'type'	=> 'text',
+						'value' => 'Read more',
+					),
+
 				),
 			),
 		),

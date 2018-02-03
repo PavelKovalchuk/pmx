@@ -73,7 +73,7 @@
     </div>
 
 	<div class="promx-header-menu-section">
-		<?php get_template_menu_blocks($menu_handler->pages_id, $menu_handler->menu_data); ?>
+		<?php get_template_menu_blocks($menu_handler->menu_item_id, $menu_handler->menu_data); ?>
     </div>
 
 </header>

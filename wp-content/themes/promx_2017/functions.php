@@ -152,7 +152,7 @@ require_once( CPT_MAIN_DIR . 'cpt-index.php');
 /**
  * Custom Thumbnails - https://wordpress.org/plugins/multiple-featured-images/
  */
-require_once( CUSTOM_THUMBNAILS_MAIN_DIR . 'custom-thumbnails-index.php');
+//require_once( CUSTOM_THUMBNAILS_MAIN_DIR . 'custom-thumbnails-index.php');
 
 /**
  * Custom Post Types

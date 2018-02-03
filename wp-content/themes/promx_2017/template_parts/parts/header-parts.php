@@ -129,7 +129,9 @@ function get_template_header_menu($menu_handler){
 
 function get_template_menu_blocks($pages_id_arr, $menu_map){
 
-	$menu_data_from_db = get_promx_menu_items_data($pages_id_arr);
+	//$menu_data_from_db = get_promx_menu_items_data_by_page_id($pages_id_arr);
+
+	$menu_data_from_db = get_promx_menu_items_data_by_menu_id($pages_id_arr);
 
 	$response = [];
 
@@ -141,11 +143,13 @@ function get_template_menu_blocks($pages_id_arr, $menu_map){
 			$object->attached_file = $dir['baseurl'] . '/'. $object->attached_file;
 		}
 
-		$response['pages'][$object->ID] = [
+		$response['pages'][$object->page_id] = [
 		        'page_excerpt' => $object->excerpt,
                 'image' => $object->attached_file,
 		        'image_alt' => $object->image_alt
         ];
+
+		$link_text =  get_option( '_promx_buttons_and_links_options' )['menu_button_text_' . CURRENT_LANG_CODE];
 	}
 
 	?><div class="menu-blocks-container">
@@ -155,11 +159,14 @@ function get_template_menu_blocks($pages_id_arr, $menu_map){
             <div class="col-sm-12">
 
     <?php
-
+    //var_dump($menu_map['submenus']);
 	foreach ($menu_map as $parent_id => $children_data){
 
+	    //var_dump($children_data);exit;
+		$count = count($children_data);
+
 	    ?>
-        <div class="animated flipInY child-menu-level-0 hidden menu-page-container menu-page-container-<?php echo $parent_id; ?>"
+        <div class="animated fadeInUp child-menu-level-0 hidden menu-page-container menu-page-container-<?php echo $parent_id; ?> count-items-<?php echo $count; ?>"
              id="menu-parent-item-<?php echo $parent_id; ?>">
         <?php
 
@@ -167,27 +174,42 @@ function get_template_menu_blocks($pages_id_arr, $menu_map){
 
 	        if( !array_key_exists($child_id, $response['pages']) ){
 	            continue;
-		       // $menu_map[$parent_id][$child_id]= array_merge($child_data, $response['pages'][$child_id]);
             }
 
-		    ?><div class="<?php echo implode(' ' , $child_data['page_classes']) ; ?>"
+		    ?><div class="<?php echo implode(' ' , $child_data['page_classes']) ; ?>  count-items-<?php echo $count; ?>"
                     <?php echo $children_data['page_attr']; ?>>
 
                 <h3 class="menu-page-title"><?php echo $child_data['page_title'] ; ?></h3>
 
-            <img src="<?php echo $response['pages'][$child_id]['image'] ; ?>"
-                 alt="<?php echo $response['pages'][$child_id]['image_alt'] ; ?>"
-                 class="menu-page-image" />
+                <img src="<?php echo $response['pages'][$child_id]['image'] ; ?>"
+                     alt="<?php echo $response['pages'][$child_id]['image_alt'] ; ?>"
+                     class="menu-page-image" />
 
-            <p class="menu-page-text"><?php echo $response['pages'][$child_id]['page_excerpt'] ; ?></p>
+                <?php if( array_key_exists($child_id, $menu_map['submenus']) ){ ?>
 
-            <a class="menu-page-link" href="<?php echo $children_data['page_link']; ?>">
-            <?php //TODO - add option to button ?>
-                Read more
-            </a>
+                    <div class="submenu-page-link-outer">
+
+			        <?php foreach ($menu_map['submenus'][$child_id] as $grandson_id => $grandson_data){ ?>
+
+	                    <a class="submenu-page-link" href="<?php echo $grandson_data['page_link']; ?>">
+
+                        <?php print_button_text($grandson_data['page_title']); ?>
+
+                        </a>
+
+                    <?php } ?>
+			        </div>
+
+                <?php }else{ ?>
+                    <p class="menu-page-text"><?php echo $response['pages'][$child_id]['page_excerpt'] ; ?></p>
+
+                    <a class="menu-page-link" href="<?php echo $child_data['page_link']; ?>">
+
+                        <?php print_button_text($link_text); ?>
+
+                    </a>
+                <?php } ?>
             <?php
-
-
 
 		    ?></div><?php
 
@@ -210,12 +232,9 @@ function get_template_menu_blocks($pages_id_arr, $menu_map){
 
 <?php
 
-	//var_dump($menu_map);
-	//var_dump($menu_map);
-
 }
 
-function get_promx_menu_items_data($data){
+function get_promx_menu_items_data_by_page_id($data){
 
 	if(!is_array($data) || empty($data)){
 		return false;
@@ -251,6 +270,51 @@ function get_promx_menu_items_data($data){
 		AND pm_3.meta_key = '_wp_attachment_image_alt'
 		
 		ORDER BY ID ASC
+		");
+
+	return $response;
+}
+
+function get_promx_menu_items_data_by_menu_id($data){
+
+	if(!is_array($data) || empty($data)){
+		return false;
+	}
+
+	$data_sanitized = array_map('intval', $data);
+
+	global $wpdb;
+
+	//You can use _wp_attachment_metadata for full info
+    //https://wordpress.org/plugins/nav-menu-images/
+    //http://blog.milandinic.com/2012/11/23/nav-menu-images-developers-guide/
+
+	$response = $wpdb->get_results("
+		SELECT 
+			
+		pm.post_id	AS menu_item_id	
+		,pm.meta_value AS image_post_id
+		,pm_2.meta_value AS attached_file
+		,pm_3.meta_value AS image_alt
+		,pm_4.meta_value AS page_id
+		,p.post_excerpt AS excerpt
+		
+		FROM $wpdb->postmeta AS pm
+		
+		LEFT JOIN $wpdb->postmeta AS pm_2 ON (pm.meta_value = pm_2.post_id)
+		LEFT JOIN $wpdb->postmeta AS pm_3 ON (pm.meta_value = pm_3.post_id)
+		LEFT JOIN $wpdb->postmeta AS pm_4 ON (pm.post_id = pm_4.post_id)
+		LEFT JOIN $wpdb->posts AS p ON (pm_4.meta_value = p.ID)
+				
+		WHERE 
+				
+		pm.post_id IN (" . implode(',', $data_sanitized) . ")
+		AND pm.meta_key = '_thumbnail_id'
+		AND pm_2.meta_key = '_wp_attached_file'
+		AND pm_3.meta_key = '_wp_attachment_image_alt'
+		AND pm_4.meta_key = '_menu_item_object_id'
+		
+		
 		");
 
 	return $response;

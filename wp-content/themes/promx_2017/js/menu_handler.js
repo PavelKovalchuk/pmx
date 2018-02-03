@@ -61,19 +61,26 @@ jQuery(document).ready(function($){
 
         var __setEvents = function () {
 
+            var header = $('header');
+
+            header.on('mouseleave', function(){
+
+                //$('.menu-page-container.flex-visible').removeClass('flex-visible').addClass('hidden');
+
+            });
+
             $.each( options.parentsLi, function(key,parent) {
 
                 var parentLi = $(parent);
                 var dataId = parentLi.data(options.menuItemPageShort);
 
                 var submenu = $('.menu-blocks-container #menu-parent-item-' + dataId);
-                console.log(submenu);
-                parentLi.on('mouseover', function(){
 
+                parentLi.on('mouseover', function(){
 
                     $('.menu-page-container.flex-visible').removeClass('flex-visible').addClass('hidden');
                     submenu.removeClass('hidden').addClass('flex-visible');
-                    console.log('Hi!');
+
                 });
 
             });

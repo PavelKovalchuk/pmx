@@ -10,7 +10,11 @@ if ( ! function_exists( 'bootstrap_setup' ) ):
 
     	public $menu_data = [];
 
+	    public $submenu_data = [];
+
     	public $pages_id = [];
+
+	    public $menu_item_id = [];
 
       function start_lvl( &$output, $depth = 0, $args = array() ) {
 
@@ -66,27 +70,11 @@ if ( ! function_exists( 'bootstrap_setup' ) ):
 
         $output .= $indent . '<li' . $id . $value . $class_names . $data_page_id . $li_attributes . '>';
 
-
-
-        /*$menu_image_url = $this->get_image_url($item->object_id);
-
-        if($menu_image_url){
-	        $output .= '<img class="menu-image" src="' . $menu_image_url . '" alt="' . $item->attr_title . '">';
-        }
-
-	    $menu_text = $this->get_menu_excerpt($item->object_id);
-
-        if($menu_text){
-	        $output .= '<p class="menu-text">' . $menu_text . '</p>';
-        }*/
-
-
-
         $attributes  = ! empty( $item->attr_title ) ? ' title="'  . esc_attr( $item->attr_title ) .'" ' : '';
         $attributes .= ! empty( $item->target )     ? ' target="' . esc_attr( $item->target     ) .'" ' : '';
         $attributes .= ! empty( $item->xfn )        ? ' rel="'    . esc_attr( $item->xfn        ) .'" ' : '';
         $attributes .= ! empty( $item->url )        ? ' href="'   . esc_attr( $item->url        ) .'" ' : '';
-        $attributes .= ($args->walker->has_children)      ? ' class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"' : 'class="nav-link"';
+        $attributes .= ($args->walker->has_children)      ? ' class="nav-link dropdown-toggle" ' : 'class="nav-link"';
 
 
         $item_output = $args->before;
@@ -105,24 +93,48 @@ if ( ! function_exists( 'bootstrap_setup' ) ):
 
         $item_output .= $args->after;
 
-	      if($depth == 1){
+	      if($depth == 1 ){
 		      //var_dump($item);
 		      $this->menu_data[$item->menu_item_parent][$item->object_id] = array(
 			      'page_id' => intval($item->object_id),
+			      'menu_id' => intval($item->ID),
 			      'page_link' => esc_attr( $item->url),
 			      'page_classes' => $classes,
 			      'page_attr' => $attributes,
 			      'page_html' => $html_tag,
 			      'page_menu_id' => $id,
-			      'page_title' => $title,
+			      'page_title' => $item->title,
 			      'menu_order' => $item->menu_order,
 			      'current_item_parent' => $item->current_item_parent,
-			      'current' => $item->current
+			      'current' => $item->current,
+			      'children_data' => ($args->walker->has_children) ? 'true' : 'false'
 		      );
 
-		      $this->pages_id[] = intval($item->object_id);
+		      //$this->pages_id[] = intval($item->object_id);
+		      $this->menu_item_id[] = intval($item->ID);
 
 		      return;
+	      }
+
+	      if($depth == 2){
+
+		      $this->menu_data['submenus'][$item->menu_item_parent][$item->object_id] = array(
+			      'page_id' => intval($item->object_id),
+			      'menu_id' => intval($item->ID),
+			      'page_link' => esc_attr( $item->url),
+			      'page_classes' => $classes,
+			      'page_attr' => $attributes,
+			      'page_html' => $html_tag,
+			      'page_menu_id' => $id,
+			      'page_title' => $item->title,
+			      'menu_order' => $item->menu_order,
+			      'current_item_parent' => $item->current_item_parent,
+			      'current' => $item->current,
+			      'children_data' => ($args->walker->has_children) ? 'true' : 'false'
+		      );
+
+		      return;
+
 	      }
 
 	      $output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );

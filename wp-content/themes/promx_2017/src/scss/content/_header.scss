@@ -109,23 +109,135 @@
     left: 0;
     top: 0;
     z-index: 1;
-    background-color: wheat;
+    background-color: $color-light-grey;
+    overflow: hidden;
+
+    .menu-page-container{
+
+      padding: $elements-gap 0;
+
+    }
 
     .menu-item{
       display: flex;
-
       flex-direction: column;
-
       flex-basis: 0;
       -webkit-box-flex: 1;
       flex-grow: 1;
       max-width: 100%;
+
+      padding-right: 14px;
+      padding-left: 14px;
+
+      &:first-of-type{
+        padding-left: 0px;
+      }
+
+      &:last-of-type{
+        padding-right: 0px;
+      }
+
+      &.count-items-6{
+
+        @include media-breakpoint-down(xl){
+
+          flex-basis: 33.333%;
+          min-height: 1px;
+          padding-bottom: $form-base-size;
+
+          &:nth-of-type(3){
+            padding-right: 0px;
+          }
+
+          &:nth-of-type(4){
+            padding-left: 0px;
+            padding-bottom: 0px;
+          }
+
+          &:nth-of-type(5){
+            padding-bottom: 0px;
+          }
+
+          &:nth-of-type(6){
+            padding-bottom: 0px;
+          }
+        }
+
+      }
+
     }
+
+
+
+
 
     .menu-page-image{
       width: 100%;
       max-width: 100%;
+      padding-bottom: 18px;
     }
+
+    .menu-page-title{
+
+      color: $dark-color;
+      font-size: $base-size;
+      font-family: $bold-font;
+      text-transform: uppercase;
+      line-height: 1.2;
+      margin-top: 0;
+      margin-bottom: $elements-gap/2;
+      min-height: $base-size*2.2;
+
+      @include media-breakpoint-down(xl) {
+        min-height: 1px;
+      }
+
+    }
+
+    .menu-page-text{
+      font-size: 14px;
+     //font-family: "ProximaNovaT";
+      font-family: $light-font;
+      color: $color-black;
+      line-height: 1.5;
+    }
+
+    .menu-page-link{
+
+      &:hover{
+
+        text-decoration: none;
+
+      }
+
+    }
+
+    .submenu-page-link-outer{
+      display: flex;
+      flex-direction: column;
+    }
+
+    .submenu-page-link{
+
+      color: $color-black;
+      font-size: $base-size;
+      font-family: $light-font;
+      /*font-family: "ProximaNova";*/
+      line-height: 1.3;
+      padding-bottom: $base-gap/2;
+      font-weight: 600;
+
+
+      &:hover{
+
+        color: $secondary-color;
+        text-decoration: none;
+
+      }
+
+    }
+
+
 
   }
 
