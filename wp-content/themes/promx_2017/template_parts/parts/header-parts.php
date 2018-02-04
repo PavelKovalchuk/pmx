@@ -131,6 +131,15 @@ function get_template_menu_blocks($pages_id_arr, $menu_map){
 
 	//$menu_data_from_db = get_promx_menu_items_data_by_page_id($pages_id_arr);
 
+    $menu_article = [
+            'title' => 'Get to real business results faster with cloud',
+            'text' => 'Business solutions are often associated with extensive and rigid software suites that are laborious to 
+                        implement, require considerable maintenance and are so complex that only absolute specialists.',
+            'link_target' => '#',
+            'link_text' => 'Learn about Hitachi Enterprise cloud',
+            'image' => 'http://promx.loc/wp-content/uploads/2018/02/cloud.png'
+    ];
+
 	$menu_data_from_db = get_promx_menu_items_data_by_menu_id($pages_id_arr);
 
 	$response = [];
@@ -162,63 +171,98 @@ function get_template_menu_blocks($pages_id_arr, $menu_map){
     //var_dump($menu_map['submenus']);
 	foreach ($menu_map as $parent_id => $children_data){
 
+	    if(!is_int($parent_id)){
+	        continue;
+        }
+
 	    //var_dump($children_data);exit;
 		$count = count($children_data);
 
 	    ?>
-        <div class="animated fadeInUp child-menu-level-0 hidden menu-page-container menu-page-container-<?php echo $parent_id; ?> count-items-<?php echo $count; ?>"
+        <div class="animated fadeInDown child-menu-level-0 hidden menu-page-container menu-page-container-<?php echo $parent_id; ?> count-items-<?php echo $count; ?>"
              id="menu-parent-item-<?php echo $parent_id; ?>">
         <?php
-
+		$custom_article = false;
 	    foreach ($children_data as $child_id => $child_data){
 
 	        if( !array_key_exists($child_id, $response['pages']) ){
 	            continue;
             }
 
-		    ?><div class="<?php echo implode(' ' , $child_data['page_classes']) ; ?>  count-items-<?php echo $count; ?>"
-                    <?php echo $children_data['page_attr']; ?>>
+		    ?><div class="<?php
+                if($child_data['page_classes']){
+	                echo implode(' ' , $child_data['page_classes']) ;
+                }
+                ?> count-item-<?php echo $count; ?>"
+                <?php echo $children_data['page_attr']; ?>>
 
-                <h3 class="menu-page-title"><?php echo $child_data['page_title'] ; ?></h3>
+                <div class="menu-item-inner">
 
-                <img src="<?php echo $response['pages'][$child_id]['image'] ; ?>"
-                     alt="<?php echo $response['pages'][$child_id]['image_alt'] ; ?>"
-                     class="menu-page-image" />
+                    <h3 class="menu-page-title"><?php echo $child_data['page_title'] ; ?></h3>
 
-                <?php if( array_key_exists($child_id, $menu_map['submenus']) ){ ?>
+                    <img src="<?php echo $response['pages'][$child_id]['image'] ; ?>"
+                         alt="<?php echo $response['pages'][$child_id]['image_alt'] ; ?>"
+                         class="menu-page-image" />
 
-                    <div class="submenu-page-link-outer">
+                    <?php if( array_key_exists($child_id, $menu_map['submenus']) ){
+                        $custom_article = true;
+                        ?>
 
-			        <?php foreach ($menu_map['submenus'][$child_id] as $grandson_id => $grandson_data){ ?>
+                        <div class="submenu-page-link-outer">
 
-	                    <a class="submenu-page-link" href="<?php echo $grandson_data['page_link']; ?>">
+                        <?php foreach ($menu_map['submenus'][$child_id] as $grandson_id => $grandson_data){ ?>
 
-                        <?php print_button_text($grandson_data['page_title']); ?>
+                            <a class="submenu-page-link" href="<?php echo $grandson_data['page_link']; ?>">
+
+                            <?php print_button_text($grandson_data['page_title']); ?>
+
+                            </a>
+
+                        <?php } ?>
+                        </div>
+
+                    <?php }else{ ?>
+                        <p class="menu-page-text"><?php echo $response['pages'][$child_id]['page_excerpt'] ; ?></p>
+
+                        <a class="menu-page-link" href="<?php echo $child_data['page_link']; ?>">
+
+                            <?php print_button_text($link_text); ?>
 
                         </a>
-
                     <?php } ?>
-			        </div>
 
-                <?php }else{ ?>
-                    <p class="menu-page-text"><?php echo $response['pages'][$child_id]['page_excerpt'] ; ?></p>
+                </div>
 
-                    <a class="menu-page-link" href="<?php echo $child_data['page_link']; ?>">
+            </div>
 
-                        <?php print_button_text($link_text); ?>
+
+	    <?php } ?>
+
+		<?php
+
+		if($custom_article){ ?>
+            <div class="menu-item menu-custom-item count-item-3" style="background-image: url(<?php echo $menu_article['image'] ; ?>);">
+
+                <div class="menu-item-inner menu-custom-item-inner">
+
+                    <h3 class="menu-page-title menu-custom-title"><?php echo $menu_article['title']; ?></h3>
+                    <p class="menu-page-text"><?php echo $menu_article['text'] ; ?></p>
+                    <a class="menu-page-link menu-custom-link" href="<?php echo $menu_article['link_target']; ?>">
+
+		                <?php print_button_text($menu_article['link_text']); ?>
 
                     </a>
-                <?php } ?>
-            <?php
 
-		    ?></div><?php
+                </div>
 
-        }
+            </div>
 
-        ?></div><?php
-	}
+		<?php $custom_article = false;
+		    }	?>
 
-	?>
+        </div><?php
+
+	 } ?>
 
             </div>
         </div>
