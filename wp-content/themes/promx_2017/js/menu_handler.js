@@ -65,7 +65,7 @@ jQuery(document).ready(function($){
 
             header.on('mouseleave', function(){
 
-                //$('.menu-page-container.flex-visible').removeClass('flex-visible').addClass('hidden');
+                $('.menu-page-container.flex-visible').removeClass('flex-visible').addClass('hidden');
 
             });
 

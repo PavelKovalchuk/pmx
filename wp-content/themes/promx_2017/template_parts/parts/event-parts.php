@@ -7,6 +7,42 @@
  */
 
 
+function __get_promo_events_image_part($big_image, $link_target, $event_link_text, $image_alt){
+
+	if( !$big_image || !$link_target || !$event_link_text ){
+		return false;
+	}
+
+	?>
+
+    <div class="image-part second-flex ">
+        <img src="<?php echo $big_image; ?>" alt="<?php print_image_alt($image_alt) ?>" class="img-responsive">
+        <a href="<?php echo $link_target; ?>" type="button" class="btn btn-primary btn-outline-inverted visible-xs">
+            <?php print_button_text($event_link_text); ?>
+        </a>
+    </div>
+
+	<?php
+}
+
+function __get_promo_events_text_part($title, $place, $time, $link_target, $link_text){
+	if( !$title || !$place || !$time || !$link_target){
+		return false;
+	}
+	?>
+
+    <div class="text-part bg-secondary first-flex">
+        <h3><?php echo $title; ?></h3>
+        <p class="text-justify">
+			<?php echo $place; ?>
+            <br> <?php echo $time; ?>
+        </p>
+        <a href="<?php echo $link_target; ?>" type="button" class="btn btn-primary btn-outline-inverted"><?php print_button_text($link_text); ?></a>
+    </div>
+
+	<?php
+}
+
 function __get_promo_events_part($events, $event_link_text){
 
 	if( empty($events)){
@@ -25,18 +61,18 @@ function __get_promo_events_part($events, $event_link_text){
 		} ?>
 
         <div class="<?php echo $event_classes[$i];?>">
-            <div class="text-part bg-secondary first-flex">
-                <h3><?php echo $events[$i]['title']; ?></h3>
-                <p class="text-justify">
-			        <?php echo $events[$i]['place']; ?>
-                    <br> <?php echo $events[$i]['time']; ?>
-                </p>
-                <a href="<?php echo $events[$i]['link_target']; ?>" type="button" class="btn btn-primary btn-outline-inverted"><?php print_button_text($event_link_text); ?></a>
-            </div>
-            <div class="image-part second-flex ">
-                <img src="<?php echo $events[$i]['big_image']; ?>" alt="<?php print_image_alt($events[$i]['image_alt']) ?>" class="img-responsive">
-                <a href="<?php echo $events[$i]['link_target']; ?>" type="button" class="btn btn-primary btn-outline-inverted visible-xs"><?php print_button_text($event_link_text); ?></a>
-            </div>
+
+	        <?php if ($i % 2 !== 0) {
+		        __get_promo_events_image_part( $events[$i]['big_image'], $events[$i]['link_target'], $event_link_text, $events[$i]['image_alt']);
+		        __get_promo_events_text_part($events[$i]['title'], $events[$i]['place'], $events[$i]['time'], $events[$i]['link_target'], $event_link_text);
+
+	        }else{
+		        __get_promo_events_text_part($events[$i]['title'], $events[$i]['place'], $events[$i]['time'], $events[$i]['link_target'], $event_link_text);
+		        __get_promo_events_image_part( $events[$i]['big_image'], $events[$i]['link_target'], $event_link_text, $events[$i]['image_alt']);
+
+	        } ?>
+
+
         </div>
 
 	<?php }

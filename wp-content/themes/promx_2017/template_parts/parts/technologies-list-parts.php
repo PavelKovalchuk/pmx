@@ -22,7 +22,7 @@ function __get_tech_text_part($data){
 
 	<div class="col-sm-12 col-md-6 whatYouGet-section_row_block">
 		<div class="whatYouGet-section_row_block_content">
-			<h2 class="profit-title"><?php echo $data['title']; ?>5</h2>
+			<h2 class="profit-title"><?php echo $data['title']; ?></h2>
 			<div class="profit-text">
 				<?php echo $data['text']; ?>
 				<a href="<?php echo $data['link_target']; ?>" class="btn btn-primary"><?php print_button_text($data['link_text']); ?></a>

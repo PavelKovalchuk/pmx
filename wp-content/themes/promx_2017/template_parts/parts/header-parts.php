@@ -137,7 +137,7 @@ function get_template_menu_blocks($pages_id_arr, $menu_map){
                         implement, require considerable maintenance and are so complex that only absolute specialists.',
             'link_target' => '#',
             'link_text' => 'Learn about Hitachi Enterprise cloud',
-            'image' => 'http://promx.loc/wp-content/uploads/2018/02/cloud.png'
+            'image' => 11973
     ];
 
 	$menu_data_from_db = get_promx_menu_items_data_by_menu_id($pages_id_arr);
@@ -240,8 +240,10 @@ function get_template_menu_blocks($pages_id_arr, $menu_map){
 
 		<?php
 
-		if($custom_article){ ?>
-            <div class="menu-item menu-custom-item count-item-3" style="background-image: url(<?php echo $menu_article['image'] ; ?>);">
+		if($custom_article){
+		    $custom_article_image = wp_get_attachment_image_url( $menu_article['image'], 'full' );
+		    ?>
+            <div class="menu-item menu-custom-item count-item-3" style="background-image: url(<?php echo $custom_article_image ; ?>);">
 
                 <div class="menu-item-inner menu-custom-item-inner">
 
