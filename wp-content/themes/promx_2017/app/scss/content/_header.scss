@@ -97,6 +97,37 @@
 
 }
 
+.menu-item-has-children{
+
+  &.current-parent-visible{
+    &::before {
+      content: "";
+      position: absolute;
+      z-index: 1;
+      width: 0;
+      height: 0;
+
+      border-bottom: $arrow-width solid $color-light-grey;
+      border-left: $arrow-width solid transparent;
+      border-right: $arrow-width solid transparent;
+      right: 0;
+      left: 0;
+      margin: auto;
+      top: calc(100% - 7px);
+
+      /* @include media-breakpoint-down(md) {
+         border-bottom: 0;
+         border-top: $arrow-width solid $color-light-grey;
+         border-left: $arrow-width solid transparent;
+         border-right: $arrow-width solid transparent;
+         right: 35px;
+         top: 100%;
+       }*/
+    }
+  }
+
+}
+
 
 .promx-header-menu-section{
 
@@ -107,8 +138,8 @@
     width: 100%;
     position: absolute;
     left: 0;
-    top: 0;
-    z-index: 1;
+    top: -1px;
+    z-index: 10;
     background-color: $color-light-grey;
     overflow: hidden;
 
@@ -130,25 +161,6 @@
      /* -webkit-box-flex: 1;*/
       flex-grow: 1;
       max-width: 100%;
-
-      /*padding-right: 14px;
-      padding-left: 14px;
-
-      &:first-of-type{
-        padding-left: 0px;
-      }
-
-      &:last-of-type{
-        padding-right: 0px;
-      }*/
-
-     /* @include media-breakpoint-only(lg) {
-        margin-top: 30%;
-      }
-      @include media-breakpoint-up(xl) {
-        margin-top: 20%;
-      }*/
-
 
       &.count-item-6{
 
@@ -175,22 +187,7 @@
             flex-basis: 50%;
           }
 
-         /* &:nth-of-type(3){
-            padding-right: 0px;
-          }
 
-          &:nth-of-type(4){
-            padding-left: 0px;
-            padding-bottom: 0px;
-          }
-
-          &:nth-of-type(5){
-            padding-bottom: 0px;
-          }
-
-          &:nth-of-type(6){
-            padding-bottom: 0px;
-          }*/
         }
 
         @include media-breakpoint-down(md){
@@ -291,7 +288,6 @@
             background-size: 80%;
             flex-basis: 20%;
           }
-
 
           &:first-of-type{
             padding-left: 0px;

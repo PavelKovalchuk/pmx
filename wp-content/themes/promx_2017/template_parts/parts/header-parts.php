@@ -131,15 +131,6 @@ function get_template_menu_blocks($pages_id_arr, $menu_map){
 
 	//$menu_data_from_db = get_promx_menu_items_data_by_page_id($pages_id_arr);
 
-    $menu_article = [
-            'title' => 'Get to real business results faster with cloud',
-            'text' => 'Business solutions are often associated with extensive and rigid software suites that are laborious to 
-                        implement, require considerable maintenance and are so complex that only absolute specialists.',
-            'link_target' => '#',
-            'link_text' => 'Learn about Hitachi Enterprise cloud',
-            'image' => 11973
-    ];
-
 	$menu_data_from_db = get_promx_menu_items_data_by_menu_id($pages_id_arr);
 
 	$response = [];
@@ -168,7 +159,7 @@ function get_template_menu_blocks($pages_id_arr, $menu_map){
             <div class="col-sm-12">
 
     <?php
-    //var_dump($menu_map['submenus']);
+
 	foreach ($menu_map as $parent_id => $children_data){
 
 	    if(!is_int($parent_id)){
@@ -241,25 +232,11 @@ function get_template_menu_blocks($pages_id_arr, $menu_map){
 		<?php
 
 		if($custom_article){
-		    $custom_article_image = wp_get_attachment_image_url( $menu_article['image'], 'full' );
-		    ?>
-            <div class="menu-item menu-custom-item count-item-3" style="background-image: url(<?php echo $custom_article_image ; ?>);">
 
-                <div class="menu-item-inner menu-custom-item-inner">
-
-                    <h3 class="menu-page-title menu-custom-title"><?php echo $menu_article['title']; ?></h3>
-                    <p class="menu-page-text"><?php echo $menu_article['text'] ; ?></p>
-                    <a class="menu-page-link menu-custom-link" href="<?php echo $menu_article['link_target']; ?>">
-
-		                <?php print_button_text($menu_article['link_text']); ?>
-
-                    </a>
-
-                </div>
-
-            </div>
-
-		<?php $custom_article = false;
+			if ( function_exists('dynamic_sidebar') ){
+				dynamic_sidebar('sidebar-custom-menu-product-link');
+			}
+            $custom_article = false;
 		    }	?>
 
         </div><?php

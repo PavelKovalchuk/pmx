@@ -39,5 +39,15 @@ function promx_sidebars_init() {
 		'after_title'   => '',
 	) );
 
+	register_sidebar( array(
+		'name'          => esc_html__( 'Custom Menu Products Link', TEXTDOMAIN ),
+		'id'            => 'sidebar-custom-menu-product-link',
+		'description'   => esc_html__( 'Add Custom Menu Products widget here.', TEXTDOMAIN ),
+		'before_widget' => '',
+		'after_widget'  => '',
+		'before_title'  => '',
+		'after_title'   => '',
+	) );
+
 }
 

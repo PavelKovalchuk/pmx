@@ -11,13 +11,15 @@ jQuery(document).ready(function($){
             'pagesIdAll' : [],
             'menuObject' : {},
             'parentsLi' : [],
+            'currentParentLi' : false,
 
             //HTML
             'linkText' : 'Read more',
 
             //CSS
             'mainMenuContainerClass': '.js-top-menu',
-            'navbarClass': '.navbar-promx'
+            'navbarClass': '.navbar-promx',
+            'currentParentLiVisible': 'current-parent-visible'
         };
 
         var initMenuItems = function (menu){
@@ -80,6 +82,13 @@ jQuery(document).ready(function($){
 
                     $('.menu-page-container.flex-visible').removeClass('flex-visible').addClass('hidden');
                     submenu.removeClass('hidden').addClass('flex-visible');
+
+                    if(options.currentParentLi != false){
+                        $(options.currentParentLi).removeClass(options.currentParentLiVisible);
+                    }
+
+                    options.currentParentLi = parentLi;
+                    parentLi.addClass(options.currentParentLiVisible);
 
                 });
 
