@@ -41,8 +41,13 @@ if ( ! function_exists( 'bootstrap_setup_footer' ) ):
         $attributes  = ! empty( $item->attr_title ) ? ' title="'  . esc_attr( $item->attr_title ) .'" ' : '';
         $attributes .= ! empty( $item->target )     ? ' target="' . esc_attr( $item->target     ) .'" ' : '';
         $attributes .= ! empty( $item->xfn )        ? ' rel="'    . esc_attr( $item->xfn        ) .'" ' : '';
+
+        if($item->current == true){
+		    $item->url = false;
+	    }
+
         $attributes .= ! empty( $item->url )        ? ' href="'   . esc_attr( $item->url        ) .'" ' : '';
-        $attributes .= ($args->walker->has_children)      ? ' class="nav-link"' : 'class="nav-link"';
+        $attributes .= ($args->walker->has_children) ? ' class="nav-link"' : 'class="nav-link"';
 
         $item_output = $args->before;
 
@@ -52,7 +57,7 @@ if ( ! function_exists( 'bootstrap_setup_footer' ) ):
 	        $html_tag = 'span';
         }
 
-        $item_output .= ($depth > 0) ? '<' . $html_tag . ' class=""' . $attributes . '> ' : '<' . $html_tag . $attributes .'>';
+        $item_output .= ($depth > 0) ? '<' . $html_tag . ' ' . $attributes . '> ' : '<' . $html_tag . $attributes .'>';
         $item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
         $item_output .= '</' . $html_tag . '>';
 

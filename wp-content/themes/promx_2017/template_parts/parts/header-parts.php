@@ -203,11 +203,7 @@ function get_template_menu_blocks($pages_id_arr, $menu_map){
 
                         <?php foreach ($menu_map['submenus'][$child_id] as $grandson_id => $grandson_data){ ?>
 
-                            <a class="submenu-page-link" href="<?php echo $grandson_data['page_link']; ?>">
-
-                            <?php print_button_text($grandson_data['page_title']); ?>
-
-                            </a>
+	                        <?php __get_seo_link_html($grandson_data['current'],  $grandson_data['page_link'], "submenu-page-link", $grandson_data['page_title']); ?>
 
                         <?php } ?>
                         </div>
@@ -215,11 +211,8 @@ function get_template_menu_blocks($pages_id_arr, $menu_map){
                     <?php }else{ ?>
                         <p class="menu-page-text"><?php echo $response['pages'][$child_id]['page_excerpt'] ; ?></p>
 
-                        <a class="menu-page-link" href="<?php echo $child_data['page_link']; ?>">
+	                    <?php __get_seo_link_html($child_data['current'],  $child_data['page_link'], "menu-page-link", $link_text); ?>
 
-                            <?php print_button_text($link_text); ?>
-
-                        </a>
                     <?php } ?>
 
                 </div>

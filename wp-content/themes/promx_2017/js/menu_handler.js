@@ -19,7 +19,12 @@ jQuery(document).ready(function($){
             //CSS
             'mainMenuContainerClass': '.js-top-menu',
             'navbarClass': '.navbar-promx',
-            'currentParentLiVisible': 'current-parent-visible'
+            'parentContainerClass': 'menu-blocks-container',
+            'currentParentLiVisible': 'current-parent-visible',
+            'subMenuContainerClass': 'menu-page-container',
+            'submenuContainerFirstId': 'menu-parent-item-',
+            'visibleClass': 'flex-visible',
+            'hiddenClass': 'hidden'
         };
 
         var initMenuItems = function (menu){
@@ -48,13 +53,10 @@ jQuery(document).ready(function($){
                     return;
                 }
 
-                //var parentLi = $(options.menuObject).find('li' + '[' + options.menuItemPage + '=' + parent + ']');
-
                 options.parentsLi.push(children);
 
                 $(children).find('ul').remove();
 
-                //console.log('parentLi: ', parentLi);
             });
 
             __setEvents();
@@ -67,7 +69,7 @@ jQuery(document).ready(function($){
 
             header.on('mouseleave', function(){
 
-                $('.menu-page-container.flex-visible').removeClass('flex-visible').addClass('hidden');
+                $('.' + options.subMenuContainerClass + options.visibleClass).removeClass(options.visibleClass).addClass(options.hiddenClass);
 
             });
 
@@ -75,13 +77,12 @@ jQuery(document).ready(function($){
 
                 var parentLi = $(parent);
                 var dataId = parentLi.data(options.menuItemPageShort);
-
-                var submenu = $('.menu-blocks-container #menu-parent-item-' + dataId);
+                var submenu = $('.' + options.parentContainerClass + ' ' + '#' + options.submenuContainerFirstId + dataId);
 
                 parentLi.on('mouseover', function(){
 
-                    $('.menu-page-container.flex-visible').removeClass('flex-visible').addClass('hidden');
-                    submenu.removeClass('hidden').addClass('flex-visible');
+                    $('.' + options.subMenuContainerClass + '.' + options.visibleClass).removeClass(options.visibleClass).addClass(options.hiddenClass);
+                    submenu.removeClass(options.hiddenClass).addClass(options.visibleClass);
 
                     if(options.currentParentLi != false){
                         $(options.currentParentLi).removeClass(options.currentParentLiVisible);

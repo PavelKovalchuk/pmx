@@ -42,11 +42,16 @@ class CustomMenuProductsWidget extends WP_Widget {
 
                 <h3 class="menu-page-title menu-custom-title"><?php echo $link_data['custom_menu_products_title']; ?></h3>
                 <p class="menu-page-text"><?php echo $link_data['custom_menu_products_text'] ; ?></p>
-                <a class="menu-page-link menu-custom-link" href="<?php echo $link_data['custom_menu_products_link_target']; ?>">
 
-					<?php print_button_text($link_data['custom_menu_products_link_text']); ?>
+	            <?php
+	            global $wp;
+	            $current_url = home_url(add_query_arg(array(),$wp->request)) . '/';
 
-                </a>
+	            $current_flag = ($current_url == $link_data['custom_menu_products_link_target']) ? true : false;
+
+	            __get_seo_link_html($current_flag, $link_data['custom_menu_products_link_target'], 'menu-page-link menu-custom-link', $link_data['custom_menu_products_link_text']);
+
+	             ?>
 
             </div>
 

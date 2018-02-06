@@ -7,6 +7,30 @@
  */
 
 
+function __get_seo_link_html($current_flag, $link_target, $class, $link_text){
+
+	if(!$current_flag){
+
+		?>
+        <a class="<?php echo $class; ?>" href="<?php echo$link_target; ?>">
+
+			<?php print_button_text($link_text); ?>
+
+        </a>
+		<?php
+	}else{
+		?>
+        <span class="<?php echo $class; ?>">
+
+			<?php print_button_text($link_text); ?>
+
+        </span>
+		<?php
+	}
+
+}
+
+
 function get_template_simple_text($title, $text){
 
 	if( !$title || !$text){

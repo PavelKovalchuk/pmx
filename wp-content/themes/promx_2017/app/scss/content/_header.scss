@@ -100,6 +100,7 @@
 .menu-item-has-children{
 
   &.current-parent-visible{
+
     &::before {
       content: "";
       position: absolute;
@@ -124,6 +125,11 @@
          top: 100%;
        }*/
     }
+
+    .nav-link{
+      color: $secondary-color;
+    }
+
   }
 
 }
@@ -341,8 +347,12 @@
 
     .menu-page-link{
 
+      color: $secondary-color;
+      font-size: $base-size;
+
       &:hover{
 
+        color: $secondary-color;
         text-decoration: none;
 
       }

@@ -32,12 +32,22 @@ class LinksWidget extends WP_Widget {
 		$widget_id = $args["widget_id"];
 		$items = get_field('items', 'widget_' . $widget_id);
 
+		global $wp;
+		$current_url = home_url(add_query_arg(array(),$wp->request)) . '/';
+
 		if($items){
 			?><ul class="first-flex"><?php
 			foreach($items as $item){ ?>
 
 				<li>
-					<a href="<?php echo $item['item_link'] ?>"><?php echo $item['item_text'] ?></a>
+					<?php
+
+					$current_flag = ($current_url ==  $item['item_link']) ? true : false;
+
+					__get_seo_link_html($current_flag,  $item['item_link'], 'menu-footer-custom-link', $item['item_text']);
+
+					?>
+					<!--<a href="<?php /*echo $item['item_link'] */?>"><?php /*echo $item['item_text'] */?></a>-->
 				</li>
 
 			<?php } ?>

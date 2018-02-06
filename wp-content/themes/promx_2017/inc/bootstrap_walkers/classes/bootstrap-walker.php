@@ -73,7 +73,13 @@ if ( ! function_exists( 'bootstrap_setup' ) ):
         $attributes  = ! empty( $item->attr_title ) ? ' title="'  . esc_attr( $item->attr_title ) .'" ' : '';
         $attributes .= ! empty( $item->target )     ? ' target="' . esc_attr( $item->target     ) .'" ' : '';
         $attributes .= ! empty( $item->xfn )        ? ' rel="'    . esc_attr( $item->xfn        ) .'" ' : '';
+
+	    if($item->current == true){
+		    $item->url = false;
+	    }
+
         $attributes .= ! empty( $item->url )        ? ' href="'   . esc_attr( $item->url        ) .'" ' : '';
+
         $attributes .= ($args->walker->has_children)      ? ' class="nav-link dropdown-toggle" ' : 'class="nav-link"';
 
 
@@ -84,6 +90,8 @@ if ( ! function_exists( 'bootstrap_setup' ) ):
         }else{
 	        $html_tag = 'span';
         }
+
+
 
         $title = apply_filters( 'the_title', $item->title, $item->ID );
 
