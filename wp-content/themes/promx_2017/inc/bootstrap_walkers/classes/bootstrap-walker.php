@@ -16,34 +16,21 @@ if ( ! function_exists( 'bootstrap_setup' ) ):
 
 	    public $menu_item_id = [];
 
-      function start_lvl( &$output, $depth = 0, $args = array() ) {
+
+	    function start_lvl( &$output, $depth = 0, $args = array() ) {
 
 	    $indent = str_repeat( "\t", $depth );
-        $output    .= "\n$indent<ul class=\"dropdown-menu" . " animated flipInY dropdown-menu-level-" . $depth . "\">\n";
+	    if($depth == 0){
+		    $ul_class = 'dropdown-menu';
+	    }
+
+	    if($depth > 0){
+		    $ul_class = 'dropdown-menu';
+	    }
+
+        $output    .= "\n$indent<ul class=\"$ul_class" . "  dropdown-menu-level-" . $depth . "\">\n";
 
       }
-
-      function get_image_url($post_id){
-	      $image_url = kdmfi_get_featured_image_src( 'top-menu-image', 'full', $post_id );
-
-	      if(!$image_url){
-	      	return false;
-	      }
-
-	      return $image_url;
-      }
-
-	   function get_menu_excerpt($post_id){
-		   $excerpt = get_the_excerpt( $post_id );
-
-		    if(!$excerpt){
-			    return false;
-		    }
-
-		    return $excerpt;
-	   }
-
-
 
       function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
 
@@ -80,7 +67,7 @@ if ( ! function_exists( 'bootstrap_setup' ) ):
 
         $attributes .= ! empty( $item->url )        ? ' href="'   . esc_attr( $item->url        ) .'" ' : '';
 
-        $attributes .= ($args->walker->has_children)      ? ' class="nav-link dropdown-toggle" ' : 'class="nav-link"';
+        $attributes .= ($args->walker->has_children)      ? ' class="nav-link dropdown-toggle" ' : ' class="nav-link" ';
 
 
         $item_output = $args->before;
@@ -93,10 +80,11 @@ if ( ! function_exists( 'bootstrap_setup' ) ):
 
 
 
-        $title = apply_filters( 'the_title', $item->title, $item->ID );
+        //$title = apply_filters( 'the_title', $item->title, $item->ID );
 
         $item_output .= ($depth > 0) ? '<' . $html_tag . ' class="dropdown-item"' . $attributes . '> ' : '<' . $html_tag . $attributes .'>';
-        $item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
+        $item_output .= $args->link_before . $item->title . $args->link_after;
+	      //$item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
         $item_output .= '</' . $html_tag . '>';
 
         $item_output .= $args->after;
@@ -121,7 +109,7 @@ if ( ! function_exists( 'bootstrap_setup' ) ):
 		      //$this->pages_id[] = intval($item->object_id);
 		      $this->menu_item_id[] = intval($item->ID);
 
-		      return;
+		      //return;
 	      }
 
 	      if($depth == 2){
@@ -141,7 +129,7 @@ if ( ! function_exists( 'bootstrap_setup' ) ):
 			      'children_data' => ($args->walker->has_children) ? 'true' : 'false'
 		      );
 
-		      return;
+		      //return;
 
 	      }
 

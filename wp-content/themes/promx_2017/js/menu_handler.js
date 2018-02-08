@@ -2,30 +2,37 @@
 jQuery(document).ready(function($){
 // Add your custom jQuery here
 
-    var initMenuHandler = function (menu){
+    var options = {
+        'menuItemPage' : 'data-page-id',
+        'menuItemPageShort' : 'page-id',
+        'pagesIdMap' : {},
+        'pagesIdAll' : [],
+        'menuObject' : {},
+        'parentsLi' : [],
+        'currentParentLi' : false,
+        'currentParentUl' : false,
 
-        var options = {
-            'menuItemPage' : 'data-page-id',
-            'menuItemPageShort' : 'page-id',
-            'pagesIdMap' : {},
-            'pagesIdAll' : [],
-            'menuObject' : {},
-            'parentsLi' : [],
-            'currentParentLi' : false,
+        //HTML
+        'linkText' : 'Read more',
 
-            //HTML
-            'linkText' : 'Read more',
+        //CSS
+        'mainMenuContainerClass': '.js-top-menu',
+        'navbarClass': '.navbar-promx',
+        'parentContainerClass': 'menu-blocks-container',
+        'currentParentLiVisible': 'current-parent-visible',
+        'subMenuContainerClass': 'menu-page-container',
+        'submenuContainerFirstId': 'menu-parent-item-',
+        'visibleClass': 'flex-visible',
+        'hiddenClass': 'hidden',
 
-            //CSS
-            'mainMenuContainerClass': '.js-top-menu',
-            'navbarClass': '.navbar-promx',
-            'parentContainerClass': 'menu-blocks-container',
-            'currentParentLiVisible': 'current-parent-visible',
-            'subMenuContainerClass': 'menu-page-container',
-            'submenuContainerFirstId': 'menu-parent-item-',
-            'visibleClass': 'flex-visible',
-            'hiddenClass': 'hidden'
-        };
+        'mobileSubMenuClass': 'dropdown-menu',
+        'mobileLinkForbidden': 'link-forbidden',
+        'mobileSubmenuToggleClass': 'dropdown-toggle'
+    };
+
+    var initMenuHandler = function (menu, options){
+
+        var options = options;
 
         var initMenuItems = function (menu){
 
@@ -37,14 +44,14 @@ jQuery(document).ready(function($){
 
             var mainLiData = $(container).children('li' + '[' + options.menuItemPage + ']');
 
-            __removeOldSubmenuMenu(mainLiData);
+            __initParentsLiData(mainLiData);
 
 
 
         };
 
 
-        var __removeOldSubmenuMenu = function (mainLiData) {
+        var __initParentsLiData = function (mainLiData) {
 
             $.each( mainLiData, function( parent, children ) {
 
@@ -55,7 +62,7 @@ jQuery(document).ready(function($){
 
                 options.parentsLi.push(children);
 
-                $(children).find('ul').remove();
+                //$(children).find('ul').remove();
 
             });
 
@@ -123,11 +130,134 @@ jQuery(document).ready(function($){
 
     };
 
+    var initMobileMenuHandler = function (menu){
+
+
+        var initMenuItems = function (menu){
+
+            options.menuObject = menu;
+
+            //console.log('initMobileMenuHandler: ', 'Hello');
+
+            var container = $(options.mainMenuContainerClass);
+
+            var mainLiData = $(container).children('li' + '[' + options.menuItemPage + ']');
+
+            __initParentsLiData(mainLiData);
+
+        };
+
+        var __initParentsLiData = function (mainLiData) {
+
+            $.each( mainLiData, function( parent, children ) {
+
+                if ($.isEmptyObject(children))
+                {
+                    return;
+                }
+
+                options.parentsLi.push(children);
+
+            });
+
+            //console.log('__initParentsLiData: ', options.parentsLi);
+
+            __setEvents();
+
+        };
+
+        var __setEvents = function () {
+
+           /* var header = $('header');
+
+            header.on('mouseleave', function(){
+
+                $('.' + options.subMenuContainerClass + options.visibleClass).removeClass(options.visibleClass).addClass(options.hiddenClass);
+
+            });*/
+
+           var allLi = $('.menu-item-has-children');
+            //$.each( options.parentsLi, function(key,parent) {
+            $.each( allLi, function(key,parent) {
+
+                var parentLi = $(parent);
+                var parentLiLink = parentLi.find('a.' + options.mobileSubmenuToggleClass);
+                var submenu = parentLi.children('.' + options.mobileSubMenuClass);
+
+
+                parentLi.on('click', function(e){
+
+                    e.stopPropagation();
+
+                    console.log('submenu: ', submenu);
+                    $('.' + options.mobileLinkForbidden).removeClass(options.mobileLinkForbidden);
+
+                    if(parentLiLink.length > 0){
+
+                        if( parentLi.hasClass(options.mobileLinkForbidden) ){
+                            parentLi.removeClass(options.mobileLinkForbidden);
+
+
+                        }else{
+                            e.preventDefault();
+                            parentLi.addClass(options.mobileLinkForbidden);
+
+                        }
+                    }
+
+                    var prevParentVisibleUl = $('.' + options.mobileSubMenuClass + '.dropdown-menu-level-0' + '.' + options.visibleClass);
+                    //prevParentVisibleUl.removeClass(options.visibleClass);
+
+                    if(options.currentParentUl != false){
+                        $(options.currentParentUl).removeClass(options.visibleClass);
+                    }
+
+                    options.currentParentUl = prevParentVisibleUl;
+
+                    submenu.toggleClass(options.visibleClass);
+                    console.log('submenu.toggleClass: ', 'Hello');
+
+                });
+
+            });
+
+        };
+
+        initMenuItems(menu);
+
+     };
+
+
+    // Optimalisation: Store the references outside the event handler:
+    var $window = $(window);
     var menu = $('#promx-nav');
 
-    if(menu.length > 0){
-        initMenuHandler(menu);
-    }
+    var loadMenu = function() {
+
+        var windowsize = $window.width();
+
+        if(!menu.length > 0){
+            return;
+        }
+
+        if (windowsize > 1700) {
+
+           initMenuHandler(menu, options);
+
+        }else {
+
+            initMobileMenuHandler(menu, options);
+
+        }
+    };
+
+    // Execute on load
+    loadMenu();
+
+
+
+    // Bind event listener
+    $(window).resize(loadMenu);
 
 
 

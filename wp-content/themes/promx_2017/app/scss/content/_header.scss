@@ -388,12 +388,48 @@
 
   }
 
-  .flex-visible{
-    display: flex;
-    flex-wrap: wrap;
-  }
+
+
 
 
 
 
 }
+
+.flex-visible{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/*Test*/
+.dropdown-menu.dropdown-menu-level-0{
+  width: 100%;
+  left: 0;
+  position: absolute;
+
+  &:before{
+    content: "";
+    position: absolute;
+    z-index: -14;
+    left: -100%;
+    width: 400%;
+    height: 100%;
+    background-color: red;
+  }
+
+  li{
+    background-color: bisque;
+    //height: 100px;
+  }
+
+}
+
+.navbar-nav>li.dropdown-submenu{
+  position: initial;
+}
+
+.navbar-promx .navbar-collapse{
+  position: initial;
+}
+
+//Test
