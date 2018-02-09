@@ -10,7 +10,7 @@ jQuery(document).ready(function($){
         'menuObject' : {},
         'parentsLi' : [],
         'currentParentLi' : false,
-        'currentParentUl' : false,
+        //'currentParentUl' : false,
 
         //HTML
         'linkText' : 'Read more',
@@ -176,46 +176,45 @@ jQuery(document).ready(function($){
 
             });*/
 
+
            var allLi = $('.menu-item-has-children');
             //$.each( options.parentsLi, function(key,parent) {
-            $.each( allLi, function(key,parent) {
+            $.each( options.parentsLi, function(key,parent) {
 
                 var parentLi = $(parent);
                 var parentLiLink = parentLi.find('a.' + options.mobileSubmenuToggleClass);
-                var submenu = parentLi.children('.' + options.mobileSubMenuClass);
+
+                var children = parentLi.children('ul');
+                $.each( children, function(key,element) {
+                    $(element).on('click', function(event){
+                        event.stopPropagation();
+                    });
+                })
 
 
                 parentLi.on('click', function(e){
 
-                    e.stopPropagation();
-
-                    console.log('submenu: ', submenu);
-                    $('.' + options.mobileLinkForbidden).removeClass(options.mobileLinkForbidden);
+                    //e.stopPropagation();
 
                     if(parentLiLink.length > 0){
 
                         if( parentLi.hasClass(options.mobileLinkForbidden) ){
+
                             parentLi.removeClass(options.mobileLinkForbidden);
 
-
                         }else{
+                            console.log('Forbidden: ');
                             e.preventDefault();
                             parentLi.addClass(options.mobileLinkForbidden);
 
                         }
                     }
 
-                    var prevParentVisibleUl = $('.' + options.mobileSubMenuClass + '.dropdown-menu-level-0' + '.' + options.visibleClass);
-                    //prevParentVisibleUl.removeClass(options.visibleClass);
-
-                    if(options.currentParentUl != false){
-                        $(options.currentParentUl).removeClass(options.visibleClass);
+                    if(options.currentParentLi != false ){
+                        $(options.currentParentLi).removeClass(options.mobileLinkForbidden);
                     }
 
-                    options.currentParentUl = prevParentVisibleUl;
-
-                    submenu.toggleClass(options.visibleClass);
-                    console.log('submenu.toggleClass: ', 'Hello');
+                    options.currentParentLi = parentLi;
 
                 });
 

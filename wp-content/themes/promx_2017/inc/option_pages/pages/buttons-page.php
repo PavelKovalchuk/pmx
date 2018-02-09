@@ -51,6 +51,32 @@ $options_storage->addSubpageToPromxOptionPages(
 
 				),
 			),
+
+            //			A new section
+            array(
+                'id'	=> 'mobile_menu_button_data_id',
+                'title'	=> 'General buttons title ',
+                'fields'		=> array(
+                    //					A new field
+                    array(
+                        'id'	=> 'toggler_text_de',
+                        'title'	=> 'Mobile menu toggler text DE',
+                        'type'	=> 'text',
+                        'value' => 'MENU',
+                    ),
+
+                    array(
+                        'id'	=> 'toggler_text_en',
+                        'title'	=> 'Mobile menu toggler text EN',
+                        'type'	=> 'text',
+                        'value' => 'MENU',
+                    ),
+
+
+
+                ),
+            ),
+
 		),
 
 	)

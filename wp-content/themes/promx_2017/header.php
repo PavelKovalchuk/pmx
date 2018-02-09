@@ -34,7 +34,7 @@
 <header>
     <div class="container">
         <div class="row">
-            <div class="col-sm-12 header-top hidden-xs">
+            <div class="col-sm-12 header-top">
 
                 <?php get_template_language_switcher(); ?>
 
@@ -44,6 +44,9 @@
             <div class="col-sm-12 nav-holder">
                 <nav class="navbar navbar-promx">
                     <div class="navbar-header">
+
+	                    <?php get_template_header_logo(); ?>
+
                         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#promx-nav" aria-expanded="false">
                             <span class="sr-only">Toggle navigation</span>
                             <span class="icon-bar"></span>
@@ -51,7 +54,8 @@
                             <span class="icon-bar"></span>
                         </button>
 
-	                    <?php get_template_header_logo(); ?>
+                        <?php $buttons_options_data =  get_option( '_promx_buttons_and_links_options' ); ?>
+                        <span class="toggler-text"><?php echo $buttons_options_data['toggler_text_' . CURRENT_LANG_CODE] ?></span>
 
                     </div>
                     <div class="collapse navbar-collapse dropdown" id="promx-nav">

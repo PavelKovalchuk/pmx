@@ -1,5 +1,12 @@
 .nav-holder {
   border-top: solid lightgrey 1px;
+
+  @include media-breakpoint-down(xs) {
+    width: 80%;
+    margin: auto;
+    padding-left: 0;
+    padding-right: 0;
+  }
 }
 
 .header-top {
@@ -8,6 +15,18 @@
   justify-content: flex-end;
   padding-top: 11px;
   padding-bottom: 11px;
+
+  @include media-breakpoint-down(xs) {
+    width: 80%;
+    margin: auto;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  @include  media-query($mobile-width, 'max-width') {
+    display: none;
+  }
+
 
   .lang-box{
     cursor: pointer;
@@ -401,26 +420,13 @@
   flex-wrap: wrap;
 }
 
+
 /*Test*/
 .dropdown-menu.dropdown-menu-level-0{
   width: 100%;
   left: 0;
   position: absolute;
 
-  &:before{
-    content: "";
-    position: absolute;
-    z-index: -14;
-    left: -100%;
-    width: 400%;
-    height: 100%;
-    background-color: red;
-  }
-
-  li{
-    background-color: bisque;
-    //height: 100px;
-  }
 
 }
 

@@ -54,6 +54,8 @@ $grid-breakpoints: (
   xl: 1612px
 ) !default;
 
+$mobile-width: 500px;
+
 @include _assert-ascending($grid-breakpoints, "$grid-breakpoints");
 @include _assert-starts-at-zero($grid-breakpoints);
 
