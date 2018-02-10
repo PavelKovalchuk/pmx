@@ -157,3 +157,68 @@ function get_template_references_cards_block($title, $text, $items){
 
 	<?php
 }
+
+
+function get_template_people_cards_block($title, $text, $items){
+
+	if( !$title || !$text || empty($items)){
+		return false;
+	}
+
+	?>
+
+    <section id="events">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <article>
+                        <div class="row">
+                            <div class="col-sm-12 col-md-12 col-lg-6 col-lg-offset-3">
+                                <header class="text-center">
+                                    <h1><?php echo $title; ?></h1>
+                                </header>
+                                <div class="entry-content">
+                                    <p class="text-center font-big">
+	                                    <?php echo $text; ?>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="article team-list">
+
+	                        <?php foreach ($items as $item){ ?>
+
+                                <div class="team-list__member">
+                                    <div class="team-list__member_photo">
+                                        <img src="<?php echo $item['image']; ?>" alt="<?php print_image_alt($item['name']); ?>" class="img-responsive">
+                                    </div>
+                                    <div class="team-list__member_socials">
+
+		                                <?php foreach ($item['social_networks'] as $network){ ?>
+
+                                            <a href="<?php echo $network['social_network_link']; ?>" class="link-item">
+
+                                                <?php __get_fa_icon_html($network['social_network_name']); ?>
+                                            </a>
+
+                                        <?php } ?>
+
+
+                                    </div>
+                                    <div class="team-list__member_name">
+                                        <h3><?php echo $item['name']; ?></h3>
+                                        <div class="position"><?php echo $item['position']; ?></div>
+                                    </div>
+                                </div>
+
+	                        <?php } ?>
+
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
+
+	<?php
+}

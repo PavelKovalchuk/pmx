@@ -361,6 +361,10 @@ article {
         text-align: center;
         text-decoration: none;
         @include transition();
+
+        width: 40px;
+        height: 40px;
+
         &:hover,
         &:focus {
           color: $color-white;
