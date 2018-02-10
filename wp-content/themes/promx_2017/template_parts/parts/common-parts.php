@@ -340,6 +340,45 @@ function get_template_instruction_video_section($title, $text, $video_link){
 }
 
 
+function get_template_instruction_image_block($title, $text_1, $image, $subtitle, $text_2, $image_alt){
+
+	if( !$title || !$text_1 || !$image){
+		return false;
+	}
+
+	?>
+
+    <article class="howToUse_article">
+         <div class="row">
+             <div class="col-sm-6 col-md-6 howToUse_article_left">
+                 <div class="embed-responsive embed-responsive-16by9">
+                     <img src="<?php echo $image; ?>" alt="<?php print_image_alt($image_alt); ?>" class="img-responsive">
+                 </div>
+             </div>
+             <div class="col-sm-6 col-md-6 howToUse_article_right">
+                 <header>
+                     <h2 class="how-use-header-title"><?php echo $title; ?></h2>
+                 </header>
+                 <div class="entry-content">
+                     <p><?php echo $text_1; ?></p>
+
+                     <?php if($subtitle){?>
+                        <h2 class="how-use-subtitle"><?php echo $subtitle; ?></h2>
+                     <?php } ?>
+
+                    <?php if($text_2){?>
+                        <p><?php echo $text_2; ?></p>
+                    <?php } ?>
+
+                 </div>
+             </div>
+         </div>
+    </article>
+
+	<?php
+}
+
+
 function get_template_testimonials_section($title, $items){
 
 	if( !$title || empty($items)){
@@ -533,6 +572,39 @@ function get_template_support_section($title, $text, $contacts){
 
         </div>
     </div>
+
+	<?php
+}
+
+function get_template_product_description_section($title, $text, $image, $image_alt){
+
+	if( !$title || !$text || !$image){
+		return false;
+	}
+
+	?>
+
+    <section id="timeTracking" class="bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <article class="text-center">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-12 col-lg-8 col-lg-offset-2">
+                                <header>
+                                    <h2 class="header-title"><?php echo $title; ?></h2>
+                                </header>
+                                <div class="entry-content">
+                                    <p><?php echo $text; ?></p>
+                                    <img src="<?php echo $image; ?>" alt="<?php print_image_alt($image_alt); ?>" class="img-responsive">
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
 
 	<?php
 }

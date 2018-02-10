@@ -6,7 +6,7 @@
  * Time: 19:53
  */
 
-function get_template_featured_banner($title, $text, $image, $link_target, $link_text, $image_subject, $image_subject_alt){
+function get_template_featured_banner($title, $text, $image, $link_target, $link_text, $image_subject, $image_subject_alt, $is_tricky_header = false){
 
 	if( !$text|| !$image || !$link_target){
 		return false;
@@ -22,11 +22,24 @@ function get_template_featured_banner($title, $text, $image, $link_target, $link
 
 						<div class="col-sm-7">
 
-                            <?php if($title){ ?>
+                            <?php if(is_string($title) && !$is_tricky_header){ ?>
                                 <h1 class="subtitle light">
 		                            <?php echo $title; ?>
                                 </h1>
                             <?php } ?>
+
+							<?php if(is_array($title) && $is_tricky_header){ ?>
+                                <div class="icontitle">
+                                    <div class="icontitle__icon">
+                                        <?php __get_fa_icon_html($title['icon']); ?>
+                                    </div>
+                                    <div class="icontitle__title">
+                                        <h3><?php echo $title['title']; ?></h3>
+                                        <div class="sub-title"><?php echo $title['subtitle']; ?></div>
+                                        <div class="sub-sub-title"><?php echo $title['subsubtitle']; ?></div>
+                                    </div>
+                                </div>
+							<?php } ?>
 
 							<p class="slider-text"><?php echo $text; ?></p>
 							<div class="hidden-xs">
