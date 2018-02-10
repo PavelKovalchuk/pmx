@@ -154,6 +154,13 @@ article {
   }
 }
 
+.subtitle-text-p {
+  @extend .subtitle-text;
+  line-height: 1.1;
+  font-weight: 500;
+  font-family: $medium-font;
+}
+
 .hr {
   background-position: left top;
   background-repeat: repeat-x;

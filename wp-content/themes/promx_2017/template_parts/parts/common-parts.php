@@ -467,8 +467,6 @@ function get_template_referant_section($title, $items){
 	<?php
 }
 
-
-
 function get_template_promo_info_section($title, $text){
 
 	if( !$title || !$text){
@@ -538,4 +536,3 @@ function get_template_support_section($title, $text, $contacts){
 
 	<?php
 }
-
