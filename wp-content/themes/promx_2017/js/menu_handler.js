@@ -239,7 +239,7 @@ jQuery(document).ready(function($){
             return;
         }
 
-        if (windowsize > 1700) {
+        if (windowsize > 1000) {
 
            initMenuHandler(menu, options);
 

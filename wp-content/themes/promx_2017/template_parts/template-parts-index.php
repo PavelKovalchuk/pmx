@@ -23,3 +23,4 @@ require_once( TEMPLATE_PARTS_DIR . 'testimonials-parts.php');
 require_once(TEMPLATE_PARTS_DIR . 'forms/home-contact-form.php');
 require_once( TEMPLATE_PARTS_DIR . 'forms/event-contact-form.php');
 require_once(TEMPLATE_PARTS_DIR . 'forms/latest-news-form.php');
+require_once(TEMPLATE_PARTS_DIR . 'forms/support-contact-form.php');

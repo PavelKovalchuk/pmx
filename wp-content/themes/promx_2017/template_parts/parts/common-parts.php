@@ -31,6 +31,20 @@ function __get_seo_link_html($current_flag, $link_target, $class, $link_text){
 }
 
 
+function __get_fa_icon_html($icon){
+
+    if(!$icon){
+        return false;
+    }
+
+?>
+
+    <i class="fa <?php echo $icon; ?>" aria-hidden="true"></i>
+
+<?php
+}
+
+
 function get_template_simple_text($title, $text){
 
 	if( !$title || !$text){
@@ -262,8 +276,11 @@ function get_template_assignments_section($items, $title = false){
                         <h2>
                             <?php if($item['image']){ ?>
                                 <img src="<?php echo $item['image']; ?>" alt="<?php print_image_alt($item['title']); ?>">
-                            <?php }elseif($item['icon']){ ?>
-	                            <i class="fa <?php echo $item['icon']; ?>" aria-hidden="true"></i>
+                            <?php }elseif($item['icon']){
+
+	                            __get_fa_icon_html( $item['icon']);
+                                ?>
+
                             <?php } ?>
 
                             <?php echo $item['title']; ?>
@@ -483,3 +500,42 @@ function get_template_promo_info_section($title, $text){
 
 	<?php
 }
+
+
+
+function get_template_support_section($title, $text, $contacts){
+
+	if( !$title || !$text || !$contacts){
+		return false;
+	}
+
+	?>
+
+
+    <div class="col-sm-12 col-md-5 col-lg-6">
+        <div class="contacts-info">
+            <h1 class="title"><?php echo $title; ?></h1>
+            <h3 class="subtitle"><?php echo $text; ?></h3>
+
+	        <?php foreach ($contacts as $contact){ ?>
+
+                <div class="contacts">
+
+                    <?php
+                    __get_fa_icon_html($contact['icon']);
+
+                    if($contact['title']){
+                        echo $contact['title'];
+                    }
+                    ?>
+                    <a href="<?php echo $contact['link_target']; ?>"><?php print_button_text($contact['link_text']); ?></a>
+                </div>
+
+	        <?php } ?>
+
+        </div>
+    </div>
+
+	<?php
+}
+
