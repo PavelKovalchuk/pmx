@@ -7,9 +7,9 @@
  */
 
 if( defined('TESTIMONIAL_SLUG')){
-	$slug = TESTIMONIAL_SLUG;
+	$slug_testimonial = TESTIMONIAL_SLUG;
 }else{
-	$slug = false;
+	$slug_testimonial = false;
 }
 
 
@@ -55,7 +55,7 @@ $cpt_storage->addDataArgument(
 			'supports'            => array('title','editor', 'page-attributes', 'custom-fields'), // 'title','editor','author','thumbnail','excerpt','trackbacks','custom-fields','comments','revisions','page-attributes','post-formats'
 			'taxonomies'          => array(),
 			'has_archive'         => false,
-			'rewrite'             => array( 'slug' => $slug, 'with_front' => false ),
+			'rewrite'             => array( 'slug' => $slug_testimonial, 'with_front' => false ),
 			'query_var'           => true,
 
 		)

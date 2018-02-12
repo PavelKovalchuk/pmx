@@ -49,7 +49,10 @@ define("AJAX_HANDLERS_DIR", AJAX_HANDLERS_MAIN_DIR . "handlers/");
 
 
 //common used variables
-define("CURRENT_LANG_CODE", pll_current_language('slug'));
+
+$promx_lang_code = pll_current_language('slug') ? pll_current_language('slug') : pll_default_language('slug');
+
+define("CURRENT_LANG_CODE", $promx_lang_code);
 
 define("GENERAL_IMAGE_ALT", get_option( '_promx_images_and_logos_options' )['common_image_alt']);
 
@@ -67,6 +70,8 @@ define("FALLBACK_READ_MORE", 'Read');
 
 //Slugs
 define("TESTIMONIAL_SLUG", get_option( '_promx_testimonials_data_options' )['testimonials_slug_'. CURRENT_LANG_CODE]);
+
+define("GALLERY_SLUG", get_option( '_promx_galleries_data_options' )['galleries_slug_'. CURRENT_LANG_CODE]);
 
 
 

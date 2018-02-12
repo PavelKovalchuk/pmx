@@ -49,6 +49,11 @@ function promx_scripts() {
 		wp_enqueue_script( 'maps', TEMPLATE_URI . '/app/js/map.js', array('jquery', 'maps-google'), '0.0.1', true);
 	}
 
+	if( is_singular( 'gallery' ) ){
+
+		wp_enqueue_script( 'fancybox', TEMPLATE_URI . '/app/js/vendor/fancybox/fancybox.min.js', array('jquery'), '3.2.5', true);
+	}
+
 	wp_localize_script( 'main-js', 'SiteParams', array(
 		'ajaxurl' => site_url() . '/wp-admin/admin-ajax.php', // WordPress AJAX
 

@@ -3,6 +3,12 @@
 .entry-gallery {
   figure {
     margin-bottom: $section-padding;
+
+    &.single-gallery{
+      margin-bottom: $elements-gap;
+    }
+
+
     img {
       display: block;
       height: auto;
@@ -11,6 +17,12 @@
         margin-left: auto;
         margin-right: auto;
       }
+
+      &.box-shadow{
+        @include box-shadow();
+      }
+
+
     }
     figcaption {
       color: $dark-color;
@@ -21,5 +33,29 @@
         font-size: $base-size;
       }
     }
+
+    .gallery-link{
+      @extend figcaption;
+
+      &:hover{
+        color: $secondary-color;
+        text-decoration: none;
+      }
+
+    }
+
   }
 }
+
+.gallery-text{
+  margin-top: $section-padding;
+  font-size: 18px;
+  /*font-family: "ProximaNova";*/
+  line-height: 1.4;
+}
+
+.gallery-btn-row{
+  margin-bottom: $section-padding;
+
+}
+

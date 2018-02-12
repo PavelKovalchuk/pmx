@@ -222,3 +222,87 @@ function get_template_people_cards_block($title, $text, $items){
 
 	<?php
 }
+
+function get_template_galleries_cards_section($title, $text, $items, $is_single = false){
+
+	if( !$title || empty($items)){
+		return false;
+	}
+
+	?>
+
+    <section id="gallery">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 text-center">
+                    <header class="page-header">
+                        <h1 class="section-title">
+	                        <?php echo $title; ?>
+                        </h1>
+
+	                    <?php if($is_single && $text){ ?>
+
+                        <div class="row gallery-text">
+                            <div class="col-sm-12 col-md-10 col-lg-offset-1 text-center">
+	                            <?php echo $text; ?>
+                            </div>
+                        </div>
+                        <?php } ?>
+
+                    </header>
+                </div>
+                <div class="col-sm-12">
+                    <article class="entry-gallery">
+                        <div class="row">
+
+	                        <?php foreach ($items as $id => $item){
+
+		                        $link_target = get_post_permalink($id);
+
+		                        if($is_single){
+
+			                        $link_attr = "href='" .  $item['url'] . "' data-fancybox='gallery' " ;
+			                        $image_preview = $item['sizes']['main-preview-gallery-image-cropped'];
+			                        $figure_class = 'single-gallery';
+			                        $img_class = 'box-shadow';
+
+		                        }else{
+
+			                        $link_attr = "href='" .  $link_target . "' ";
+			                        $image_preview = $item['galerry_preview_image']['sizes']['main-preview-gallery-image-cropped'];
+			                        $figure_class = '';
+			                        $img_class = '';
+		                        }
+
+                                ?>
+
+                                <figure class="col-sm-6 col-md-4 <?php echo $figure_class; ?>">
+
+                                    <a <?php echo $link_attr; ?> >
+
+                                       <img src="<?php echo $image_preview; ?>" alt="<?php print_image_alt($item['galerry_title']); ?>" class="<?php echo $img_class; ?>">
+                                    </a>
+
+                                    <?php if(!$is_single){?>
+
+                                    <figcaption>
+                                        <a href="<?php echo $link_target; ?>" class="gallery-link">
+                                            <?php echo $item['galerry_preview_text']; ?>
+                                        </a>
+                                    </figcaption>
+
+                                    <?php } ?>
+
+                                </figure>
+
+	                        <?php } ?>
+
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
+
+	<?php
+}
