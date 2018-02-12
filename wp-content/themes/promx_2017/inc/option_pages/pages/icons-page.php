@@ -38,6 +38,13 @@ function add_promx_icons_to_admin_panel(){
 		'fa-shopping-basket',
 		'fa-code',
 
+		'fa-envelope-square',
+		'fa-envelope-open',
+		'fa-window-maximize',
+		'fa-briefcase',
+		'fa-paperclip',
+		'fa-map-marker',
+		'fa-flag',
 
 	];
 	?>

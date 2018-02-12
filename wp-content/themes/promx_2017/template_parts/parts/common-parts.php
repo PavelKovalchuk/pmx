@@ -644,3 +644,61 @@ function get_template_product_zoom_image_section($items){
 
 	<?php
 }
+
+function get_template_contact_us_section($title, $subtitle, $items){
+
+	if( !$title || !$subtitle || empty($items)){
+		return false;
+	}
+
+	?>
+
+    <div class="contacts-info">
+        <h1 class="title"><?php echo $title; ?></h1>
+        <h3 class="subtitle"><?php echo $subtitle; ?></h3>
+
+	    <?php foreach ($items as $item){ ?>
+
+            <div class="contacts">
+
+                <?php __get_fa_icon_html($item['icon']); ?>
+	            <?php echo $item['title']; ?>
+                <?php if($item['is_link_only']){ ?>
+
+                    <a href="<?php echo $item['link_target']; ?>"><?php echo $item['link_text']; ?></a>
+
+                <?php }else{
+
+			        foreach ($item['text_items'] as $text_item){ ?>
+
+                        <p class="contacts-details"><?php echo $text_item['text']; ?></p>
+
+                    <?php } ?>
+
+                <?php } ?>
+
+            </div>
+
+	    <?php } ?>
+
+    </div>
+
+	<?php
+}
+
+function get_template_map_block($lat, $long, $zoom){
+
+	if( !$long || !$lat || !$zoom){
+		return false;
+	}
+
+	?>
+
+    <div class="contact-map">
+        <div id="mapWrap">
+            <div id="map" data-lat="<?php echo $lat; ?>" data-long="<?php echo $long; ?>" data-zoom="<?php echo $zoom; ?>"></div>
+        </div>
+    </div>
+
+	<?php
+}

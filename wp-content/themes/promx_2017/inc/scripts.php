@@ -42,6 +42,12 @@ function promx_scripts() {
 	wp_enqueue_script( 'new_app-js', TEMPLATE_URI . '/js/new_app.js', array('jquery'), filemtime( get_theme_file_path('/js/new_app.js')), true );
 
 
+	if( is_page_template( 'page-templates/template-contact-us.php' ) ){
+
+		wp_enqueue_script( 'maps-google', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyDIVyYOOoUTOuNrr18bi-A3J0GlriHtoBA',  array('jquery'), '0.0.1', true);
+
+		wp_enqueue_script( 'maps', TEMPLATE_URI . '/app/js/map.js', array('jquery', 'maps-google'), '0.0.1', true);
+	}
 
 	wp_localize_script( 'main-js', 'SiteParams', array(
 		'ajaxurl' => site_url() . '/wp-admin/admin-ajax.php', // WordPress AJAX
