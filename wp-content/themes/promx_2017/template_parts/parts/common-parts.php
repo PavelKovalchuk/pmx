@@ -608,3 +608,39 @@ function get_template_product_description_section($title, $text, $image, $image_
 
 	<?php
 }
+
+function get_template_product_zoom_image_section($items){
+
+	if( empty($items)){
+		return false;
+	}
+
+	?>
+
+    <section id="timeTracking" class="bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <article class="b-pic-s-text-article">
+
+	                    <?php foreach ($items as $item){ ?>
+
+                            <div class="row b-pic-s-text-article__content">
+                                <div class="col-sm-12">
+                                    <img src="<?php echo $item['image']; ?>" alt="<?php print_image_alt($item['title']); ?>" class="img-responsive">
+                                    <div class="text text-position-<?php echo $item['text_position']; ?>">
+                                        <p><?php echo $item['text']; ?></p>
+                                    </div>
+                                </div>
+                            </div>
+
+	                    <?php } ?>
+
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
+
+	<?php
+}

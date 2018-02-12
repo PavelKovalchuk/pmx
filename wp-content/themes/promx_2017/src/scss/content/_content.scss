@@ -223,7 +223,6 @@ article {
   &__content {
     .text {
       position: absolute;
-      right: 2rem;
       bottom: 0;
       width: 32%;
       z-index: 1;
@@ -235,14 +234,21 @@ article {
       @include media-breakpoint-up(xl) {
         width: 25%;
       }
-    }
-    &:nth-child(2) {
-      box-sizing: border-box;
-      .text {
+
+      &.text-position-right {
+        right: 2rem;
+
+      }
+
+      &.text-position-left {
         left: 2rem;
         right: initial;
+        box-sizing: border-box;
+
       }
+
     }
+
     & + .b-pic-s-text-article__content {
       margin-top: $elements-gap;
     }
