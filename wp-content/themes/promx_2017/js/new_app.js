@@ -11,6 +11,7 @@ jQuery(document).ready(function($){
     // внутри этой функции $ будет работать как jQuery
 
     langSwitcherInit();
+    tooltipInit();
     //dropdownMenuHoverInit();
 
 
@@ -47,6 +48,10 @@ jQuery(document).ready(function($){
             $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeOut(500);
         });
 
+    }
+
+    function tooltipInit() {
+        $('[data-toggle="tooltip"]').tooltip();
     }
 
     /*function initWOW(){

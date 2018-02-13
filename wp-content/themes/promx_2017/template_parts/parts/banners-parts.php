@@ -23,9 +23,9 @@ function get_template_featured_banner($title, $text, $image, $link_target, $link
 						<div class="col-sm-7">
 
                             <?php if(is_string($title) && !$is_tricky_header){ ?>
-                                <h1 class="subtitle light">
+                                <h2 class="subtitle light">
 		                            <?php echo $title; ?>
-                                </h1>
+                                </h2>
                             <?php } ?>
 
 							<?php if(is_array($title) && $is_tricky_header){ ?>

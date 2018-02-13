@@ -12,6 +12,17 @@ $data = get_fields();
 get_header(); ?>
 
 <?php
+
+$post_default_data =  get_option( '_promx_galleries_data_options' );
+
+$featured_banner_title = ($data['featured_banner_title']) ? $data['featured_banner_title']: $post_default_data['gallery_banner_title_' . CURRENT_LANG_CODE];
+$featured_banner_text = ($data['featured_banner_text']) ? $data['featured_banner_text']: $post_default_data['gallery_banner_text_' . CURRENT_LANG_CODE];
+$featured_banner_image_id = $post_default_data['gallery_background_image_id'];
+$featured_banner_image_url = ($data['featured_banner_image']) ? $data['featured_banner_image'] : wp_get_attachment_image_url($featured_banner_image_id, 'full');
+$featured_banner_link_target = ($data['featured_banner_link_target']) ? $data['featured_banner_link_target'] : $post_default_data['gallery_banner_link_target_' . CURRENT_LANG_CODE];
+$featured_banner_link_text = ($data['featured_banner_link_text']) ? $data['featured_banner_link_text'] : $post_default_data['gallery_banner_link_text_' . CURRENT_LANG_CODE];
+
+
 if($data['featured_banner_tricky_header']){
 
 	$featured_banner_header = [
@@ -21,15 +32,17 @@ if($data['featured_banner_tricky_header']){
 		'icon' => $data['featured_banner_tricky_header_icon']
 	];
 }else{
-	$featured_banner_header = $data['featured_banner_title'];
+	$featured_banner_header = ($data['featured_banner_title']) ? $data['featured_banner_title']: $featured_banner_title;
 }
+
+
 
 get_template_featured_banner(
 	$featured_banner_header,
-	$data['featured_banner_text'],
-	$data['featured_banner_image'],
-	$data['featured_banner_link_target'],
-	$data['featured_banner_link_text'],
+	$featured_banner_text,
+	$featured_banner_image_url,
+	$featured_banner_link_target,
+	$featured_banner_link_text,
 	$data['featured_banner_image_subject'],
 	$data['featured_banner_image_subject_alt'],
 	$data['featured_banner_tricky_header']

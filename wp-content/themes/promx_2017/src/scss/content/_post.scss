@@ -1,0 +1,315 @@
+.single-post-content{
+
+  .sidebar-block{
+
+
+    @include media-breakpoint-up(md){
+      width: 402px;
+    }
+
+  }
+
+  .recent-block{
+
+    @include media-breakpoint-down(sm){
+      margin-bottom: $elements-gap;
+      margin-top: $elements-gap;
+    }
+
+  }
+
+  .recent-block-header{
+
+    font-size: 24px;
+    font-family: $medium-font;
+    color: $recent-color;
+    line-height: 1.2;
+    text-align: center;
+    margin-top: $base-gap;
+
+    &.recent-block-header-sidebar{
+      margin-top: 0;
+    }
+
+  }
+
+  .recent-border{
+
+    border: 1px solid $border-frame-color;
+
+    @include media-breakpoint-down(xs){
+      border: none;
+    }
+
+  }
+
+  .recent-link-item{
+    padding-bottom: $elements-gap;
+    float: left;
+  }
+
+  .single-post-thumbnail{
+
+    text-align: left;
+    float: left;
+    margin-right: $base-gap;
+    margin-bottom: $base-gap;
+    max-width: 50%;
+
+    @include media-breakpoint-down(sm){
+      text-align: center;
+      margin-bottom: $base-gap;
+      float: none;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+  }
+
+  .recent-img-outer{
+
+    width: 100px;
+    display: inline-block;
+    float: left;
+
+  }
+
+  .recent-title-outer{
+
+    display: inline-block;
+    float: left;
+    width: calc(100% - 100px);
+    line-height: 0.9em;
+    font-size: 0.7em;
+    padding: 0 0 0 25px;
+
+  }
+
+  .recent-title{
+
+    color: $color-black-text;
+    font-size: 18px;
+    font-family: $medium-font;
+    line-height: 1.2;
+    text-align: justify;
+    margin: 0;
+
+  }
+
+  .recent-link{
+    position: relative;
+    width: 100%;
+    display: block;
+    height: 100%;
+  }
+
+  .tooltip{
+    font-size: $base-size;
+    font-family: $medium-font;
+
+    .tooltip-inner{
+      background-color: $secondary-color;
+    }
+
+    .tooltip-arrow{
+
+      border-left-color: $secondary-color;
+
+    }
+
+  }
+
+  .single-post-content{
+
+    font-size: $form-base-size;
+    color: $color-black-text-2;
+    line-height: 1.1;
+
+  }
+
+  .page-header{
+
+    margin-top: $section-padding;
+    margin-bottom: $section-padding;
+
+  }
+
+  .section-title{
+
+    @include media-breakpoint-down(md){
+      font-size: $H1-mobile-size;
+    }
+
+  }
+
+  .sticky{
+
+    @include media-breakpoint-up(md){
+      position: sticky;
+      top: 60px;
+      left: 0;
+    }
+
+  }
+
+  .d-flex{
+
+    @include media-breakpoint-up(md){
+      display: flex;
+    }
+
+  }
+
+  .share-row{
+    margin-top: $elements-gap;
+    margin-bottom: $elements-gap*2;
+
+    @include media-breakpoint-down(md){
+      margin-bottom: $elements-gap;
+
+    }
+  }
+
+  .share-block-outer{
+    flex-grow: 1;
+  }
+
+  .sb-prorm{
+    margin-right: $base-size;
+    text-align: center;
+    display: inline-block;
+    transition: all $transition-duration;
+
+    &:hover
+    ,&:focus{
+
+      color: $hover-color;
+      transition: all $transition-duration;
+
+    }
+
+    .fa{
+      font-size: 35px;
+    }
+
+  }
+
+  .share-block-header{
+
+    font-size: $H1-mobile-size;
+    color: $share-color;
+    line-height: 1.5;
+    margin-right: $base-gap;
+
+  }
+
+  .d-inline-flex{
+    display: inline-flex;
+  }
+
+  .prev-next-block{
+    display: flex;
+
+    @include media-breakpoint-down(xs){
+
+      flex-direction: column;
+
+    }
+
+  }
+
+  .flex-align-center{
+    align-items: center;
+  }
+
+  .back-block-outer{
+    @include media-breakpoint-down(md){
+      text-align: center;
+      margin-top: $elements-gap;
+
+    }
+  }
+
+  .prev-post-outer
+  , .next-post-outer{
+    display: flex;
+    flex-basis: 50%;
+
+    @include media-breakpoint-down(xs){
+
+      flex-basis: 100%;
+      margin-bottom: $base-size;
+
+    }
+
+  }
+
+  .prev-next-link{
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: $color-black;
+
+    &:hover{
+      text-decoration: none;
+      color: $secondary-color;
+    }
+
+  }
+
+  .next-post-outer{
+    text-align: right;
+    width: 100%;
+
+    .arrow{
+      right: 0;
+    }
+
+    .link-label
+    , .link-title{
+      padding-right: 45px;
+    }
+
+  }
+
+  .prev-post-outer{
+    width: 100%;
+
+    .arrow{
+      left: 0;
+    }
+
+    .link-label
+    , .link-title{
+      padding-left: 45px;
+    }
+  }
+
+  .arrow{
+    display: flex;
+    width: 30px;
+    height: auto;
+    font-size: 45px;
+    position: absolute;
+    /*top: 8px;*/
+    color: $secondary-color;
+  }
+
+  .link-title-text{
+    margin-bottom: 0;
+    margin-top: 0;
+    line-height: 1;
+  }
+
+  .link-label{
+    font-size: 18px;
+    line-height: 1;
+
+  }
+
+
+
+
+}

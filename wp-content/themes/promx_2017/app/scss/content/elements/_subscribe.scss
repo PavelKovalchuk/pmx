@@ -53,3 +53,72 @@
     }
   }
 }
+
+.subscribe-sidebar{
+
+  @extend .subscribe;
+
+
+  .form-control{
+    border: 1px solid $border-frame-color;
+    color: $color-black-text-3;
+    margin-bottom: $base-size;
+    padding-left: $base-gap;
+
+    &:focus {
+      padding-left: $base-gap*1.5;
+    }
+
+  }
+
+  .form-group {
+    @include media-breakpoint-only(xs) {
+      margin-bottom: 0;
+    }
+    @include media-breakpoint-only(sm) {
+      margin-top: 0;
+    }
+    @include media-breakpoint-up(lg) {
+      padding-top: 0;
+      margin-bottom: 0;
+    }
+    & div:first-child {
+      @include media-breakpoint-only(xs) {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .form-horizontal{
+    width: 80%;
+    margin: auto;
+  }
+
+  .button-div{
+    margin-top: $form-base-size;
+    text-align: right;
+    margin-bottom: $base-gap * 2;
+  }
+
+  // Placeholders
+  ::-webkit-input-placeholder,
+  .form-control::-webkit-input-placeholder {
+    color: $color-black-text-3;
+  }
+
+  :-moz-placeholder,
+  .form-control:-moz-placeholder {
+    color: $color-black-text-3;
+  }
+
+  ::-moz-placeholder,
+  .form-control::-moz-placeholder {
+    color: $color-black-text-3;
+  }
+
+  :-ms-input-placeholder,
+  .form-control:-ms-input-placeholder {
+    color: $color-black-text-3;
+  }
+
+}

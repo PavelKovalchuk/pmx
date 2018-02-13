@@ -24,6 +24,9 @@ $footer-text-size: $base-size;
 // Colors
 $color-white: #ffffff;
 $color-black: #000000;
+$color-black-text: rgb(34, 33, 33);
+$color-black-text-2: rgb(105, 103, 104);
+$color-black-text-3: rgb(70, 69, 69);
 $color-light-grey: #f4f4f4;
 $color-dark-grey: #b5b5b5;
 $text-grey: #696768;
@@ -32,6 +35,10 @@ $text-grey-dark: #454343;
 $primary-color: rgba(58,89,102,1);
 $secondary-color: rgba(1,175,176, 1);
 $accent-color: #68103f;
+$recent-color: #652632;
+
+$share-color: rgb(78, 22, 36);
+$hover-color: #017d7d;
 
 $dark-color: rgba(78,22,36,1);
 $lazure-color: #61acad;
@@ -39,6 +46,7 @@ $footer-bg: #2b465b;
 
 // elements 
 $box-shadow: #c1c1c1;
+$border-frame-color: #cccccc;
 
 // forms
 $form-placeholder: #ffffff;

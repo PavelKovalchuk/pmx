@@ -65,16 +65,106 @@ $options_storage->addSubpageToPromxOptionPages(
 			),
 
 			array(
-				'id'	=> 'background_id',
-				'title'	=> 'Galleries background image BY DEFAULT',
+				'id'	=> 'galleries_banner_id',
+				'title'	=> 'Galleries banner data BY DEFAULT',
+				'description' => 'If gallery does not have its own data for banner, it will be used',
 				'fields'		=> array(
 					//					A new field
 					array(
-						'id'	=> 'galleries_background_image_id',
+						'id'	=> 'gallery_background_image_id',
 						'title'	=> 'Image ID',
 						'type'	=> 'number',
 						'value' => '',
-						'description' => 'If galleries does not have its own image, it will be used',
+					),
+
+					array(
+						'id'	=> 'gallery_banner_title_de',
+						'title'	=> 'Gallery banner title DE',
+						'type'	=> 'text',
+						'value' => 'Gallery Default',
+						'args' => array(
+							'html' => true
+						)
+
+					),
+
+					array(
+						'id'	=> 'gallery_banner_title_en',
+						'title'	=> 'Gallery banner title EN',
+						'type'	=> 'text',
+						'value' => 'Gallery Default',
+						'args' => array(
+							'html' => true
+						)
+
+					),
+
+
+					array(
+						'id'	=> 'gallery_banner_text_de',
+						'title'	=> 'Gallery banner text DE',
+						'type'	=> 'textarea',
+						'value' => 'Gallery Default text',
+						'args' => array(
+							'html' => true
+						)
+
+					),
+
+					array(
+						'id'	=> 'gallery_banner_text_en',
+						'title'	=> 'Gallery banner text EN',
+						'type'	=> 'textarea',
+						'value' => 'Gallery Default text',
+						'args' => array(
+							'html' => true
+						)
+
+					),
+
+
+					array(
+						'id'	=> 'gallery_banner_link_target_de',
+						'title'	=> 'Gallery banner link target DE',
+						'type'	=> 'text',
+						'value' => '/produkte/',
+						'args' => array(
+							'html' => true
+						)
+
+					),
+
+					array(
+						'id'	=> 'gallery_banner_link_target_en',
+						'title'	=> 'Gallery banner link target EN',
+						'type'	=> 'text',
+						'value' => '/en/products/',
+						'args' => array(
+							'html' => true
+						)
+
+					),
+
+					array(
+						'id'	=> 'gallery_banner_link_text_de',
+						'title'	=> 'Gallery banner link text DE',
+						'type'	=> 'text',
+						'value' => 'Read more',
+						'args' => array(
+							'html' => true
+						)
+
+					),
+
+					array(
+						'id'	=> 'gallery_banner_link_text_en',
+						'title'	=> 'Gallery banner link text EN',
+						'type'	=> 'text',
+						'value' => 'Read more',
+						'args' => array(
+							'html' => true
+						)
+
 					),
 
 				),
