@@ -47,18 +47,29 @@
 
 	                    <?php get_template_header_logo(); ?>
 
-                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#promx-nav" aria-expanded="false">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
 
-                        <?php $buttons_options_data =  get_option( '_promx_buttons_and_links_options' ); ?>
-                        <span class="toggler-text"><?php echo $buttons_options_data['toggler_text_' . CURRENT_LANG_CODE] ?></span>
 
                     </div>
-                    <div class="collapse navbar-collapse dropdown" id="promx-nav">
+	                <?php $buttons_options_data =  get_option( '_promx_buttons_and_links_options' ); ?>
+                    <!--<div class="collapse navbar-collapse dropdown" id="promx-nav">-->
+                     <div class="top-nav-menu" id="promx-nav">
+
+                         <button type="button" class="navbar-toggle"
+                                 data-close-text="<?php echo $buttons_options_data['toggler_text_' . CURRENT_LANG_CODE] ?>"
+
+                                 id="js-toggler">
+
+                             <span class="icon-bar-outer">
+                                 <span class="sr-only">Toggle navigation</span>
+                                 <span class="icon-bar top-bar"></span>
+                                 <span class="icon-bar middle-bar"></span>
+                                 <span class="icon-bar bottom-bar"></span>
+                             </span>
+
+                             <span class="toggler-text"><?php echo $buttons_options_data['toggler_text_' . CURRENT_LANG_CODE] ?></span>
+
+                         </button>
+
 
 	                    <?php
                         $menu_handler = new Bootstrap_Walker_Nav_Menu();

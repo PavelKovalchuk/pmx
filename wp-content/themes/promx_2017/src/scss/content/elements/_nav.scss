@@ -7,8 +7,8 @@
   padding-top: 20px;
   @include media-breakpoint-down(xs) {
     display: flex;
-    padding-top: 7px;
-
+    padding-top: 0px;
+    margin-bottom: 0px;
     min-height: 100px;
   }
   @include media-breakpoint-only(sm) {
@@ -18,20 +18,40 @@
     display: flex;
     align-items: center;
     flex: 1 1 165px;
+
+    @include media-breakpoint-down(xs) {
+      flex: 0 0 200px;
+    }
+
     @include media-breakpoint-up(md) {
       min-width: 165px;
     }
+
     @include media-breakpoint-only(sm) {
       position: absolute;
       top: -50px;
       left: 0;
     }
+
+
   }
+
+  .top-nav-menu{
+
+    @include media-breakpoint-down(xs) {
+      /*position: relative;*/
+      display: flex;
+      flex-grow: 1;
+    }
+
+  }
+
+
   .navbar-brand {
     height: auto;
     padding: 0;
     @include media-breakpoint-down(xs) {
-
+      margin-right: 35px;
     }
     & img {
       width: 165px;
@@ -45,20 +65,65 @@
   }
   .navbar-toggle {
     float: left;
+    margin-top: 0;
+    margin-bottom: 0;
 
     @include media-breakpoint-down(xs) {
-      margin-left: 65px;
       margin-right: 0px;
     }
+
 
     .icon-bar {
       background-color: $color-black;
       width: 36px;
       height: 1px;
+      transition: all 0.2s;
+
       &+.icon-bar {
         margin-top: 6px;
       }
+
     }
+
+    .icon-bar-outer{
+      display: block;
+      position: relative;
+      width: 25px;
+      float: left;
+    }
+
+
+    .toggler-text{
+      display: none;
+    }
+
+    &.status-closer {
+      background-color: $color-light-grey;
+
+
+      .icon-bar {
+        width: 25px;
+        transition: all 0.6s;
+      }
+      .top-bar {
+        transform: rotate(45deg);
+        transform-origin: 10% 10%;
+      }
+      .middle-bar {
+        opacity: 0;
+      }
+      .bottom-bar {
+        transform: rotate(-45deg);
+        transform-origin: 10% 90%;
+      }
+      .toggler-text{
+        display: flex;
+      }
+
+    }
+
+
+
   }
   .navbar-collapse {
     @include media-breakpoint-up(sm) {
@@ -72,13 +137,34 @@
       float: right;
     }
 
+    /*&.mobile-hidden{
+      @include media-breakpoint-down(xs) {
+        display: none;
+      }
+    }*/
+
+    &.animateMobileMenu{
+      @include media-breakpoint-down(xs) {
+        top: 100%;
+        left: 200px;
+        opacity: 1;
+        transition: left .6s, opacity 0.6s;
+      }
+    }
+
     @include media-breakpoint-down(xs) {
+
+      display: block;
       position: absolute;
       background-color: $color-light-grey;
       top: 100%;
+      transition: left .6s, opacity 0.6s;;
       z-index: 5;
-      left: 0;
-      width: 100%;
+      left: 300%;
+      /*width: calc(100% - 200px);*/
+      width: calc(110% - 200px + 15px);
+      margin: 0;
+      opacity: 0;
     }
 
     .menu-item-has-children{

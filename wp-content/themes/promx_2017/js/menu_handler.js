@@ -27,7 +27,10 @@ jQuery(document).ready(function($){
 
         'mobileSubMenuClass': 'dropdown-menu',
         'mobileLinkForbidden': 'link-forbidden',
-        'mobileSubmenuToggleClass': 'dropdown-toggle'
+        'mobileSubmenuToggleClass': 'dropdown-toggle',
+        'mobileToggler': 'js-toggler',
+        'mobileHiddenClass': 'mobile-hidden',
+        'mobileTogglerCloserClass': 'status-closer'
     };
 
     var initMenuHandler = function (menu, options){
@@ -145,6 +148,8 @@ jQuery(document).ready(function($){
 
             __initParentsLiData(mainLiData);
 
+            __initToggler();
+
         };
 
         var __initParentsLiData = function (mainLiData) {
@@ -163,6 +168,25 @@ jQuery(document).ready(function($){
             //console.log('__initParentsLiData: ', options.parentsLi);
 
             __setEvents();
+
+        };
+
+        var __initToggler = function () {
+
+            var btn = $('#' + options.mobileToggler);
+            var container = $(options.mainMenuContainerClass);
+
+            btn.on('click', function(e){
+
+                btn.toggleClass(options.mobileTogglerCloserClass);
+
+                //container.toggleClass(options.mobileHiddenClass);
+
+                container.toggleClass('animateMobileMenu');
+
+            });
+
+
 
         };
 
