@@ -185,6 +185,22 @@
 
     }
 
+    .dropdown-menu{
+
+      @include media-breakpoint-down(sm) {
+        position: relative;
+        height: 0;
+        top: auto;
+        left: 0;
+        display: none;
+        float: none;
+        padding: 0;
+        margin: 0;
+        transition: height 0.6s;
+      }
+
+    }
+
 
     .dropdown-submenu {
 
@@ -197,41 +213,53 @@
     }
         .dropdown-submenu-li-level-0:hover{
 
-          .dropdown-menu-level-0{
-            border: 0;
-            box-shadow: none;
-            display: flex;
-            flex-direction: column;
-            position: relative;
-            background-color: $color-light-grey;
-            color: $color-black;
+          @include media-breakpoint-down(sm) {
+            .dropdown-menu-level-0{
+              border: 0;
+              box-shadow: none;
+              display: flex;
+              flex-direction: column;
+              position: relative;
+              background-color: $color-light-grey;
+              color: $color-black;
+              height: 100%;
+              transition: height 0.6s;
+            }
           }
 
         }
 
         .dropdown-submenu-li-level-1:hover {
 
-          .dropdown-menu-level-1 {
-            border: 0;
-            box-shadow: none;
-            display: flex;
-            flex-direction: column;
-            position: relative;
-            background-color: $color-light-grey;
-            color: $color-black;
+          @include media-breakpoint-down(sm) {
+            .dropdown-menu-level-1{
+              border: 0;
+              box-shadow: none;
+              display: flex;
+              flex-direction: column;
+              position: relative;
+              background-color: $color-light-grey;
+              color: $color-black;
+              height: 100%;
+              transition: height 0.6s;
+            }
           }
         }
 
         .dropdown-submenu-li-level-2:hover {
 
-          .dropdown-menu-level-2 {
-            border: 0;
-            box-shadow: none;
-            display: flex;
-            flex-direction: column;
-            position: relative;
-            background-color: $color-light-grey;
-            color: $color-black;
+          @include media-breakpoint-down(sm) {
+            .dropdown-menu-level-2{
+              border: 0;
+              box-shadow: none;
+              display: flex;
+              flex-direction: column;
+              position: relative;
+              background-color: $color-light-grey;
+              color: $color-black;
+              height: 100%;
+              transition: height 0.6s;
+            }
           }
         }
 
