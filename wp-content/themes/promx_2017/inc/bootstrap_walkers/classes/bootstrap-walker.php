@@ -40,7 +40,7 @@ if ( ! function_exists( 'bootstrap_setup' ) ):
         $class_names = $value = '';
 
         $classes = empty( $item->classes ) ? array() : (array) $item->classes;
-        $classes[] = ($args->walker->has_children) ? 'dropdown dropdown-submenu' : '';
+        $classes[] = ($args->walker->has_children) ? 'dropdown dropdown-submenu dropdown-submenu-li-level-' . $depth : '';
         $classes[] = ($item->current || $item->current_item_ancestor) ? 'active' : '';
         $classes[] = 'menu-item-' . $item->ID;
         $classes[] = 'nav-item';

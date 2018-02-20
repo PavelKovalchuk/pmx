@@ -1,11 +1,14 @@
 .nav-holder {
   border-top: solid lightgrey 1px;
 
-  @include media-breakpoint-down(xs) {
-    width: 80%;
+  @include media-breakpoint-down(sm) {
     margin: auto;
     padding-left: 0;
     padding-right: 0;
+  }
+
+  @include media-breakpoint-down(xs) {
+    width: 80%;
   }
 }
 
@@ -16,11 +19,15 @@
   padding-top: 11px;
   padding-bottom: 11px;
 
-  @include media-breakpoint-down(xs) {
-    width: 80%;
+  @include media-breakpoint-down(sm) {
+
     margin: auto;
     padding-left: 0;
     padding-right: 0;
+  }
+
+  @include media-breakpoint-down(xs) {
+    width: 80%;
   }
 
   @include  media-query($mobile-width, 'max-width') {
