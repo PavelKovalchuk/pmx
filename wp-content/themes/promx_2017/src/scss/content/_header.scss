@@ -1,15 +1,22 @@
 .nav-holder {
   border-top: solid lightgrey 1px;
 
-  @include media-breakpoint-down(sm) {
-    margin: auto;
-    padding-left: 0;
-    padding-right: 0;
+  @include media-breakpoint-only(sm) {
+
+    /*padding-left: 0;
+    padding-right: 0;*/
   }
 
   @include media-breakpoint-down(xs) {
     width: 80%;
+    margin: auto;
   }
+
+  @include  media-query($mobile-width, 'max-width') {
+    width: 100%;
+    height: $mobile-nav-row-height;
+  }
+
 }
 
 .header-top {
@@ -19,20 +26,16 @@
   padding-top: 11px;
   padding-bottom: 11px;
 
-  @include media-breakpoint-down(sm) {
-
-    margin: auto;
-    padding-left: 0;
-    padding-right: 0;
-  }
-
   @include media-breakpoint-down(xs) {
     width: 80%;
+    margin: auto;
+
   }
 
-  @include  media-query($mobile-width, 'max-width') {
-    display: none;
-  }
+ @include  media-query($mobile-width, 'max-width') {
+   width: 100%;
+   height: $mobile-nav-row-height;
+ }
 
 
   .lang-box{
@@ -55,8 +58,6 @@
     height: 16px;
     margin-bottom: 4px;
     background: url($sprite-icons-image) no-repeat;
-    //margin: -6px 0px 0px -5px;
-
 
     &.flag-de{
       background-position: -151px -48px;
@@ -77,6 +78,11 @@
     position: absolute;
     top: 0;
     left: 0;
+
+    @include  media-query($mobile-width, 'max-width') {
+      top: 15px;
+      left: 30px;
+    }
 
     &.lang-shown{
       height: 60px;
@@ -116,6 +122,13 @@
     margin: 8px 18px;
     flex: 0 1 90px;
     position: relative;
+
+    @include  media-query($mobile-width, 'max-width') {
+      margin: 0px 0px 0 0;
+      flex: 0 0 90px;
+      border-right: 0;
+    }
+
   }
 
 
@@ -174,6 +187,10 @@
     z-index: 10;
     background-color: $color-light-grey;
     overflow: hidden;
+
+    @include media-breakpoint-down(sm) {
+      display: none;
+    }
 
     .menu-page-container{
 
