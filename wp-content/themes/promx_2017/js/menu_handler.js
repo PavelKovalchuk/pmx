@@ -167,7 +167,58 @@ jQuery(document).ready(function($){
 
             //console.log('__initParentsLiData: ', options.parentsLi);
 
-            __setEvents();
+            //__setEvents();
+
+            __initMenuAccordion();
+
+        };
+
+        var __initMenuAccordion = function () {
+
+            var allLi = $('.menu-item-has-children');
+
+            allLi.click(function(e) {
+                //e.preventDefault();
+                e.stopPropagation();
+
+                var $this = $(this);
+
+                if ($this.children('.dropdown-menu').hasClass('show-dropdown-submenu')) {
+                    //$this.children('.dropdown-menu').removeClass('show-dropdown-submenu');
+                    //$this.children('.dropdown-menu').slideUp(350);
+                } else {
+                    console.log('parent-parent', $this.parent().parent().find('li .dropdown-menu'));
+
+                    $this.parent().parent().find('li .dropdown-menu').removeClass('show-dropdown-submenu');
+                    $this.parent().parent().find('li .dropdown-menu').slideUp(350);
+
+                    $this.children('.dropdown-menu').toggleClass('show-dropdown-submenu');
+                    $this.children('.dropdown-menu').slideToggle(350);
+                }
+
+
+                if( $this.hasClass(options.mobileLinkForbidden) ){
+
+                    $this.removeClass(options.mobileLinkForbidden);
+
+                }else{
+                    console.log('Forbidden: ');
+                    e.preventDefault();
+                    $this.addClass(options.mobileLinkForbidden);
+
+                }
+
+                //If this is a high level li element
+                if($this.hasClass('dropdown-submenu-li-level-0')){
+
+                    if(options.currentParentLi != false ){
+                        $(options.currentParentLi).removeClass(options.mobileLinkForbidden);
+                    }
+
+                    options.currentParentLi = $this;
+                }
+
+            });
 
         };
 
