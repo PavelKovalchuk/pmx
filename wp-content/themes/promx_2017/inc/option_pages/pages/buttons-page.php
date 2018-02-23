@@ -72,6 +72,20 @@ $options_storage->addSubpageToPromxOptionPages(
                         'value' => 'MENU',
                     ),
 
+                    array(
+                        'id'	=> 'toggler_close_text_de',
+                        'title'	=> 'Mobile menu close toggler text DE',
+                        'type'	=> 'text',
+                        'value' => 'CLOSE MENU',
+                    ),
+
+                    array(
+                        'id'	=> 'toggler_close_text_en',
+                        'title'	=> 'Mobile menu close toggler text EN',
+                        'type'	=> 'text',
+                        'value' => 'CLOSE MENU',
+                    ),
+
 
 
                 ),

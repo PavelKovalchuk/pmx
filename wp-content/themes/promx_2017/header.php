@@ -54,10 +54,7 @@
                     <!--<div class="collapse navbar-collapse dropdown" id="promx-nav">-->
                      <div class="top-nav-menu" id="promx-nav">
 
-                         <button type="button" class="navbar-toggle"
-                                 data-close-text="<?php echo $buttons_options_data['toggler_text_' . CURRENT_LANG_CODE] ?>"
-
-                                 id="js-toggler">
+                         <button type="button" class="navbar-toggle" id="js-toggler">
 
                              <span class="icon-bar-outer">
                                  <span class="sr-only">Toggle navigation</span>
@@ -66,10 +63,10 @@
                                  <span class="icon-bar bottom-bar"></span>
                              </span>
 
-                             <span class="toggler-text"><?php echo $buttons_options_data['toggler_text_' . CURRENT_LANG_CODE] ?></span>
+                             <span class="toggler-text toggler-text-opened"><?php echo $buttons_options_data['toggler_text_' . CURRENT_LANG_CODE] ?></span>
+                             <span class="toggler-text toggler-text-closed"><?php echo $buttons_options_data['toggler_close_text_' . CURRENT_LANG_CODE] ?></span>
 
                          </button>
-
 
 	                    <?php
                         $menu_handler = new Bootstrap_Walker_Nav_Menu();

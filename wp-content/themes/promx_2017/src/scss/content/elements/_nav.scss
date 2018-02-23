@@ -22,15 +22,19 @@
   .navbar-header {
     display: flex;
     align-items: center;
-    flex: 1 1 165px;
+    flex: 1 1 $logo-image-width;
 
 
     @include media-breakpoint-up(md) {
-      min-width: 165px;
+      min-width: $logo-image-width;
     }
 
     @include media-breakpoint-down(sm) {
-      flex: 0 0 200px;
+      flex: 0 0 $tablet-menu-start-point;
+    }
+
+    @include media-breakpoint-down(xs) {
+      flex: 0 0 $mobile-menu-start-point;
     }
 
     @include  media-query($mobile-width, 'max-width') {
@@ -44,7 +48,6 @@
   .top-nav-menu{
 
     @include media-breakpoint-down(sm) {
-      /*position: relative;*/
       display: flex;
       flex-grow: 1;
     }
@@ -65,9 +68,14 @@
     }
 
     & img {
-      width: 165px;
+      width: $logo-image-width;
+
+      @include media-breakpoint-down(xs) {
+        width: $logo-image-width-tablet;
+      }
+
       @include  media-query($mobile-width, 'max-width') {
-        width: 100px;
+        width: $logo-image-width-mobile;
       }
     }
   }
@@ -91,12 +99,12 @@
 
     .icon-bar {
       background-color: $color-black;
-      width: 36px;
+      width: 18px;
       height: 2px;
       transition: all 0.2s;
 
       &+.icon-bar {
-        margin-top: 6px;
+        margin-top: 3px;
       }
 
     }
@@ -104,20 +112,34 @@
     .icon-bar-outer{
       display: block;
       position: relative;
-      width: 19px;
+      width: 18px;
       float: left;
       margin-left: 25px;
-      margin-right: 5px;
+      margin-right: 10px;
+      transition: width 0.35s;
+
+      @include media-breakpoint-down(xs) {
+        margin-left: 0;
+
+      }
 
       @include  media-query($mobile-width, 'max-width') {
         margin-left: 0px;
+        transition: width 0.35s, margin-left 0.35s;
       }
 
     }
 
-
     .toggler-text{
-      display: none;
+
+      &.toggler-text-closed{
+        display: none;
+      }
+
+      &.toggler-text-opened{
+        display: block;
+      }
+
     }
 
     &.status-closer {
@@ -128,48 +150,60 @@
 
 
       .icon-bar {
-        width: 22px;
+        //width: 22px;
         transition: all 0.6s;
       }
       .top-bar {
         transform: rotate(45deg);
-        transform-origin:  0% 80%;
+        transform-origin:  10% 10%;
       }
       .middle-bar {
         opacity: 0;
       }
       .bottom-bar {
         transform: rotate(-45deg);
-        transform-origin: 0% 20%;
+        transform-origin: 10% 90%;
       }
 
       .icon-bar-outer{
+
+        width: 13px;
+        transition: width 0.35s;
+
         @include  media-query($mobile-width, 'max-width') {
           margin-left: 20px;
+          transition: width 0.35s, margin-left 0.35s;
         }
       }
 
       .toggler-text{
-        display: block;
-        float: right;
-        font-size: $base-size;
-        font-family: $main-menu-font;
-        color: $color-black;
-        margin-right: 45px;
 
-        @include media-breakpoint-down(xs) {
-          margin-right: 35px;
+        &.toggler-text-closed{
+          display: block;
         }
 
-        @include  media-query($mobile-width, 'max-width') {
-          margin-right: 20px;
+        &.toggler-text-opened{
+          display: none;
         }
 
       }
 
     }
 
+    .toggler-text{
+      display: block;
+      float: right;
+      font-size: $base-size;
+      line-height: 0.9;
+      font-family: $main-menu-font;
+      color: $color-black;
+      margin-right: 45px;
 
+      @include media-breakpoint-down(xs) {
+        margin-right: 25px;
+      }
+
+    }
 
   }
   .navbar-collapse {
@@ -187,9 +221,13 @@
     &.animateMobileMenu{
       @include media-breakpoint-down(sm) {
         top: 100%;
-        left: 200px;
+        left: $tablet-menu-start-point;
         opacity: 1;
         transition: left .6s, opacity 0.6s;
+      }
+
+      @include media-breakpoint-down(xs) {
+        left: $mobile-menu-start-point;
       }
 
       @include  media-query($mobile-width, 'max-width') {
@@ -216,7 +254,8 @@
     }
 
     @include media-breakpoint-down(xs) {
-      width: calc(100vw - ((100vw - 100%) / 2) - 200px);
+      //$mobile-menu-start-point - 160
+      width: calc(100vw - ((100vw - 100%) / 2) - 160px);
     }
 
     @include  media-query($mobile-width, 'max-width') {
@@ -472,10 +511,6 @@
     padding-top: 0;
     align-items: center;
   }
- /* @include media-breakpoint-only(sm) {
-    padding-top: 16px;
-  }*/
-
 
   .sprite-icon{
     background: url($sprite-icons-image) no-repeat;
@@ -509,25 +544,6 @@
       background-position: -34px -96px;
       text-decoration: none;
     }
-  }
-
-  & button.btn
-  ,& .header-menu-icon.btn{
-    //background: white;
-    //font-size: 32px;
-    //padding: 0 4px;
-    @include media-breakpoint-down(lg) {
-      //font-size: 24px;
-    }
-
-    &:hover,
-    &:focus {
-      //color: $active-link-color;
-    }
-  }
-
-  & .header-menu-icon.btn{
-    //color: inherit;
   }
 
 }
