@@ -447,7 +447,7 @@ function get_template_article_preview($post_item, $classes, $btn){
 }
 
 
-function get_template_article_preview_string($post_item, $btn = false){
+function get_template_article_preview_string_backups($post_item, $btn = false){
 
     $cat_data = get_the_category( $post_item->ID );
     $cat_name = $cat_data[0]->cat_name;

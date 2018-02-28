@@ -67,3 +67,71 @@ function get_template_article($post_item, $link_text, $default_image){
 
 	<?php
 }
+
+function get_template_article_preview_string($post_item, $link_text, $default_image){
+
+    if( !$post_item){
+        return false;
+    }
+
+    $cat_data = get_the_category( $post_item->ID );
+    $cat_name = $cat_data[0]->cat_name;
+
+    $html = "";
+
+    $html .= "<article class='post'>";
+
+        $html .="<div class='row'>";
+
+            $html .= "<div class='col-sm-4 col-md-4 col-lg-4'>";
+
+                $html .= "<figure>";
+
+                $img = get_the_post_thumbnail_url( $post_item->ID, 'preview-post-image' );
+
+                if(!$img){
+                    $img = $default_image;
+                }
+
+                if($img){
+                    $html .= "<img class='blog_item_img' src='$img' alt='$post_item->post_title' />";
+                }
+
+                $html .= "</figure>";
+
+            $html .= "</div>";
+
+
+            $html .= "<div class='col-sm-8 col-md-8 col-lg-7 col-lg-offset-1'>";
+
+                $html .= "<header>";
+
+                    $html .= "<h3 class='entry-title'>$post_item->post_title</h3>";
+                    $html .= "<div class='entry-meta'><span class='category-name'>$cat_name</span> / " .  get_posted_on($post_item->ID) . "</div>";
+
+                $html .= "</header>";
+
+                $html .= "<div class='entry-content'>";
+
+                    if( $post_item->post_excerpt ){
+                        $html .= "<p>$post_item->post_excerpt</p>";
+                    }
+
+                    $html .= "<a href='" . get_permalink($post_item->ID) . "' class='btn btn-primary read-more'>";
+
+                        $html .= get_button_text($link_text);
+
+                    $html .= "</a>";
+
+                $html .= "</div>";
+
+            $html .= "</div>";
+
+
+        $html .= "</div>";
+
+    $html .= '</article>';
+
+    return $html;
+
+}

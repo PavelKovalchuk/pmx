@@ -23,6 +23,10 @@ function blog_loadmore_ajax_handler(){
 	);
 
 
+    $read_more_text = (trim($_POST['readMoreText'])) ? trim($_POST['readMoreText']) : 'Error';
+    $default_image = (trim($_POST['defaultImage'])) ? trim($_POST['defaultImage']) : 'Error';
+
+
 	// it is always better to use WP_Query but not here
 	$query = new WP_Query( $args );
 
@@ -35,17 +39,14 @@ function blog_loadmore_ajax_handler(){
 		die;
 	}
 
-
-
-
 	foreach( $posts as $post_item ){
 
 		$cat_data = get_the_category( $post_item->ID );
 
 		$response[] = array(
-			'classes' => "grid__brick col-sm-12 col-md-6 col-lg-4 col-xl-3 shuffle-item shuffle-item--visible",
+			'classes' => "grid__brick col-sm-12 shuffle-item shuffle-item--visible",
 			'data_groups' => $cat_data[0]->slug,
-			'html' => get_template_article_preview_string($post_item)
+			'html' => get_template_article_preview_string($post_item, $read_more_text, $default_image)
 		);
 
 	 }

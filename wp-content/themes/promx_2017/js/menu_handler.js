@@ -64,7 +64,9 @@ jQuery(document).ready(function($){
             header.on('mouseleave', function(){
 
                 $(visibleMenuContainer).removeClass(options.visibleClass).addClass(options.hiddenClass);
-                options.currentParentLi.removeClass(options.currentParentLiVisible);
+                if(options.currentParentLi){
+                    options.currentParentLi.removeClass(options.currentParentLiVisible);
+                }
 
             });
         };

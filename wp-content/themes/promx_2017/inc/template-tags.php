@@ -53,6 +53,23 @@ function strappress_posted_on() {
 }
 endif;
 
+if ( ! function_exists( 'get_posted_on' ) ) :
+    /**
+     * Prints HTML with meta information for the current post-date/time and author.
+     */
+    function get_posted_on($post_id) {
+        $time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time>';
+
+        $time_string = sprintf( $time_string,
+            esc_attr( get_the_date( 'c', $post_id ) ),
+            esc_html( get_the_date('d M Y', $post_id) )
+        );
+
+       return "<span class='posted-on' >" . $time_string . "</span>";
+
+    }
+endif;
+
 if ( ! function_exists( 'strappress_entry_footer' ) ) :
 /**
  * Prints HTML with meta information for the categories, tags and comments.

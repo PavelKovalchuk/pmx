@@ -6,4 +6,4 @@
  * Time: 22:34
  */
 
-require_once( AJAX_HANDLERS_DIR . 'menu-handler.php' ) ;
+require_once( AJAX_HANDLERS_DIR . 'blog_handler.php' ) ;
