@@ -12,6 +12,7 @@ jQuery(document).ready(function($){
 
     langSwitcherInit();
     tooltipInit();
+    cookieUsageInit();
     //dropdownMenuHoverInit();
 
 
@@ -20,6 +21,29 @@ jQuery(document).ready(function($){
     //Base functions area
 
 
+    function cookieUsageInit() {
+
+        //https://github.com/js-cookie/js-cookie
+        var cookiesName = 'cookiesUsageInformed';
+        var blockClass = '.session-block';
+        var btnClass = '.session_btn';
+
+        var result = Cookies.get(cookiesName);
+
+        if ( result == undefined ){
+            $(blockClass).show();
+        } else {
+            $(blockClass).hide();
+        }
+
+        $(document).on('click', btnClass, function(){
+
+            Cookies.set(cookiesName, 'informed', { expires: 7 });
+            $(blockClass).hide();
+
+        });
+
+    }
 
     function langSwitcherInit(){
 

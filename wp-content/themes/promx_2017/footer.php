@@ -83,6 +83,37 @@
     </div>
 </footer>
 
+<div class="session-block">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+
+                <div class="row">
+
+                    <div class="col-sm-8">
+                        <p class="text-block">
+	                        <?php echo $footer_options_data['cookie_text_' . CURRENT_LANG_CODE]; ?>
+                        </p>
+                    </div>
+
+                    <div class="col-sm-4">
+                        <div class="right-block">
+                            <a href="<?php echo $footer_options_data['link_cookie_target_' . CURRENT_LANG_CODE]; ?>" class="learn-more-link">
+	                            <?php echo $footer_options_data['link_cookie_text_' . CURRENT_LANG_CODE]; ?>
+                            </a>
+                            <button class="session_btn btn" type="button">&times;</button>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
 
 <?php wp_footer(); ?>
 

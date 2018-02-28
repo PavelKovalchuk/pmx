@@ -99,6 +99,59 @@ $options_storage->addSubpageToPromxOptionPages(
 				),
 			),
 
+			array(
+				'id'	=> 'footer_cookie_id',
+				'title'	=> 'Footer cookie data',
+				'fields'		=> array(
+					//					A new field
+
+					array(
+						'id'	=> 'cookie_text_de',
+						'title'	=> 'Description cookie text DE',
+						'type'	=> 'textarea',
+						'value' => 'Ich stimme zu, dass diese Seite Cookies fur Analysen, personalisierte Inhalte und Werbung verwendet.',
+					),
+
+					array(
+						'id'	=> 'cookie_text_en',
+						'title'	=> 'Description cookie text EN',
+						'type'	=> 'textarea',
+						'value' => 'I accept that this site uses cookies for analysis, personalized content and advertisment.',
+					),
+
+					array(
+						'id'	=> 'link_cookie_text_de',
+						'title'	=> 'Link cookie text DE',
+						'type'	=> 'text',
+						'value' => 'Learn more',
+					),
+
+					array(
+						'id'	=> 'link_cookie_text_en',
+						'title'	=> 'Link cookie text EN',
+						'type'	=> 'text',
+						'value' => 'Learn more',
+					),
+
+
+					array(
+						'id'	=> 'link_cookie_target_de',
+						'title'	=> 'Link cookie target DE',
+						'type'	=> 'text',
+						'value' => '/datenschutz/',
+					),
+
+					array(
+						'id'	=> 'link_cookie_target_en',
+						'title'	=> 'Link cookie target EN',
+						'type'	=> 'text',
+						'value' => '/en/privacy-and-cookies/',
+					),
+
+
+				),
+			),
+
 		),
 
 	)

@@ -1,0 +1,48 @@
+.session-block{
+
+  font-size: $base-size;
+  color: $color-black;
+  background: $color-light-grey;
+  width: 100%;
+  position: fixed;
+  bottom: -1px;
+  left: 0;
+  z-index: 100;
+  padding: 7px 0;
+  display: block;
+
+  .text-block {
+    display: inline-block;
+    margin: 0;
+  }
+
+  .right-block {
+    float: right;
+  }
+
+  .session_btn {
+    padding: 0 0 0 $base-gap;
+    min-width: inherit;
+    border: none;
+    font-size: $base-size * 3;
+    line-height: 0;
+    color: $lazure-color;
+
+    &:hover{
+      color: $color-black;
+    }
+
+  }
+
+  .learn-more-link{
+    font-size: $base-size;
+    color: $hover-color;
+    text-decoration: underline;
+
+    &:hover{
+      text-decoration: none;
+    }
+
+  }
+
+}
