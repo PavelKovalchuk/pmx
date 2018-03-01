@@ -62,5 +62,80 @@
         }
       }
     }
+
   }
+
+  .blog_top_cat_nav{
+
+    margin-bottom: 0;
+    text-align: center;
+
+    @include media-breakpoint-down(sm) {
+      padding-top: $form-base-size;
+    }
+
+    .navbar_toggler_cat{
+
+      @include media-breakpoint-up(sm) {
+        display: none;
+      }
+
+    }
+
+    .blog_top_cat_outer{
+
+      width: 100%;
+      padding-top: $elements-gap;
+      text-align: center;
+      margin: 0;
+
+      @include media-breakpoint-down(sm) {
+        padding-top: 0;
+      }
+
+    }
+
+    .blog_top_cat_item{
+
+      border-right: 1px solid $color-grey-2;
+      color: $color-grey-2;
+      border-radius: 0;
+      padding-top: 0;
+      padding-bottom: 0;
+
+      @include media-breakpoint-down(sm) {
+        width: 100%;
+        border-right: none;
+        padding-top: 15px;
+        padding-bottom: 15px;
+      }
+
+
+      &:last-of-type{
+        border-right: none;
+      }
+
+      &.active{
+        color: $color-black;
+      }
+
+      &:hover{
+        text-decoration: none;
+        color: $color-black;
+      }
+
+      &:focus{
+        outline: none;
+        text-decoration: none;
+      }
+
+    }
+
+  }
+
+  .btn-more-posts_row{
+    padding-bottom: $elements-gap;
+    padding-top: $elements-gap;
+  }
+
 }

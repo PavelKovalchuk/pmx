@@ -87,7 +87,7 @@ function get_template_article_preview_string($post_item, $link_text, $default_im
 
                 $html .= "<figure>";
 
-                $img = get_the_post_thumbnail_url( $post_item->ID, 'preview-post-image' );
+                $img = get_the_post_thumbnail_url( $post_item->ID, 'main-preview-gallery-image-cropped' );
 
                 if(!$img){
                     $img = $default_image;
@@ -102,7 +102,7 @@ function get_template_article_preview_string($post_item, $link_text, $default_im
             $html .= "</div>";
 
 
-            $html .= "<div class='col-sm-8 col-md-8 col-lg-7 col-lg-offset-1'>";
+            $html .= "<div class='col-sm-8 col-md-8 col-lg-8'>";
 
                 $html .= "<header>";
 

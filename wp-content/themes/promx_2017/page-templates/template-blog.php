@@ -23,15 +23,15 @@ get_header();
 
 <main class="site-content">
 
-    <section id="blog" class="">
+    <section id="blog" class="blog-page">
         <div class="container">
             <div class="row">
 
                 <div class="col-sm-12 text-center">
 
                     <header class="page-header">
-                        <h1 class="section-title">
-                            <?php echo $data['simple_header_text'];?>
+                        <h1 class="section-title" id="js-header-category-title">
+                            <?php echo $data['blog_page_all_news_text'];?>
                         </h1>
                     </header>
 
@@ -39,24 +39,24 @@ get_header();
 
                 <div class="col-sm-12">
 
-                    <nav class="navbar navbar-toggleable-md navbar-expand-md navbar-light blog_top_cat_nav ">
+                    <nav class="navbar blog_top_cat_nav ">
 
-                        <button class="navbar-toggler align-self-center w-100 navbar_toggler_cat" type="button" data-toggle="collapse"
+                        <button class="navbar-toggler collapsed btn btn-primary navbar_toggler_cat" type="button" data-toggle="collapse"
                                 data-target="#navbarNavCat" aria-controls="navbarNavCat"
                                 aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar_cat_mobile">Categories</span>
+                            <span class="navbar_cat_mobile"><?php echo $data['blog_page_navigation_button'];?></span>
                         </button>
 
 
-                        <div class="collapse navbar-collapse justify-content-center" id="navbarNavCat">
+                        <div class="collapse navbar-collapse" id="navbarNavCat">
 
                             <div class="navbar-nav blog_top_cat_outer" id="sorter">
 
                                 <button type="button"
                                         id="term_id_all"
                                         data-group="all"
-                                        class="btn btn-link js-filter-option blog_top_cat_item">
-                                    All
+                                        class="btn btn-link js-filter-option blog_top_cat_item active">
+	                                <?php echo strip_tags($data['blog_page_all_news_text']);?>
                                 </button>
 
                                 <?php foreach($data['blog_page_categories'] as $cat){ ?>
@@ -107,7 +107,9 @@ get_header();
 
                     <div id="shuffle_grid_container" class="row shuffle_container"
                          data-read-more-text="<?php echo $data['blog_read_more_text']; ?>"
-                         data-default-thumbnail="<?php echo $data['blog_page_default_thumbnail']; ?>">
+                         data-default-thumbnail="<?php echo $data['blog_page_default_thumbnail']; ?>"
+                         data-loading-text="<?php echo $data['blog_page_loading_button']; ?>"
+                    >
 
                         <?php
 
@@ -147,8 +149,8 @@ get_header();
                     <div class="row btn-more-posts_row">
                         <div class="col-lg-12 btn-more-posts-outer text-center">
 
-                            <button id="js_more_posts" type="button" class="btn btn-primary ts_btn_more_posts ">
-                                <?php echo $more_posts ? $more_posts : 'More' ; ?>
+                            <button id="js_more_posts" type="button" class="btn btn-primary btn-simple-grey btn_more_posts ">
+	                            <?php echo $data['blog_page_more_button'];?>
                             </button>
 
                         </div>

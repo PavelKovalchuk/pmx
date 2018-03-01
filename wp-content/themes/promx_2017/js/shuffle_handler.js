@@ -12,6 +12,7 @@
 
         var readMoreText = Container.data('read-more-text');
         var defaultImage = Container.data('default-thumbnail');
+        var loadingText = Container.data('loading-text');
 
         // instantiate the plugin
         var shuffleInstance = new Shuffle(Container, {
@@ -91,7 +92,7 @@
                     data : data,
                     type : 'POST',
                     beforeSend : function ( xhr ) {
-                        button.text('Loading...'); // change the button text, you can also add a preloader image
+                        button.text(loadingText); // change the button text, you can also add a preloader image
                     },
                     success : function( data ){
                         if( data) {
@@ -108,6 +109,7 @@
 
                             //If is the last portion of posts - will nothing do
                             if (response.answer === 'end') {
+                                button.remove();
                                 return false;
                             }
 
