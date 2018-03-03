@@ -7,13 +7,15 @@
  */
 
 function __get_what_you_get_block_text($title, $text, $number){
-	if( !$title || !$text || !$number ){
+	if( !$title || !$text ){
 		return false;
 	} ?>
 
 	<div class="col-sm-12 col-md-6 whatYouGet-section_row_block">
 		<div class="whatYouGet-section_row_block_content">
+            <?php if($number){ ?>
 			<span class="profit-number"><?php echo $number; ?></span>
+            <?php } ?>
 			<h2 class="profit-title"><?php echo $title; ?></h2>
 			<div class="profit-text">
 				<p><?php echo $text; ?></p>

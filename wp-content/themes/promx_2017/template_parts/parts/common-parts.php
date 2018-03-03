@@ -14,7 +14,9 @@ function __get_seo_link_html($current_flag, $link_target, $class, $link_text){
 		?>
         <a class="<?php echo $class; ?>" href="<?php echo$link_target; ?>">
 
-			<?php print_button_text($link_text); ?>
+			<?php if($link_text){
+				print_button_text($link_text);
+            } ?>
 
         </a>
 		<?php
@@ -22,7 +24,9 @@ function __get_seo_link_html($current_flag, $link_target, $class, $link_text){
 		?>
         <span class="<?php echo $class; ?>">
 
-			<?php print_button_text($link_text); ?>
+			<?php if($link_text){
+				print_button_text($link_text);
+            } ?>
 
         </span>
 		<?php

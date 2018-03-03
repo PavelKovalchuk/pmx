@@ -8,7 +8,7 @@
 
 function get_template_featured_banner($title, $text, $image, $link_target, $link_text, $image_subject, $image_subject_alt, $is_tricky_header = false){
 
-	if( !$text|| !$image || !$link_target){
+	if( !$text|| !$image ){
 		return false;
 	}
 
@@ -18,9 +18,10 @@ function get_template_featured_banner($title, $text, $image, $link_target, $link
 		<div class="featured-banner">
 			<div class="fullwidth" style="background-image: url('<?php echo $image; ?>');">
 				<div class="container">
-					<div class="row">
 
-						<div class="col-sm-7">
+					<div class="row d-flex-row">
+
+						<div class="col-sm-7 d-flex">
 
                             <?php if(is_string($title) && !$is_tricky_header){ ?>
                                 <h2 class="subtitle light">
@@ -42,21 +43,37 @@ function get_template_featured_banner($title, $text, $image, $link_target, $link
 							<?php } ?>
 
 							<p class="slider-text"><?php echo $text; ?></p>
-							<div class="hidden-xs">
-								<a href="<?php echo $link_target; ?>" type="button" class="btn btn-primary btn-htransp"><?php print_button_text($link_text); ?></a>
-							</div>
+
+
+
 						</div>
 
                         <?php if($image_subject){ ?>
 
-                            <div class="col-sm-5 slider-extra-img">
+                            <div class="col-sm-5 d-flex slider-extra-img">
                                 <img src="<?php echo $image_subject; ?>" alt="<?php print_image_alt($image_subject_alt); ?>">
                             </div>
 
                         <?php } ?>
 
 					</div>
-				</div>
+
+                    <div class="row">
+
+                        <div class="col-sm-7 ">
+	                        <?php
+	                        if($link_target){
+		                        ?>
+                                <div class="hidden-xs">
+                                    <a href="<?php echo $link_target; ?>" type="button" class="btn btn-primary btn-htransp"><?php print_button_text($link_text); ?></a>
+                                </div>
+	                        <?php } ?>
+                        </div>
+
+                        <div class="col-sm-5">
+                        </div>
+
+                    </div>
 			</div>
 		</div>
 	</section>

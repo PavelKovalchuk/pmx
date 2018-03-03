@@ -21,10 +21,9 @@ function get_template_main_slider($sliders){
 		<div class="slide">
 			<div class="fullwidth" style="background-image: url(<?php echo $slider['image'] ; ?>);">
 				<div class="container">
-					<div class="row">
+					<div class="row d-flex-row">
 
-
-						<div class="col-sm-12 col-lg-7">
+						<div class="col-sm-7 col-md-12 col-lg-7 d-flex">
 
                             <h2 class="slider-title">
 
@@ -35,32 +34,53 @@ function get_template_main_slider($sliders){
                                 <span class="subtitle-part">
 
                                     <?php if( !empty($slider['subtitle_image']) ){ ?>
-                                        <img src="<?php echo $slider['subtitle_image'] ?>" alt="<?php print_image_alt($slider['subtitle']); ?>" />
+
+                                        <span class="slider-title-image">
+                                            <img src="<?php echo $slider['subtitle_image'] ?>" alt="<?php print_image_alt($slider['subtitle']); ?>" />
+                                        </span>
+
                                     <?php } ?>
 
-                                    <?php echo $slider['subtitle'] ; ?>
+                                    <span class="slider-title-text"><?php echo $slider['subtitle'] ; ?></span>
                                 </span>
 
                             </h2>
 
 							<p class="slider-text hidden-xs"><?php echo $slider['text_desktop'] ; ?></p>
 							<p class="slider-text visible-xs"><?php echo $slider['text_mobile'] ; ?></p>
-							<div class="hidden-xs">
-								<a href="<?php echo $slider['link_target'] ; ?>" type="button" class="btn btn-primary btn-htransp">
-                                    <?php print_button_text($slider['link_text']); ?>
-                                </a>
-							</div>
+
+
 
 						</div>
 
 		                <?php if( !empty($slider['extra_image']) ){ ?>
-                            <div class="col-sm-12 col-lg-5 slider-extra-img">
+                            <div class="col-sm-5 col-md-12 col-lg-5 d-flex slider-extra-img">
                                 <img src="<?php echo $slider['extra_image'] ?>" alt="<?php print_image_alt($slider['extra_image_alt']); ?>">
                             </div>
 		                <?php } ?>
 
-
 					</div>
+
+                    <div class="row">
+
+                        <div class="col-sm-7 col-md-12 col-lg-7">
+	                        <?php
+	                        if($slider['link_target']){
+		                        ?>
+                                <div class="hidden-xs">
+                                    <a href="<?php echo $slider['link_target'] ; ?>" type="button" class="btn btn-primary btn-htransp">
+				                        <?php print_button_text($slider['link_text']); ?>
+                                    </a>
+                                </div>
+	                        <?php } ?>
+                        </div>
+
+                        <div class="col-sm-5 col-md-12 col-lg-5 d-flex slider-extra-img">
+
+                        </div>
+
+                    </div>
+
 				</div>
 			</div>
 		</div>

@@ -98,7 +98,7 @@
 
 
     .icon-bar {
-      background-color: $color-black;
+      background-color: $menu-color;
       width: 18px;
       height: 2px;
       transition: all 0.2s;
@@ -222,6 +222,7 @@
       @include media-breakpoint-down(sm) {
         top: 99%;
         left: $tablet-menu-start-point;
+        z-index: 5;
         opacity: 1;
         transition: left .6s, opacity 0.6s;
       }
@@ -244,8 +245,8 @@
       background-color: $color-light-grey;
       top: 100%;
       transition: left .6s, opacity 0.6s;;
-      z-index: 5;
-      left: 300%;
+      z-index: -1;
+      left: 0;
       width: calc(100vw - ( (100vw - 752px) / 2 ) - 200px - 16px);
       margin: 0;
       opacity: 0;
@@ -273,7 +274,7 @@
           font-size: 20px;
           margin-left: 5px;
           display: inline-flex;
-          font-weight: 700;
+          font-weight: 300;
           line-height: 1;
           position: absolute;
           transform: rotate(0deg);
@@ -456,7 +457,7 @@
         &:hover,
         &:focus {
           background-color: transparent;
-          color: $active-link-color;
+          color: $color-black;
 
         }
         @include media-breakpoint-down(md) {

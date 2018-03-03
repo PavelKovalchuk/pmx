@@ -2,16 +2,22 @@
   color: $color-white;
   font-size: $base-size;
   @include media-breakpoint-down(xs) {
-    font-size: 8px;
+    //font-size: 8px;
   }
   @include media-breakpoint-only(sm) {
-    font-size: 12px;
+    //font-size: 12px;
   }
   .fullwidth {
     background-repeat: no-repeat;
     background-size: cover;
     padding-bottom: 9.063em;
     padding-top: 9.375em;
+
+    @include media-breakpoint-down(sm) {
+      padding-bottom: 3em;
+      padding-top: 3em;
+    }
+
   }
   & h1.title {
     color: $color-white;
@@ -39,9 +45,20 @@
     line-height: 0.9;
     margin-bottom: $elements-gap/2;
     margin-top: 0;
+
     &.light {
       font-family: $light-font;
     }
+
+    @include media-breakpoint-down(sm) {
+      font-size: 2em;
+      text-align: left;
+    }
+
+    @include media-breakpoint-down(xs) {
+      text-align: center;
+    }
+
     img {
       float: left;
       max-width: 4.875rem;
@@ -95,15 +112,20 @@
       max-width: 100%;
       height: auto;
       z-index: 1;
+
+      margin-left: auto;
+      margin-right: auto;
+
       @include media-breakpoint-down(xs) {
-        max-width: 280px;
+        max-height: 200px;
         margin-left: auto;
         margin-right: auto;
       }
       @include media-breakpoint-up(lg) {
-        position: absolute;
-        top: 48px;
+        /*position: absolute;
+        top: 48px;*/
         max-height: 424px;
+        margin: 0 0 0 auto;
       }
     }
     &.slider-extra-img-short {
@@ -163,4 +185,21 @@
       }
     }
   }
+
+
+  .d-flex-row{
+    display: flex;
+
+    @include media-breakpoint-down(xs) {
+      flex-direction: column;
+    }
+  }
+
+  .d-flex{
+    display: flex;
+    float: none;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
 }

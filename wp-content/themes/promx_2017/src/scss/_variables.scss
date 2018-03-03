@@ -27,6 +27,8 @@ $color-black: #000000;
 $color-black-text: rgb(34, 33, 33);
 $color-black-text-2: rgb(105, 103, 104);
 $color-black-text-3: rgb(70, 69, 69);
+$color-black-text-4: #4b4b4b;
+
 $color-light-grey: #f4f4f4;
 $color-dark-grey: #b5b5b5;
 $color-grey-2: #a0a0a0;
@@ -43,6 +45,7 @@ $hover-color: #017d7d;
 
 $dark-color: rgba(78,22,36,1);
 $lazure-color: #61acad;
+$lazure-color-2: #01afb0;
 $footer-bg: #2b465b;
 
 // elements 
@@ -80,10 +83,10 @@ $mobile-menu-start-point: 160px;
 
 
 // Menu settings
-$menu-color: $color-black;
-$active-link-color: $secondary-color;
-$main-menu-font: $extra-bold-font;
-$main-menu-font-size: $base-size;
+$menu-color: $color-black-text-4;
+$active-link-color: $lazure-color-2;
+$main-menu-font: $medium-font;
+$main-menu-font-size: 18px;
 
 //Footer Settings
 $footer-font: $medium-font;

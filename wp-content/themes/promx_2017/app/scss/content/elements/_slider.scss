@@ -41,7 +41,8 @@
   position: relative;
   top: 0;
   left: 0;
-  display: block;
+  display: flex;
+  flex-wrap: wrap;
   margin-left: auto;
   margin-right: auto;
   &:before,
@@ -60,8 +61,8 @@
 
 .slick-slide {
   display: none;
-  float: left;
-  height: 100%;
+  float: none;
+  /*height: 100%;*/
   min-height: 1px;
   & img {
     display: block;
@@ -79,7 +80,7 @@
 }
 
 .slick-initialized .slick-slide {
-  display: block;
+  display: flex;
 }
 
 .slick-loading .slick-slide {
@@ -100,10 +101,10 @@
   color: $color-white;
   font-size: $base-size;
   @include media-breakpoint-down(xs) {
-    font-size: 8px;
+    //ont-size: 8px;
   }
   @include media-breakpoint-only(sm) {
-    font-size: 12px;
+    //font-size: 12px;
   }
 
   h2{
@@ -116,12 +117,19 @@
       background-size: cover;
       padding-bottom: 9.063em;
       padding-top: 9.375em;
+
+      @include media-breakpoint-down(sm) {
+        padding-bottom: 3em;
+        padding-top: 3em;
+      }
+
     }
   }
 
   .slider-title{
 
     text-transform: uppercase;
+    margin-top: 0;
 
     @include media-breakpoint-down(xs) {
       text-align: center;
@@ -145,6 +153,7 @@
         margin-right: .25em;
         @include media-breakpoint-down(xs) {
           max-width: 45px;
+
         }
       }
     }
@@ -159,18 +168,36 @@
       margin-top: 0;
       display: block;
 
+      @include media-breakpoint-down(sm) {
+        font-size: 2em;
+        display: flex;
+        align-items: center;
+      }
+
       @include media-breakpoint-down(xs) {
         text-align: center;
+        justify-content: center;
       }
       &.light {
         font-family: $light-font;
       }
+
+      .slider-title-text{
+        @include media-breakpoint-down(xs) {
+
+          text-align: left;
+
+        }
+      }
+
       img {
         float: left;
         max-width: 78px;
         margin-right: .25em;
         @include media-breakpoint-down(xs) {
           max-width: 45px;
+          float: none;
+          display: flex;
         }
       }
 
@@ -178,47 +205,6 @@
 
   }
 
-  & h1.title {
-   /* color: $color-white;
-    font-family: $bold-font;
-    font-size: 5em;
-    line-height: 0.9;
-    margin-bottom: 0;
-    margin-top: 0;
-    @include media-breakpoint-down(xs) {
-      text-align: center;
-    }
-    img {
-      float: left;
-      max-width: 78px;
-      margin-right: .25em;
-      @include media-breakpoint-down(xs) {
-        max-width: 45px;
-      }
-    }*/
-  }
-  & .subtitle {
-    /*color: $color-white;
-    font-family: $medium-font;
-    font-size: 4em;
-    line-height: 0.9;
-    margin-bottom: 24px;
-    margin-top: 0;
-    @include media-breakpoint-down(xs) {
-      text-align: center;
-    }
-    &.light {
-      font-family: $light-font;
-    }
-    img {
-      float: left;
-      max-width: 78px;
-      margin-right: .25em;
-      @include media-breakpoint-down(xs) {
-        max-width: 45px;
-      }
-    }*/
-  }
   & .slider-text {
     margin-bottom: 12px;
     font-size: 1.5em;
@@ -236,16 +222,39 @@
       display: block;
       max-width: 100%;
       height: auto;
+      margin-left: auto;
+      margin-right: auto;
+
+
       @include media-breakpoint-down(xs) {
-        max-width: 280px;
+        /*max-width: 280px;*/
+        max-height: 200px;
         margin-left: auto;
         margin-right: auto;
       }
       @include media-breakpoint-up(lg) {
-        position: absolute;
-        top: 48px;
+        /*position: absolute;
+        top: 48px;*/
         max-height: 424px;
+        margin: 0 0 0 auto;
       }
     }
   }
+
+  .d-flex-row{
+    display: flex;
+
+    @include media-breakpoint-down(xs) {
+      flex-direction: column;
+    }
+  }
+
+  .d-flex{
+    display: flex;
+    float: none;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+
 }

@@ -189,11 +189,21 @@ function get_template_menu_blocks($pages_id_arr, $menu_map){
 
                 <div class="menu-item-inner">
 
-                    <h3 class="menu-page-title"><?php echo $child_data['page_title'] ; ?></h3>
+                    <div class="menu-item-clickable">
 
-                    <img src="<?php echo $response['pages'][$child_id]['image'] ; ?>"
-                         alt="<?php echo $response['pages'][$child_id]['image_alt'] ; ?>"
-                         class="menu-page-image" />
+	                    <?php
+		                if( ! array_key_exists($child_id, $menu_map['submenus']) ){
+			                __get_seo_link_html($child_data['current'],  $child_data['page_link'], "menu-page-link", false);
+		                }
+                       ?>
+
+                        <h3 class="menu-page-title"><?php echo $child_data['page_title'] ; ?></h3>
+
+                        <img src="<?php echo $response['pages'][$child_id]['image'] ; ?>"
+                             alt="<?php echo $response['pages'][$child_id]['image_alt'] ; ?>"
+                             class="menu-page-image" />
+
+                    </div>
 
                     <?php if( array_key_exists($child_id, $menu_map['submenus']) ){
                         $custom_article = true;
