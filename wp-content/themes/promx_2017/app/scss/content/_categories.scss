@@ -37,12 +37,18 @@
       color: $text-grey;
       font-size: $base-size * 1.5;
       margin-bottom: $base-size * 2.25;
+      margin-top: $base-size * 1.5;
+
+      @include media-breakpoint-down(md) {
+        font-size: $base-size * 1.3;
+        margin-bottom: $base-size * 1.5;
+        margin-top: $base-size;
+      }
+
       @include media-breakpoint-down(sm) {
         margin-bottom: $base-size;
       }
-      @include media-breakpoint-down(md) {
-        font-size: $base-size;
-      }
+
     }
     .entry-content {
       p {
@@ -51,7 +57,7 @@
         line-height: 1.1;
         margin-bottom: $base-size * 1.5;
         @include media-breakpoint-down(md) {
-          font-size: $base-size;
+          font-size: $base-size * 1.3;
           line-height: 1.4;
         }
       }
@@ -103,7 +109,7 @@
       padding-top: 0;
       padding-bottom: 0;
 
-      @include media-breakpoint-down(sm) {
+      @include media-breakpoint-down(xs) {
         width: 100%;
         border-right: none;
         padding-top: 15px;
@@ -136,6 +142,34 @@
   .btn-more-posts_row{
     padding-bottom: $elements-gap;
     padding-top: $elements-gap;
+  }
+
+  article.post{
+    padding-bottom: $elements-gap;
+    padding-top: $elements-gap;
+
+    @include media-breakpoint-down(md) {
+      padding-bottom: $base-size * 1.5;
+      padding-top: $base-size * 1.5;
+    }
+  }
+
+  .post-content{
+
+    margin-left: 5%;
+
+    @include media-breakpoint-down(md) {
+      margin-left: 2%;
+    }
+
+    @include media-breakpoint-down(sm) {
+      margin-left: 0%;
+    }
+
+  }
+
+  .shuffle-item{
+    width: 100%;
   }
 
 }

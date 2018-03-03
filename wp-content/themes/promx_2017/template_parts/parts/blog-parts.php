@@ -83,11 +83,15 @@ function get_template_article_preview_string($post_item, $link_text, $default_im
 
         $html .="<div class='row'>";
 
-            $html .= "<div class='col-sm-4 col-md-4 col-lg-4'>";
+            $html .= "<div class='col-sm-5 col-md-4 col-lg-4'>";
 
                 $html .= "<figure>";
 
-                $img = get_the_post_thumbnail_url( $post_item->ID, 'main-preview-gallery-image-cropped' );
+                $img = get_field('preview_post_image', $post_item->ID);
+               //$img = get_the_post_thumbnail_url( $post_item->ID, 'main-preview-gallery-image-cropped' );
+	            if(!$img){
+		            $img = get_the_post_thumbnail_url( $post_item->ID, 'large' );
+                }
 
                 if(!$img){
                     $img = $default_image;
@@ -102,28 +106,32 @@ function get_template_article_preview_string($post_item, $link_text, $default_im
             $html .= "</div>";
 
 
-            $html .= "<div class='col-sm-8 col-md-8 col-lg-8'>";
+            $html .= "<div class='col-sm-7 col-md-8 col-lg-8 '>";
 
-                $html .= "<header>";
+	            $html .= "<div class='post-content'>";
 
-                    $html .= "<h3 class='entry-title'>$post_item->post_title</h3>";
-                    $html .= "<div class='entry-meta'><span class='category-name'>$cat_name</span> / " .  get_posted_on($post_item->ID) . "</div>";
+                    $html .= "<header>";
 
-                $html .= "</header>";
+                        $html .= "<h3 class='entry-title'>$post_item->post_title</h3>";
+                        $html .= "<div class='entry-meta'><span class='category-name'>$cat_name</span> / " .  get_posted_on($post_item->ID) . "</div>";
 
-                $html .= "<div class='entry-content'>";
+                    $html .= "</header>";
 
-                    if( $post_item->post_excerpt ){
-                        $html .= "<p>$post_item->post_excerpt</p>";
-                    }
+                    $html .= "<div class='entry-content'>";
 
-                    $html .= "<a href='" . get_permalink($post_item->ID) . "' class='btn btn-primary read-more'>";
+                        if( $post_item->post_excerpt ){
+                            $html .= "<p>$post_item->post_excerpt</p>";
+                        }
 
-                        $html .= get_button_text($link_text);
+                        $html .= "<a href='" . get_permalink($post_item->ID) . "' class='btn btn-primary read-more'>";
 
-                    $html .= "</a>";
+                            $html .= get_button_text($link_text);
 
-                $html .= "</div>";
+                        $html .= "</a>";
+
+                    $html .= "</div>";
+
+	            $html .= "</div>";
 
             $html .= "</div>";
 

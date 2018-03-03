@@ -23,15 +23,6 @@
 				    'fields'		=> array(
 					    //					A new field
 
-					   /* array(
-						    'id'	=> 'header_facebook_link',
-						    'title'	=> 'Facebook link',
-						    'type'	=> 'text',
-						    'description' => 'General social link',
-						    'value' => 'https://uk-ua.facebook.com/',
-					    ),*/
-
-
 				    ),
 			    ),
 

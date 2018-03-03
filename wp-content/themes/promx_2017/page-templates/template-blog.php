@@ -156,15 +156,13 @@ get_header();
                         </div>
                     </div>
 
-                    <section id="pagination" class="text-center">
+                   <!-- <section id="pagination" class="text-center">
                         <nav aria-label="Page navigation">
-	                <?php
-
-	                promx_pagenavi($blog_query); ?>
-	                <?php wp_reset_postdata(); ?>
+	                <?php /*promx_pagenavi($blog_query); */?>
+	                <?php /*wp_reset_postdata(); */?>
 
                         </nav>
-                    </section>
+                    </section>-->
 
                 </div>
 

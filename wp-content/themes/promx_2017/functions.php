@@ -50,6 +50,8 @@ if ( ! function_exists( 'promx_wp_setup' ) ) :
 
 	    add_image_size( 'main-preview-gallery-image-cropped', 510, 320, true );
 
+	    add_image_size( 'preview-post-image-blog', 510, 320, false );
+
 	    add_image_size( 'preview-menu-image', 238, 71, false );
         /*add_image_size( 'post-main-image', 973, 500, true );
 	    add_image_size( 'post-carousel-image', 370, 240, true );

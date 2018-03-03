@@ -11,7 +11,7 @@ require_once(OPTION_PAGES_MAIN_DIR . 'OptionsStorage.php');
 $options_storage = new OptionsStorage();
 $options_page = new OptionPages();
 
-require_once(OPTION_PAGES_DIR . 'social-page.php');
+//require_once(OPTION_PAGES_DIR . 'social-page.php');
 require_once(OPTION_PAGES_DIR . 'forms-page.php');
 require_once(OPTION_PAGES_DIR . 'buttons-page.php');
 require_once(OPTION_PAGES_DIR . 'posts-page.php');
