@@ -253,7 +253,7 @@ function get_template_galleries_cards_section($title, $text, $items, $is_single 
                 </div>
                 <div class="col-sm-12">
                     <article class="entry-gallery">
-                        <div class="row">
+                        <div class="row <?php if(!$is_single){ echo ' d-flex-row'; }?>">
 
 	                        <?php foreach ($items as $id => $item){
 

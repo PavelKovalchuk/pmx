@@ -76,6 +76,7 @@ function get_template_featured_banner($title, $text, $image, $link_target, $link
                     </div>
 			</div>
 		</div>
+        </div>
 	</section>
 	<?php
 }

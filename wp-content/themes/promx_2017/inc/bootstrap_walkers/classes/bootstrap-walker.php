@@ -67,7 +67,7 @@ if ( ! function_exists( 'bootstrap_setup' ) ):
 
         $attributes .= ! empty( $item->url )        ? ' href="'   . esc_attr( $item->url        ) .'" ' : '';
 
-        $attributes .= ($args->walker->has_children)      ? ' class="nav-link dropdown-toggle" ' : ' class="nav-link" ';
+       // $attributes .= ($args->walker->has_children)      ? ' class="nav-link dropdown-toggle" ' : ' class="nav-link" ';
 
 
         $item_output = $args->before;
@@ -78,11 +78,15 @@ if ( ! function_exists( 'bootstrap_setup' ) ):
 	        $html_tag = 'span';
         }
 
-
+        if($depth > 0){
+	        $attributes .=  ' class="dropdown-item"' ;
+        }else{
+	        $attributes .= ($args->walker->has_children)      ? ' class="nav-link dropdown-toggle" ' : ' class="nav-link" ';
+        }
 
         //$title = apply_filters( 'the_title', $item->title, $item->ID );
 
-        $item_output .= ($depth > 0) ? '<' . $html_tag . ' class="dropdown-item"' . $attributes . '> ' : '<' . $html_tag . $attributes .'>';
+        $item_output .= '<' . $html_tag . $attributes . '> ';
         $item_output .= $args->link_before . $item->title . $args->link_after;
 	      //$item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
         $item_output .= '</' . $html_tag . '>';

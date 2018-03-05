@@ -1,8 +1,21 @@
 @import 'fancybox';
 
 .entry-gallery {
+
+  .d-flex-row{
+    display: flex;
+    flex-wrap: wrap;
+
+    figure {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+
   figure {
     margin-bottom: $section-padding;
+
 
     &.single-gallery{
       margin-bottom: $elements-gap;
