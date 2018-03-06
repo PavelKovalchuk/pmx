@@ -17,6 +17,7 @@ function blog_loadmore_ajax_handler(){
 
 	$args = array(
 		'posts_per_page' => get_option('posts_per_page'),
+        'lang'           => CURRENT_LANG_CODE,
 		'orderby' => 'date',
 		'post_status' => 'publish',
 		'paged' => intval($data_args) + 1
