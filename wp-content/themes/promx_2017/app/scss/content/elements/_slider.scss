@@ -146,6 +146,7 @@
       display: block;
       @include media-breakpoint-down(xs) {
         text-align: center;
+        font-size: 2em;
       }
       img {
         float: left;
@@ -177,6 +178,7 @@
       @include media-breakpoint-down(xs) {
         text-align: center;
         justify-content: center;
+        font-size: 1.5em;
       }
       &.light {
         font-family: $light-font;
@@ -210,6 +212,8 @@
     font-size: 1.5em;
     @include media-breakpoint-down(xs) {
       text-align: center;
+      font-size: 1.2em;
+      line-height: 1.2;
     }
   }
   & .btn {
