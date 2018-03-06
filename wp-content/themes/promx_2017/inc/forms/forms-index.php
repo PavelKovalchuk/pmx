@@ -6,11 +6,14 @@
  * Time: 22:29
  */
 
-require_once( FORMS_CLASSES_DIR . "ProMXFormsAutoloader.php");
+//require_once( FORMS_CLASSES_DIR . "ProMXFormsAutoloader.php");
+//spl_autoload_register('ProMXFormsAutoloader::loader');
+
 require_once( FORMS_CLASSES_DIR . 'ProMXForms.php' ) ;
 
 
 
-//ProMXForms::init();
+ProMXForms::init();
 
-//ProMXForms::test();
+ProMXForms::test();
+

@@ -6,7 +6,6 @@
  * Time: 23:07
  */
 
-//namespace models\forms;
 
 abstract class FormAbstract {
 

@@ -20,5 +20,3 @@ class ProMXFormsAutoloader {
 	}
 
 }
-//spl_autoload_register(array(FORMS_CLASSES_DIR . 'ProMXFormsAutoloader', 'loader'));
-//spl_autoload_unregister('ProMXFormsAutoloader');

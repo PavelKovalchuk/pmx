@@ -6,6 +6,7 @@
  * Time: 22:22
  */
 
+
 abstract class ProMXForms {
 
 	const POST_TYPE = 'form';
