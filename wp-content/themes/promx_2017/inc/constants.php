@@ -47,6 +47,12 @@ define("CUSTOM_THUMBNAILS_DIR", CUSTOM_THUMBNAILS_MAIN_DIR . "items/");
 define("AJAX_HANDLERS_MAIN_DIR", INCLUDES_DIR . "ajax_handlers/");
 define("AJAX_HANDLERS_DIR", AJAX_HANDLERS_MAIN_DIR . "handlers/");
 
+define("FORMS_MAIN_DIR", INCLUDES_DIR . "forms/");
+define("FORMS_CLASSES_DIR", FORMS_MAIN_DIR . "classes/");
+define("FORMS_MODELS_DIR", FORMS_MAIN_DIR . "models/");
+define("FORMS_MODELS_FORMS_DIR", FORMS_MODELS_DIR . "forms/");
+define("FORMS_MODELS_FETCHERS_DIR", FORMS_MODELS_DIR . "fetchers/");
+
 
 //common used variables
 

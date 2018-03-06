@@ -14,5 +14,6 @@ require_once( CPT_DIR . 'cpt-testimonials.php' ) ;
 require_once( CPT_DIR . 'cpt-events.php' ) ;
 require_once( CPT_DIR . 'cpt-products.php' ) ;
 require_once( CPT_DIR . 'cpt-galleries.php' ) ;
+require_once( CPT_DIR . 'cpt-forms.php' ) ;
 
 $cpt_storage->registerPostTypes();

@@ -166,6 +166,11 @@ require_once( CPT_MAIN_DIR . 'cpt-index.php');
 require_once( AJAX_HANDLERS_MAIN_DIR . 'ajax-handlers-index.php');
 
 /**
+ * Forms
+ */
+require_once( FORMS_MAIN_DIR . 'forms-index.php');
+
+/**
  * Custom templates 
  */
 /**
