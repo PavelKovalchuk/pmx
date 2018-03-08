@@ -9,16 +9,21 @@
 /**
  * TODO - this is temporary solution to store all forms. Before implementing new system of forms handling
  */
-function get_form_template_contact_us() {
+//function get_form_template_contact_us() {
 
 	//TODO - get something unique to get info about page from which person got to this page
 
+
+
 	?>
 
-	<form action="" method="post" class="bg-secondary contact-form">
+	<form action="" method="post" class="bg-secondary contact-form js-contact-form" name="<?php echo $promx_form_name; ?>">
 		<h2 class="contact-form-title light">
 			<strong>Contact</strong> US
 		</h2>
+
+        <input type="hidden" name="form-name" value="<?php echo $promx_form_name; ?>">
+
 		<div class="form-horizontal">
 			<div class="form-group">
 				<div class="col-sm-4 col-md-4">
@@ -82,11 +87,11 @@ function get_form_template_contact_us() {
 		<div class="row">
 			<div class="col-sm-12">
 				<div class="form-group text-center">
-					<button type="submit" class="btn btn-primary btn-outline-inverted">Send</button>
+					<button type="submit" class="btn btn-primary btn-outline-inverted js-contact-button">Send</button>
 				</div>
 			</div>
 		</div>
 	</form>
 
 	<?php
-}
+//}

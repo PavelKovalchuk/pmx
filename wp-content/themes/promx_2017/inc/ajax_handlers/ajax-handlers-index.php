@@ -7,3 +7,4 @@
  */
 
 require_once( AJAX_HANDLERS_DIR . 'blog_handler.php' ) ;
+require_once( AJAX_HANDLERS_DIR . 'forms_handler.php' );

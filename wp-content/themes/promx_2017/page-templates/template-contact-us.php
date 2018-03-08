@@ -44,7 +44,12 @@ get_template_featured_banner(
 							<div class="row">
 								<div class="col-sm-12 col-md-7 col-lg-6">
 
-									<?php get_form_template_contact_us(); ?>
+									<?php //get_form_template_contact_us(); ?>
+                                    <!-- TEST ONLY -->
+									<?php
+									$form_name = 'contact-us';
+									echo do_shortcode('[form name=' .$form_name . ']'); ?>
+                                    <!-- TEST ONLY -->
 
 								</div>
 

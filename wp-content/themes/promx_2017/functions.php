@@ -108,6 +108,12 @@ add_action( 'after_setup_theme', 'promx_wp_setup' );
 add_post_type_support( 'page', 'excerpt' );
 
 /**
+ * Add classes
+ */
+
+require_once( INCLUDES_CLASSES_DIR . 'classes-index.php');
+
+/**
  * Add CSS/JS Scritps
  */
 require_once( INCLUDES_DIR . 'scripts.php');
@@ -169,6 +175,11 @@ require_once( AJAX_HANDLERS_MAIN_DIR . 'ajax-handlers-index.php');
  * Forms
  */
 require_once( FORMS_MAIN_DIR . 'forms-index.php');
+
+/**
+ * Shortcodes
+ */
+require_once( SHORTCODES_MAIN_DIR . 'shortcodes-index.php');
 
 /**
  * Custom templates 
