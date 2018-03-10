@@ -52,7 +52,9 @@ define("SHORTCODES_ITEMS_DIR", SHORTCODES_MAIN_DIR . "items/");
 
 define("FORMS_MAIN_DIR", INCLUDES_DIR . "forms/");
 define("FORMS_CLASSES_DIR", FORMS_MAIN_DIR . "classes/");
-define("FORMS_ABSTRACT_CLASSES_DIR", FORMS_CLASSES_DIR . "abstract/");
+define("FORMS_ABSTRACT_CLASSES_DIR", FORMS_CLASSES_DIR . "abstracts/");
+define("FORMS_TRAITS_DIR", FORMS_CLASSES_DIR . "traits/");
+define("FORMS_HELPERS_DIR", FORMS_CLASSES_DIR . "helpers/");
 define("FORMS_MODELS_DIR", FORMS_MAIN_DIR . "models/");
 define("FORMS_MODELS_FORMS_DIR", FORMS_MODELS_DIR . "forms/");
 define("FORMS_MODELS_FETCHERS_DIR", FORMS_MODELS_DIR . "fetchers/");

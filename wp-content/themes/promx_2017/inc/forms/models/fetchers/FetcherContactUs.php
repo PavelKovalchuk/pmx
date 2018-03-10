@@ -8,23 +8,24 @@
 
 class FetcherContactUs extends ProMXFetcherAbstract{
 
-	protected $formSubject = array(
-		'de' => 'Kontaktaufnahme über proRM-Webseite_DE',
-		'en' => 'Kontaktaufnahme über proRM-Webseite_EN',
-		'es' => 'Kontaktaufnahme über proRM-Webseite_ES',
-	);
-
-	public function __construct($source)
+	public function __construct()
 	{
-		parent::__construct($source);
+		parent::__construct();
+
 
 		/** @var ProRMSettings $settings */
 		//$settings = Registry::get('settings');
 
-		$this->required['first_name'] = __('First Name', TEXTDOMAIN);
+		/*$this->required['first_name'] = __('First Name', TEXTDOMAIN);
 		$this->required['email'] = __('E-Mail', TEXTDOMAIN);
 		$this->required['company'] = __('Company', TEXTDOMAIN);
-		$this->required['data_usage'] = __('Data usage', TEXTDOMAIN);
+		$this->required['data_usage'] = __('Data usage', TEXTDOMAIN);*/
+	}
+
+	protected function initFieldsSettings()
+	{
+		$this->fieldsMap['company']['required'] = true;
+
 	}
 
 }

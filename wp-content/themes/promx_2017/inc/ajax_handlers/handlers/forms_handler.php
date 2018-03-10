@@ -19,9 +19,11 @@ function promx_form_ajax_handler(){
 
 	$forms_data = array_map('trim', $forms_data_raw);
 
-	$form_name = $forms_data['form-name'];
+	$form_name = trim($forms_data['form_name']);
+	$form_nonce = trim($forms_data['form_nonce']);
 
-	if(empty($form_name)){
+	if(empty($form_name) || empty($form_nonce)){
+		//We do not get necessary data for starting process
 		return false;
 	}
 
@@ -29,8 +31,15 @@ function promx_form_ajax_handler(){
 
 	$form_object = ProMXFormsManager::getForm($form_name);
 
-	$result = $form_object->getResult();
-	var_dump($form_object);
+	if(!$form_object){
+		//We do not get registered form with name $form_name
+		return;
+	}
+
+	$result = $form_object->getResult($forms_data);
+	//$result = $form_object->getResult(false);
+
+	//var_dump($result);
 
 	exit;
 

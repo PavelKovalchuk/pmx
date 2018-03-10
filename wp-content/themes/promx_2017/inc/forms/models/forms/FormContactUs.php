@@ -14,9 +14,9 @@ class FormContactUs extends ProMXFormAbstract{
 	{
 		parent::__construct($formPost);
 
-		$this->setFormName($formPost->post_name);
+
 		$this->setTemplate('contact-us-contact-form.php');
-		$this->setFetcherHandler( new FetcherContactUs($_POST['pro']) );
+
 	}
 
 }

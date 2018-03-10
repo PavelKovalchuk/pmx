@@ -22,7 +22,8 @@
 			<strong>Contact</strong> US
 		</h2>
 
-        <input type="hidden" name="form-name" value="<?php echo $promx_form_name; ?>">
+        <input type="hidden" name="form_name" value="<?php echo $promx_form_name; ?>">
+        <input type="hidden" name="form_nonce" value="<?php echo wp_create_nonce($promx_form_name); ?>">
 
 		<div class="form-horizontal">
 			<div class="form-group">
@@ -43,13 +44,13 @@
 		<div class="row">
 			<div class="col-sm-6">
 				<div class="form-group">
-					<input type="text" name="name" class="form-control" placeholder="Name*" aria-describedby="helpBlock2">
+					<input type="text" name="first_name" class="form-control" placeholder="Name*" aria-describedby="helpBlock2">
 					<span id="helpBlock2" class="help-block" style="display: none;">A block of help text.</span>
 				</div>
 			</div>
 			<div class="col-sm-6">
 				<div class="form-group">
-					<input type="text" name="full-name" class="form-control" placeholder="Full Name*">
+					<input type="text" name="last_name" class="form-control" placeholder="Full Name*">
 				</div>
 			</div>
 		</div>
@@ -68,12 +69,12 @@
 		<div class="row">
 			<div class="col-sm-6">
 				<div class="form-group">
-					<input type="text" name="company-name" class="form-control" placeholder="Company*">
+					<input type="text" name="company" class="form-control" placeholder="Company*">
 				</div>
 			</div>
 			<div class="col-sm-6">
 				<div class="form-group">
-					<input type="text" name="country-name" class="form-control" placeholder="Country*">
+					<input type="text" name="country2" class="form-control" placeholder="Country*">
 				</div>
 			</div>
 		</div>

@@ -21,6 +21,8 @@ abstract class ProMXFormsManager {
 
 	private static $templatesDir = FORMS_TEMPLATE_DIR;
 
+	private static $fetcherDefaultClassName = 'FetcherDefault';
+
 	private static $formsCache = array();
 
 	public static function init()
@@ -35,7 +37,7 @@ abstract class ProMXFormsManager {
 	public static function test()
 	{
 		$forms = self::getFormsCache();
-		var_dump($forms);
+		//var_dump($forms);
 	}
 
 	protected static function loadForms()
@@ -93,13 +95,13 @@ abstract class ProMXFormsManager {
 			return false;
 		}
 
-		$delimiter = '-';
+		if(empty($formPost->post_name)){
+			return false;
+		}
 
-		$form_name_array = array_map('ucwords', explode($delimiter, $formPost->post_name));
-		$form_name_base = implode('', $form_name_array);
-
-		$formClassName = self::FORMS_CLASS_PREFIX . $form_name_base;
-		$fetcherClassName = self::FETCHER_CLASS_PREFIX . $form_name_base;
+		$form_name_base = self::generateFormNameBase($formPost->post_name);
+		$formClassName = self::generateFormClassName($form_name_base);
+		$fetcherClassName = self::generateFetcherClassName($form_name_base);
 
 		$form_include_result = self::includeClass($formClassName, self::FORMS_CLASS_PREFIX);
 		$fetcher_include_result = self::includeClass($fetcherClassName, self::FETCHER_CLASS_PREFIX);
@@ -188,6 +190,43 @@ abstract class ProMXFormsManager {
 		return self::$templatesDir;
 	}
 
+	public function generateFormNameBase($form_name)
+	{
+		if(!$form_name){
+			return false;
+		}
+
+		$delimiter = '-';
+
+		$form_name_array = array_map('ucwords', explode($delimiter, $form_name));
+		$form_name_base = implode('', $form_name_array);
+
+		return $form_name_base;
+
+	}
+
+	public function generateFormClassName($form_name_base){
+
+		if(!$form_name_base){
+			return false;
+		}
+		return self::FORMS_CLASS_PREFIX . $form_name_base;
+	}
+
+	public function generateFetcherClassName($form_name_base){
+
+		if(!$form_name_base){
+			return false;
+		}
+		return self::FETCHER_CLASS_PREFIX . $form_name_base;
+	}
+
+	/**
+	 * @return string
+	 */
+	public static function getFetcherDefaultClassName() {
+		return self::$fetcherDefaultClassName;
+	}
 
 
 }
