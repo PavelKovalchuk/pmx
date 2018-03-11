@@ -64,7 +64,7 @@ abstract class ProMXFormAbstract {
 			return false;
 		}
 
-		ob_start();
+		//ob_start();
 		/**
 		 * TODO - create form in admin for common settings
 		 * common_db_settings
@@ -76,11 +76,25 @@ abstract class ProMXFormAbstract {
 			'common_db_settings' => false,
 			'fields_settings' => $this->getFetcherHandler()->getFieldsMap(),
 		];
+
+
+		$global_db_settings = [];
+
+		ProMXTemplateEngine::init(
+			$this->getFormName()
+			,$FORM_DATA['fields_settings']
+			,$FORM_DATA['db_settings']
+			,$global_db_settings
+		);
+
+
 		require_once($template_path);
 
-		$formHtml = ob_get_clean();
+		//$formHtml = ob_get_clean();
 
-		return $formHtml;
+		ProMXTemplateEngine::finish();
+		//return $formHtml;
+		return;
 	}
 
 	public function getResult($input_data)

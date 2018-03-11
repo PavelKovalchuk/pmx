@@ -14,17 +14,7 @@
 	//TODO - get something unique to get info about page from which person got to this page
     //TODO - $global_db_settings !!!!
 
-
-//Data from wp admin for this form
-$fields_placeholders = $FORM_DATA['db_settings']['fields_placeholders'][0];
-$global_db_settings = [];
-
-ProMXTemplateEngine::init(
-        $FORM_DATA['fields_settings']
-        ,$FORM_DATA['db_settings']
-        ,$global_db_settings
-);
-
+$field_salutation = 'salutation';
 $field_first_name = 'first_name';
 $field_last_name = 'last_name';
 $field_email = 'email';
@@ -36,27 +26,34 @@ $field_message = 'message';
 
 	?>
 
-	<form action="" method="post" class="bg-secondary contact-form js-contact-form" name="<?php echo $FORM_DATA['form_name']; ?>">
+	<form action="" method="post" class="bg-secondary contact-form js-contact-form" name="<?php echo ProMXTemplateEngine::getFormName(); ?>">
 		<h2 class="contact-form-title light">
 			<strong>Contact</strong> US
 		</h2>
 
-        <input type="hidden" name="form_name" value="<?php echo $FORM_DATA['form_name']; ?>">
-        <input type="hidden" name="form_nonce" value="<?php echo wp_create_nonce($FORM_DATA['form_name']); ?>">
+        <?php ProMXTemplateEngine::getNecessaryHiddenInput(); ?>
 
 		<div class="form-horizontal">
 			<div class="form-group">
 				<div class="col-sm-4 col-md-4">
-					<div class="radio promx-radio">
-						<input type="radio" name="optionGender" id="optionHerre" value="herre">
-						<label for="optionHerre">Herre</label>
-					</div>
+					<?php
+					ProMXTemplateEngine::radioField(
+						$field_salutation,
+						ProMXTemplateEngine::getRadio($field_salutation, 'he'),
+						ProMXTemplateEngine::getRequired($field_salutation),
+						'optionHerre',
+						false,false);
+					?>
 				</div>
 				<div class="col-sm-6">
-					<div class="radio promx-radio">
-						<input type="radio" name="optionGender" id="optionFrau" value="frau">
-						<label for="optionFrau">Frau</label>
-					</div>
+					<?php
+					ProMXTemplateEngine::radioField(
+						$field_salutation,
+						ProMXTemplateEngine::getRadio($field_salutation, 'she'),
+						ProMXTemplateEngine::getRequired($field_salutation),
+						'optionFrau',
+						false,false);
+					?>
 				</div>
 			</div>
 		</div>
@@ -147,5 +144,5 @@ $field_message = 'message';
 	</form>
 
 	<?php
-ProMXTemplateEngine::finish();
+
 //}
