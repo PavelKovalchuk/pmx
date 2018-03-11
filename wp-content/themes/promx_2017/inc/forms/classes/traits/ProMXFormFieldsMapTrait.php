@@ -186,4 +186,29 @@ trait ProMXFormFieldsMapTrait {
 
 	);
 
+
+	/**
+	 * @return array
+	 */
+	protected function getFieldsMap() {
+
+		if(empty($this->fieldsMap)){
+			return false;
+		}
+		return $this->fieldsMap;
+	}
+
+	protected function getOneFieldSettings($field_name) {
+
+		if(! is_string($field_name) || !$field_name){
+			return false;
+		}
+
+		if(!isset($this->getFieldsMap()[$field_name])){
+			return false;
+		}
+		return $this->getFieldsMap()[$field_name];
+	}
+
+
 }

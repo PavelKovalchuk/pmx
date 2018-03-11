@@ -10,17 +10,17 @@ abstract class ProMXFormAbstract {
 
 	use ProMXCommonTrait;
 
-	protected $postObject;
+	private $postObject;
 
-	protected $formName;
+	private $formName;
 
-	protected $fetcherHandler;
+	private $fetcherHandler;
 
-	protected $template;
+	private $template;
 
-	protected $ajaxHandler = 'promx_form_ajax_handler';
+	private $ajaxHandler = 'promx_form_ajax_handler';
 
-	protected $availableStatuses = [
+	private $availableStatuses = [
 		'ok' => 'everythims is good',
 		'error' => 'there are some errors',
 		'none' => 'no response was specified',

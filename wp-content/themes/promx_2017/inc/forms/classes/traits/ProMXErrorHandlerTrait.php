@@ -8,13 +8,13 @@
 
 trait ProMXErrorHandlerTrait {
 
-	protected $systemErrors = [];
+	private $systemErrors = [];
 
-	protected $devCode = 'dev';
+	private $devCode = 'dev';
 
-	protected $errors = array();
+	private $errors = array();
 
-	protected $isErrors = false;
+	private $isErrors = false;
 
 	protected function initSystemErrors()
 	{
