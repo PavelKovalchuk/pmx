@@ -74,7 +74,7 @@
 			</div>
 			<div class="col-sm-6">
 				<div class="form-group">
-					<input type="text" name="country2" class="form-control" placeholder="Country*">
+					<input type="text" name="country" class="form-control" placeholder="Country*">
 				</div>
 			</div>
 		</div>

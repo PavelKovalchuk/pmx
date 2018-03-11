@@ -59,19 +59,8 @@ abstract class ProMXFormsManager {
 	public static function handleForm($formName, $successText)
 	{
 		$form_object = self::getForm($formName);
-		var_dump($form_object);
+		//var_dump($form_object);
 		if ($form_object) {
-			/*ProMXVariables::set('fetcher', $form->getFetcher());
-			ProMXVariables::set('form', $form);
-
-			$handledSuccessfully = self::handleFormSubmission($form);
-
-			ProMXVariables::set('form_submitted', true);
-			if($successText){
-				ProMXVariables::set('form_success_message', $successText);
-			} else {
-				ProMXVariables::set('form_success_message', $form->getSuccessMessage());
-			}*/
 
 			return $form_object->render();
 		}
@@ -115,6 +104,23 @@ abstract class ProMXFormsManager {
 		return $form_object;
 
 	}
+
+	public static function getFormSettings($wp_post_id)
+	{
+		$post_id = intval($wp_post_id);
+		if(!is_int($post_id) || !$post_id > 0){
+			return false;
+		}
+
+		$acf_settings = get_fields( $post_id );
+
+		if(empty($acf_settings)){
+			return false;
+		}
+
+		return $acf_settings;
+	}
+
 
 	/**
 	 * @param string $formKey
@@ -172,7 +178,7 @@ abstract class ProMXFormsManager {
 	/**
 	 * @return array
 	 */
-	protected static function getFormsCache() {
+	public static function getFormsCache() {
 		return self::$formsCache;
 	}
 

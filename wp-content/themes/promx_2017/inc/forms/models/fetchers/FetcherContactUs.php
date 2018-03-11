@@ -24,7 +24,13 @@ class FetcherContactUs extends ProMXFetcherAbstract{
 
 	protected function initFieldsSettings()
 	{
+		//$this->fieldsMap['company']['required'] = true;
+		$this->fieldsMap['first_name']['required'] = true;
+		$this->fieldsMap['last_name']['required'] = true;
+		$this->fieldsMap['email']['required'] = true;
+		$this->fieldsMap['phone']['required'] = true;
 		$this->fieldsMap['company']['required'] = true;
+		$this->fieldsMap['country']['required'] = true;
 
 	}
 

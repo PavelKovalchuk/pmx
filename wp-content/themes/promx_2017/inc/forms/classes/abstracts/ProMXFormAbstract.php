@@ -10,6 +10,8 @@ abstract class ProMXFormAbstract {
 
 	use ProMXCommonTrait;
 
+	use ProMXSettingsDBTrait;
+
 	private $postObject;
 
 	private $formName;
@@ -21,7 +23,7 @@ abstract class ProMXFormAbstract {
 	private $ajaxHandler = 'promx_form_ajax_handler';
 
 	private $availableStatuses = [
-		'ok' => 'everythims is good',
+		'ok' => 'everything is good',
 		'error' => 'there are some errors',
 		'none' => 'no response was specified',
 	];
@@ -42,6 +44,14 @@ abstract class ProMXFormAbstract {
 
 	public function render()
 	{
+		if(!$this->isDBSettingsSet()){
+			$this->setDBSettings( ProMXFormsManager::getFormSettings($this->getPostObject()->ID) );
+		}
+
+		if(!$this->isDBSettingsSet()){
+			$this->showAdminMessage('DB settings of this form is not equal to $DBSettings.');
+		}
+
 		if(empty($this->getTemplate())){
 
 			$this->showAdminMessage('Template for this form was not defined!');
@@ -72,15 +82,17 @@ abstract class ProMXFormAbstract {
 			return false;
 		}
 
+		if(!$this->isDBSettingsSet()){
+			$this->setDBSettings( ProMXFormsManager::getFormSettings($this->getPostObject()->ID) );
+		}
 
-		//TODO - analyze input data. If all required fields exists, validate email, if errors - return errors
-		$fetcher_response = $fetcher->analyze($input_data);
-
-		if($fetcher->hasErrors()){
+		$request = $fetcher->getRequest($input_data, $this->getDBSettings());
+		var_dump($request);
+		if($fetcher->hasErrors() || !$request){
 			return $this->createResponse('error', $fetcher->getErrorsInString());
 		}
 
-		return true;
+		return $this->createResponse('ok', 'Fetcher does not have errors.');
 	}
 
 	public function createResponse($status, $message)
@@ -106,11 +118,6 @@ abstract class ProMXFormAbstract {
 		return $responce;
 
 	}
-
-//	public function isSubmitted()
-//	{
-//		return isset($_POST[$this->formName]);
-//	}
 
 	/**
 	 * @return WP_Post
@@ -138,11 +145,16 @@ abstract class ProMXFormAbstract {
 	 */
 	public function setFetcherHandler( $fetcherHandlerClassName ) {
 
-		if(!$fetcherHandlerClassName instanceof ProMXFetcherAbstract){
-			$fetcherHandlerClassName = ProMXFormsManager::getFetcherDefaultClassName();
+		if(class_exists($fetcherHandlerClassName)){
+			$fetcher_object = new $fetcherHandlerClassName();
 		}
 
-		$this->fetcherHandler = new $fetcherHandlerClassName();
+		if(!$fetcher_object instanceof ProMXFetcherAbstract){
+			$fetcherHandlerClassName = ProMXFormsManager::getFetcherDefaultClassName();
+			$fetcher_object = new $fetcherHandlerClassName();
+		}
+
+		$this->fetcherHandler = $fetcher_object;
 	}
 
 	/**
@@ -198,7 +210,6 @@ abstract class ProMXFormAbstract {
 
 		$this->formName = $formName;
 	}
-
 
 
 }

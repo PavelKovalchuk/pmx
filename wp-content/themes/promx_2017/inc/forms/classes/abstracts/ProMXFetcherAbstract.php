@@ -14,22 +14,13 @@ abstract class ProMXFetcherAbstract {
 
 	use ProMXFormFieldsMapTrait;
 
+	use ProMXSettingsDBTrait;
+
 	const DIR_TMP_UPLOADFILES = "tmp-uploadfiles/";
 
 	private $lang = CURRENT_LANG_CODE;
 
-	/** @var string  */
-	/*protected $formSubject = array(
-		'de' => '',
-		'en' => '',
-		'es' => ''
-	);
-
-	protected $langTitles = array(
-		'de' => 'German',
-		'en' => 'English',
-		'es' => 'Spanish'
-	);*/
+	private $emptyRequiredFields = [];
 
 	abstract protected function initFieldsSettings();
 
@@ -40,32 +31,118 @@ abstract class ProMXFetcherAbstract {
 
 	}
 
-	public function analyze($input_data){
+	public function getRequest($input_data, $db_settings){
 
-		if(!$this->checkIsArray($input_data)){
+		if(!$this->checkIsArray($input_data) || !$this->checkIsArray($db_settings)){
 			$this->addSystemError('data_format_error');
 			return false;
 		}
-		var_dump($input_data);
+
+		$this->setDBSettings($db_settings);
+		if(!$this->isDBSettingsSet()){
+			$this->addError( $this->getAdminMessage('DB settings of this form is not equal to $DBSettings.') );
+		}
 
 		$nonce_verified = $this->checkFormNonce($input_data);
 		if(!$nonce_verified){
 			return false;
 		}
-		var_dump($nonce_verified);
 
 		$data_filtered = $this->getAvailableFields($input_data);
-		var_dump($data_filtered);
-
 		if(!$data_filtered){
 			return false;
 		}
 
 		$data_sanitized = $this->sanitizeValues($data_filtered);
-		var_dump($data_sanitized);
 		if(!$data_sanitized){
 			return false;
 		}
+
+		//Add Campaign to data
+		$data_sanitized['campaign'] = $this->getOneDBSetting('campaign_value');
+		//echo '$data_sanitized: '; var_dump($data_sanitized);
+
+		$is_required_complete = $this->isRequiredValuesExist($data_sanitized);
+		if(!$is_required_complete){
+			return false;
+		}
+
+		$request = $this->createAzureRequest($data_sanitized);
+		if(!$request){
+			return false;
+		}
+
+		return $request;
+
+	}
+
+	protected function createAzureRequest($input_data)
+	{
+		$fields_map = $this->getFieldsMap();
+		$request = [];
+		$is_error = false;
+
+		foreach ($input_data as $field_name => $value){
+
+			if(!array_key_exists($field_name, $fields_map)){
+				continue;
+			}
+			$azure_parameter = $fields_map[$field_name]['azure_parameter'];
+
+			if(empty($azure_parameter)){
+				$is_error = true;
+				continue;
+			}
+
+			$request[$azure_parameter] = $value;
+
+		}
+
+		if($is_error){
+			$this->addSystemError('azure_parameter_empty');
+			return false;
+		}
+
+		return $request;
+
+	}
+
+	protected function isRequiredValuesExist($input_data)
+	{
+		$fields_map = $this->getFieldsMap();
+		$required_fields = [];
+		$skipped_required_fields = [];
+		$number_required_fields = 0;
+
+		foreach ($fields_map as $field_name => $settings){
+
+			if(!$settings['required']){
+				continue;
+			}
+
+			$number_required_fields++;
+
+			if(!isset($input_data[$field_name]) || empty($input_data[$field_name]) ){
+				$skipped_required_fields[] = $field_name;
+			}
+
+			$required_fields[$field_name] = $input_data[$field_name];
+
+		}
+
+		if(!empty($skipped_required_fields)){
+
+			$this->addSystemError('required_fields_empty');
+			$this->setEmptyRequiredFields($skipped_required_fields);
+			return false;
+		}
+
+		if($number_required_fields != count($required_fields)){
+			$this->addSystemError('required_fields_empty');
+			return false;
+		}
+
+		return true;
 
 	}
 
@@ -125,7 +202,6 @@ abstract class ProMXFetcherAbstract {
 
 	}
 
-
 	protected function getAvailableFields($input_data){
 
 		$available_fields = [];
@@ -152,11 +228,6 @@ abstract class ProMXFetcherAbstract {
 
 	}
 
-	protected function isRequiredValuesExists($input_data)
-	{
-
-	}
-
 	/**
 	 * @return bool|string
 	 */
@@ -171,9 +242,21 @@ abstract class ProMXFetcherAbstract {
 		$this->lang = $lang;
 	}
 
+	/**
+	 * @return array
+	 */
+	protected function getEmptyRequiredFields() {
+		return $this->emptyRequiredFields;
+	}
 
-
-
-
+	/**
+	 * @param array $emptyRequiredFields
+	 */
+	protected function setEmptyRequiredFields( $emptyRequiredFields ) {
+		if(!$this->checkIsArray($emptyRequiredFields)){
+			$this->emptyRequiredFields = false;
+		}
+		$this->emptyRequiredFields = $emptyRequiredFields;
+	}
 
 }

@@ -18,7 +18,7 @@ trait ProMXErrorHandlerTrait {
 
 	protected function initSystemErrors()
 	{
-		return [
+		$this->systemErrors = [
 
 			'data_format_error' => [
 				'en' => 'Sorry, we did not receive your data. Check each fields and try again!',
@@ -50,6 +50,18 @@ trait ProMXErrorHandlerTrait {
 				'dev' => 'After sanitizing all fields are empty.'
 			],
 
+			'required_fields_empty' => [
+				'en' => 'Sorry, we did not receive all required data. Check each fields marked with * and try again!',
+				'de' => 'Sorry, we did not receive all required data. Check each fields marked with * and try again!',
+				'dev' => 'Required fields are empty.'
+			],
+
+			'azure_parameter_empty'=> [
+				'en' => 'Sorry, we cannot handle received data. Ttry again later!',
+				'de' => 'Sorry, we cannot handle received data. Ttry again later!!',
+				'dev' => 'Some of the Azure parameter is empty.'
+			],
+
 		];
 	}
 
@@ -59,7 +71,6 @@ trait ProMXErrorHandlerTrait {
 	public function hasErrors() {
 		return $this->isErrors;
 	}
-
 
 	/**
 	 * @return array

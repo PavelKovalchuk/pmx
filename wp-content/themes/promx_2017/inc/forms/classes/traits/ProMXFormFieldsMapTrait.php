@@ -49,6 +49,17 @@ trait ProMXFormFieldsMapTrait {
 			'validators' => [],
 		],
 
+		'country' => [
+			'placeholder' => [
+				'en' => 'Country',
+				'de' => 'Country',
+			],
+			'required' => false,
+			'azure_parameter' => 'Country',
+			'sanitizers' => ['sanitizeString'],
+			'validators' => [],
+		],
+
 		'email' => [
 			'placeholder' => [
 				'en' => 'Email',

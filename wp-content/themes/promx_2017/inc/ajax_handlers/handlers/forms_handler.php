@@ -29,6 +29,8 @@ function promx_form_ajax_handler(){
 
 	ProMXFormsManager::init();
 
+	//var_dump(ProMXFormsManager::getFormsCache());
+
 	$form_object = ProMXFormsManager::getForm($form_name);
 
 	if(!$form_object){
@@ -39,7 +41,8 @@ function promx_form_ajax_handler(){
 	$result = $form_object->getResult($forms_data);
 	//$result = $form_object->getResult(false);
 
-	//var_dump($result);
+	echo 'Result:';
+	var_dump($result);
 
 	exit;
 
