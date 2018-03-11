@@ -192,6 +192,31 @@ trait ProMXFormFieldsMapTrait {
 			'validators' => [],
 		],
 
+		//Not in AZURE TODO - check it
+		'message' => [
+			'placeholder' => [
+				'en' => 'Message',
+				'de' => 'Message',
+			],
+			'required' => false,
+			'azure_parameter' => 'Message',
+			'sanitizers' => ['sanitizeString'],
+			'validators' => [],
+		],
+
+		'language' => [
+			'placeholder' => [
+				'en' => 'Language',
+				'de' => 'Language',
+			],
+			'required' => false,
+			'azure_parameter' => 'PageLanguage',
+			'sanitizers' => ['sanitizeString'],
+			'validators' => [],
+		],
+
+
+
 
 
 
@@ -201,7 +226,7 @@ trait ProMXFormFieldsMapTrait {
 	/**
 	 * @return array
 	 */
-	protected function getFieldsMap() {
+	public function getFieldsMap() {
 
 		if(empty($this->fieldsMap)){
 			return false;

@@ -12,6 +12,7 @@ require_once( FORMS_ABSTRACT_CLASSES_DIR . 'ProMXFormsManager.php' );
 require_once( FORMS_TRAITS_DIR . 'ProMXErrorHandlerTrait.php');
 require_once( FORMS_TRAITS_DIR . 'ProMXCommonTrait.php');
 require_once( FORMS_HELPERS_DIR . 'ProMXFormSanitize.php');
+require_once( FORMS_HELPERS_DIR . 'ProMXTemplateEngine.php');
 require_once( FORMS_TRAITS_DIR . 'ProMXFormFieldsMapTrait.php');
 require_once( FORMS_TRAITS_DIR . 'ProMXSettingsDBTrait.php');
 

@@ -11,6 +11,8 @@ trait ProMXSettingsDBTrait {
 	private $DBSettings = [
 		"is_recaptcha" => null,
 		"campaign_value" => null,
+		"fields_placeholders" => null,
+		"button_text" => null,
 	];
 
 	private $isDBSettingsSet = false;

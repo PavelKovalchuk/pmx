@@ -65,7 +65,17 @@ abstract class ProMXFormAbstract {
 		}
 
 		ob_start();
-		$promx_form_name = $this->getFormName();
+		/**
+		 * TODO - create form in admin for common settings
+		 * common_db_settings
+		 */
+
+		$FORM_DATA = [
+			'form_name' => $this->getFormName(),
+			'db_settings' => $this->getDBSettings(),
+			'common_db_settings' => false,
+			'fields_settings' => $this->getFetcherHandler()->getFieldsMap(),
+		];
 		require_once($template_path);
 
 		$formHtml = ob_get_clean();
