@@ -13,6 +13,8 @@ trait ProMXSettingsDBTrait {
 		"campaign_value" => null,
 		"fields_placeholders" => null,
 		"button_text" => null,
+		"form_title" => null,
+		"form_success_message" => null,
 	];
 
 	private $isDBSettingsSet = false;

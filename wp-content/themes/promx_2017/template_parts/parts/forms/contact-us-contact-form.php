@@ -9,7 +9,6 @@
 /**
  * TODO - this is temporary solution to store all forms. Before implementing new system of forms handling
  */
-//function get_form_template_contact_us() {
 
 	//TODO - get something unique to get info about page from which person got to this page
     //TODO - $global_db_settings !!!!
@@ -26,11 +25,8 @@ $field_message = 'message';
 
 	?>
 
-	<form action="" method="post" class="bg-secondary contact-form js-contact-form" name="<?php echo ProMXTemplateEngine::getFormName(); ?>">
-		<h2 class="contact-form-title light">
-			<strong>Contact</strong> US
-		</h2>
-
+	<form class="bg-secondary contact-form <?php echo ProMXTemplateEngine::jsClass(); ?>" name="<?php echo ProMXTemplateEngine::getFormName(); ?>">
+		<?php ProMXTemplateEngine::getHeader(); ?>
         <?php ProMXTemplateEngine::getNecessaryHiddenInput(); ?>
 
 		<div class="form-horizontal">
@@ -41,7 +37,7 @@ $field_message = 'message';
 						$field_salutation,
 						ProMXTemplateEngine::getRadio($field_salutation, 'he'),
 						ProMXTemplateEngine::getRequired($field_salutation),
-						'optionHerre',
+						'salutation_1',
 						false,false);
 					?>
 				</div>
@@ -51,7 +47,7 @@ $field_message = 'message';
 						$field_salutation,
 						ProMXTemplateEngine::getRadio($field_salutation, 'she'),
 						ProMXTemplateEngine::getRequired($field_salutation),
-						'optionFrau',
+						'salutation_2',
 						false,false);
 					?>
 				</div>
@@ -144,5 +140,3 @@ $field_message = 'message';
 	</form>
 
 	<?php
-
-//}

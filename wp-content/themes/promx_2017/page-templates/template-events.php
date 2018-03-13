@@ -35,7 +35,7 @@ get_header(); ?>
 			<div class="row">
 				<div class="col-sm-12 col-md-8 col-md-offset-2">
 					<article>
-                        <?php get_form_template_event(); ?>
+						<?php echo do_shortcode('[form name=contact-event]'); ?>
 					</article>
 				</div>
 			</div>

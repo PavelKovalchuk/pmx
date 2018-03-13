@@ -16,6 +16,22 @@ class ProMXTemplateEngine {
         self::getHiddenFormNonce();
     }
 
+	public static function jsClass()
+    {
+        echo self::getJSFormClass();
+    }
+
+	public static function getHeader($form_title = '', $classes = '')
+	{
+
+		$form_title = ($form_title) ? $form_title : self::getFormTitle();
+		?>
+        <h2 class="contact-form-title light <?php if($classes){echo $classes; }?>">
+	        <?php echo $form_title; ?>
+        </h2>
+		<?php
+	}
+
     public static function getHiddenFormName()
     {
         ?>

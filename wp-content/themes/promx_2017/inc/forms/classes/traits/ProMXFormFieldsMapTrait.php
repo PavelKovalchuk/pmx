@@ -153,6 +153,17 @@ trait ProMXFormFieldsMapTrait {
 				'en' => 'Salutation',
 				'de' => 'Salutation',
 			],
+			'type' => 'multiple',
+			'options' => [
+				'he' => [
+					'en' => 'Mr',
+					'de' => 'Her',
+				],
+				'she' => [
+					'en' => 'Ms',
+					'de' => 'Frau',
+				],
+			],
 			'required' => false,
 			'azure_parameter' => 'Salutation',
 			'sanitizers' => ['sanitizeString'],

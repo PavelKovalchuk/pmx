@@ -8,7 +8,7 @@
 /**
  * TODO - this is temporary solution to store all forms. Before implementing new system of forms handling
  */
-function get_form_template_event() {
+
 	?>
 
 	<form action="" method="post" class="bg-secondary send-application">
@@ -78,5 +78,4 @@ function get_form_template_event() {
 		</div>
 	</form>
 
-	<?php
-}
+<?php

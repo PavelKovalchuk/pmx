@@ -2,18 +2,17 @@
 /**
  * Created by PhpStorm.
  * User: pavel
- * Date: 06.03.2018
- * Time: 23:24
+ * Date: 13.03.2018
+ * Time: 21:19
  */
 
-class FormContactUs extends ProMXFormAbstract{
+class FormContactEvent extends ProMXFormAbstract{
 
 	public function __construct(WP_Post $formPost)
 	{
 		parent::__construct($formPost);
 
-		$this->setTemplate('contact-us-contact-form.php');
+		$this->setTemplate('event-contact-form.php');
 
 	}
-
 }
