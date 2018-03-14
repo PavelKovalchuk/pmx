@@ -86,6 +86,20 @@ trait ProMXTemplateVariablesTrait {
 		return 'js-contact-form';
 	}
 
+	public static function createOptionsForSelect($code, $value, $title)
+	{
+		if(!$value || !$title || !$code){
+			return false;
+		}
+
+		return [
+			'code' => $code,
+			'value' => strtolower($value),
+			'title' => $title,
+		];
+
+	}
+
 	public static function getRadio($field_name, $option_key)
 	{
 		if(!$option_key || !$field_name){

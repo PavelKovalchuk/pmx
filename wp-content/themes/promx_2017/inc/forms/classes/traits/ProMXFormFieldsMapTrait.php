@@ -226,6 +226,21 @@ trait ProMXFormFieldsMapTrait {
 			'validators' => [],
 		],
 
+		'event' => [
+			'placeholder' => [
+				'en' => 'Event',
+				'de' => 'Event',
+			],
+			'type' => 'select',
+			'options' => [
+				[],
+			],
+			'required' => false,
+			'azure_parameter' => 'Event',
+			'sanitizers' => ['sanitizeString'],
+			'validators' => [],
+		],
+
 
 
 

@@ -27,6 +27,12 @@ get_header(); ?>
 	$events = get_data_cpt_from_array($data['upcoming_events']);
     get_template_events_list($events);
 
+    //$form_events_data is needed by event-contact-form.php
+    $form_events_data = [];
+    foreach ($events as $event_post_id => $event_data){
+	    $form_events_data[] = ProMXTemplateEngine::createOptionsForSelect($event_data['code'], $event_data['title'], $event_data['title']);
+    }
+
     ?>
 
 

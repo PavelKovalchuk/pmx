@@ -75,10 +75,13 @@ function numbers() {
 }
 
 function select2() {
+  var promxSelect = $('.promx-select');
+  var placeholderAttr = promxSelect.data('placeholder');
+  var placeholder = (placeholderAttr) ? placeholderAttr : "Select option";
   if ($.fn.select2) {
-    $('.promx-select').select2({
+      promxSelect.select2({
       minimumResultsForSearch: -1,
-      placeholder: "Select vacancy"
+      placeholder: placeholder
     });
   }
 }

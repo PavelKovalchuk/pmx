@@ -46,6 +46,35 @@ class ProMXTemplateEngine {
 		<?php
 	}
 
+	public static function selectField($name_attr, $options_data, $placeholder, $is_required = false, $id_attr = '',  $field_class = '', $parent_class = '')
+	{
+		if(!($name_attr) || empty($options_data) || !is_array($options_data) || !$placeholder){
+			return;
+		}
+
+		?>
+        <div class="form-group <?php if($parent_class){echo $parent_class; }?> <?php if($is_required){echo self::getRequiredClass(); }?>">
+            <select name="<?php echo $name_attr; ?>" class="promx-select form-control <?php if($field_class){ echo $field_class; }?>" data-placeholder="<?php echo $placeholder; if($is_required){ echo self::getRequiredSign(); } ?>"  >
+                <option></option>
+
+                <?php
+                foreach ($options_data as $option){
+
+                    if(!$option['value'] || !$option['title'] || !$option['code']){
+                        continue;
+                    }
+
+                    ?>
+
+                    <option value="<?php echo $option['value']; ?>" data-option-code="<?php echo $option['code']; ?>" <?php if($id_attr){	?>id="<?php echo $id_attr; ?>" <?php } ?>><?php echo $option['title']; ?></option>
+
+                <?php }  ?>
+
+            </select>
+        </div>
+		<?php
+	}
+
 	public static function radioField($name_attr, $placeholder, $is_required = false, $id_attr = '',  $field_class = '', $parent_class = '')
 	{
 		if(!$name_attr || !$placeholder){

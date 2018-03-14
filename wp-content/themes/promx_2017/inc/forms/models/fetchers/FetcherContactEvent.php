@@ -9,7 +9,13 @@
 class FetcherContactEvent extends ProMXFetcherAbstract{
 
 	protected function initFieldsSettings() {
-		// TODO: Implement initFieldsSettings() method.
+		$this->fieldsMap['first_name']['required'] = true;
+		$this->fieldsMap['last_name']['required'] = true;
+		$this->fieldsMap['email']['required'] = true;
+		$this->fieldsMap['phone']['required'] = true;
+		$this->fieldsMap['company']['required'] = true;
+		//$this->fieldsMap['event']['required'] = true;
+		$this->fieldsMap['salutation']['required'] = true;
 	}
 
 }
