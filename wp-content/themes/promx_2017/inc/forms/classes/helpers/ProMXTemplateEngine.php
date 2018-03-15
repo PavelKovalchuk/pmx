@@ -154,7 +154,7 @@ class ProMXTemplateEngine {
 
 	public static function button($text = false, $id_attr = '',  $button_class = '', $parent_class = '')
 	{
-		$text_display = ($text) ? $text : self::getLocalDbSettings()['button_text'];
+		$text_display = ($text) ? $text : self::getFormButton();
 
 		?>
 

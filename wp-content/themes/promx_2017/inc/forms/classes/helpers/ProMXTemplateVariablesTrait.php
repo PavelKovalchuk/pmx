@@ -12,6 +12,8 @@ trait ProMXTemplateVariablesTrait {
 
 	protected static $formTitle = '';
 
+	protected static $formButton = '';
+
 	protected static $formSuccessMessage = '';
 
 	protected static $fieldsSettings = [];
@@ -29,10 +31,11 @@ trait ProMXTemplateVariablesTrait {
 		self::setFormName($form_name);
 
 		if(is_array($local_db_settings)){
-			self::setLocalDbSettings($local_db_settings);
+			//self::setLocalDbSettings($local_db_settings);
 			//self::setLocalPlaceholders($local_db_settings['fields_placeholders'][0]);
 			self::setFormTitle($local_db_settings['form_title']);
 			self::setFormSuccessMessage($local_db_settings['form_success_message']);
+			self::setFormButton($local_db_settings['button_text']);
 		}
 
 		if(!self::getGlobalDbSettings() && is_array($global_db_settings)){
@@ -47,9 +50,10 @@ trait ProMXTemplateVariablesTrait {
 	{
 		self::setFormName(false);
 		self::setFieldsSettings(false);
-		self::setLocalDbSettings(false);
+		//self::setLocalDbSettings(false);
 		//self::setLocalPlaceholders(false);
 		self::setFormTitle(false);
+		self::setFormButton(false);
 		self::setFormSuccessMessage(false);
 	}
 
@@ -175,16 +179,16 @@ trait ProMXTemplateVariablesTrait {
 	/**
 	 * @return array
 	 */
-	protected static function getLocalDbSettings() {
+	/*protected static function getLocalDbSettings() {
 		return self::$localDbSettings;
-	}
+	}*/
 
 	/**
 	 * @param array $localDbSettings
 	 */
-	public static function setLocalDbSettings( $localDbSettings ) {
+	/*public static function setLocalDbSettings( $localDbSettings ) {
 		self::$localDbSettings = $localDbSettings;
-	}
+	}*/
 
 	/**
 	 * @return array
@@ -226,6 +230,20 @@ trait ProMXTemplateVariablesTrait {
 	 */
 	public static function setFormName( $formName ) {
 		self::$formName = $formName;
+	}
+
+	/**
+	 * @return string
+	 */
+	public static function getFormButton() {
+		return self::$formButton;
+	}
+
+	/**
+	 * @param string $formButton
+	 */
+	public static function setFormButton( $formButton ) {
+		self::$formButton = $formButton;
 	}
 
 	/**
