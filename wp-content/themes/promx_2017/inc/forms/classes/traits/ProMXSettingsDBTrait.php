@@ -12,13 +12,13 @@ trait ProMXSettingsDBTrait {
 		"is_recaptcha" => null,
 		"campaign_value" => null,
 		"fields_placeholders" => null,
+		"fields_required" => null,
 		"button_text" => null,
 		"form_title" => null,
 		"form_success_message" => null,
 	];
 
 	private $isDBSettingsSet = false;
-
 
 	/**
 	 * @return array
@@ -84,8 +84,5 @@ trait ProMXSettingsDBTrait {
 		return $this->getDBSettings()[$setting_name];
 
 	}
-
-
-
 
 }

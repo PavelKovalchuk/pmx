@@ -18,7 +18,7 @@ trait ProMXTemplateVariablesTrait {
 
 	protected static $localDbSettings = [];
 
-	protected static $localPlaceholders = [];
+	//protected static $localPlaceholders = [];
 
 	protected static $globalDbSettings = [];
 
@@ -30,7 +30,7 @@ trait ProMXTemplateVariablesTrait {
 
 		if(is_array($local_db_settings)){
 			self::setLocalDbSettings($local_db_settings);
-			self::setLocalPlaceholders($local_db_settings['fields_placeholders'][0]);
+			//self::setLocalPlaceholders($local_db_settings['fields_placeholders'][0]);
 			self::setFormTitle($local_db_settings['form_title']);
 			self::setFormSuccessMessage($local_db_settings['form_success_message']);
 		}
@@ -38,9 +38,9 @@ trait ProMXTemplateVariablesTrait {
 		if(!self::getGlobalDbSettings() && is_array($global_db_settings)){
 			self::setGlobalDbSettings($global_db_settings);
 		}
-		var_dump(self::getLocalPlaceholders());
+		/*var_dump(self::getLocalPlaceholders());
 		var_dump(self::getFormTitle());
-		var_dump(self::getFormSuccessMessage());
+		var_dump(self::getFormSuccessMessage());*/
 	}
 
 	public static function finish()
@@ -48,7 +48,7 @@ trait ProMXTemplateVariablesTrait {
 		self::setFormName(false);
 		self::setFieldsSettings(false);
 		self::setLocalDbSettings(false);
-		self::setLocalPlaceholders(false);
+		//self::setLocalPlaceholders(false);
 		self::setFormTitle(false);
 		self::setFormSuccessMessage(false);
 	}
@@ -60,10 +60,17 @@ trait ProMXTemplateVariablesTrait {
 		}
 
 		//Data from Current form from admin panel
-		$form_db_setting = self::getLocalPlaceholders()[$field_name];
+		/*$form_db_setting = self::getLocalPlaceholders()[$field_name];
 		if($form_db_setting){
 			return $form_db_setting;
+		}*/
+
+		//Data from Fetcher class of Current form
+		$form_field_setting = self::getFieldsSettings()[$field_name]['placeholder'][CURRENT_LANG_CODE];
+		if($form_field_setting){
+			return $form_field_setting;
 		}
+
 
 		//TODO = GLOBAL settings
 		//Data from global settings in admin panel
@@ -71,11 +78,6 @@ trait ProMXTemplateVariablesTrait {
 			return self::getGlobalDbSettings()['none'];
 		}
 
-		//Data from Fetcher class of Current form
-		$script_field_setting = self::getFieldsSettings()[$field_name]['placeholder'][CURRENT_LANG_CODE];
-		if($script_field_setting){
-			return $script_field_setting;
-		}
 
 		return;
 
@@ -106,11 +108,16 @@ trait ProMXTemplateVariablesTrait {
 			return;
 		}
 
+		//Data from Fetcher class of Current form
+		$form_field_setting = self::getFieldsSettings()[$field_name]['options'][$option_key][CURRENT_LANG_CODE];
+		if($form_field_setting){
+			return $form_field_setting;
+		}
 		//Data from Current form from admin panel
-		$form_db_setting = self::getLocalPlaceholders()[$field_name][0][$option_key];
+		/*$form_db_setting = self::getLocalPlaceholders()[$field_name][0][$option_key];
 		if($form_db_setting){
 			return $form_db_setting;
-		}
+		}*/
 
 		//TODO = GLOBAL settings
 		//Data from global settings in admin panel
@@ -118,11 +125,7 @@ trait ProMXTemplateVariablesTrait {
 			return self::getGlobalDbSettings()['none'];
 		}
 
-		//Data from Fetcher class of Current form
-		$script_field_setting = self::getFieldsSettings()[$field_name]['options'][$option_key][CURRENT_LANG_CODE];
-		if($script_field_setting){
-			return $script_field_setting;
-		}
+
 
 		return;
 
@@ -200,16 +203,16 @@ trait ProMXTemplateVariablesTrait {
 	/**
 	 * @return array
 	 */
-	protected static function getLocalPlaceholders() {
+	/*protected static function getLocalPlaceholders() {
 		return self::$localPlaceholders;
-	}
+	}*/
 
 	/**
 	 * @param array $localPlaceholders
 	 */
-	protected static function setLocalPlaceholders( $localPlaceholders ) {
+	/*protected static function setLocalPlaceholders( $localPlaceholders ) {
 		self::$localPlaceholders = $localPlaceholders;
-	}
+	}*/
 
 	/**
 	 * @return mixed

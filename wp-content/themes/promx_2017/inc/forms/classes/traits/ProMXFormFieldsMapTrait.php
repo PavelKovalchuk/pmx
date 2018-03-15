@@ -203,18 +203,6 @@ trait ProMXFormFieldsMapTrait {
 			'validators' => [],
 		],
 
-		//Not in AZURE TODO - check it
-		'message' => [
-			'placeholder' => [
-				'en' => 'Message',
-				'de' => 'Message',
-			],
-			'required' => false,
-			'azure_parameter' => 'Message',
-			'sanitizers' => ['sanitizeString'],
-			'validators' => [],
-		],
-
 		'language' => [
 			'placeholder' => [
 				'en' => 'Language',
@@ -241,11 +229,6 @@ trait ProMXFormFieldsMapTrait {
 			'validators' => [],
 		],
 
-
-
-
-
-
 	);
 
 
@@ -270,6 +253,107 @@ trait ProMXFormFieldsMapTrait {
 			return false;
 		}
 		return $this->getFieldsMap()[$field_name];
+	}
+
+	protected function updateRequiredWithDbData($db_settings)
+	{
+		$fields_required = $db_settings["fields_required"][0];
+		if(!$this->checkIsArray($fields_required)){
+			return;
+		}
+		foreach ($fields_required as $field => $value){
+			$this->changeRequiredSetting($field, $value);
+		}
+
+		return true;
+
+	}
+
+	protected function updatePlaceholderWithDbData($db_settings)
+	{
+		$fields_placeholders = $db_settings["fields_placeholders"][0];
+		if(!$this->checkIsArray($fields_placeholders)){
+			return;
+		}
+		foreach ($fields_placeholders as $field => $value){
+			$this->changePlaceholderSetting($field, $value);
+		}
+
+		return true;
+
+	}
+
+	protected function updateFieldsMapWithDbData($db_settings)
+	{
+		$this->updateRequiredWithDbData($db_settings);
+		$this->updatePlaceholderWithDbData($db_settings);
+
+		if(isset($db_settings["fields_placeholders"][0]['salutation'][0])){
+			$this->updateSalutationWithDbData($db_settings["fields_placeholders"][0]['salutation'][0]);
+		}
+
+	}
+
+	protected function updateSalutationWithDbData($data_array)
+	{
+		if(!$this->checkIsArray($data_array) ){
+			return false;
+		}
+
+		$field_name = 'salutation';
+
+		/*if(!array_key_exists($field_name, $this->getFieldsMap())){
+			return false;
+		}*/
+
+		if(!isset($this->getFieldsMap()[$field_name]['options'])){
+			return false;
+		}
+
+		foreach ($data_array as $key => $value){
+
+			if(!array_key_exists($key, $this->getFieldsMap()[$field_name]['options'])){
+				continue;
+			}
+			if(empty($value)){
+				continue;
+			}
+			$this->fieldsMap[$field_name]['options'][$key][CURRENT_LANG_CODE] = $value;
+		}
+
+	}
+
+
+	protected function changeRequiredSetting($field_name, $value){
+
+		$key = 'required';
+		/*if(!array_key_exists($field_name, $this->getFieldsMap())){
+			return false;
+		}*/
+		if(!array_key_exists($key, $this->getFieldsMap()[$field_name])){
+			return false;
+		}
+
+		$this->fieldsMap[$field_name][$key] = $value;
+
+	}
+
+	protected function changePlaceholderSetting($field_name, $value){
+
+		if(empty($value)){
+			return;
+		}
+
+		$key = 'placeholder';
+		/*if(!array_key_exists($field_name, $this->getFieldsMap())){
+			return false;
+		}*/
+		if(!array_key_exists($key, $this->getFieldsMap()[$field_name])){
+			return false;
+		}
+
+		$this->fieldsMap[$field_name][$key][CURRENT_LANG_CODE] = $value;
+
 	}
 
 

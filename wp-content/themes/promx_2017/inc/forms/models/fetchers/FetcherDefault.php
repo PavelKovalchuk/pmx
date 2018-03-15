@@ -8,13 +8,5 @@
 
 class FetcherDefault extends ProMXFetcherAbstract{
 
-	public function __construct() {
-		parent::__construct();
-	}
-
-	protected function initFieldsSettings()
-	{
-		$this->fieldsMap['company']['required']= true;
-
-	}
+	protected function initFieldsSettings(){}
 }

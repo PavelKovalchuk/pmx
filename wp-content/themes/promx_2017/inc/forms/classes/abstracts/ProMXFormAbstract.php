@@ -38,15 +38,17 @@ abstract class ProMXFormAbstract {
 		$form_name_base = ProMXFormsManager::generateFormNameBase($this->getFormName());
 		$fetcherClassName = ProMXFormsManager::generateFetcherClassName($form_name_base);
 
-		$this->setFetcherHandler($fetcherClassName);
+		if(!$this->isDBSettingsSet()){
+			$this->setDBSettings( ProMXFormsManager::getFormSettings($this->getPostObject()->ID) );
+		}
+
+		$this->setFetcherHandler($fetcherClassName, $this->getDBSettings());
+		//$this->getFetcherHandler()->setFieldsSettingsWithDbData($this->getDBSettings());
 
 	}
 
 	public function render()
 	{
-		if(!$this->isDBSettingsSet()){
-			$this->setDBSettings( ProMXFormsManager::getFormSettings($this->getPostObject()->ID) );
-		}
 
 		if(!$this->isDBSettingsSet()){
 			$this->showAdminMessage('DB settings of this form is not equal to $DBSettings.');
@@ -70,20 +72,20 @@ abstract class ProMXFormAbstract {
 		 * common_db_settings
 		 */
 
-		$FORM_DATA = [
+		/*$FORM_DATA = [
 			'form_name' => $this->getFormName(),
 			'db_settings' => $this->getDBSettings(),
 			'common_db_settings' => false,
 			'fields_settings' => $this->getFetcherHandler()->getFieldsMap(),
-		];
+		];*/
 
 
 		$global_db_settings = [];
 
 		ProMXTemplateEngine::init(
 			$this->getFormName()
-			,$FORM_DATA['fields_settings']
-			,$FORM_DATA['db_settings']
+			,$this->getFetcherHandler()->getFieldsMap()
+			,$this->getDBSettings()
 			,$global_db_settings
 		);
 
@@ -167,15 +169,15 @@ abstract class ProMXFormAbstract {
 	/**
 	 * @param string $fetcherHandlerClassName
 	 */
-	public function setFetcherHandler( $fetcherHandlerClassName ) {
-
+	public function setFetcherHandler( $fetcherHandlerClassName, $db_settings )
+	{
 		if(class_exists($fetcherHandlerClassName)){
-			$fetcher_object = new $fetcherHandlerClassName();
+			$fetcher_object = new $fetcherHandlerClassName($db_settings);
 		}
 
 		if(!$fetcher_object instanceof ProMXFetcherAbstract){
 			$fetcherHandlerClassName = ProMXFormsManager::getFetcherDefaultClassName();
-			$fetcher_object = new $fetcherHandlerClassName();
+			$fetcher_object = new $fetcherHandlerClassName($db_settings);
 		}
 
 		$this->fetcherHandler = $fetcher_object;

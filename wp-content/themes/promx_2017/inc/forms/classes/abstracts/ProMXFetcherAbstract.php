@@ -24,10 +24,24 @@ abstract class ProMXFetcherAbstract {
 
 	abstract protected function initFieldsSettings();
 
-	public function __construct()
+	public function __construct($db_settings)
 	{
 		$this->initSystemErrors();
+		$this->initFieldsSettingsWithDbData($db_settings);
 		$this->initFieldsSettings();
+
+	}
+
+	protected function initFieldsSettingsWithDbData($db_settings)
+	{
+		if(!$this->checkIsArray($db_settings)){
+			//$this->addSystemError('data_format_error');
+			$this->setDBSettings(false);
+			return false;
+		}
+
+		$this->setDBSettings($db_settings);
+		$this->updateFieldsMapWithDbData( $this->getDBSettings() );
 
 	}
 
@@ -60,7 +74,6 @@ abstract class ProMXFetcherAbstract {
 
 		//Add Campaign to data
 		$data_sanitized['campaign'] = $this->getOneDBSetting('campaign_value');
-		//echo '$data_sanitized: '; var_dump($data_sanitized);
 
 		$is_required_complete = $this->isRequiredValuesExist($data_sanitized);
 		if(!$is_required_complete){
