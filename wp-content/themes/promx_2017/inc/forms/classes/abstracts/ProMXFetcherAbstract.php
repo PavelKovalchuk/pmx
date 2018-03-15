@@ -224,6 +224,10 @@ abstract class ProMXFetcherAbstract {
 
 			if(array_key_exists($field_name, $fields_map)){
 
+				if(empty($value)){
+					continue;
+				}
+
 				$available_fields[$field_name] = $value;
 
 			}
