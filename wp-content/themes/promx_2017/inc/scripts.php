@@ -41,9 +41,11 @@ function promx_scripts() {
 
 	wp_enqueue_script( 'cookie-js', TEMPLATE_URI . 'js/libs/js-cookie/src/js.cookie.js', array(), '2.2.0', true );
 
+    wp_enqueue_script( 'anchor-js', TEMPLATE_URI . 'js/libs/anchor/anchor.js', array(), '1.0.6', true );
+
 	wp_enqueue_script( 'forms-handler', TEMPLATE_URI . 'js/forms_handler.js', array('jquery'), filemtime( get_theme_file_path('/js/forms_handler.js')), true );
 
-	wp_enqueue_script( 'new_app-js', TEMPLATE_URI . 'js/new_app.js', array('jquery', 'cookie-js'), filemtime( get_theme_file_path('/js/new_app.js')), true );
+	wp_enqueue_script( 'new_app-js', TEMPLATE_URI . 'js/new_app.js', array('jquery', 'cookie-js', 'anchor-js'), filemtime( get_theme_file_path('/js/new_app.js')), true );
 
 
 	if( is_page_template( 'page-templates/template-contact-us.php' ) ){

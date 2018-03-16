@@ -1,24 +1,22 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: pavel
- * Date: 08.03.2018
- * Time: 11:07
+ * User: pkovalchuk
+ * Date: 16.03.2018
+ * Time: 13:48
  */
 
-class FetcherContactUs extends ProMXFetcherAbstract{
-
+class FetcherMainContactUs extends ProMXFetcherAbstract
+{
     protected $displayedFields = [
         'salutation',
         'first_name',
         'last_name',
         'email',
-        'phone',
         'company',
-        'country',
         'message',
     ];
 
-	protected function initFieldsSettings(){}
+    protected function initFieldsSettings(){}
 
 }

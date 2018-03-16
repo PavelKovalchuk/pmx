@@ -25,6 +25,11 @@ class ProMXTemplateEngine {
 	{
 
 		$form_title = ($form_title) ? $form_title : self::getFormTitle();
+
+		if(!$form_title){
+		    return;
+        }
+
 		?>
         <h2 class="contact-form-title light <?php if($classes){echo $classes; }?>">
 	        <?php echo $form_title; ?>

@@ -91,7 +91,7 @@ function get_promx_recent_post( $post_id, $block_title, $form_block_title){
                 </div>
 
                 <div class="col-sm-12">
-	                <?php get_form_template_latest_news_sidebar(); ?>
+                    <?php echo do_shortcode('[form name=sidebar-subscribe-blog]'); ?>
                 </div>
 
             </div>

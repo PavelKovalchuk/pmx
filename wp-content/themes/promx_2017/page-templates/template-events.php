@@ -40,7 +40,7 @@ get_header(); ?>
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-12 col-md-8 col-md-offset-2">
-					<article>
+					<article id="form-section">
 						<?php echo do_shortcode('[form name=contact-event]'); ?>
 					</article>
 				</div>

@@ -224,7 +224,7 @@ function get_template_contact_us_block($title, $text, $person){
                     </header>
                     <div class="row">
                         <div class="col-sm-12 col-md-7 col-lg-6">
-				            <?php get_form_template_main(); ?>
+                            <?php echo do_shortcode('[form name=main-contact-us]'); ?>
                         </div>
                         <div class="col-md-5 col-lg-6 hidden-xs hidden-sm">
                             <p class="text-justify contact-text"><?php echo $text; ?></p>

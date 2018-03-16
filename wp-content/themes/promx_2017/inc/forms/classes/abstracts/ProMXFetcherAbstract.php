@@ -27,6 +27,7 @@ abstract class ProMXFetcherAbstract {
 	public function __construct($db_settings)
 	{
 		$this->initSystemErrors();
+		$this->initDisplayedField();
 		$this->initFieldsSettingsWithDbData($db_settings);
 		$this->initFieldsSettings();
 

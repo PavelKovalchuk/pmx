@@ -10,62 +10,105 @@
 /**
  * TODO - this is temporary solution to store all forms. Before implementing new system of forms handling
  */
-function get_form_template_main(){
+
+$field_salutation = 'salutation';
+$field_first_name = 'first_name';
+$field_last_name = 'last_name';
+$field_email = 'email';
+$field_company = 'company';
+$field_message = 'message';
+
 	?>
 
-	<form action="" method="post" class="bg-secondary contact-form">
+	<form action="" method="post" class="bg-secondary contact-form <?php echo ProMXTemplateEngine::jsClass(); ?>" name="<?php echo ProMXTemplateEngine::getFormName(); ?>">
+        <?php ProMXTemplateEngine::getHeader(); ?>
+        <?php ProMXTemplateEngine::getNecessaryHiddenInput(); ?>
+
 		<div class="form-horizontal">
 			<div class="form-group">
 				<div class="col-sm-4 col-md-4">
-					<div class="radio promx-radio">
-						<input type="radio" name="optionGender" id="optionHerre" value="herre">
-						<label for="optionHerre">Herre</label>
-					</div>
+                    <?php
+                    ProMXTemplateEngine::radioField(
+                        $field_salutation,
+                        ProMXTemplateEngine::getRadio($field_salutation, 'he'),
+                        ProMXTemplateEngine::getRequired($field_salutation),
+                        'salutation_1',
+                        false,false);
+                    ?>
 				</div>
 				<div class="col-sm-6">
-					<div class="radio promx-radio">
-						<input type="radio" name="optionGender" id="optionFrau" value="frau">
-						<label for="optionFrau">Frau</label>
-					</div>
+                    <?php
+                    ProMXTemplateEngine::radioField(
+                        $field_salutation,
+                        ProMXTemplateEngine::getRadio($field_salutation, 'she'),
+                        ProMXTemplateEngine::getRequired($field_salutation),
+                        'salutation_2',
+                        false,false);
+                    ?>
 				</div>
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-sm-6">
-				<div class="form-group">
-					<input type="text" name="name" class="form-control" placeholder="Name*" aria-describedby="helpBlock2">
-					<span id="helpBlock2" class="help-block" style="display: none;">A block of help text.</span>
-				</div>
+                <?php
+                ProMXTemplateEngine::inputTextField(
+                    $field_first_name,
+                    ProMXTemplateEngine::getRequired($field_first_name),
+                    ProMXTemplateEngine::getPlaceholder($field_first_name),
+                    false,false, false);
+                ?>
 			</div>
 			<div class="col-sm-6">
-				<div class="form-group">
-					<input type="text" name="full-name" class="form-control" placeholder="Full Name*">
-				</div>
+                <?php
+                ProMXTemplateEngine::inputTextField(
+                    $field_last_name,
+                    ProMXTemplateEngine::getRequired($field_last_name),
+                    ProMXTemplateEngine::getPlaceholder($field_last_name),
+                    false,false, false);
+                ?>
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-sm-6">
-				<div class="form-group">
-					<input type="text" name="company-name" class="form-control" placeholder="Company*">
-				</div>
+                <?php
+                ProMXTemplateEngine::inputTextField(
+                    $field_company,
+                    ProMXTemplateEngine::getRequired($field_company),
+                    ProMXTemplateEngine::getPlaceholder($field_company),
+                    false,false, false);
+                ?>
 			</div>
 			<div class="col-sm-6">
-				<div class="form-group">
-					<input type="email" name="email" class="form-control" placeholder="E-mail*">
-				</div>
+                <?php
+                ProMXTemplateEngine::inputTextField(
+                    $field_email,
+                    ProMXTemplateEngine::getRequired($field_email),
+                    ProMXTemplateEngine::getPlaceholder($field_email),
+                    false,false, false);
+                ?>
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-sm-12">
-				<div class="form-group">
-					<textarea class="form-control" rows="4" placeholder="Message"></textarea>
-				</div>
-				<div class="form-group text-center">
-					<button type="submit" class="btn btn-primary btn-outline-inverted">Contac Us</button>
-				</div>
+                <?php
+                ProMXTemplateEngine::textareaField(
+                    $field_message,
+                    ProMXTemplateEngine::getRequired($field_message),
+                    ProMXTemplateEngine::getPlaceholder($field_message),
+                    false,false, false);
+                ?>
+                <?php
+                ProMXTemplateEngine::button(
+                    false
+                    , false
+                    , 'btn-primary btn-outline-inverted'
+                    , 'text-center'
+
+                );
+                ?>
 			</div>
 		</div>
 	</form>
 
 	<?php
-}
+//}

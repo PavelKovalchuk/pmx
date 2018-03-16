@@ -13,6 +13,8 @@ jQuery(document).ready(function($){
     langSwitcherInit();
     tooltipInit();
     cookieUsageInit();
+    initAnchorPlugin();
+    initFormEventChecker();
     //dropdownMenuHoverInit();
 
 
@@ -60,7 +62,43 @@ jQuery(document).ready(function($){
             switcher.toggleClass( classShown );
 
         });
+    }
 
+    function initAnchorPlugin(){
+        $('a[href*=#]').anchor({
+            transitionDuration : 1200
+        });
+    }
+    
+    function initFormEventChecker() {
+
+        var checkers = $('.js-form-select-checker');
+        var formTarget = $('#js-events-form');
+        var selectEl = $(formTarget).find('select[name="event"]');
+
+        if(!checkers.length > 0 || !formTarget.length > 0){
+            return;
+        }
+
+        $.each(checkers, function (key, value) {
+
+            var btn = $(this);
+            var optionTarget = btn.data("event-target");
+
+            btn.on('click', function (event) {
+
+                var activeOption = $(selectEl).find('option[data-option-code="' + optionTarget + '"]');
+                var activeOptionValue = activeOption.val();
+
+                if(!activeOption){
+                    return;
+                }
+
+                selectEl.val(activeOptionValue).change();
+
+            });
+
+        });
 
     }
 

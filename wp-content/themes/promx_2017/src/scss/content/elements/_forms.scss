@@ -177,6 +177,13 @@ textarea.form-control {
       font-family: $light-font;
     }
   }
+
+  &.subscribe-blog{
+    @include media-breakpoint-up(lg) {
+      padding: 0;
+
+    }
+  }
 }
 
 .send-application {

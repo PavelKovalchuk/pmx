@@ -19,7 +19,7 @@ $field_event = 'event';
 
 	?>
 
-	<form class="bg-secondary send-application <?php echo ProMXTemplateEngine::jsClass(); ?>" name="<?php echo ProMXTemplateEngine::getFormName(); ?>">
+	<form id="js-events-form" class="bg-secondary send-application <?php echo ProMXTemplateEngine::jsClass(); ?>" name="<?php echo ProMXTemplateEngine::getFormName(); ?>">
 		<?php ProMXTemplateEngine::getHeader(); ?>
 		<?php ProMXTemplateEngine::getNecessaryHiddenInput(); ?>
 

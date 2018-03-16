@@ -54,6 +54,11 @@ abstract class ProMXFormAbstract {
 			$this->showAdminMessage('DB settings of this form is not equal to $DBSettings.');
 		}
 
+        if(empty($this->getFetcherHandler()->getDisplayedFields())){
+            $this->showAdminMessage('Fields to display in the form are not specified!');
+            return false;
+        }
+
 		if(empty($this->getTemplate())){
 
 			$this->showAdminMessage('Template for this form was not defined!');

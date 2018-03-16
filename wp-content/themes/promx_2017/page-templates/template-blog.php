@@ -189,7 +189,7 @@ get_header();
 
                             <div class="col-sm-12 col-md-8">
 
-                                <?php get_form_template_latest_news(); ?>
+                                <?php echo do_shortcode('[form name=subscribe-blog]'); ?>
 
                             </div>
 

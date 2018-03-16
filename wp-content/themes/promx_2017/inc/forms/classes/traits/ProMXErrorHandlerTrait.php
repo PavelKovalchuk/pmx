@@ -41,7 +41,7 @@ trait ProMXErrorHandlerTrait {
 			'available_fields_empty' => [
 				'en' => 'Sorry, we did not receive your data. Check each fields and try again!',
 				'de' => 'Sorry, we did not receive your data. Check each fields and try again!',
-				'dev' => 'No one of received forms fields are not specified in settings.'
+				'dev' => 'Empty form!'
 			],
 
 			'sanitized_values_empty' => [

@@ -231,6 +231,49 @@ trait ProMXFormFieldsMapTrait {
 
 	);
 
+	// Fields wich will be displayed on the frontend
+	protected $displayedFields = [];
+
+    /**
+     * @return array
+     */
+    public function getDisplayedFields()
+    {
+        return $this->displayedFields;
+    }
+
+    /**
+     * @param string $displayedField
+     */
+    protected function addDisplayedField($displayedField)
+    {
+        $this->displayedFields[] = $displayedField;
+    }
+
+    protected function initDisplayedField()
+    {
+        if(empty($this->getDisplayedFields())){
+            $this->addError( $this->showAdminMessage('Fields to display are not specified!'));
+            return false;
+        }
+
+        $this->addDisplayedField('campaign');
+        $this->updateFieldsMap();
+
+    }
+
+    protected function updateFieldsMap()
+    {
+        foreach ($this->getFieldsMap() as $field => $data){
+
+            if(! in_array($field, $this->getDisplayedFields())){
+                unset($this->fieldsMap[$field]);
+            }
+
+        }
+
+        return true;
+    }
 
 	/**
 	 * @return array
@@ -302,10 +345,6 @@ trait ProMXFormFieldsMapTrait {
 
 		$field_name = 'salutation';
 
-		/*if(!array_key_exists($field_name, $this->getFieldsMap())){
-			return false;
-		}*/
-
 		if(!isset($this->getFieldsMap()[$field_name]['options'])){
 			return false;
 		}
@@ -327,9 +366,10 @@ trait ProMXFormFieldsMapTrait {
 	protected function changeRequiredSetting($field_name, $value){
 
 		$key = 'required';
-		/*if(!array_key_exists($field_name, $this->getFieldsMap())){
-			return false;
-		}*/
+
+		if(!$this->getFieldsMap()[$field_name]){
+            return false;
+        }
 		if(!array_key_exists($key, $this->getFieldsMap()[$field_name])){
 			return false;
 		}
@@ -345,9 +385,10 @@ trait ProMXFormFieldsMapTrait {
 		}
 
 		$key = 'placeholder';
-		/*if(!array_key_exists($field_name, $this->getFieldsMap())){
-			return false;
-		}*/
+
+        if(!$this->getFieldsMap()[$field_name]){
+            return false;
+        }
 		if(!array_key_exists($key, $this->getFieldsMap()[$field_name])){
 			return false;
 		}
