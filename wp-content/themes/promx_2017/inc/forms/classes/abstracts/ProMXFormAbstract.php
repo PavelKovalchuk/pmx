@@ -89,6 +89,7 @@ abstract class ProMXFormAbstract {
 
 		ProMXTemplateEngine::init(
 			$this->getFormName()
+			,$this->getPostObject()->ID
 			,$this->getFetcherHandler()->getFieldsMap()
 			,$this->getDBSettings()
 			,$global_db_settings

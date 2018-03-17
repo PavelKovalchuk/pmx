@@ -203,6 +203,7 @@ trait ProMXFormFieldsMapTrait {
 			'validators' => [],
 		],
 
+		//NEW Azure parameters
 		'language' => [
 			'placeholder' => [
 				'en' => 'Language',
@@ -225,6 +226,21 @@ trait ProMXFormFieldsMapTrait {
 			],
 			'required' => false,
 			'azure_parameter' => 'Event',
+			'sanitizers' => ['sanitizeString'],
+			'validators' => [],
+		],
+
+		'product' => [
+			'placeholder' => [
+				'en' => 'Product',
+				'de' => 'Product',
+			],
+			'type' => 'select',
+			'options' => [
+				[],
+			],
+			'required' => false,
+			'azure_parameter' => 'Product',
 			'sanitizers' => ['sanitizeString'],
 			'validators' => [],
 		],

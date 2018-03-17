@@ -28,7 +28,7 @@ get_header();
 					<article>
 						<div class="row">
 							<div class="col-sm-12 col-md-7 col-lg-6">
-								<?php get_form_template_support(); ?>
+								<?php echo do_shortcode('[form name=support]'); ?>
 							</div>
 							<?php get_template_support_section($data['support_section_title'], $data['support_section_text'], $data['support_section_contacts']); ?>
 						</div>

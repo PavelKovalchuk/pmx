@@ -120,7 +120,6 @@ $field_event = 'event';
 					, false
 					, 'btn-primary btn-outline-inverted'
 					, 'text-center'
-
 				);
 				?>
 			</div>

@@ -168,7 +168,7 @@ function print_button_text($text){
 }
 
 
-function get_data_cpt_from_array($cpt_arr){
+function get_data_cpt_from_array($cpt_arr, $field_name = ''){
 
 	if( empty($cpt_arr) || !is_array($cpt_arr)){
 		return false;
@@ -177,7 +177,13 @@ function get_data_cpt_from_array($cpt_arr){
 	$response = [];
 
 	foreach ($cpt_arr as $item){
-		$response[$item] = get_fields($item);
+
+		if($field_name){
+			$response[$item] = get_field($field_name, $item);
+		}else{
+			$response[$item] = get_fields($item);
+		}
+
 	}
 
 	return $response;

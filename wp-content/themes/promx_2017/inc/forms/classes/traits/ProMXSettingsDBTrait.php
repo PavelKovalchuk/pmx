@@ -16,6 +16,9 @@ trait ProMXSettingsDBTrait {
 		"button_text" => null,
 		"form_title" => null,
 		"form_success_message" => null,
+		"select_product" => null,
+		"additional_products" => null,
+
 	];
 
 	private $isDBSettingsSet = false;

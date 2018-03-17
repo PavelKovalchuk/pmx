@@ -12,6 +12,8 @@ trait ProMXTemplateVariablesTrait {
 
 	protected static $formTitle = '';
 
+	protected static $formPostId = '';
+
 	protected static $formButton = '';
 
 	protected static $formSuccessMessage = '';
@@ -20,19 +22,16 @@ trait ProMXTemplateVariablesTrait {
 
 	protected static $localDbSettings = [];
 
-	//protected static $localPlaceholders = [];
-
 	protected static $globalDbSettings = [];
 
 
-	public static function init($form_name, $fields_settings, $local_db_settings, $global_db_settings)
+	public static function init($form_name, $form_post_id, $fields_settings, $local_db_settings, $global_db_settings)
 	{
 		self::setFieldsSettings($fields_settings);
 		self::setFormName($form_name);
+		self::setFormPostId($form_post_id);
 
 		if(is_array($local_db_settings)){
-			//self::setLocalDbSettings($local_db_settings);
-			//self::setLocalPlaceholders($local_db_settings['fields_placeholders'][0]);
 			self::setFormTitle($local_db_settings['form_title']);
 			self::setFormSuccessMessage($local_db_settings['form_success_message']);
 			self::setFormButton($local_db_settings['button_text']);
@@ -41,17 +40,14 @@ trait ProMXTemplateVariablesTrait {
 		if(!self::getGlobalDbSettings() && is_array($global_db_settings)){
 			self::setGlobalDbSettings($global_db_settings);
 		}
-		/*var_dump(self::getLocalPlaceholders());
-		var_dump(self::getFormTitle());
-		var_dump(self::getFormSuccessMessage());*/
+
 	}
 
 	public static function finish()
 	{
 		self::setFormName(false);
 		self::setFieldsSettings(false);
-		//self::setLocalDbSettings(false);
-		//self::setLocalPlaceholders(false);
+		self::setFormPostId(false);
 		self::setFormTitle(false);
 		self::setFormButton(false);
 		self::setFormSuccessMessage(false);
@@ -63,13 +59,7 @@ trait ProMXTemplateVariablesTrait {
 			return;
 		}
 
-		//Data from Current form from admin panel
-		/*$form_db_setting = self::getLocalPlaceholders()[$field_name];
-		if($form_db_setting){
-			return $form_db_setting;
-		}*/
-
-		//Data from Fetcher class of Current form
+		//Data from Fetcher class of Current form, changed by admin panel of current form
 		$form_field_setting = self::getFieldsSettings()[$field_name]['placeholder'][CURRENT_LANG_CODE];
 		if($form_field_setting){
 			return $form_field_setting;
@@ -112,16 +102,11 @@ trait ProMXTemplateVariablesTrait {
 			return;
 		}
 
-		//Data from Fetcher class of Current form
+		//Data from Fetcher class of Current form, changed by admin panel of current form
 		$form_field_setting = self::getFieldsSettings()[$field_name]['options'][$option_key][CURRENT_LANG_CODE];
 		if($form_field_setting){
 			return $form_field_setting;
 		}
-		//Data from Current form from admin panel
-		/*$form_db_setting = self::getLocalPlaceholders()[$field_name][0][$option_key];
-		if($form_db_setting){
-			return $form_db_setting;
-		}*/
 
 		//TODO = GLOBAL settings
 		//Data from global settings in admin panel
@@ -134,18 +119,6 @@ trait ProMXTemplateVariablesTrait {
 		return;
 
 	}
-
-	/*public static function getButtonId($form_name)
-	{
-		if(!$form_name){
-			return false;
-		}
-
-		$id = $form_name . '-' . CURRENT_LANG_CODE;
-
-		return $id;
-
-	}*/
 
 	public static function getRequired($field_name)
 	{
@@ -179,20 +152,6 @@ trait ProMXTemplateVariablesTrait {
 	/**
 	 * @return array
 	 */
-	/*protected static function getLocalDbSettings() {
-		return self::$localDbSettings;
-	}*/
-
-	/**
-	 * @param array $localDbSettings
-	 */
-	/*public static function setLocalDbSettings( $localDbSettings ) {
-		self::$localDbSettings = $localDbSettings;
-	}*/
-
-	/**
-	 * @return array
-	 */
 	protected static function getGlobalDbSettings() {
 		return self::$globalDbSettings;
 	}
@@ -205,18 +164,19 @@ trait ProMXTemplateVariablesTrait {
 	}
 
 	/**
-	 * @return array
+	 * @return string
 	 */
-	/*protected static function getLocalPlaceholders() {
-		return self::$localPlaceholders;
-	}*/
+	public static function getFormPostId() {
+		return self::$formPostId;
+	}
 
 	/**
-	 * @param array $localPlaceholders
+	 * @param string $formPostId
 	 */
-	/*protected static function setLocalPlaceholders( $localPlaceholders ) {
-		self::$localPlaceholders = $localPlaceholders;
-	}*/
+	public static function setFormPostId( $formPostId ) {
+		self::$formPostId = $formPostId;
+	}
+
 
 	/**
 	 * @return mixed
