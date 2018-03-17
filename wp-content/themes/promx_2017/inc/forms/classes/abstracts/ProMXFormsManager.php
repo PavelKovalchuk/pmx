@@ -6,7 +6,11 @@
  * Time: 22:22
  */
 
-
+/**
+ * Class ProMXFormsManager
+ * Has basic functionality for load form object,
+ *
+ */
 abstract class ProMXFormsManager {
 
 	const POST_TYPE = 'form';
@@ -23,21 +27,10 @@ abstract class ProMXFormsManager {
 
 	private static $fetcherDefaultClassName = 'FetcherDefault';
 
-	private static $formsCache = array();
-
 	public static function init()
 	{
-		self::loadForms();
+		//self::loadForms();
 
-		/*$client = new CrmClient();
-		$client -> ajaxForm();*/
-
-	}
-
-	public static function test()
-	{
-		$forms = self::getFormsCache();
-		//var_dump($forms);
 	}
 
 	protected static function loadForms()
@@ -59,7 +52,7 @@ abstract class ProMXFormsManager {
 	public static function handleForm($formName, $successText)
 	{
 		$form_object = self::getForm($formName);
-		//var_dump($form_object);
+
 		if ($form_object) {
 
 			return $form_object->render();
@@ -127,13 +120,35 @@ abstract class ProMXFormsManager {
 	 * @param bool $appendSlug
 	 * @return WP_Post|null
 	 */
-	public static function getFormPost($formKey)
+	public static function getFormPost($form_slug)
 	{
-		if( isset(self::$formsCache[$formKey]) ){
-			return self::$formsCache[$formKey];
+		if(!$form_slug){
+			return false;
+		}
+		$form_posts = get_posts(array(
+			'name' => $form_slug,
+			'numberposts' => 1,
+			'post_type' => self::POST_TYPE,
+			'lang' => CURRENT_LANG_CODE,
+			'post_status' => 'publish',
+		));
+
+		if(!is_array($form_posts)){
+			return false;
 		}
 
-		return false;
+		$form_post = false;
+
+		foreach ($form_posts as $key => $post_object){
+
+			$form_lang = pll_get_post_language($post_object->ID,  'slug');
+			if($form_lang == CURRENT_LANG_CODE){
+				$form_post = $post_object;
+			}
+
+		}
+
+		return $form_post;
 	}
 
 	public static function includeClass($className, $model_type)
@@ -173,20 +188,6 @@ abstract class ProMXFormsManager {
 	 */
 	public static function getFormsDir() {
 		return self::$formsDir;
-	}
-
-	/**
-	 * @return array
-	 */
-	public static function getFormsCache() {
-		return self::$formsCache;
-	}
-
-	/**
-	 * @param array $formsCache
-	 */
-	protected static function addFormToCache( WP_Post $form ) {
-		self::$formsCache[$form->post_name] = $form;
 	}
 
 	/**

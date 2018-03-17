@@ -6,6 +6,11 @@
  * Time: 22:08
  */
 
+/**
+ * Trait ProMXTemplateVariablesTrait
+ * Has and returns texts representations of the forms settings
+ *
+ */
 trait ProMXTemplateVariablesTrait {
 
 	protected static $formName = false;
@@ -113,8 +118,6 @@ trait ProMXTemplateVariablesTrait {
 		if(self::getGlobalDbSettings()['none']){
 			return self::getGlobalDbSettings()['none'];
 		}
-
-
 
 		return;
 
