@@ -245,6 +245,34 @@ trait ProMXFormFieldsMapTrait {
 			'validators' => [],
 		],
 
+		'career_position' => [
+			'placeholder' => [
+				'en' => 'Select position',
+				'de' => 'Select position',
+			],
+			'type' => 'select',
+			'options' => [
+				[],
+			],
+			'required' => false,
+			'azure_parameter' => 'CareerPosition',
+			'sanitizers' => ['sanitizeString'],
+			'validators' => [],
+		],
+
+		'file_url' => [
+			'placeholder' => [
+				'en' => 'Attach file',
+				'de' => 'Attach file',
+			],
+			//'type' => 'file',
+			'required' => false,
+			'azure_parameter' => 'FileUrl',
+			'sanitizers' => [],
+			'validators' => [],
+		],
+
+
 	);
 
 	// Fields wich will be displayed on the frontend

@@ -176,6 +176,73 @@ abstract class ProMXFormsManager {
 		return false;
 	}
 
+	public static function manageUploadFile($uploadedfile, $form_uploads_rules)
+	{
+		if(!is_array($form_uploads_rules) || !$uploadedfile){
+			return false;
+		}
+
+		if (!function_exists('wp_handle_upload')) {
+			require_once(ABSPATH . 'wp-admin/includes/file.php');
+		}
+
+		$upload_error_text = $form_uploads_rules['upload_error_text'];
+
+		if ( 0 < $_FILES['file']['error'] ) {
+
+			$result = [
+				'status' => 'error',
+				'message' => $upload_error_text,
+			];
+			return $result;
+		}
+
+		$filetype = $uploadedfile["type"];
+		$filesize = $uploadedfile["size"];
+
+		//Check format
+		$allowed_formats = $form_uploads_rules['allowed_formats'];
+		if(!in_array($filetype, $allowed_formats)){
+			$result = [
+				'status' => 'error',
+				'message' => $upload_error_text,
+			];
+			return $result;
+		}
+
+		//Check size
+		$allowed_size = $form_uploads_rules['max_size'];
+		$maxsize = $allowed_size * 1024 * 1024;
+		if($filesize > $maxsize){
+			$result = [
+				'status' => 'error',
+				'message' => $upload_error_text,
+			];
+			return $result;
+		}
+
+		$upload_overrides = array('test_form' => false);
+		add_filter( 'upload_dir', 'promx_change_resume_upload_dir' );
+		$movefile = wp_handle_upload($uploadedfile, $upload_overrides);
+		remove_filter( 'upload_dir', 'promx_change_resume_upload_dir' );
+
+		if (!$movefile || isset($movefile['error'])) {
+			$result = [
+				'status' => 'error',
+				'message' => $upload_error_text,
+			];
+			return $result;
+		}
+
+		$result = [
+			'status' => 'ok',
+			'url' => $movefile['url'],
+		];
+
+		return $result;
+
+	}
+
 	/**
 	 * @return string
 	 */

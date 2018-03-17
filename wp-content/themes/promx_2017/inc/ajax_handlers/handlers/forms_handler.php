@@ -16,7 +16,6 @@ function promx_form_ajax_handler(){
 	}
 
 	parse_str($_POST['forms_data'], $forms_data_raw);
-
 	$forms_data = array_map('trim', $forms_data_raw);
 
 	$form_name = trim($forms_data['form_name']);
@@ -27,10 +26,6 @@ function promx_form_ajax_handler(){
 		return false;
 	}
 
-	ProMXFormsManager::init();
-
-	//var_dump(ProMXFormsManager::getFormsCache());
-
 	$form_object = ProMXFormsManager::getForm($form_name);
 
 	if(!$form_object){
@@ -38,9 +33,31 @@ function promx_form_ajax_handler(){
 		return;
 	}
 
+	if(isset($_FILES['file']) || empty($_FILES['file'])){
+
+		$uploadedfile = $_FILES['file'];
+		if(!$form_object->getFetcherHandler()){
+			return;
+		}
+		$rules_data = [
+			'allowed_formats' => $form_object->getFetcherHandler()->getOneDBSetting('allowed_formats'),
+			'max_size' => $form_object->getFetcherHandler()->getOneDBSetting('max_size'),
+			'allowed_formats_text' => $form_object->getFetcherHandler()->getOneDBSetting('allowed_formats_text'),
+			'upload_error_text'=> $form_object->getFetcherHandler()->getOneDBSetting('upload_error_text'),
+		];
+		$upload_results = ProMXFormsManager::manageUploadFile($uploadedfile, $rules_data);
+
+		if($upload_results['status'] == 'error'){
+			//TODO = handle errors
+			var_dump($upload_results);
+		}
+		$forms_data['file_url'] = $upload_results['url'];
+	}
+
 	$result = $form_object->getResult($forms_data);
 	//$result = $form_object->getResult(false);
 
+	//TODO = handle errors
 	echo 'Result:';
 	var_dump($result);
 

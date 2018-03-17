@@ -20,7 +20,7 @@ $field_message = 'message';
 
 	?>
 
-	<form action="" method="post" class="bg-secondary contact-form <?php echo ProMXTemplateEngine::jsClass(); ?>" name="<?php echo ProMXTemplateEngine::getFormName(); ?>">
+	<form  class="bg-secondary contact-form <?php echo ProMXTemplateEngine::jsClass(); ?>" name="<?php echo ProMXTemplateEngine::getFormName(); ?>">
         <?php ProMXTemplateEngine::getHeader(); ?>
         <?php ProMXTemplateEngine::getNecessaryHiddenInput(); ?>
 

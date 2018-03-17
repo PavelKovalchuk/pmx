@@ -8,46 +8,79 @@
 /**
  * TODO - this is temporary solution to store all forms. Before implementing new system of forms handling
  */
-function get_form_template_career() {
 
 	//TODO - use unique_id of ACF accordion items of Accordion block Field group for select
 
+$field_first_name = 'first_name';
+$field_email = 'email';
+$field_position = 'career_position';
+$field_message = 'message';
+$field_file = 'file_url';
+
+
 	?>
-	<form action="" method="post" class="bg-secondary careers-contact-form">
-		<h2>Send your resume now!</h2>
-		<div class="form-group">
-			<input type="text" name="name" class="form-control" placeholder="Name*" aria-describedby="helpBlock2">
-			<span id="helpBlock2" class="help-block" style="display: none;">A block of help text.</span>
-		</div>
-		<div class="form-group">
-			<input type="email" name="email" class="form-control" placeholder="E-mail*">
-		</div>
-		<div class="form-group">
-			<select class="promx-select form-control" data-placeholder="Select vacancy">
-				<option>Backend developer</option>
-				<option>.Net</option>
-			</select>
-		</div>
-		<div class="form-group">
-			<textarea class="form-control" rows="4" placeholder="Message"></textarea>
-		</div>
+	<form method="post" enctype="multipart/form-data" class="bg-secondary careers-contact-form <?php echo ProMXTemplateEngine::jsClass(); ?>" name="<?php echo ProMXTemplateEngine::getFormName(); ?>">
+		<?php ProMXTemplateEngine::getHeader(); ?>
+		<?php ProMXTemplateEngine::getNecessaryHiddenInput(); ?>
+
+		<?php
+		ProMXTemplateEngine::inputTextField(
+			$field_first_name,
+			ProMXTemplateEngine::getRequired($field_first_name),
+			ProMXTemplateEngine::getPlaceholder($field_first_name),
+			false,false, false);
+		?>
+
+		<?php
+		ProMXTemplateEngine::inputTextField(
+			$field_email,
+			ProMXTemplateEngine::getRequired($field_email),
+			ProMXTemplateEngine::getPlaceholder($field_email),
+			false,false, false);
+		?>
+
+		<?php global $form_positions_data;
+
+		if($form_positions_data){
+			ProMXTemplateEngine::selectField(
+				$field_position,
+				$form_positions_data,
+				ProMXTemplateEngine::getPlaceholder($field_position),
+				ProMXTemplateEngine::getRequired($field_position),
+				false,false, false);
+		}
+
+		?>
+		<?php
+		ProMXTemplateEngine::textareaField(
+			$field_message,
+			ProMXTemplateEngine::getRequired($field_message),
+			ProMXTemplateEngine::getPlaceholder($field_message),
+			false,false, false);
+		?>
 		<div class="row">
 			<div class="col-sm-6">
-				<div class="form-group">
-					<label for="resume_file" class="c-file">
-						<input type="file" name="resume_file" id="resume_file">
-						<i class="fa fa-paperclip" aria-hidden="true"></i> Attach file
-					</label>
-				</div>
+				<?php
+				ProMXTemplateEngine::uploadField(
+					$field_file,
+					ProMXTemplateEngine::getRequired($field_file),
+					ProMXTemplateEngine::getPlaceholder($field_file),
+					'resume_file',false, false);
+				?>
 			</div>
 			<div class="col-sm-6">
-				<div class="form-group text-right">
-					<button type="submit" class="btn btn-primary btn-outline-inverted">Submit</button>
-				</div>
+				<?php
+				ProMXTemplateEngine::button(
+					false
+					, false
+					, 'btn-primary btn-outline-inverted'
+					, 'text-right'
+				);
+				?>
 			</div>
 		</div>
 	</form>
 
 
 	<?php
-}
+

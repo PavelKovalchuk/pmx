@@ -18,6 +18,10 @@ trait ProMXSettingsDBTrait {
 		"form_success_message" => null,
 		"select_product" => null,
 		"additional_products" => null,
+		"allowed_formats" => null,
+		"allowed_formats_text" => null,
+		"max_size" => null,
+		'upload_error_text' => null,
 
 	];
 
@@ -74,7 +78,7 @@ trait ProMXSettingsDBTrait {
 		$this->isDBSettingsSet = $isDBSettingsSet;
 	}
 
-	protected function getOneDBSetting($setting_name)
+	public function getOneDBSetting($setting_name)
 	{
 		if(!$setting_name || !is_string($setting_name)){
 			return false;

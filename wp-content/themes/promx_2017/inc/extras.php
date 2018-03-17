@@ -188,3 +188,12 @@ function get_data_cpt_from_array($cpt_arr, $field_name = ''){
 
 	return $response;
 }
+
+function promx_change_resume_upload_dir( $dirs ) {
+
+	$dirs['subdir'] = '/resume';
+	$dirs['path'] = $dirs['basedir'] . '/resume';
+	$dirs['url'] = $dirs['baseurl'] . '/resume';
+
+	return $dirs;
+}

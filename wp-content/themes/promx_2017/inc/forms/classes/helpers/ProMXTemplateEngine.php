@@ -111,6 +111,36 @@ class ProMXTemplateEngine {
 		<?php
 	}
 
+	public static function uploadField($name_attr, $is_required = false, $placeholder = '', $id_attr = '',  $field_class = '', $parent_class = '')
+	{
+		if(!$name_attr){
+			return;
+		}
+		?>
+        <div class="form-group <?php if($parent_class){echo $parent_class; }?> <?php if($is_required){echo self::getRequiredClass(); }?>">
+
+            <label <?php if($id_attr){	?>
+                    for="<?php echo $id_attr; ?>"
+		            <?php }	?>  class="c-file">
+                <input type="file"
+                       name="resume_file"
+                        <?php if($id_attr){	?>
+                            id="<?php echo $id_attr; ?>"
+                        <?php }	?>
+                       class="upload-file-input js-upload-file <?php if($field_class){echo $field_class; }?>"
+                >
+                <i class="fa fa-paperclip" aria-hidden="true"></i>
+                <?php if($placeholder){ ?>
+                    <?php echo $placeholder; if($is_required){echo self::getRequiredSign(); } }?>
+            </label>
+
+			<?php self::getHelpBlock(); ?>
+        </div>
+		<?php
+
+	}
+
+
 	public static function inputTextField($name_attr, $is_required = false, $placeholder = '', $id_attr = '',  $field_class = '', $parent_class = '')
 	{
 		if(!$name_attr){
@@ -126,7 +156,7 @@ class ProMXTemplateEngine {
 				<?php }	?>
 				class="form-control <?php if($field_class){echo $field_class; }?>"
 				<?php if($placeholder){ ?>
-				placeholder="<?php echo $placeholder; if($is_required){echo self::getRequiredSign(); } }?>"
+				placeholder="<?php echo $placeholder; if($is_required){echo self::getRequiredSign(); } ?>"<?php }?>
 			>
 			<?php self::getHelpBlock(); ?>
 		</div>
@@ -149,7 +179,7 @@ class ProMXTemplateEngine {
 				<?php }	?>
 				class="form-control <?php if($field_class){echo $field_class; }?>"
 				<?php if($placeholder){ ?>
-				placeholder="<?php echo $placeholder; if($is_required){echo self::getRequiredSign(); } }?>"></textarea>
+				placeholder="<?php echo $placeholder; if($is_required){echo self::getRequiredSign(); } ?>"<?php }?>></textarea>
 
 			<?php self::getHelpBlock(); ?>
 		</div>

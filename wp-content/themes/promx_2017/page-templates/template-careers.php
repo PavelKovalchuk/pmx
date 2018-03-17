@@ -42,7 +42,16 @@ get_template_featured_banner(
 
                                 <div class="col-sm-12 col-md-6">
 
-                                    <?php get_form_template_career(); ?>
+	                                <?php
+
+	                                //$form_positios_data is needed by career-contact-form.php
+	                                $form_positions_data = [];
+	                                foreach ($data['accordion_items'] as $key => $position_data){
+		                                $form_positions_data[] = ProMXTemplateEngine::createOptionsForSelect($position_data['unique_id'], $position_data['position'], $position_data['position']);
+	                                }
+
+                                    echo do_shortcode('[form name=career]');
+                                    ?>
 
                                 </div>
 
