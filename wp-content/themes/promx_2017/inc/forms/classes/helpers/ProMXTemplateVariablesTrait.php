@@ -63,6 +63,7 @@ trait ProMXTemplateVariablesTrait {
 		self::setFormTitle(false);
 		self::setFormButton(false);
 		self::setFormSuccessMessage(false);
+		self::setUploadAllowedFormatsText(false);
 	}
 
 	public static function getPlaceholder($field_name)
