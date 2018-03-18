@@ -199,7 +199,7 @@ trait ProMXFormFieldsMapTrait {
 			],
 			'required' => false,
 			'azure_parameter' => 'Telephone',
-			'sanitizers' => ['sanitizeNumbe'],
+			'sanitizers' => ['sanitizeNumber'],
 			'validators' => [],
 		],
 
