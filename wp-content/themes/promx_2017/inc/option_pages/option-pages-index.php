@@ -13,6 +13,7 @@ $options_page = new OptionPages();
 
 //require_once(OPTION_PAGES_DIR . 'social-page.php');
 require_once(OPTION_PAGES_DIR . 'forms-page.php');
+require_once(OPTION_PAGES_DIR . 'forms-labels-page.php');
 require_once(OPTION_PAGES_DIR . 'buttons-page.php');
 require_once(OPTION_PAGES_DIR . 'posts-page.php');
 require_once(OPTION_PAGES_DIR . 'images-page.php');

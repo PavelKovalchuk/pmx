@@ -29,8 +29,8 @@ trait ProMXFormFieldsMapTrait {
 
 		'city' => [
 			'placeholder' => [
-				'en' => 'City',
-				'de' => 'City',
+				'en' => '',
+				'de' => '',
 			],
 			'required' => false,
 			'azure_parameter' => 'City',
@@ -40,8 +40,8 @@ trait ProMXFormFieldsMapTrait {
 
 		'company' => [
 			'placeholder' => [
-				'en' => 'Company',
-				'de' => 'Firma',
+				'en' => '',
+				'de' => '',
 			],
 			'required' => false,
 			'azure_parameter' => 'Company',
@@ -51,8 +51,8 @@ trait ProMXFormFieldsMapTrait {
 
 		'country' => [
 			'placeholder' => [
-				'en' => 'Country',
-				'de' => 'Country',
+				'en' => '',
+				'de' => '',
 			],
 			'required' => false,
 			'azure_parameter' => 'Country',
@@ -62,8 +62,8 @@ trait ProMXFormFieldsMapTrait {
 
 		'email' => [
 			'placeholder' => [
-				'en' => 'Email',
-				'de' => 'Email',
+				'en' => '',
+				'de' => '',
 			],
 			'required' => false,
 			'azure_parameter' => 'Email',
@@ -73,8 +73,8 @@ trait ProMXFormFieldsMapTrait {
 
 		'event_description' => [
 			'placeholder' => [
-				'en' => 'Event Description',
-				'de' => 'Event Description',
+				'en' => '',
+				'de' => '',
 			],
 			'required' => false,
 			'azure_parameter' => 'Eventdescription',
@@ -84,8 +84,8 @@ trait ProMXFormFieldsMapTrait {
 
 		'first_name' => [
 			'placeholder' => [
-				'en' => 'First name',
-				'de' => 'Name',
+				'en' => '',
+				'de' => '',
 			],
 			'required' => false,
 			'azure_parameter' => 'Firstname',
@@ -95,8 +95,8 @@ trait ProMXFormFieldsMapTrait {
 
 		'last_name' => [
 			'placeholder' => [
-				'en' => 'Last name',
-				'de' => 'Last name',
+				'en' => '',
+				'de' => '',
 			],
 			'required' => false,
 			'azure_parameter' => 'Lastname',
@@ -106,8 +106,8 @@ trait ProMXFormFieldsMapTrait {
 
 		'message' => [
 			'placeholder' => [
-				'en' => 'Message',
-				'de' => 'Message',
+				'en' => '',
+				'de' => '',
 			],
 			'required' => false,
 			'azure_parameter' => 'Message',
@@ -117,8 +117,8 @@ trait ProMXFormFieldsMapTrait {
 
 		'no_potential_customers' => [
 			'placeholder' => [
-				'en' => 'No Potential Customers',
-				'de' => 'No Potential Customers',
+				'en' => '',
+				'de' => '',
 			],
 			'required' => false,
 			'azure_parameter' => 'NoPotentialCustomers',
@@ -128,8 +128,8 @@ trait ProMXFormFieldsMapTrait {
 
 		'position' => [
 			'placeholder' => [
-				'en' => 'Position',
-				'de' => 'Position',
+				'en' => '',
+				'de' => '',
 			],
 			'required' => false,
 			'azure_parameter' => 'Position',
@@ -139,8 +139,8 @@ trait ProMXFormFieldsMapTrait {
 
 		'postal_code' => [
 			'placeholder' => [
-				'en' => 'Postal Code',
-				'de' => 'Postal Code',
+				'en' => '',
+				'de' => '',
 			],
 			'required' => false,
 			'azure_parameter' => 'Postalcode',
@@ -150,8 +150,8 @@ trait ProMXFormFieldsMapTrait {
 
 		'salutation' => [
 			'placeholder' => [
-				'en' => 'Salutation',
-				'de' => 'Salutation',
+				'en' => '',
+				'de' => '',
 			],
 			'type' => 'multiple',
 			'options' => [
@@ -172,8 +172,8 @@ trait ProMXFormFieldsMapTrait {
 
 		'street' => [
 			'placeholder' => [
-				'en' => 'Street',
-				'de' => 'Street',
+				'en' => '',
+				'de' => '',
 			],
 			'required' => false,
 			'azure_parameter' => 'Street',
@@ -183,8 +183,8 @@ trait ProMXFormFieldsMapTrait {
 
 		'street_2' => [
 			'placeholder' => [
-				'en' => 'Street 2',
-				'de' => 'Street 2',
+				'en' => '',
+				'de' => '',
 			],
 			'required' => false,
 			'azure_parameter' => 'Street2',
@@ -194,8 +194,8 @@ trait ProMXFormFieldsMapTrait {
 
 		'phone' => [
 			'placeholder' => [
-				'en' => 'Phone',
-				'de' => 'Telephone',
+				'en' => '',
+				'de' => '',
 			],
 			'required' => false,
 			'azure_parameter' => 'Telephone',
@@ -206,8 +206,8 @@ trait ProMXFormFieldsMapTrait {
 		//NEW Azure parameters
 		'language' => [
 			'placeholder' => [
-				'en' => 'Language',
-				'de' => 'Language',
+				'en' => '',
+				'de' => '',
 			],
 			'required' => false,
 			'azure_parameter' => 'PageLanguage',
@@ -239,8 +239,8 @@ trait ProMXFormFieldsMapTrait {
 
 		'event' => [
 			'placeholder' => [
-				'en' => 'Event',
-				'de' => 'Event',
+				'en' => '',
+				'de' => '',
 			],
 			'type' => 'select',
 			'options' => [
@@ -254,8 +254,8 @@ trait ProMXFormFieldsMapTrait {
 
 		'product' => [
 			'placeholder' => [
-				'en' => 'Product',
-				'de' => 'Product',
+				'en' => '',
+				'de' => '',
 			],
 			'type' => 'select',
 			'options' => [
@@ -269,8 +269,8 @@ trait ProMXFormFieldsMapTrait {
 
 		'career_position' => [
 			'placeholder' => [
-				'en' => 'Select position',
-				'de' => 'Select position',
+				'en' => '',
+				'de' => '',
 			],
 			'type' => 'select',
 			'options' => [
@@ -284,8 +284,8 @@ trait ProMXFormFieldsMapTrait {
 
 		'file_url' => [
 			'placeholder' => [
-				'en' => 'Attach file',
-				'de' => 'Attach file',
+				'en' => '',
+				'de' => '',
 			],
 			//'type' => 'file',
 			'required' => false,
@@ -297,7 +297,7 @@ trait ProMXFormFieldsMapTrait {
 
 	);
 
-	// Fields wich will be displayed on the frontend
+	// Fields - will be displayed on the frontend
 	protected $displayedFields = [];
 
     /**
@@ -380,7 +380,7 @@ trait ProMXFormFieldsMapTrait {
 
 	}
 
-	protected function updatePlaceholderWithDbData($db_settings)
+	protected function updatePlaceholderWithLocalDbData($db_settings)
 	{
 		$fields_placeholders = $db_settings["fields_placeholders"][0];
 		if(!$this->checkIsArray($fields_placeholders)){
@@ -394,10 +394,43 @@ trait ProMXFormFieldsMapTrait {
 
 	}
 
-	protected function updateFieldsMapWithDbData($db_settings)
+	protected function updatePlaceholderWithGlobalDbData($global_labels)
 	{
+
+		$global_labels_data = [];
+
+		foreach ($global_labels as $key => $value){
+			$field_data = explode('-', $key);
+
+			if($field_data[1] == CURRENT_LANG_CODE){
+				$global_labels_data[$field_data[0]] = $value;
+			}
+		}
+
+		foreach ($global_labels_data as $field => $value){
+			$this->changePlaceholderSetting($field, $value);
+		}
+
+		if( isset($global_labels_data["salutation_option_he"]) || isset($global_labels_data["salutation_option_she"]) ){
+			$salutation_options = [
+				'he' => $global_labels_data["salutation_option_he"],
+				'she' => $global_labels_data["salutation_option_she"],
+			];
+			$this->updateSalutationWithDbData($salutation_options);
+		}
+
+		return true;
+	}
+
+	protected function updateFieldsMapWithDbData()
+	{
+		$db_settings =  $this->getDBSettings();
+		$global_labels =  $this->getGlobalLabels();
+
 		$this->updateRequiredWithDbData($db_settings);
-		$this->updatePlaceholderWithDbData($db_settings);
+		$this->updatePlaceholderWithGlobalDbData($global_labels);
+		$this->updatePlaceholderWithLocalDbData($db_settings);
+
 
 		if(isset($db_settings["fields_placeholders"][0]['salutation'][0])){
 			$this->updateSalutationWithDbData($db_settings["fields_placeholders"][0]['salutation'][0]);
@@ -429,7 +462,6 @@ trait ProMXFormFieldsMapTrait {
 		}
 
 	}
-
 
 	protected function changeRequiredSetting($field_name, $value){
 

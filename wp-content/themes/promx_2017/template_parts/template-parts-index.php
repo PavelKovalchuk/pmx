@@ -21,11 +21,3 @@ require_once( TEMPLATE_PARTS_DIR . 'technologies-list-parts.php');
 require_once( TEMPLATE_PARTS_DIR . 'testimonials-parts.php');
 require_once( TEMPLATE_PARTS_DIR . 'careers-parts.php');
 require_once( TEMPLATE_PARTS_DIR . 'post-parts.php');
-
-/*require_once(TEMPLATE_PARTS_DIR . 'forms/home-contact-form.php');
-require_once( TEMPLATE_PARTS_DIR . 'forms/event-contact-form.php');
-require_once(TEMPLATE_PARTS_DIR . 'forms/latest-news-form.php');
-require_once(TEMPLATE_PARTS_DIR . 'forms/support-contact-form.php');
-require_once(TEMPLATE_PARTS_DIR . 'forms/career-contact-form.php');
-require_once(TEMPLATE_PARTS_DIR . 'forms/contact-us-contact-form.php');
-require_once(TEMPLATE_PARTS_DIR . 'forms/latest-news-sidebar-form.php');*/

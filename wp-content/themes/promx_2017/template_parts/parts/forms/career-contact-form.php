@@ -5,11 +5,6 @@
  * Date: 20.01.2018
  * Time: 20:43
  */
-/**
- * TODO - this is temporary solution to store all forms. Before implementing new system of forms handling
- */
-
-	//TODO - use unique_id of ACF accordion items of Accordion block Field group for select
 
 $field_first_name = 'first_name';
 $field_email = 'email';
@@ -65,7 +60,10 @@ $field_file = 'file_url';
 					$field_file,
 					ProMXTemplateEngine::getRequired($field_file),
 					ProMXTemplateEngine::getPlaceholder($field_file),
-					'resume_file',false, false);
+					'resume_file',false, false
+                    , ProMXTemplateEngine::getUploadAllowedFormatsText()
+                ,true
+                , 'help-block-white');
 				?>
 			</div>
 			<div class="col-sm-6">

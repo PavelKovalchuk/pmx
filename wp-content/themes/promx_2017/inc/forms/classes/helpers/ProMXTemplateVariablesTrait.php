@@ -21,11 +21,13 @@ trait ProMXTemplateVariablesTrait {
 
 	protected static $formButton = '';
 
+	protected static $uploadAllowedFormatsText = '';
+
 	protected static $formSuccessMessage = '';
 
 	protected static $fieldsSettings = [];
 
-	protected static $localDbSettings = [];
+	//protected static $localDbSettings = [];
 
 	protected static $globalDbSettings = [];
 
@@ -36,16 +38,21 @@ trait ProMXTemplateVariablesTrait {
 		self::setFormName($form_name);
 		self::setFormPostId($form_post_id);
 
-		if(is_array($local_db_settings)){
-			self::setFormTitle($local_db_settings['form_title']);
-			self::setFormSuccessMessage($local_db_settings['form_success_message']);
-			self::setFormButton($local_db_settings['button_text']);
-		}
-
 		if(!self::getGlobalDbSettings() && is_array($global_db_settings)){
 			self::setGlobalDbSettings($global_db_settings);
 		}
 
+		if(!is_array($local_db_settings)){
+			return;
+		}
+
+		self::setFormTitle($local_db_settings['form_title']);
+		self::setFormSuccessMessage($local_db_settings['form_success_message']);
+		self::setFormButton($local_db_settings['button_text']);
+
+		if(!empty($local_db_settings["allowed_formats_text"])){
+			self::setUploadAllowedFormatsText($local_db_settings["allowed_formats_text"]);
+		}
 	}
 
 	public static function finish()
@@ -69,14 +76,6 @@ trait ProMXTemplateVariablesTrait {
 		if($form_field_setting){
 			return $form_field_setting;
 		}
-
-
-		//TODO = GLOBAL settings
-		//Data from global settings in admin panel
-		if(self::getGlobalDbSettings()['none']){
-			return self::getGlobalDbSettings()['none'];
-		}
-
 
 		return;
 
@@ -111,12 +110,6 @@ trait ProMXTemplateVariablesTrait {
 		$form_field_setting = self::getFieldsSettings()[$field_name]['options'][$option_key][CURRENT_LANG_CODE];
 		if($form_field_setting){
 			return $form_field_setting;
-		}
-
-		//TODO = GLOBAL settings
-		//Data from global settings in admin panel
-		if(self::getGlobalDbSettings()['none']){
-			return self::getGlobalDbSettings()['none'];
 		}
 
 		return;
@@ -235,6 +228,20 @@ trait ProMXTemplateVariablesTrait {
 	 */
 	protected static function setFormSuccessMessage( $formSuccessMessage ) {
 		self::$formSuccessMessage = $formSuccessMessage;
+	}
+
+	/**
+	 * @return string
+	 */
+	public static function getUploadAllowedFormatsText() {
+		return self::$uploadAllowedFormatsText;
+	}
+
+	/**
+	 * @param string $uploadAllowedFormatsText
+	 */
+	protected static function setUploadAllowedFormatsText( $uploadAllowedFormatsText ) {
+		self::$uploadAllowedFormatsText = $uploadAllowedFormatsText;
 	}
 
 }

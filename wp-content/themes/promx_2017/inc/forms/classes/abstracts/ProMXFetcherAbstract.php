@@ -16,6 +16,8 @@ abstract class ProMXFetcherAbstract {
 
 	use ProMXSettingsDBTrait;
 
+	use ProMXGlobalSettingsDBTrait;
+
 	const DIR_TMP_UPLOADFILES = "tmp-uploadfiles/";
 
 	private $lang = CURRENT_LANG_CODE;
@@ -24,25 +26,25 @@ abstract class ProMXFetcherAbstract {
 
 	abstract protected function initFieldsSettings();
 
-	public function __construct($db_settings)
+	public function __construct($global_labels, $db_settings)
 	{
 		$this->initSystemErrors();
 		$this->initDisplayedField();
-		$this->initFieldsSettingsWithDbData($db_settings);
+		$this->initFieldsSettingsWithDbData($global_labels, $db_settings);
 		$this->initFieldsSettings();
 
 	}
 
-	protected function initFieldsSettingsWithDbData($db_settings)
+	protected function initFieldsSettingsWithDbData($global_labels, $db_settings)
 	{
-		if(!$this->checkIsArray($db_settings)){
-			//$this->addSystemError('data_format_error');
+		if(!$this->checkIsArray($db_settings) || !$this->checkIsArray($global_labels)){
 			$this->setDBSettings(false);
 			return false;
 		}
 
+		$this->setGlobalLabels($global_labels);
 		$this->setDBSettings($db_settings);
-		$this->updateFieldsMapWithDbData( $this->getDBSettings() );
+		$this->updateFieldsMapWithDbData();
 
 	}
 

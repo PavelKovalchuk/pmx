@@ -120,14 +120,14 @@ class ProMXTemplateEngine {
 		<?php
 	}
 
-	protected static function getHelpBlock($text = '')
+	protected static function getHelpBlock($text = '', $is_visible = false, $help_block_class = '')
 	{
 		?>
-		<span class="help-block" style="display: none;"><?php if($text){echo $text; }?></span>
+		<span class="help-block <?php if($help_block_class){ echo $help_block_class; } ?><?php if(!$is_visible){ echo 'help-block-display-none'; } ?>"><?php if($text){echo $text; }?></span>
 		<?php
 	}
 
-	public static function uploadField($name_attr, $is_required = false, $placeholder = '', $id_attr = '',  $field_class = '', $parent_class = '')
+	public static function uploadField($name_attr, $is_required = false, $placeholder = '', $id_attr = '',  $field_class = '', $parent_class = '', $help_block_text = '', $is_visible_help_block = false, $help_block_class = '')
 	{
 		if(!$name_attr){
 			return;
@@ -150,7 +150,7 @@ class ProMXTemplateEngine {
                     <?php echo $placeholder; if($is_required){echo self::getRequiredSign(); } }?>
             </label>
 
-			<?php self::getHelpBlock(); ?>
+			<?php self::getHelpBlock($help_block_text, $is_visible_help_block, $help_block_class); ?>
         </div>
 		<?php
 

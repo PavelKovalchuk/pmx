@@ -12,6 +12,8 @@ abstract class ProMXFormAbstract {
 
 	use ProMXSettingsDBTrait;
 
+	use ProMXGlobalSettingsDBTrait;
+
 	private $postObject;
 
 	private $formName;
@@ -42,8 +44,11 @@ abstract class ProMXFormAbstract {
 			$this->setDBSettings( ProMXFormsManager::getFormSettings($this->getPostObject()->ID) );
 		}
 
+		if(!$this->isGlobalSettingsSet()){
+			$this->initGlobalSettings();
+		}
+
 		$this->setFetcherHandler($fetcherClassName, $this->getDBSettings());
-		//$this->getFetcherHandler()->setFieldsSettingsWithDbData($this->getDBSettings());
 
 	}
 
@@ -71,21 +76,9 @@ abstract class ProMXFormAbstract {
 			return false;
 		}
 
-		//ob_start();
-		/**
-		 * TODO - create form in admin for common settings
-		 * common_db_settings
-		 */
+		$global_db_settings = [
 
-		/*$FORM_DATA = [
-			'form_name' => $this->getFormName(),
-			'db_settings' => $this->getDBSettings(),
-			'common_db_settings' => false,
-			'fields_settings' => $this->getFetcherHandler()->getFieldsMap(),
-		];*/
-
-
-		$global_db_settings = [];
+		];
 
 		ProMXTemplateEngine::init(
 			$this->getFormName()
@@ -95,13 +88,10 @@ abstract class ProMXFormAbstract {
 			,$global_db_settings
 		);
 
-
 		require_once($template_path);
 
-		//$formHtml = ob_get_clean();
-
 		ProMXTemplateEngine::finish();
-		//return $formHtml;
+
 		return;
 	}
 
@@ -178,12 +168,12 @@ abstract class ProMXFormAbstract {
 	public function setFetcherHandler( $fetcherHandlerClassName, $db_settings )
 	{
 		if(class_exists($fetcherHandlerClassName)){
-			$fetcher_object = new $fetcherHandlerClassName($db_settings);
+			$fetcher_object = new $fetcherHandlerClassName($this->getGlobalLabels(), $db_settings);
 		}
 
 		if(!$fetcher_object instanceof ProMXFetcherAbstract){
 			$fetcherHandlerClassName = ProMXFormsManager::getFetcherDefaultClassName();
-			$fetcher_object = new $fetcherHandlerClassName($db_settings);
+			$fetcher_object = new $fetcherHandlerClassName($this->getGlobalLabels(), $db_settings);
 		}
 
 		$this->fetcherHandler = $fetcher_object;

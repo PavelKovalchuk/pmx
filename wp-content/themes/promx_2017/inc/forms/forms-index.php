@@ -16,6 +16,7 @@ require_once( FORMS_HELPERS_DIR . 'ProMXTemplateVariablesTrait.php');
 require_once( FORMS_HELPERS_DIR . 'ProMXTemplateEngine.php');
 require_once( FORMS_TRAITS_DIR . 'ProMXFormFieldsMapTrait.php');
 require_once( FORMS_TRAITS_DIR . 'ProMXSettingsDBTrait.php');
+require_once( FORMS_TRAITS_DIR . 'ProMXGlobalSettingsDBTrait.php');
 
 
 require_once( FORMS_ABSTRACT_CLASSES_DIR . 'ProMXFormAbstract.php' );
