@@ -14,6 +14,8 @@ class ProMXTemplateEngine {
     {
         self::getHiddenFormName();
         self::getHiddenFormNonce();
+	    self::getHiddenCurrentPage();
+	    self::getHiddenReferPage();
     }
 
 	public static function jsClass()
@@ -34,6 +36,20 @@ class ProMXTemplateEngine {
         <h2 class="contact-form-title light <?php if($classes){echo $classes; }?>">
 	        <?php echo $form_title; ?>
         </h2>
+		<?php
+	}
+
+	public static function getHiddenCurrentPage()
+	{
+		?>
+        <input type="hidden" name="current_page" value="<?php echo $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']; ?>">
+		<?php
+	}
+
+	public static function getHiddenReferPage()
+	{
+		?>
+        <input type="hidden" name="refer_page" value="<?php echo $_SERVER['HTTP_REFERER']; ?>">
 		<?php
 	}
 

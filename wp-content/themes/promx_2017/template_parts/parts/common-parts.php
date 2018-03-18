@@ -444,11 +444,7 @@ function get_template_call_action_section($text, $link_target, $link_text ){
                         <div class="row">
                             <div class="col-sm-12 col-md-6 col-md-offset-3 text-center">
                                 <p class="text-white"><?php echo $text; ?></p>
-                                <?php //TODO - pass parameter GET page_from to link target page or SESSION
-                                //$current_url="//".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
-                                //$_SERVER['HTTP_REFERER'];
-                                ?>
-                                <a href="<?php echo $link_target; ?>" type="button" class="btn btn-primary btn-outline-inverted">
+                                <a href="<?php echo $link_target; ?>#contact-form" type="button" class="btn btn-primary btn-outline-inverted">
 	                                <?php print_button_text($link_text); ?>
                                 </a>
                             </div>

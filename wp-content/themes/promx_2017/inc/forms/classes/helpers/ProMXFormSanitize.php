@@ -36,6 +36,13 @@ class ProMXFormSanitize{
 		return $response;
 	}
 
+	public static function sanitizeNumbe($input)
+	{
+		$response = filter_var($input, FILTER_SANITIZE_NUMBER_INT);
+
+		return $response;
+	}
+
 	public static function sanitizeUrl($input)
 	{
 		$response = esc_url( $input );

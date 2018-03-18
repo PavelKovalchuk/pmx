@@ -65,7 +65,7 @@ jQuery(document).ready(function($){
     }
 
     function initAnchorPlugin(){
-        $('a[href*=#]').anchor({
+        $('a.js-anchor[href*=#]').anchor({
             transitionDuration : 1200
         });
     }

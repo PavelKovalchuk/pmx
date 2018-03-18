@@ -199,7 +199,7 @@ trait ProMXFormFieldsMapTrait {
 			],
 			'required' => false,
 			'azure_parameter' => 'Telephone',
-			'sanitizers' => ['sanitizeString'],
+			'sanitizers' => ['sanitizeNumbe'],
 			'validators' => [],
 		],
 
@@ -211,6 +211,28 @@ trait ProMXFormFieldsMapTrait {
 			],
 			'required' => false,
 			'azure_parameter' => 'PageLanguage',
+			'sanitizers' => ['sanitizeString'],
+			'validators' => [],
+		],
+
+		'current_page' => [
+			'placeholder' => [
+				'en' => '',
+				'de' => '',
+			],
+			'required' => false,
+			'azure_parameter' => 'CurrentPage',
+			'sanitizers' => ['sanitizeString'],
+			'validators' => [],
+		],
+
+		'refer_page' => [
+			'placeholder' => [
+				'en' => '',
+				'de' => '',
+			],
+			'required' => false,
+			'azure_parameter' => 'ReferPage',
 			'sanitizers' => ['sanitizeString'],
 			'validators' => [],
 		],
@@ -302,6 +324,8 @@ trait ProMXFormFieldsMapTrait {
         }
 
         $this->addDisplayedField('campaign');
+        $this->addDisplayedField('current_page');
+        $this->addDisplayedField('refer_page');
         $this->updateFieldsMap();
 
     }

@@ -222,9 +222,9 @@ abstract class ProMXFormsManager {
 		}
 
 		$upload_overrides = array('test_form' => false);
-		add_filter( 'upload_dir', 'promx_change_resume_upload_dir' );
+		add_filter( 'upload_dir', 'promx_change_file_upload_dir' );
 		$movefile = wp_handle_upload($uploadedfile, $upload_overrides);
-		remove_filter( 'upload_dir', 'promx_change_resume_upload_dir' );
+		remove_filter( 'upload_dir', 'promx_change_file_upload_dir' );
 
 		if (!$movefile || isset($movefile['error'])) {
 			$result = [

@@ -6,11 +6,6 @@
  * Time: 11:15
  */
 
-/**
- * TODO - this is temporary solution to store all forms. Before implementing new system of forms handling
- */
-
-	//TODO - get something unique to get info about page from which person got to this page
     //TODO - $global_db_settings !!!!
 
 $field_salutation = 'salutation';
@@ -25,7 +20,7 @@ $field_message = 'message';
 
 	?>
 
-	<form class="bg-secondary contact-form <?php echo ProMXTemplateEngine::jsClass(); ?>" name="<?php echo ProMXTemplateEngine::getFormName(); ?>">
+	<form id="contact-form" class="bg-secondary contact-form <?php echo ProMXTemplateEngine::jsClass(); ?>" name="<?php echo ProMXTemplateEngine::getFormName(); ?>">
 		<?php ProMXTemplateEngine::getHeader(); ?>
         <?php ProMXTemplateEngine::getNecessaryHiddenInput(); ?>
 

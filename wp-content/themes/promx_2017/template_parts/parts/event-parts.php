@@ -189,7 +189,7 @@ function get_template_events_list($events){
 						                <?php } ?>
 
 						                <?php // TODO - forms - on click on this - forms should be checked on this event ?>
-                                        <a href="#form-section" class="link-item js-form-select-checker" data-event-target="<?php echo $event['code']; ?>">
+                                        <a href="#form-section" class="link-item js-anchor js-form-select-checker" data-event-target="<?php echo $event['code']; ?>">
                                             <div>
                                                 <i class="icon-calendar"></i>
                                             </div>
