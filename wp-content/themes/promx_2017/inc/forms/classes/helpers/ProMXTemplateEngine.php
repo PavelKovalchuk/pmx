@@ -75,7 +75,7 @@ class ProMXTemplateEngine {
 
 		?>
         <div class="form-group <?php if($parent_class){echo $parent_class; }?> <?php if($is_required){echo self::getRequiredClass(); }?>">
-            <select name="<?php echo $name_attr; ?>" class="promx-select form-control <?php if($field_class){ echo $field_class; }?>" data-placeholder="<?php echo $placeholder; if($is_required){ echo self::getRequiredSign(); } ?>"  >
+            <select name="<?php echo $name_attr; ?>" class="promx-select js-contact-form-field form-control <?php if($field_class){ echo $field_class; }?>" data-placeholder="<?php echo $placeholder; if($is_required){ echo self::getRequiredSign(); } ?>"  >
                 <option></option>
 
                 <?php
@@ -92,6 +92,7 @@ class ProMXTemplateEngine {
                 <?php }  ?>
 
             </select>
+	        <?php self::getHelpBlock(); ?>
         </div>
 		<?php
 	}
@@ -123,7 +124,7 @@ class ProMXTemplateEngine {
 	protected static function getHelpBlock($text = '', $is_visible = false, $help_block_class = '')
 	{
 		?>
-		<span class="help-block <?php if($help_block_class){ echo $help_block_class; } ?><?php if(!$is_visible){ echo 'help-block-display-none'; } ?>"><?php if($text){echo $text; }?></span>
+		<span class="help-block js-message-block <?php if($help_block_class){ echo $help_block_class; } ?><?php if(!$is_visible){ echo 'help-block-display-none'; } ?>"><?php if($text){echo $text; }?></span>
 		<?php
 	}
 

@@ -223,7 +223,19 @@ textarea.form-control {
 }
 
 //Form validation
-.form-field-error{
-  border: 1px solid $main-error-color;
-  box-shadow: 0 0 10px $main-box-shadow-error-color;
+.form-parent-field-error{
+
+
+  .help-block{
+
+    color: $main-error-color;
+
+  }
+
+
+  .form-field-error{
+    border: 1px solid $main-error-color;
+    box-shadow: 0 0 10px $main-box-shadow-error-color;
+  }
+
 }

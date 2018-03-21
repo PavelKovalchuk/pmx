@@ -206,13 +206,40 @@
     };
 
     var formOptions = {
-        //NEW
+
+        //From Data base
+        'currentLangCode' : false,
+        'textRequired' : false,
+
+        //Classes
         'formClass': 'js-contact-form',
         'fieldClass': 'js-contact-form-field',
         'parentErrorClass': 'form-parent-field-error',
         'parentValidClass': 'form-parent-field-valid',
         'fieldErrorClass': 'form-field-error',
-        'fieldValidClass': 'form-field-valid'
+        'fieldValidClass': 'form-field-valid',
+        'messageBlockClass' : 'js-message-block',
+        'messageBlockHidden' : 'help-block-display-none',
+        'fieldRequiredClass': 'required'
+
+
+    };
+
+    var initFormOptionsDB = function () {
+
+        if(SiteParams.CurrentLangCode.length > 0){
+            formOptions.currentLangCode = SiteParams.CurrentLangCode;
+        }
+
+        if(SiteParams.FormsMessages){
+
+            var required = SiteParams.FormsMessages['required_field_' + formOptions.currentLangCode];
+            if(required.length > 0){
+                formOptions.textRequired = required;
+            }
+
+
+        }
 
     };
 
@@ -235,22 +262,42 @@
                     var fieldsToCheck = $(form).find('.' + formOptions.fieldClass);
 
                     $.each( fieldsToCheck, function( key, field ) {
-
+                        //console.log('fieldsToCheck',  fieldsToCheck);
                         var $_this = $(this);
                         var isInput = $_this.is("input");
-                        //console.log('isInput',  isInput);
-                        if(isInput){
+                        var isTextarea = $_this.is("textarea");
+                        var isSelect = $_this.is("select");
+                        //console.log('isSelect',  isSelect);
+                        if(isInput || isTextarea){
                             checkInputField($_this);
+                        }
+
+                        if(isSelect){
+                            checkSelectField($_this);
                         }
 
                     });
 
-                    //console.log('fieldsToCheck',  fieldsToCheck);
-                    //console.log('initForms form',  formOptions.formClass);
 
                 });
 
             }
+
+        };
+
+        var checkSelectField = function (field) {
+
+            field.on('change', function () {
+
+                console.log('checkSelectField', field);
+                var parent = field.parent();
+                var value = field.val();
+                var messageBlock = field.siblings('.' + formOptions.messageBlockClass);
+
+                checkRequired(field, value, parent, messageBlock);
+
+
+            });
 
         };
 
@@ -263,16 +310,10 @@
 
                 var parent = field.parent();
                 var value = field.val();
+                var messageBlock = field.siblings('.' + formOptions.messageBlockClass);
 
-                //console.log('checkInputField value',  value);
-                //console.log('checkInputField parent',  parent);
+                checkRequired(field, value, parent, messageBlock);
 
-                var isEmpty = __isFieldEmpty(value, parent);
-                console.log('isEmpty',  isEmpty);
-                if(isEmpty){
-                    __addErrorClass(field, parent, true);
-                    return;
-                }
 
             });
 
@@ -282,16 +323,42 @@
 
     };
 
+    var checkRequired = function (field, value, parent, messageBlock) {
 
-    var __isFieldRequired = function (val, parent) {
+        var isRequired = __isFieldRequired(parent);
+        if(isRequired){
 
-        var isRequired = parent;
+            var isEmpty = __isFieldEmpty(value, parent);
+
+            if(!isEmpty){
+                //is not empty
+                __removeErrorClass(field, parent);
+                __removeMessage(messageBlock);
+                return true;
+            }else{
+                __addErrorClass(field, parent);
+                __addMessage(messageBlock, formOptions.textRequired);
+                return false;
+            }
+
+        }
+    };
+
+    var __isFieldRequired = function (parent) {
+
+        if(!parent){
+            return false;
+        }
+
+        var isRequired = parent.hasClass(formOptions.fieldRequiredClass);
+
+        return isRequired;
 
     };
 
-    var __isFieldEmpty = function (val, parent) {
+    var __isFieldEmpty = function (value, parent) {
 
-        if (val.trim().length === 0){
+        if (value.trim().length === 0){
             return true;
         }
 
@@ -299,23 +366,56 @@
 
     };
 
-    var __addErrorClass = function (field, parent, isError ) {
+    var __addMessage = function (messageBlock, message) {
+
+        if(!messageBlock){
+            return false;
+        }
+
+        messageBlock.html(message);
+
+        if(messageBlock.hasClass(formOptions.messageBlockHidden)){
+            messageBlock.removeClass(formOptions.messageBlockHidden);
+        }
+
+        return true;
+
+    };
+
+    var __removeMessage = function (messageBlock) {
+
+        if(!messageBlock){
+            return false;
+        }
+
+        messageBlock.empty();
+
+    };
+
+    var __removeErrorClass = function (field, parent) {
 
         if(!parent || !field){
             return false;
         }
 
+        parent.addClass(formOptions.parentValidClass).removeClass(formOptions.parentErrorClass);
+        field.addClass(formOptions.fieldValidClass).removeClass(formOptions.fieldErrorClass);
 
-        if (isError ==  true) {
-            parent.removeClass(formOptions.parentValidClass).addClass(formOptions.parentErrorClass);
-            field.removeClass(formOptions.fieldValidClass).addClass(formOptions.fieldErrorClass);
-            return true;
-        } else {
-            parent.addClass(formOptions.parentValidClass).removeClass(formOptions.parentErrorClass);
-            field.addClass(formOptions.fieldValidClass).removeClass(formOptions.fieldErrorClass);
-            return true;
+        return true;
+
+    };
+
+    var __addErrorClass = function ( field, parent ) {
+
+        if(!parent || !field){
+            return false;
         }
-        return false;
+
+        parent.removeClass(formOptions.parentValidClass).addClass(formOptions.parentErrorClass);
+        field.removeClass(formOptions.fieldValidClass).addClass(formOptions.fieldErrorClass);
+
+        return true;
+
 
     };
 
@@ -330,6 +430,7 @@
 
     });
 
+    initFormOptionsDB();
     initFieldsChecker();
 
 
