@@ -201,9 +201,121 @@
 
         };
 
-
-
         initSendEvent(form);
+
+    };
+
+    var formOptions = {
+        //NEW
+        'formClass': 'js-contact-form',
+        'fieldClass': 'js-contact-form-field',
+        'parentErrorClass': 'form-parent-field-error',
+        'parentValidClass': 'form-parent-field-valid',
+        'fieldErrorClass': 'form-field-error',
+        'fieldValidClass': 'form-field-valid'
+
+    };
+
+
+    //Online checking form
+    var initFieldsChecker = function () {
+
+        console.log('initFieldsChecker', formOptions.formClass);
+
+
+        var initForms = function () {
+
+            //Get all forms
+            var forms =  $('form' + '.' + formOptions.formClass);
+
+            if(forms.length > 0){
+
+                $.each( forms, function( key, form ) {
+
+                    var fieldsToCheck = $(form).find('.' + formOptions.fieldClass);
+
+                    $.each( fieldsToCheck, function( key, field ) {
+
+                        var $_this = $(this);
+                        var isInput = $_this.is("input");
+                        //console.log('isInput',  isInput);
+                        if(isInput){
+                            checkInputField($_this);
+                        }
+
+                    });
+
+                    //console.log('fieldsToCheck',  fieldsToCheck);
+                    //console.log('initForms form',  formOptions.formClass);
+
+                });
+
+            }
+
+        };
+
+        var checkInputField = function (field) {
+
+            //console.log('checkField',  field);
+
+            field.on('input focusout', function () {
+
+
+                var parent = field.parent();
+                var value = field.val();
+
+                //console.log('checkInputField value',  value);
+                //console.log('checkInputField parent',  parent);
+
+                var isEmpty = __isFieldEmpty(value, parent);
+                console.log('isEmpty',  isEmpty);
+                if(isEmpty){
+                    __addErrorClass(field, parent, true);
+                    return;
+                }
+
+            });
+
+        };
+
+        initForms();
+
+    };
+
+
+    var __isFieldRequired = function (val, parent) {
+
+        var isRequired = parent;
+
+    };
+
+    var __isFieldEmpty = function (val, parent) {
+
+        if (val.trim().length === 0){
+            return true;
+        }
+
+        return false;
+
+    };
+
+    var __addErrorClass = function (field, parent, isError ) {
+
+        if(!parent || !field){
+            return false;
+        }
+
+
+        if (isError ==  true) {
+            parent.removeClass(formOptions.parentValidClass).addClass(formOptions.parentErrorClass);
+            field.removeClass(formOptions.fieldValidClass).addClass(formOptions.fieldErrorClass);
+            return true;
+        } else {
+            parent.addClass(formOptions.parentValidClass).removeClass(formOptions.parentErrorClass);
+            field.addClass(formOptions.fieldValidClass).removeClass(formOptions.fieldErrorClass);
+            return true;
+        }
+        return false;
 
     };
 
@@ -217,6 +329,8 @@
         }
 
     });
+
+    initFieldsChecker();
 
 
 

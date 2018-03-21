@@ -143,7 +143,7 @@ class ProMXTemplateEngine {
                         <?php if($id_attr){	?>
                             id="<?php echo $id_attr; ?>"
                         <?php }	?>
-                       class="upload-file-input js-upload-file <?php if($field_class){echo $field_class; }?>"
+                       class="upload-file-input js-contact-form-field js-upload-file <?php if($field_class){echo $field_class; }?>"
                 >
                 <i class="fa fa-paperclip" aria-hidden="true"></i>
                 <?php if($placeholder){ ?>
@@ -170,7 +170,7 @@ class ProMXTemplateEngine {
 				<?php if($id_attr){	?>
                 id="<?php echo $id_attr; ?>"
 				<?php }	?>
-				class="form-control <?php if($field_class){echo $field_class; }?>"
+				class="form-control js-contact-form-field <?php if($field_class){echo $field_class; }?>"
 				<?php if($placeholder){ ?>
 				placeholder="<?php echo $placeholder; if($is_required){echo self::getRequiredSign(); } ?>"<?php }?>
 			>
@@ -193,7 +193,7 @@ class ProMXTemplateEngine {
 				<?php if($id_attr){
 				?>id="<?php echo $id_attr; ?>"
 				<?php }	?>
-				class="form-control <?php if($field_class){echo $field_class; }?>"
+				class="form-control js-contact-form-field <?php if($field_class){echo $field_class; }?>"
 				<?php if($placeholder){ ?>
 				placeholder="<?php echo $placeholder; if($is_required){echo self::getRequiredSign(); } ?>"<?php }?>></textarea>
 

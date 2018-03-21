@@ -221,3 +221,9 @@ textarea.form-control {
 .help-block-display-none{
   display: none;
 }
+
+//Form validation
+.form-field-error{
+  border: 1px solid $main-error-color;
+  box-shadow: 0 0 10px $main-box-shadow-error-color;
+}

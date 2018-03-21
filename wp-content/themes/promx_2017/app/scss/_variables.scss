@@ -81,6 +81,9 @@ $mobile-menu-start-point: 160px;
 
 // @include media-breakpoint-between(sm, md) {}
 
+// Forms settings
+$main-error-color: #ec1a1a;
+$main-box-shadow-error-color: rgba(230, 59, 59, 1);
 
 // Menu settings
 $menu-color: $color-black-text-4;
