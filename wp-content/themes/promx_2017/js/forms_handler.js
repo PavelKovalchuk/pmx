@@ -11,23 +11,17 @@
             'uploader': {},
             'uploadedFile': {},
 
-            //OLD
-            'error': 'invalid',
-            'valid': 'valid',
-            'status': true,
-            'messageClass': 'js_message_wrapper',
-            'btn': '#js-form-btn',
-            'dataCaptcha': false,
-            'finalMessageOuter': '#js-form_success_message_outer',
-            'finalMessageContainer': '#js-form_success_message',
-
-            messages: {
-                'invalidEmail': 'Please provide a valid email.',
-                'required': 'This field is required'
-            }
         };
 
         var initSendEvent = function (form){
+
+            initFormsChecker(form);
+
+            console.log('formOptions.isFormValid', formOptions.isFormValid);
+
+            if(!formOptions.isFormValid){
+                return false;
+            }
 
             var uploadedFile = false;
             if(__isUploadNeeded()){
@@ -40,11 +34,6 @@
             //console.log('SiteParams.ajaxurl', SiteParams.ajaxurl);
             console.log('uploadedFile', uploadedFile);
 
-            /*var data = {
-                action: options.mainAction,
-                forms_data: formsData,
-                uploaded_file : uploadedFile
-            };*/
             var data = new FormData();
             data.append('action', options.mainAction);
             data.append('forms_data', formsData);
@@ -70,26 +59,8 @@
             var fileData = options.uploader.prop('files')[0];
 
             options.uploadedFile = fileData;
-            //console.log('fileData', fileData);
-            //TODO - validate type and size
-            //  options.uploadedFile.size
-            //  options.uploadedFile.type
-
 
             return fileData;
-
-           /* $.ajax({
-                url: 'upload.php', // point to server-side PHP script
-                dataType: 'text',  // what to expect back from the PHP script, if anything
-                cache: false,
-                contentType: false,
-                processData: false,
-                data: form_data,
-                type: 'post',
-                success: function(php_script_response){
-                    alert(php_script_response); // display response from the PHP script, if any
-                }
-            });*/
 
         };
 
@@ -121,86 +92,6 @@
 
         };
 
-        var __hideForm = function(form){
-
-            if(form.length > 0){
-                form.addClass('move_right_out');
-            }
-
-        };
-
-        var __showSuccessMessage = function(message){
-
-            if(message.length > 0){
-
-                var block = $(options.finalMessageOuter);
-                var textBlock = $(options.finalMessageContainer);
-
-                textBlock.text(message);
-                block.addClass('move_right_in');
-
-            }
-
-        };
-
-        var __checkEmail = function(val, element, message){
-
-            if(val.length > 0 ){
-                var re = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
-                    is_email = re.test(val);
-                __addErrorClass(is_email, element, message);
-
-                return is_email;
-            }
-
-        };
-
-        var __addErrorClass = function(is_val, name, message) {
-
-            var element = $('[name = "' + name + '"]');
-
-            if (!is_val ) {
-
-                element.addClass(options.error);
-
-                options.status = false;
-
-                if(message){
-                    __addErrorMessage(element, message);
-                }
-
-            } else {
-                element.removeClass(options.error);
-
-            }
-        };
-
-        var __addErrorMessage = function(element, message) {
-
-            if (message) {
-
-                var container = '<span class="' + options.messageClass + '" >' + message + '</span>';
-
-                element.parent().append(container);
-            }
-        };
-
-        var __delErrorMessage = function (form) {
-
-            var errors = $(form).find('.' + options.messageClass);
-
-            if(errors.length > 0){
-
-                $.each( errors, function( key, element ) {
-
-                    element.remove();
-
-                });
-
-            }
-
-        };
-
         initSendEvent(form);
 
     };
@@ -214,9 +105,15 @@
         'textPhoneError' : false,
         'textMaxLengthError' : false,
         'textFileTypeError' : false,
+        'textFileSizeError' : false,
 
         'settingFileTypesValues' : false,
         'settingFileTypesLabels' : false,
+        'settingFileSize' : false,
+
+        //Form data
+        'isFormValid': true,
+        'mainButton' : false,
 
         //Classes
         'formClass': 'js-contact-form',
@@ -267,14 +164,24 @@
                 formOptions.textFileTypeError = fileTypeError;
             }
 
+            var fileSizeError = SiteParams.FormsMessages['max_file_size_error_' + formOptions.currentLangCode];
+            if(fileSizeError.length > 0){
+                formOptions.textFileSizeError = fileSizeError;
+            }
+
         }
 
-        //Init forms messages texts
+        //Init forms settings
         if(SiteParams.FormsSettings){
 
             var availableTypesValues = SiteParams.FormsSettings['available_file_formats_values'];
             if(availableTypesValues.length > 0){
                 formOptions.settingFileTypesValues = availableTypesValues.split(',');
+            }
+
+            var maxFileSize = SiteParams.FormsSettings['available_file_max_size'];
+            if(maxFileSize.length > 0){
+                formOptions.settingFileSize = maxFileSize;
             }
 
         }
@@ -283,7 +190,7 @@
 
 
     //Online checking form
-    var initFieldsChecker = function () {
+    var initFormsChecker = function (form) {
 
         var initForms = function () {
 
@@ -294,35 +201,55 @@
 
                 $.each( forms, function( key, form ) {
 
-                    var fieldsToCheck = $(form).find('.' + formOptions.fieldClass);
-
-                    $.each( fieldsToCheck, function( key, field ) {
-                        //console.log('fieldsToCheck',  fieldsToCheck);
-                        var $_this = $(this);
-                        var isInput = $_this.is("input");
-                        var isInputFile = ( $_this.attr( "type" ) == 'file' ) ? true : false;
-                        var isTextarea = $_this.is("textarea");
-                        var isSelect = $_this.is("select");
-                        //console.log('isSelect',  isSelect);
-                        if( (isInput || isTextarea) && !isInputFile){
-                            checkInputField($_this);
-                        }
-
-                        if( isInput && isInputFile){
-                            checkInputFileField($_this);
-                        }
-
-                        if(isSelect){
-                            checkSelectField($_this);
-                        }
-
-                    });
-
+                    initFieldsChecker(form);
 
                 });
 
             }
 
+        };
+
+        var initFieldsChecker = function (form) {
+
+            if(!form.length > 0){
+                return false;
+            }
+
+            var fieldsToCheck = $(form).find('.' + formOptions.fieldClass);
+
+            $.each( fieldsToCheck, function( key, field ) {
+                //console.log('fieldsToCheck',  fieldsToCheck);
+
+                var $_this = $(this);
+                var isInput = $_this.is("input");
+                var isInputFile = ( $_this.attr( "type" ) == 'file' ) ? true : false;
+                var isTextarea = $_this.is("textarea");
+                var isSelect = $_this.is("select");
+                //console.log('isSelect',  isSelect);
+
+                if( (isInput || isTextarea) && !isInputFile){
+                    var textsResult = checkInputField($_this);
+
+                    if(!textsResult){
+                        formOptions.isFormValid = false;
+                    }
+                }
+
+                if( isInput && isInputFile){
+                    var fileResult = checkInputFileField($_this);
+                    if(!fileResult){
+                        formOptions.isFormValid = false;
+                    }
+                }
+
+                if(isSelect){
+                    var selectResult = checkSelectField($_this);
+                    if(!selectResult){
+                        formOptions.isFormValid = false;
+                    }
+                }
+
+            });
         };
 
         var checkSelectField = function (field) {
@@ -366,24 +293,24 @@
                     return;
                 }
 
+                return true;
+
             });
 
         };
 
         var checkInputField = function (field) {
 
-            //console.log('checkField',  field);
+            //console.log('formOptions.mainButton',  formOptions.mainButton);
 
             var parent = field.parent();
             var messageBlock = field.siblings('.' + formOptions.messageBlockClass);
 
-            field.on('input focusout', function () {
+            var doChecking = function () {
 
                 var value = __stripTags(field);
-                console.log('isCheckedRequired value', value);
-
                 var isCheckedRequired = checkRequired(field, value, parent, messageBlock);
-                console.log('isCheckedRequired', isCheckedRequired);
+
                 if(isCheckedRequired === false){
                     return;
                 }
@@ -410,7 +337,20 @@
                     return;
                 }
 
+                return true;
+            };
+
+            field.on('input focusout', function () {
+
+                doChecking();
+
             });
+
+            /*formOptions.mainButton.on('click', function () {
+
+                doChecking();
+
+            });*/
 
         };
 
@@ -427,19 +367,12 @@
                     return;
                 }
 
-                //TODO - check file size
-                //TODO - check this settings on backend
-
                 var value = file.name;
                 var type = file.type;
                 var size = file.size;
 
-                console.log(' file', file);
-                console.log('checkInputFileField value', value);
-
-
                 var isCheckedRequired = checkRequired(field, value, parent, messageBlock);
-                console.log('isCheckedRequired', isCheckedRequired);
+
                 if(isCheckedRequired === false){
                     return;
                 }
@@ -460,11 +393,23 @@
                     return;
                 }
 
+                var isValidFileSize = checkFileSize(field, size, parent, messageBlock);
+                if(isValidFileSize === false){
+                    return;
+                }
+
+                return true;
+
             });
 
         };
 
-        initForms();
+        if(!form){
+            initForms();
+        }else{
+            initFieldsChecker(form);
+        }
+
 
     };
 
@@ -565,8 +510,6 @@
             return false;
         }
 
-        console.log(formOptions.settingFileTypesValues);
-
         var result = jQuery.inArray( type, formOptions.settingFileTypesValues );
 
         if(result !== -1){
@@ -577,6 +520,26 @@
 
         __addErrorClass(field, parent);
         __addMessage(messageBlock, formOptions.textFileTypeError );
+        return false;
+
+    };
+
+    var checkFileSize = function (field, size, parent, messageBlock) {
+
+        if(!size){
+            return false;
+        }
+
+        var maxsize = formOptions.settingFileSize * 1024 * 1024;
+
+        if(maxsize > size){
+            __removeErrorClass(field, parent);
+            __removeMessage(messageBlock);
+            return true;
+        }
+
+        __addErrorClass(field, parent);
+        __addMessage(messageBlock, formOptions.textFileSizeError + ' ' + formOptions.settingFileSize + 'MB' );
         return false;
 
     };
@@ -694,13 +657,14 @@
         var form = $(this).parents('.js-contact-form');
 
         if(form.length > 0){
+            //formOptions.mainButton = this;
             initFormHandler(form);
         }
 
     });
 
     initFormOptionsDB();
-    initFieldsChecker();
+    initFormsChecker();
 
 
 
