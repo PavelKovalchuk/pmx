@@ -168,12 +168,12 @@ abstract class ProMXFormAbstract {
 	public function setFetcherHandler( $fetcherHandlerClassName, $db_settings )
 	{
 		if(class_exists($fetcherHandlerClassName)){
-			$fetcher_object = new $fetcherHandlerClassName($this->getGlobalLabels(), $db_settings);
+			$fetcher_object = new $fetcherHandlerClassName($this->getGlobalLabels(), $this->getGlobalSettings(), $db_settings);
 		}
 
 		if(!$fetcher_object instanceof ProMXFetcherAbstract){
 			$fetcherHandlerClassName = ProMXFormsManager::getFetcherDefaultClassName();
-			$fetcher_object = new $fetcherHandlerClassName($this->getGlobalLabels(), $db_settings);
+			$fetcher_object = new $fetcherHandlerClassName($this->getGlobalLabels(), $this->getGlobalSettings(), $db_settings);
 		}
 
 		$this->fetcherHandler = $fetcher_object;

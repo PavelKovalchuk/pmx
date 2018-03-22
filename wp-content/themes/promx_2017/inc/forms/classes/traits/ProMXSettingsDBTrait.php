@@ -6,6 +6,7 @@
  * Time: 13:00
  */
 
+//Specific data of current form in wp admin
 trait ProMXSettingsDBTrait {
 
 	private $DBSettings = [
@@ -78,6 +79,7 @@ trait ProMXSettingsDBTrait {
 		$this->isDBSettingsSet = $isDBSettingsSet;
 	}
 
+	//From settings of current form in wp admin
 	public function getOneDBSetting($setting_name)
 	{
 		if(!$setting_name || !is_string($setting_name)){
