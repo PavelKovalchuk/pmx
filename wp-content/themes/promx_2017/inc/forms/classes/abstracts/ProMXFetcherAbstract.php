@@ -183,7 +183,8 @@ abstract class ProMXFetcherAbstract {
 	protected function sanitizeValues($input_data)
 	{
 		$sanitized_data = [];
-		$sanitizeClassName = 'ProMXFormSanitize';
+
+        ProMXFormSanitize::setMaxLengthMap( $this->getFieldsMaxLength() );
 
 		foreach ($input_data as $field_name => $value){
 
@@ -197,11 +198,11 @@ abstract class ProMXFetcherAbstract {
 
 			foreach ($sanitizers_map as $sanitizer){
 
-				if(!method_exists($sanitizeClassName, $sanitizer)){
+				if(!method_exists('ProMXFormSanitize', $sanitizer)){
 					continue;
 				}
 
-				$sanitized_data[$field_name] = $sanitizeClassName::$sanitizer($value);
+				$sanitized_data[$field_name] = ProMXFormSanitize::$sanitizer($field_name, $value);
 
 			}
 

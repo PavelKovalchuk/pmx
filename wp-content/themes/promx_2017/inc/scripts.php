@@ -91,7 +91,8 @@ function promx_scripts() {
 	wp_localize_script( 'main-js', 'SiteParams', array(
 		'ajaxurl' => site_url() . '/wp-admin/admin-ajax.php', // WordPress AJAX
 		'CurrentLangCode' => CURRENT_LANG_CODE,
-		'FormsMessages' => get_option( '_promx_forms_messages_options' )
+		'FormsMessages' => get_option( '_promx_forms_messages_options' ),
+        'FormsSettings' => get_option( '_promx_forms_settings_options' )
 
 	) );
 

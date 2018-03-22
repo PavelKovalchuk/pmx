@@ -23,7 +23,8 @@ trait ProMXFormFieldsMapTrait {
 			],
 			'required' => true,
 			'azure_parameter' => 'Campaign',
-			'sanitizers' => ['sanitizeString'],
+			'max_length' => 100,
+			'sanitizers' => ['sanitizeString', 'cutMaxLengthString'],
 			'validators' => [],
 		],
 
@@ -34,7 +35,8 @@ trait ProMXFormFieldsMapTrait {
 			],
 			'required' => false,
 			'azure_parameter' => 'City',
-			'sanitizers' => ['sanitizeString'],
+            'max_length' => 100,
+			'sanitizers' => ['sanitizeString', 'cutMaxLengthString'],
 			'validators' => [],
 		],
 
@@ -45,7 +47,8 @@ trait ProMXFormFieldsMapTrait {
 			],
 			'required' => false,
 			'azure_parameter' => 'Company',
-			'sanitizers' => ['sanitizeString'],
+            'max_length' => 100,
+			'sanitizers' => ['sanitizeString', 'cutMaxLengthString'],
 			'validators' => [],
 		],
 
@@ -56,7 +59,8 @@ trait ProMXFormFieldsMapTrait {
 			],
 			'required' => false,
 			'azure_parameter' => 'Country',
-			'sanitizers' => ['sanitizeString'],
+            'max_length' => 100,
+			'sanitizers' => ['sanitizeString', 'cutMaxLengthString'],
 			'validators' => [],
 		],
 
@@ -67,7 +71,8 @@ trait ProMXFormFieldsMapTrait {
 			],
 			'required' => false,
 			'azure_parameter' => 'Email',
-			'sanitizers' => ['sanitizeEmail'],
+            'max_length' => 100,
+			'sanitizers' => ['sanitizeEmail', 'cutMaxLengthString'],
 			'validators' => [],
 		],
 
@@ -78,7 +83,8 @@ trait ProMXFormFieldsMapTrait {
 			],
 			'required' => false,
 			'azure_parameter' => 'Eventdescription',
-			'sanitizers' => ['sanitizeString'],
+            'max_length' => 100,
+			'sanitizers' => ['sanitizeString', 'cutMaxLengthString'],
 			'validators' => [],
 		],
 
@@ -89,7 +95,8 @@ trait ProMXFormFieldsMapTrait {
 			],
 			'required' => false,
 			'azure_parameter' => 'Firstname',
-			'sanitizers' => ['sanitizeString'],
+            'max_length' => 100,
+			'sanitizers' => ['sanitizeString', 'cutMaxLengthString'],
 			'validators' => [],
 		],
 
@@ -100,7 +107,8 @@ trait ProMXFormFieldsMapTrait {
 			],
 			'required' => false,
 			'azure_parameter' => 'Lastname',
-			'sanitizers' => ['sanitizeString'],
+            'max_length' => 100,
+			'sanitizers' => ['sanitizeString', 'cutMaxLengthString'],
 			'validators' => [],
 		],
 
@@ -111,7 +119,8 @@ trait ProMXFormFieldsMapTrait {
 			],
 			'required' => false,
 			'azure_parameter' => 'Message',
-			'sanitizers' => ['sanitizeString'],
+            'max_length' => 200,
+			'sanitizers' => ['sanitizeString', 'cutMaxLengthString'],
 			'validators' => [],
 		],
 
@@ -122,7 +131,8 @@ trait ProMXFormFieldsMapTrait {
 			],
 			'required' => false,
 			'azure_parameter' => 'NoPotentialCustomers',
-			'sanitizers' => ['sanitizeString'],
+            'max_length' => 100,
+			'sanitizers' => ['sanitizeString', 'cutMaxLengthString'],
 			'validators' => [],
 		],
 
@@ -133,7 +143,8 @@ trait ProMXFormFieldsMapTrait {
 			],
 			'required' => false,
 			'azure_parameter' => 'Position',
-			'sanitizers' => ['sanitizeString'],
+            'max_length' => 100,
+			'sanitizers' => ['sanitizeString', 'cutMaxLengthString'],
 			'validators' => [],
 		],
 
@@ -144,7 +155,8 @@ trait ProMXFormFieldsMapTrait {
 			],
 			'required' => false,
 			'azure_parameter' => 'Postalcode',
-			'sanitizers' => ['sanitizeString'],
+            'max_length' => 100,
+			'sanitizers' => ['sanitizeString', 'cutMaxLengthString'],
 			'validators' => [],
 		],
 
@@ -166,7 +178,8 @@ trait ProMXFormFieldsMapTrait {
 			],
 			'required' => false,
 			'azure_parameter' => 'Salutation',
-			'sanitizers' => ['sanitizeString'],
+            'max_length' => 100,
+			'sanitizers' => ['sanitizeString', 'cutMaxLengthString'],
 			'validators' => [],
 		],
 
@@ -177,7 +190,8 @@ trait ProMXFormFieldsMapTrait {
 			],
 			'required' => false,
 			'azure_parameter' => 'Street',
-			'sanitizers' => ['sanitizeString'],
+            'max_length' => 100,
+			'sanitizers' => ['sanitizeString', 'cutMaxLengthString'],
 			'validators' => [],
 		],
 
@@ -188,7 +202,8 @@ trait ProMXFormFieldsMapTrait {
 			],
 			'required' => false,
 			'azure_parameter' => 'Street2',
-			'sanitizers' => ['sanitizeString'],
+            'max_length' => 100,
+			'sanitizers' => ['sanitizeString', 'cutMaxLengthString'],
 			'validators' => [],
 		],
 
@@ -199,7 +214,8 @@ trait ProMXFormFieldsMapTrait {
 			],
 			'required' => false,
 			'azure_parameter' => 'Telephone',
-			'sanitizers' => ['sanitizeNumber'],
+            'max_length' => 15,
+			'sanitizers' => ['sanitizeNumber', 'cutMaxLengthString'],
 			'validators' => [],
 		],
 
@@ -211,7 +227,8 @@ trait ProMXFormFieldsMapTrait {
 			],
 			'required' => false,
 			'azure_parameter' => 'PageLanguage',
-			'sanitizers' => ['sanitizeString'],
+            'max_length' => 100,
+			'sanitizers' => ['sanitizeString', 'cutMaxLengthString'],
 			'validators' => [],
 		],
 
@@ -222,7 +239,8 @@ trait ProMXFormFieldsMapTrait {
 			],
 			'required' => false,
 			'azure_parameter' => 'CurrentPage',
-			'sanitizers' => ['sanitizeString'],
+            'max_length' => 100,
+			'sanitizers' => ['sanitizeString', 'cutMaxLengthString'],
 			'validators' => [],
 		],
 
@@ -233,7 +251,8 @@ trait ProMXFormFieldsMapTrait {
 			],
 			'required' => false,
 			'azure_parameter' => 'ReferPage',
-			'sanitizers' => ['sanitizeString'],
+            'max_length' => 100,
+			'sanitizers' => ['sanitizeString', 'cutMaxLengthString'],
 			'validators' => [],
 		],
 
@@ -248,7 +267,8 @@ trait ProMXFormFieldsMapTrait {
 			],
 			'required' => false,
 			'azure_parameter' => 'Event',
-			'sanitizers' => ['sanitizeString'],
+            'max_length' => 100,
+			'sanitizers' => ['sanitizeString', 'cutMaxLengthString'],
 			'validators' => [],
 		],
 
@@ -263,7 +283,8 @@ trait ProMXFormFieldsMapTrait {
 			],
 			'required' => false,
 			'azure_parameter' => 'Product',
-			'sanitizers' => ['sanitizeString'],
+            'max_length' => 100,
+			'sanitizers' => ['sanitizeString', 'cutMaxLengthString'],
 			'validators' => [],
 		],
 
@@ -278,7 +299,8 @@ trait ProMXFormFieldsMapTrait {
 			],
 			'required' => false,
 			'azure_parameter' => 'CareerPosition',
-			'sanitizers' => ['sanitizeString'],
+            'max_length' => 100,
+			'sanitizers' => ['sanitizeString', 'cutMaxLengthString'],
 			'validators' => [],
 		],
 
@@ -290,7 +312,8 @@ trait ProMXFormFieldsMapTrait {
 			//'type' => 'file',
 			'required' => false,
 			'azure_parameter' => 'FileUrl',
-			'sanitizers' => [],
+            'max_length' => 10,
+			'sanitizers' => ['cutMaxLengthString'],
 			'validators' => [],
 		],
 
@@ -353,6 +376,24 @@ trait ProMXFormFieldsMapTrait {
 		}
 		return $this->fieldsMap;
 	}
+
+	public function getFieldsMaxLength()
+    {
+        $fields_map = $this->getFieldsMap();
+        $result = [];
+
+        foreach ($fields_map as $field => $data){
+
+            if(!array_key_exists('max_length', $data) || !$data['max_length']){
+                continue;
+            }
+
+            $result[$field] = intval($data['max_length']);
+
+        }
+
+        return $result;
+    }
 
 	protected function getOneFieldSettings($field_name) {
 

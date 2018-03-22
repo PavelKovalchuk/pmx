@@ -75,7 +75,7 @@ class ProMXTemplateEngine {
 
 		?>
         <div class="form-group <?php if($parent_class){echo $parent_class; }?> <?php if($is_required){echo self::getRequiredClass(); }?>">
-            <select name="<?php echo $name_attr; ?>" class="promx-select js-contact-form-field form-control <?php if($field_class){ echo $field_class; }?>" data-placeholder="<?php echo $placeholder; if($is_required){ echo self::getRequiredSign(); } ?>"  >
+            <select name="<?php echo $name_attr; ?>" class="promx-select js-contact-form-field form-control <?php if($field_class){ echo $field_class; }?>"  data-max-length = "<?php echo self::getFieldMaxLength($name_attr) ?>" data-placeholder="<?php echo $placeholder; if($is_required){ echo self::getRequiredSign(); } ?>"  >
                 <option></option>
 
                 <?php
@@ -111,7 +111,9 @@ class ProMXTemplateEngine {
                     id="<?php echo $id_attr; ?>"
 	                <?php }	?>
                     value="<?php echo strtolower($placeholder); ?>"
-                    class="radio-input <?php if($field_class){echo $field_class; }?>" >
+                    class="radio-input <?php if($field_class){echo $field_class; }?>"
+                    data-max-length = "<?php echo self::getFieldMaxLength($name_attr) ?>"
+            >
             <label  <?php if($id_attr){	?>
                     for="<?php echo $id_attr; ?>"
 		            <?php }	?> >
@@ -127,6 +129,13 @@ class ProMXTemplateEngine {
 		<span class="help-block js-message-block <?php if($help_block_class){ echo $help_block_class; } ?><?php if(!$is_visible){ echo 'help-block-display-none'; } ?>"><?php if($text){echo $text; }?></span>
 		<?php
 	}
+
+    protected static function getHelpBlockNoJs($text = '', $is_visible = false, $help_block_class = '')
+    {
+        ?>
+        <span class="help-block <?php if($help_block_class){ echo $help_block_class; } ?><?php if(!$is_visible){ echo 'help-block-display-none'; } ?>"><?php if($text){echo $text; }?></span>
+        <?php
+    }
 
 	public static function uploadField($name_attr, $is_required = false, $placeholder = '', $id_attr = '',  $field_class = '', $parent_class = '', $help_block_text = '', $is_visible_help_block = false, $help_block_class = '')
 	{
@@ -145,13 +154,15 @@ class ProMXTemplateEngine {
                             id="<?php echo $id_attr; ?>"
                         <?php }	?>
                        class="upload-file-input js-contact-form-field js-upload-file <?php if($field_class){echo $field_class; }?>"
+                       data-max-length = "<?php echo self::getFieldMaxLength($name_attr) ?>"
                 >
                 <i class="fa fa-paperclip" aria-hidden="true"></i>
                 <?php if($placeholder){ ?>
                     <?php echo $placeholder; if($is_required){echo self::getRequiredSign(); } }?>
+                <?php self::getHelpBlock(); ?>
             </label>
 
-			<?php self::getHelpBlock($help_block_text, $is_visible_help_block, $help_block_class); ?>
+			<?php self::getHelpBlockNoJs($help_block_text, $is_visible_help_block, $help_block_class); ?>
         </div>
 		<?php
 
@@ -172,6 +183,7 @@ class ProMXTemplateEngine {
                 id="<?php echo $id_attr; ?>"
 				<?php }	?>
 				class="form-control js-contact-form-field <?php if($field_class){echo $field_class; }?>"
+                data-max-length = "<?php echo self::getFieldMaxLength($name_attr) ?>"
 				<?php if($placeholder){ ?>
 				placeholder="<?php echo $placeholder; if($is_required){echo self::getRequiredSign(); } ?>"<?php }?>
 			>
@@ -195,6 +207,7 @@ class ProMXTemplateEngine {
 				?>id="<?php echo $id_attr; ?>"
 				<?php }	?>
 				class="form-control js-contact-form-field <?php if($field_class){echo $field_class; }?>"
+                data-max-length = "<?php echo self::getFieldMaxLength($name_attr) ?>"
 				<?php if($placeholder){ ?>
 				placeholder="<?php echo $placeholder; if($is_required){echo self::getRequiredSign(); } ?>"<?php }?>></textarea>
 

@@ -26,7 +26,7 @@ $options_storage->addSubpageToPromxOptionPages(
 						'id'	=> 'required_field_de',
 						'title'	=> 'required field DE',
 						'type'	=> 'text',
-						'value' => 'This field is required',
+						'value' => 'This field is required DE',
 					),
 
 					array(
@@ -35,6 +35,65 @@ $options_storage->addSubpageToPromxOptionPages(
 						'type'	=> 'text',
 						'value' => 'This field is required',
 					),
+
+
+                    array(
+                        'id'	=> 'email_error_de',
+                        'title'	=> 'email error DE',
+                        'type'	=> 'text',
+                        'value' => 'It is not a valid email DE',
+                    ),
+
+                    array(
+                        'id'	=> 'email_error_en',
+                        'title'	=> 'email error EN',
+                        'type'	=> 'text',
+                        'value' => 'It is not a valid email',
+                    ),
+
+                    array(
+                        'id'	=> 'phone_error_de',
+                        'title'	=> 'phone error DE',
+                        'type'	=> 'text',
+                        'value' => 'It is not a valid phone DE',
+                    ),
+
+                    array(
+                        'id'	=> 'phone_error_en',
+                        'title'	=> 'phone error EN',
+                        'type'	=> 'text',
+                        'value' => 'It is not a valid phone',
+                    ),
+
+                    array(
+                        'id'	=> 'max_length_error_de',
+                        'title'	=> 'max length error DE',
+                        'type'	=> 'text',
+                        'description' => 'Number of max value will be added to the end of this message',
+                        'value' => 'Maximum length of this field is ',
+                    ),
+
+                    array(
+                        'id'	=> 'max_length_error_en',
+                        'title'	=> 'max length error EN',
+                        'type'	=> 'text',
+                        'description' => 'Number of max value will be added to the end of this message',
+                        'value' => 'Maximum length of this field is ',
+                    ),
+
+                    array(
+                        'id'	=> 'file_type_error_de',
+                        'title'	=> 'file type error DE',
+                        'type'	=> 'text',
+                        'value' => 'It is not an available type of file DE',
+                    ),
+
+                    array(
+                        'id'	=> 'file_type_error_en',
+                        'title'	=> 'file type error EN',
+                        'type'	=> 'text',
+                        'value' => 'It is not an available type of file',
+                    ),
 
 				),
 			),

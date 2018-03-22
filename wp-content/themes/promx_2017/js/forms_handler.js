@@ -210,6 +210,13 @@
         //From Data base
         'currentLangCode' : false,
         'textRequired' : false,
+        'textEmailError' : false,
+        'textPhoneError' : false,
+        'textMaxLengthError' : false,
+        'textFileTypeError' : false,
+
+        'settingFileTypesValues' : false,
+        'settingFileTypesLabels' : false,
 
         //Classes
         'formClass': 'js-contact-form',
@@ -227,10 +234,12 @@
 
     var initFormOptionsDB = function () {
 
+        //Init current Lang code
         if(SiteParams.CurrentLangCode.length > 0){
             formOptions.currentLangCode = SiteParams.CurrentLangCode;
         }
 
+        //Init forms messages texts
         if(SiteParams.FormsMessages){
 
             var required = SiteParams.FormsMessages['required_field_' + formOptions.currentLangCode];
@@ -238,6 +247,35 @@
                 formOptions.textRequired = required;
             }
 
+            var emailError = SiteParams.FormsMessages['email_error_' + formOptions.currentLangCode];
+            if(emailError.length > 0){
+                formOptions.textEmailError = emailError;
+            }
+
+            var phoneError = SiteParams.FormsMessages['phone_error_' + formOptions.currentLangCode];
+            if(phoneError.length > 0){
+                formOptions.textPhoneError = phoneError;
+            }
+
+            var maxLengthError = SiteParams.FormsMessages['max_length_error_' + formOptions.currentLangCode];
+            if(maxLengthError.length > 0){
+                formOptions.textMaxLengthError = maxLengthError;
+            }
+
+            var fileTypeError = SiteParams.FormsMessages['file_type_error_' + formOptions.currentLangCode];
+            if(fileTypeError.length > 0){
+                formOptions.textFileTypeError = fileTypeError;
+            }
+
+        }
+
+        //Init forms messages texts
+        if(SiteParams.FormsSettings){
+
+            var availableTypesValues = SiteParams.FormsSettings['available_file_formats_values'];
+            if(availableTypesValues.length > 0){
+                formOptions.settingFileTypesValues = availableTypesValues.split(',');
+            }
 
         }
 
@@ -246,9 +284,6 @@
 
     //Online checking form
     var initFieldsChecker = function () {
-
-        console.log('initFieldsChecker', formOptions.formClass);
-
 
         var initForms = function () {
 
@@ -265,11 +300,16 @@
                         //console.log('fieldsToCheck',  fieldsToCheck);
                         var $_this = $(this);
                         var isInput = $_this.is("input");
+                        var isInputFile = ( $_this.attr( "type" ) == 'file' ) ? true : false;
                         var isTextarea = $_this.is("textarea");
                         var isSelect = $_this.is("select");
                         //console.log('isSelect',  isSelect);
-                        if(isInput || isTextarea){
+                        if( (isInput || isTextarea) && !isInputFile){
                             checkInputField($_this);
+                        }
+
+                        if( isInput && isInputFile){
+                            checkInputFileField($_this);
                         }
 
                         if(isSelect){
@@ -287,15 +327,44 @@
 
         var checkSelectField = function (field) {
 
+            var parent = field.parent();
+            var messageBlock = field.siblings('.' + formOptions.messageBlockClass);
+
             field.on('change', function () {
 
-                console.log('checkSelectField', field);
-                var parent = field.parent();
                 var value = field.val();
-                var messageBlock = field.siblings('.' + formOptions.messageBlockClass);
+                console.log('checkSelectField', field);
 
-                checkRequired(field, value, parent, messageBlock);
+                var value = __stripTags(field);
+                console.log('isCheckedRequired value', value);
 
+                var isCheckedRequired = checkRequired(field, value, parent, messageBlock);
+                console.log('isCheckedRequired', isCheckedRequired);
+                if(isCheckedRequired === false){
+                    return;
+                }
+
+                var isEmpty = __isFieldEmpty(value);
+                if(isEmpty){
+                    __removeErrorClass(field, parent);
+                    __removeMessage(messageBlock);
+                }
+
+
+                var isValidEmail = checkEmail(field, value, parent, messageBlock);
+                if(isValidEmail === false){
+                    return;
+                }
+
+                var isValidPhone = checkPhone(field, value, parent, messageBlock);
+                if(isValidPhone === false){
+                    return;
+                }
+
+                var isValidMaxLength = checkMaxLength(field, value, parent, messageBlock);
+                if(isValidMaxLength === false){
+                    return;
+                }
 
             });
 
@@ -305,15 +374,91 @@
 
             //console.log('checkField',  field);
 
+            var parent = field.parent();
+            var messageBlock = field.siblings('.' + formOptions.messageBlockClass);
+
             field.on('input focusout', function () {
 
+                var value = __stripTags(field);
+                console.log('isCheckedRequired value', value);
 
-                var parent = field.parent();
-                var value = field.val();
-                var messageBlock = field.siblings('.' + formOptions.messageBlockClass);
+                var isCheckedRequired = checkRequired(field, value, parent, messageBlock);
+                console.log('isCheckedRequired', isCheckedRequired);
+                if(isCheckedRequired === false){
+                    return;
+                }
 
-                checkRequired(field, value, parent, messageBlock);
+                var isEmpty = __isFieldEmpty(value);
+                if(isEmpty){
+                    __removeErrorClass(field, parent);
+                    __removeMessage(messageBlock);
+                }
 
+
+                var isValidEmail = checkEmail(field, value, parent, messageBlock);
+                if(isValidEmail === false){
+                    return;
+                }
+
+                var isValidPhone = checkPhone(field, value, parent, messageBlock);
+                if(isValidPhone === false){
+                    return;
+                }
+
+                var isValidMaxLength = checkMaxLength(field, value, parent, messageBlock);
+                if(isValidMaxLength === false){
+                    return;
+                }
+
+            });
+
+        };
+
+        var checkInputFileField = function (field) {
+
+            var parent = field.parent();
+            var messageBlock = field.siblings('.' + formOptions.messageBlockClass);
+
+            field.on('change', function () {
+
+                var file = field.prop('files')[0];
+
+                if(!file){
+                    return;
+                }
+
+                //TODO - check file size
+                //TODO - check this settings on backend
+
+                var value = file.name;
+                var type = file.type;
+                var size = file.size;
+
+                console.log(' file', file);
+                console.log('checkInputFileField value', value);
+
+
+                var isCheckedRequired = checkRequired(field, value, parent, messageBlock);
+                console.log('isCheckedRequired', isCheckedRequired);
+                if(isCheckedRequired === false){
+                    return;
+                }
+
+                var isEmpty = __isFieldEmpty(value);
+                if(isEmpty){
+                    __removeErrorClass(field, parent);
+                    __removeMessage(messageBlock);
+                }
+
+                var isValidMaxLength = checkMaxLength(field, value, parent, messageBlock);
+                if(isValidMaxLength === false){
+                    return;
+                }
+
+                var isValidFileType = checkFileType(field, type, parent, messageBlock);
+                if(isValidFileType === false){
+                    return;
+                }
 
             });
 
@@ -326,22 +471,130 @@
     var checkRequired = function (field, value, parent, messageBlock) {
 
         var isRequired = __isFieldRequired(parent);
+
         if(isRequired){
 
-            var isEmpty = __isFieldEmpty(value, parent);
-
+            var isEmpty = __isFieldEmpty(value);
             if(!isEmpty){
                 //is not empty
                 __removeErrorClass(field, parent);
                 __removeMessage(messageBlock);
                 return true;
-            }else{
+            }
+
+             __addErrorClass(field, parent);
+             __addMessage(messageBlock, formOptions.textRequired);
+            return false;
+
+        }
+
+        return null;
+    };
+
+    var checkEmail = function (field, value, parent, messageBlock) {
+
+        var isEmail = __isEmailField(field);
+
+        if(isEmail && value.length > 0 ){
+            var regularExp = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            var is_email = regularExp.test(String(value).toLowerCase());
+
+            if(!is_email){
                 __addErrorClass(field, parent);
-                __addMessage(messageBlock, formOptions.textRequired);
+                __addMessage(messageBlock, formOptions.textEmailError);
                 return false;
             }
 
+            __removeErrorClass(field, parent);
+            __removeMessage(messageBlock);
+            return true;
+
         }
+
+        return null;
+
+    };
+
+    var checkPhone = function (field, value, parent, messageBlock) {
+
+        var isPhone = __isPhoneField(field);
+
+        if(isPhone && value.length > 0 ){
+            var regularExp = /^[/+]?[0-9-/(/)\s]+$/;
+            var is_phone = regularExp.test(String(value).toLowerCase());
+
+            if(!is_phone){
+                __addErrorClass(field, parent);
+                __addMessage(messageBlock, formOptions.textPhoneError);
+                return false;
+            }
+
+            __removeErrorClass(field, parent);
+            __removeMessage(messageBlock);
+            return true;
+
+        }
+
+        return null;
+
+    };
+
+    var checkMaxLength = function (field, value, parent, messageBlock) {
+
+        var maxLength = field.data('max-length');
+
+        if(!maxLength){
+            return false;
+        }
+
+        if(value.length > maxLength){
+            __addErrorClass(field, parent);
+            __addMessage(messageBlock, formOptions.textMaxLengthError + ' ' +  maxLength);
+            return false;
+        }
+
+        __removeErrorClass(field, parent);
+        __removeMessage(messageBlock);
+        return true;
+
+    };
+
+    var checkFileType = function (field, type, parent, messageBlock) {
+
+        if(!type){
+            return false;
+        }
+
+        console.log(formOptions.settingFileTypesValues);
+
+        var result = jQuery.inArray( type, formOptions.settingFileTypesValues );
+
+        if(result !== -1){
+            __removeErrorClass(field, parent);
+            __removeMessage(messageBlock);
+            return true;
+        }
+
+        __addErrorClass(field, parent);
+        __addMessage(messageBlock, formOptions.textFileTypeError );
+        return false;
+
+    };
+
+    var __isPhoneField = function (field) {
+
+        if( field.attr( "name" ) !== 'phone' ){
+            return false;
+        }
+        return true;
+    };
+
+    var __isEmailField = function (field) {
+
+        if( field.attr( "name" ) !== 'email' ){
+            return false;
+        }
+        return true;
     };
 
     var __isFieldRequired = function (parent) {
@@ -356,13 +609,29 @@
 
     };
 
-    var __isFieldEmpty = function (value, parent) {
+    var __isFieldEmpty = function (value) {
 
         if (value.trim().length === 0){
             return true;
         }
-
         return false;
+    };
+
+    var __stripTags = function (field) {
+
+        var value = field.val();
+        if(value.length > 0 ){
+            var regex = /<\/?[^>]+>/gi;
+            var result = value.replace(regex, "");
+
+            if(result){
+                field.val(result);
+            }
+
+            return result;
+        }
+
+        return value;
 
     };
 

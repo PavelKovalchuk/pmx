@@ -82,6 +82,22 @@ trait ProMXTemplateVariablesTrait {
 
 	}
 
+    public static function getFieldMaxLength($field_name)
+    {
+        if(!$field_name){
+            return;
+        }
+
+        //Data from Fetcher class of Current form, changed by admin panel of current form
+        $form_field_setting = self::getFieldsSettings()[$field_name]['max_length'];
+        if($form_field_setting){
+            return $form_field_setting;
+        }
+
+        return;
+
+    }
+
 	protected static function getJSFormClass()
 	{
 		return 'js-contact-form';

@@ -223,15 +223,30 @@ textarea.form-control {
 }
 
 //Form validation
-.form-parent-field-error{
 
+label.c-file{
+
+  &.form-parent-field-error{
+    color: $main-error-color;
+  }
+
+}
+
+.help-block{
+
+  &.js-message-block{
+    font-size: $base-size;
+  }
+
+}
+
+.form-parent-field-error{
 
   .help-block{
 
     color: $main-error-color;
 
   }
-
 
   .form-field-error{
     border: 1px solid $main-error-color;
