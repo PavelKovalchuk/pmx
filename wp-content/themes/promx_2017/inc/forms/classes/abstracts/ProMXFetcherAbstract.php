@@ -26,23 +26,24 @@ abstract class ProMXFetcherAbstract {
 
 	abstract protected function initFieldsSettings();
 
-	public function __construct($global_labels, $db_settings)
+	public function __construct($global_labels, $global_settings, $db_settings)
 	{
 		$this->initSystemErrors();
 		$this->initDisplayedField();
-		$this->initFieldsSettingsWithDbData($global_labels, $db_settings);
+		$this->initFieldsSettingsWithDbData($global_labels, $global_settings, $db_settings);
 		$this->initFieldsSettings();
 
 	}
 
-	protected function initFieldsSettingsWithDbData($global_labels, $db_settings)
+	protected function initFieldsSettingsWithDbData($global_labels, $global_settings, $db_settings)
 	{
-		if(!$this->checkIsArray($db_settings) || !$this->checkIsArray($global_labels)){
+		if(!$this->checkIsArray($db_settings) || !$this->checkIsArray($global_labels) || !$this->checkIsArray($global_settings)){
 			$this->setDBSettings(false);
 			return false;
 		}
 
 		$this->setGlobalLabels($global_labels);
+		$this->setGlobalSettings($global_settings);
 		$this->setDBSettings($db_settings);
 		$this->updateFieldsMapWithDbData();
 

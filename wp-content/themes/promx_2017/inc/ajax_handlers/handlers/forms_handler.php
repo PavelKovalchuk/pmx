@@ -40,10 +40,10 @@ function promx_form_ajax_handler(){
 			return;
 		}
 		$rules_data = [
-			'allowed_formats' => $form_object->getFetcherHandler()->getOneDBSetting('allowed_formats'),
-			'max_size' => $form_object->getFetcherHandler()->getOneDBSetting('max_size'),
+			'allowed_formats' => explode(',', $form_object->getFetcherHandler()->getOneGlobalSetting('available_file_formats_values')),
+			'max_size' => $form_object->getFetcherHandler()->getOneGlobalSetting('available_file_max_size'),
 			'allowed_formats_text' => $form_object->getFetcherHandler()->getOneDBSetting('allowed_formats_text'),
-			'upload_error_text'=> $form_object->getFetcherHandler()->getOneDBSetting('upload_error_text'),
+			'upload_error_text'=> $form_object->getFetcherHandler()->getOneDBSetting('allowed_formats_text'),
 		];
 		$upload_results = ProMXFormsManager::manageUploadFile($uploadedfile, $rules_data);
 

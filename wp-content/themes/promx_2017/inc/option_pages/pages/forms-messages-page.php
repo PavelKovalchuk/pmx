@@ -95,6 +95,22 @@ $options_storage->addSubpageToPromxOptionPages(
                         'value' => 'It is not an available type of file',
                     ),
 
+					array(
+						'id'	=> 'max_file_size_error_de',
+						'title'	=> 'max file size error DE',
+						'type'	=> 'text',
+						'description' => 'Number of max file size will be added to the end of this message',
+						'value' => 'Maximum size of the file is',
+					),
+
+					array(
+						'id'	=> 'max_file_size_error_en',
+						'title'	=> 'max file size error EN',
+						'type'	=> 'text',
+						'description' => 'Number of max file size will be added to the end of this message',
+						'value' => 'Maximum size of the file is',
+					),
+
 				),
 			),
 

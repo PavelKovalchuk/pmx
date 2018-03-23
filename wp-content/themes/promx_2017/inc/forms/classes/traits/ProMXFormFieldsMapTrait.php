@@ -312,7 +312,7 @@ trait ProMXFormFieldsMapTrait {
 			//'type' => 'file',
 			'required' => false,
 			'azure_parameter' => 'FileUrl',
-            'max_length' => 10,
+            'max_length' => 20,
 			'sanitizers' => ['cutMaxLengthString'],
 			'validators' => [],
 		],
