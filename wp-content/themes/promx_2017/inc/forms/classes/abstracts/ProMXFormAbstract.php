@@ -109,6 +109,8 @@ abstract class ProMXFormAbstract {
 		}
 
 		$request = $fetcher->getRequest($input_data, $this->getDBSettings());
+		//Log in file
+		ProMXFormsManager::logInFile('ProMXFormAbstract_getResult_request', json_encode($request));
 		var_dump($request);
 		if($fetcher->hasErrors() || !$request){
 			return $this->createResponse('error', $fetcher->getErrorsInString());

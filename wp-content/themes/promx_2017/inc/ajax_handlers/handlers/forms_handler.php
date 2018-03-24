@@ -17,12 +17,15 @@ function promx_form_ajax_handler(){
 
 	parse_str($_POST['forms_data'], $forms_data_raw);
 	$forms_data = array_map('trim', $forms_data_raw);
+	ProMXFormsManager::logInFile('forms_handler', '_____START____');
+	ProMXFormsManager::logInFile('forms_data', json_encode($forms_data));
 
 	$form_name = trim($forms_data['form_name']);
 	$form_nonce = trim($forms_data['form_nonce']);
 
 	if(empty($form_name) || empty($form_nonce)){
 		//We do not get necessary data for starting process
+		ProMXFormsManager::logInFile('error_empty_hidden_inputs', json_encode($forms_data));
 		return false;
 	}
 
@@ -30,6 +33,7 @@ function promx_form_ajax_handler(){
 
 	if(!$form_object){
 		//We do not get registered form with name $form_name
+		ProMXFormsManager::logInFile('error_registered_form', $form_name);
 		return;
 	}
 
@@ -49,6 +53,7 @@ function promx_form_ajax_handler(){
 
 		if($upload_results['status'] == 'error'){
 			//TODO = handle errors
+			ProMXFormsManager::logInFile('error_uploads_file', json_encode($_FILES['file']));
 			var_dump($upload_results);
 		}
 		$forms_data['file_url'] = $upload_results['url'];
@@ -60,7 +65,15 @@ function promx_form_ajax_handler(){
 	//TODO = handle errors
 	echo 'Result:';
 	var_dump($result);
+	if($result['status'] == 'error'){
+		ProMXFormsManager::logInFile('ERROR forms_handler', $result['message']);
+	}
 
+	if($result['status'] == 'ok'){
+		ProMXFormsManager::logInFile('SUCCESS forms_handler', $result['message']);
+	}
+
+	ProMXFormsManager::logInFile('forms_handler', '_____FINISH____');
 	exit;
 
 }

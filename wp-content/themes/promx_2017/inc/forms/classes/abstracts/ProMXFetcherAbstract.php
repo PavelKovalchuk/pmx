@@ -18,8 +18,6 @@ abstract class ProMXFetcherAbstract {
 
 	use ProMXGlobalSettingsDBTrait;
 
-	const DIR_TMP_UPLOADFILES = "tmp-uploadfiles/";
-
 	private $lang = CURRENT_LANG_CODE;
 
 	private $emptyRequiredFields = [];

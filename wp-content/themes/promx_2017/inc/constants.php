@@ -59,6 +59,7 @@ define("FORMS_MODELS_DIR", FORMS_MAIN_DIR . "models/");
 define("FORMS_MODELS_FORMS_DIR", FORMS_MODELS_DIR . "forms/");
 define("FORMS_MODELS_FETCHERS_DIR", FORMS_MODELS_DIR . "fetchers/");
 define("FORMS_TEMPLATE_DIR", TEMPLATE_PARTS_DIR . "forms/");
+define("FORMS_LOGS_DIR", FORMS_MAIN_DIR . "logs/");
 
 
 //common used variables

@@ -19,6 +19,8 @@ abstract class ProMXFormsManager {
 
 	const FETCHER_CLASS_PREFIX = 'Fetcher';
 
+	private static $logFileName = 'forms_log.txt';
+
 	private static $fetchersDir = FORMS_MODELS_FETCHERS_DIR;
 
 	private static $formsDir = FORMS_MODELS_FORMS_DIR;
@@ -29,8 +31,6 @@ abstract class ProMXFormsManager {
 
 	public static function init()
 	{
-		//self::loadForms();
-
 	}
 
 	protected static function loadForms()
@@ -300,6 +300,27 @@ abstract class ProMXFormsManager {
 	 */
 	public static function getFetcherDefaultClassName() {
 		return self::$fetcherDefaultClassName;
+	}
+
+	public static function logInFile($code, $text)
+	{
+		if(!$code || !$text){
+			return false;
+		}
+		$time_zone = 'GMT';
+		$date = new DateTime('NOW', new DateTimeZone($time_zone));
+		$date_to_log =  $date->format('Y-m-d H:i:s');
+		$log = $date_to_log . " [$time_zone] : " .  " [ $code ] " . ': ' . $text . PHP_EOL;
+		$file_name = FORMS_LOGS_DIR . self::getLogFileName();
+		file_put_contents($file_name, $log, FILE_APPEND);
+		return true;
+	}
+
+	/**
+	 * @return string
+	 */
+	protected static function getLogFileName() {
+		return self::$logFileName;
 	}
 
 
