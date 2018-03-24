@@ -253,4 +253,19 @@ label.c-file{
     box-shadow: 0 0 10px $main-box-shadow-error-color;
   }
 
+  .select2-container{
+
+    border: 1px solid $main-error-color;
+    box-shadow: 0 0 10px $main-box-shadow-error-color;
+
+    &.select2-container--default{
+
+      .select2-selection--single{
+        border-bottom: none;
+      }
+
+    }
+
+  }
+
 }

@@ -9,17 +9,18 @@
             //Upload file data
             'uploaderClass': 'js-upload-file',
             'uploader': {},
-            'uploadedFile': {},
 
         };
 
         var initSendEvent = function (form){
 
-            initFormsChecker(form);
-
-            console.log('formOptions.isFormValid', formOptions.isFormValid);
+            initFormsChecker(form, true);
 
             if(!formOptions.isFormValid){
+                //Return initial state
+                formOptions.isFormValid = true;
+
+                console.log('Return initial state');
                 return false;
             }
 
@@ -30,8 +31,6 @@
 
             var formsData = form.serialize();
 
-            //console.log('forms_data', forms_data);
-            //console.log('SiteParams.ajaxurl', SiteParams.ajaxurl);
             console.log('uploadedFile', uploadedFile);
 
             var data = new FormData();
@@ -57,8 +56,6 @@
         var __uploadFile = function () {
 
             var fileData = options.uploader.prop('files')[0];
-
-            options.uploadedFile = fileData;
 
             return fileData;
 
@@ -190,7 +187,10 @@
 
 
     //Online checking form
-    var initFormsChecker = function (form) {
+    //var force - checking without event
+    var initFormsChecker = function (form, force) {
+
+        var force = (force) ? force : false;
 
         var initForms = function () {
 
@@ -218,17 +218,15 @@
             var fieldsToCheck = $(form).find('.' + formOptions.fieldClass);
 
             $.each( fieldsToCheck, function( key, field ) {
-                //console.log('fieldsToCheck',  fieldsToCheck);
 
                 var $_this = $(this);
                 var isInput = $_this.is("input");
                 var isInputFile = ( $_this.attr( "type" ) == 'file' ) ? true : false;
                 var isTextarea = $_this.is("textarea");
                 var isSelect = $_this.is("select");
-                //console.log('isSelect',  isSelect);
 
                 if( (isInput || isTextarea) && !isInputFile){
-                    var textsResult = checkInputField($_this);
+                    var textsResult = checkInputField($_this, force);
 
                     if(!textsResult){
                         formOptions.isFormValid = false;
@@ -236,14 +234,14 @@
                 }
 
                 if( isInput && isInputFile){
-                    var fileResult = checkInputFileField($_this);
+                    var fileResult = checkInputFileField($_this, force);
                     if(!fileResult){
                         formOptions.isFormValid = false;
                     }
                 }
 
                 if(isSelect){
-                    var selectResult = checkSelectField($_this);
+                    var selectResult = checkSelectField($_this, force);
                     if(!selectResult){
                         formOptions.isFormValid = false;
                     }
@@ -252,23 +250,20 @@
             });
         };
 
-        var checkSelectField = function (field) {
+        var checkSelectField = function (field, force) {
 
             var parent = field.parent();
             var messageBlock = field.siblings('.' + formOptions.messageBlockClass);
+            var doChecking = function () {
 
-            field.on('change', function () {
-
-                var value = field.val();
-                console.log('checkSelectField', field);
+                //var value = field.val();
 
                 var value = __stripTags(field);
-                console.log('isCheckedRequired value', value);
 
                 var isCheckedRequired = checkRequired(field, value, parent, messageBlock);
-                console.log('isCheckedRequired', isCheckedRequired);
+
                 if(isCheckedRequired === false){
-                    return;
+                    return false;
                 }
 
                 var isEmpty = __isFieldEmpty(value);
@@ -277,31 +272,41 @@
                     __removeMessage(messageBlock);
                 }
 
-
                 var isValidEmail = checkEmail(field, value, parent, messageBlock);
                 if(isValidEmail === false){
-                    return;
+                    return false;
                 }
 
                 var isValidPhone = checkPhone(field, value, parent, messageBlock);
                 if(isValidPhone === false){
-                    return;
+                    return false;
                 }
 
                 var isValidMaxLength = checkMaxLength(field, value, parent, messageBlock);
                 if(isValidMaxLength === false){
-                    return;
+                    return false;
                 }
 
                 return true;
+
+            };
+
+            //Checking without events on fields
+            if(force){
+                var checkResult =  doChecking();
+                return checkResult;
+            }
+
+            //Checking on events on fields
+            field.on('change', function () {
+
+                doChecking();
 
             });
 
         };
 
-        var checkInputField = function (field) {
-
-            //console.log('formOptions.mainButton',  formOptions.mainButton);
+        var checkInputField = function (field, force) {
 
             var parent = field.parent();
             var messageBlock = field.siblings('.' + formOptions.messageBlockClass);
@@ -312,7 +317,7 @@
                 var isCheckedRequired = checkRequired(field, value, parent, messageBlock);
 
                 if(isCheckedRequired === false){
-                    return;
+                    return false;
                 }
 
                 var isEmpty = __isFieldEmpty(value);
@@ -324,57 +329,54 @@
 
                 var isValidEmail = checkEmail(field, value, parent, messageBlock);
                 if(isValidEmail === false){
-                    return;
+                    return false;
                 }
 
                 var isValidPhone = checkPhone(field, value, parent, messageBlock);
                 if(isValidPhone === false){
-                    return;
+                    return false;
                 }
 
                 var isValidMaxLength = checkMaxLength(field, value, parent, messageBlock);
                 if(isValidMaxLength === false){
-                    return;
+                    return false;
                 }
 
                 return true;
             };
 
+            //Checking without events on fields
+            if(force){
+                var checkResult =  doChecking();
+                return checkResult;
+            }
+
+            //Checking on events on fields
             field.on('input focusout', function () {
 
                 doChecking();
 
             });
 
-            /*formOptions.mainButton.on('click', function () {
-
-                doChecking();
-
-            });*/
-
         };
 
-        var checkInputFileField = function (field) {
+        var checkInputFileField = function (field, force) {
 
             var parent = field.parent();
             var messageBlock = field.siblings('.' + formOptions.messageBlockClass);
 
-            field.on('change', function () {
+            var doChecking = function () {
 
                 var file = field.prop('files')[0];
 
-                if(!file){
-                    return;
-                }
-
-                var value = file.name;
-                var type = file.type;
-                var size = file.size;
+                var value = (file) ? file.name : false;
+                var type = (file) ? file.type : false;
+                var size = (file) ? file.size : false;
 
                 var isCheckedRequired = checkRequired(field, value, parent, messageBlock);
 
                 if(isCheckedRequired === false){
-                    return;
+                    return false;
                 }
 
                 var isEmpty = __isFieldEmpty(value);
@@ -385,20 +387,33 @@
 
                 var isValidMaxLength = checkMaxLength(field, value, parent, messageBlock);
                 if(isValidMaxLength === false){
-                    return;
+                    return false;
                 }
 
                 var isValidFileType = checkFileType(field, type, parent, messageBlock);
                 if(isValidFileType === false){
-                    return;
+                    return false;
                 }
 
                 var isValidFileSize = checkFileSize(field, size, parent, messageBlock);
                 if(isValidFileSize === false){
-                    return;
+                    return false;
                 }
 
                 return true;
+
+            };
+
+            //Checking without events on fields
+            if(force){
+                var checkResult =  doChecking();
+                return checkResult;
+            }
+
+            //Checking on events on fields
+            field.on('change', function () {
+
+                doChecking();
 
             });
 
@@ -573,6 +588,10 @@
     };
 
     var __isFieldEmpty = function (value) {
+
+        if(!value){
+            return true;
+        }
 
         if (value.trim().length === 0){
             return true;

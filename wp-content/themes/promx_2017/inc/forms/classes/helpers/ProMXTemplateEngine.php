@@ -143,11 +143,11 @@ class ProMXTemplateEngine {
 			return;
 		}
 		?>
-        <div class="form-group <?php if($parent_class){echo $parent_class; }?> <?php if($is_required){echo self::getRequiredClass(); }?>">
+        <div class="form-group <?php if($parent_class){echo $parent_class; }?> ">
 
             <label <?php if($id_attr){	?>
                     for="<?php echo $id_attr; ?>"
-		            <?php }	?>  class="c-file">
+		            <?php }	?>  class="c-file <?php if($is_required){echo self::getRequiredClass(); }?>">
                 <input type="file"
                        name="resume_file"
                         <?php if($id_attr){	?>
