@@ -103,6 +103,11 @@ trait ProMXTemplateVariablesTrait {
 		return 'js-contact-form';
 	}
 
+	public static function getJSRadioGroupClass()
+	{
+		return 'js-radio-group';
+	}
+
 	public static function createOptionsForSelect($code, $value, $title)
 	{
 		if(!$value || !$title || !$code){

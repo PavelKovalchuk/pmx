@@ -24,7 +24,7 @@ $field_event = 'event';
 		<?php ProMXTemplateEngine::getNecessaryHiddenInput(); ?>
 
 		<div class="form-horizontal">
-			<div class="form-group">
+			<div class="form-group  <?php echo ProMXTemplateEngine::getJSRadioGroupClass(); ?>">
 				<div class="col-sm-4 col-md-3">
 					<?php
 					ProMXTemplateEngine::radioField(

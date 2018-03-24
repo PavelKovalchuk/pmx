@@ -16,11 +16,10 @@
 
             initFormsChecker(form, true);
 
+            console.log('formOptions.isFormValid', formOptions.isFormValid);
             if(!formOptions.isFormValid){
                 //Return initial state
                 formOptions.isFormValid = true;
-
-                console.log('Return initial state');
                 return false;
             }
 
@@ -30,8 +29,6 @@
             }
 
             var formsData = form.serialize();
-
-            console.log('uploadedFile', uploadedFile);
 
             var data = new FormData();
             data.append('action', options.mainAction);
@@ -68,7 +65,6 @@
                 async: true,
                 data: data,
                 type: 'POST',
-
                 // cache: false,
                  contentType: false,
                  processData: false,
@@ -121,7 +117,8 @@
         'fieldValidClass': 'form-field-valid',
         'messageBlockClass' : 'js-message-block',
         'messageBlockHidden' : 'help-block-display-none',
-        'fieldRequiredClass': 'required'
+        'fieldRequiredClass': 'required',
+        'radioGroupClass': 'js-radio-group',
 
 
     };
@@ -215,6 +212,9 @@
                 return false;
             }
 
+            //Holder for radio/ If checked the name of fileld will be here
+            var radioHolder = {};
+
             var fieldsToCheck = $(form).find('.' + formOptions.fieldClass);
 
             $.each( fieldsToCheck, function( key, field ) {
@@ -224,28 +224,46 @@
                 var isInputFile = ( $_this.attr( "type" ) == 'file' ) ? true : false;
                 var isTextarea = $_this.is("textarea");
                 var isSelect = $_this.is("select");
+                var isRadio = ( $_this.attr( "type" ) == 'radio' ) ? true : false;
 
+                //Chossing the type of the field and Checker START
                 if( (isInput || isTextarea) && !isInputFile){
                     var textsResult = checkInputField($_this, force);
 
-                    if(!textsResult){
+                    if(textsResult == false){
                         formOptions.isFormValid = false;
                     }
                 }
 
                 if( isInput && isInputFile){
                     var fileResult = checkInputFileField($_this, force);
-                    if(!fileResult){
+                    if(fileResult == false){
                         formOptions.isFormValid = false;
                     }
                 }
 
                 if(isSelect){
                     var selectResult = checkSelectField($_this, force);
-                    if(!selectResult){
+                    if(selectResult == false){
                         formOptions.isFormValid = false;
                     }
                 }
+
+                if(isRadio){
+
+                    var radioName = $_this.attr( "name" );
+
+                    var radioResult = checkRadioField($_this, force);
+                    if(radioResult == false && typeof radioHolder[radioName] == 'undefined'){
+                        formOptions.isFormValid = false;
+                    }else if(radioResult == true){
+                        radioHolder[radioName] = true;
+                        formOptions.isFormValid = true;
+                    }
+
+                }
+
+                //Chossing the type of the field and Checker FINISH
 
             });
         };
@@ -255,8 +273,6 @@
             var parent = field.parent();
             var messageBlock = field.siblings('.' + formOptions.messageBlockClass);
             var doChecking = function () {
-
-                //var value = field.val();
 
                 var value = __stripTags(field);
 
@@ -270,16 +286,6 @@
                 if(isEmpty){
                     __removeErrorClass(field, parent);
                     __removeMessage(messageBlock);
-                }
-
-                var isValidEmail = checkEmail(field, value, parent, messageBlock);
-                if(isValidEmail === false){
-                    return false;
-                }
-
-                var isValidPhone = checkPhone(field, value, parent, messageBlock);
-                if(isValidPhone === false){
-                    return false;
                 }
 
                 var isValidMaxLength = checkMaxLength(field, value, parent, messageBlock);
@@ -301,6 +307,72 @@
             field.on('change', function () {
 
                 doChecking();
+
+            });
+
+        };
+
+        var checkRadioField = function (field, force) {
+
+            var parent = field.parent();
+            var messageBlock = field.siblings('.' + formOptions.messageBlockClass);
+            var fieldName = field.attr('name');
+
+            var backToInitState = function () {
+
+                var parent = field.parents('.' + formOptions.radioGroupClass);
+                var siblings = parent.find('[name = ' + fieldName + ']');
+                //console.log('siblings : ', siblings);
+                $.each( siblings, function( key, sibling ) {
+                    var $this_sibling = $(sibling);
+                    var siblingParent = $($this_sibling).parent();
+                    var siblingMessageBlock = $($this_sibling).siblings('.' + formOptions.messageBlockClass);
+
+                    __removeErrorClass($this_sibling, siblingParent);
+                    __removeMessage(siblingMessageBlock);
+                });
+
+                return true;
+
+            };
+
+            var doChecking = function () {
+
+                var value = __stripTags(field);
+
+                var isCheckedRequired = checkRequiredRadio(field, value, parent, messageBlock);
+                if(isCheckedRequired === false){
+                    return false;
+                }
+
+                var isEmpty = __isFieldEmpty(value);
+                if(isEmpty){
+                    __addErrorClass(field, parent);
+                    __addMessage(messageBlock, formOptions.textRequired);
+                    return false;
+                }
+
+                var isValidMaxLength = checkMaxLength(field, value, parent, messageBlock);
+                if(isValidMaxLength === false){
+                    return false;
+                }
+                backToInitState();
+                return true;
+
+            };
+
+            //Checking without events on fields
+            if(force){
+                var checkResult =  doChecking();
+                return checkResult;
+            }
+
+            //Checking on events on fields
+            field.on('change', function () {
+                var checkResultOnChange =  doChecking();
+                if(checkResultOnChange == true){
+                    backToInitState();
+                }
 
             });
 
@@ -425,6 +497,30 @@
             initFieldsChecker(form);
         }
 
+
+    };
+
+    var checkRequiredRadio = function (field, value, parent, messageBlock) {
+
+        var isRequired = __isFieldRequired(parent);
+
+        if(isRequired){
+
+            var isCheckedRadio = field.prop("checked");
+            if(isCheckedRadio){
+                //is not empty
+                __removeErrorClass(field, parent);
+                __removeMessage(messageBlock);
+                return true;
+            }
+
+            __addErrorClass(field, parent);
+            __addMessage(messageBlock, formOptions.textRequired);
+            return false;
+
+        }
+
+        return null;
 
     };
 

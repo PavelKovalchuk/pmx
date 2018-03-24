@@ -111,14 +111,16 @@ class ProMXTemplateEngine {
                     id="<?php echo $id_attr; ?>"
 	                <?php }	?>
                     value="<?php echo strtolower($placeholder); ?>"
-                    class="radio-input <?php if($field_class){echo $field_class; }?>"
+                    class="radio-input js-contact-form-field <?php if($field_class){echo $field_class; }?>"
                     data-max-length = "<?php echo self::getFieldMaxLength($name_attr) ?>"
             >
-            <label  <?php if($id_attr){	?>
+            <label   class="radio-label js-radio-label"
+                    <?php if($id_attr){	?>
                     for="<?php echo $id_attr; ?>"
 		            <?php }	?> >
                 <?php echo $placeholder; ?>
             </label>
+	        <?php self::getHelpBlock(); ?>
         </div>
 		<?php
 	}
