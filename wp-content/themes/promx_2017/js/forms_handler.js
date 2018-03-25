@@ -23,7 +23,7 @@
 
             initFormsChecker(form, true);
 
-            console.log('formOptions.isFormValid', formOptions.isFormValid);
+            //console.log('formOptions.isFormValid', formOptions.isFormValid);
             if(!formOptions.isFormValid){
                 //Return initial state
                 formOptions.isFormValid = true;
