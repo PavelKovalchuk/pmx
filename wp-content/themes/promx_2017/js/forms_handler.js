@@ -307,6 +307,9 @@
 
                     var radioName = $_this.attr( "name" );
 
+                    if(typeof radioHolder[radioName] !== 'undefined'){
+                        return;
+                    }
                     var radioResult = checkRadioField($_this, force);
                     if(radioResult == false && typeof radioHolder[radioName] == 'undefined'){
                         formOptions.isFormValid = false;
