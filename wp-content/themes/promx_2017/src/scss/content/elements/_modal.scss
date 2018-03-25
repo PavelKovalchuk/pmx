@@ -1,0 +1,76 @@
+
+.modal{
+
+  &.modal-default{
+
+    .modal-dialog{
+
+      @include media-breakpoint-up(sm) {
+        width: 790px;
+      }
+
+    }
+
+    .modal-content{
+      border-radius: 0;
+    }
+
+    .modal-message{
+      text-align: center;
+    }
+
+    .close{
+
+      color: $lazure-color-3;
+      opacity: 1;
+      font-size: 40px;
+    }
+
+    .modal-header{
+      border-bottom: none;
+    }
+
+    .modal-footer{
+      text-align: center;
+      border-top: none;
+      padding: $elements-gap*2 $base-size $elements-gap;
+
+      @include media-breakpoint-down(xs) {
+        padding: $elements-gap $base-size $elements-gap;
+      }
+    }
+
+    .btn-modal-close{
+      text-transform: none;
+    }
+
+    p{
+      margin: 0 0 0 0;
+      font-size: 20px;
+    }
+
+    h2{
+      font-size: $base-size * 2;
+
+      @include media-breakpoint-down(xs) {
+        font-size: $form-base-size;
+      }
+
+    }
+
+    .modal-body{
+
+      @include media-breakpoint-up(sm) {
+        width: 80%;
+        margin: auto;
+      }
+
+      &.error{
+        color: $main-error-color;
+      }
+
+    }
+
+  }
+
+}

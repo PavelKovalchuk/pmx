@@ -32,6 +32,7 @@
 </p>
 <![endif]-->
 <header>
+    <?php get_default_modal_form(); ?>
     <div class="container">
         <div class="row">
             <div class="col-sm-12 header-top">
@@ -46,8 +47,6 @@
                     <div class="navbar-header">
 
 	                    <?php get_template_header_logo(); ?>
-
-
 
                     </div>
 	                <?php $buttons_options_data =  get_option( '_promx_buttons_and_links_options' ); ?>

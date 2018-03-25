@@ -3,8 +3,15 @@
     var initFormHandler = function (form){
 
         var options = {
-            //NEW
+            //forms helpers
             'mainAction': 'promx_form',
+            'buttonClass': 'js-contact-button',
+
+            //Modal window data
+            'modalClass': 'js-modal-default',
+            'modalMessageClass': 'js-modal-message',
+            'modalButtonClass': 'js-modal-close',
+            'modalBodyClass': 'js-modal-body',
 
             //Upload file data
             'uploaderClass': 'js-upload-file',
@@ -58,7 +65,42 @@
 
         };
 
+        var __isJSON = function (json) {
+            try
+            {
+                var json = JSON.parse(json);
+                return true
+            }
+            catch(e)
+            {
+                return false;
+            }
+        };
+
+        var __showModal = function (message, button, cssClass) {
+
+            if(!message || !button ){
+                return false;
+            }
+            var modal = $('.' + options.modalClass);
+
+            if(!modal.length > 0){
+                return false;
+            }
+
+            var cssClass = (cssClass) ? cssClass : 'success';
+            modal.find('.' + options.modalMessageClass).html(message);
+            modal.find('.' + options.modalButtonClass).html(button);
+            modal.find('.' + options.modalBodyClass).addClass(cssClass);
+            modal.modal('show');
+        };
+
         var __performSend = function(data, form){
+
+            var button = $('.' + options.buttonClass);
+            if(!button.length > 0){
+                return false;
+            }
 
             jQuery.ajax({
                 url: SiteParams.ajaxurl,
@@ -68,18 +110,31 @@
                 // cache: false,
                  contentType: false,
                  processData: false,
-
+                beforeSend: function(){
+                    button.prop("disabled", true);
+                },
                 success: function(response){
 
-                    console.log(response);
+                    console.log('response: ', response);
 
-                    if(response.status == 'ok'){
+                    if(__isJSON(response) == false){
 
-                        //__hideForm(form);
-
-                        //__showSuccessMessage(response.message);
+                        return;
                     }
 
+                    var data = JSON.parse(response);
+                    console.log('data: ', data);
+
+                    if(data.status == 'ok'){
+                        __showModal(data.message, data.button, 'success');
+                    }
+                    if(data.status == 'error'){
+                        __showModal('<h2>' + 'ERROR' + '</h2>' + '<p>' + data.message + '</p>', data.button, 'error');
+                    }
+
+                },
+                complete: function(){
+                    button.prop("disabled", false);
                 }
             });
 
@@ -106,7 +161,6 @@
 
         //Form data
         'isFormValid': true,
-        'mainButton' : false,
 
         //Classes
         'formClass': 'js-contact-form',

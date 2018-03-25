@@ -21,3 +21,4 @@ require_once( TEMPLATE_PARTS_DIR . 'technologies-list-parts.php');
 require_once( TEMPLATE_PARTS_DIR . 'testimonials-parts.php');
 require_once( TEMPLATE_PARTS_DIR . 'careers-parts.php');
 require_once( TEMPLATE_PARTS_DIR . 'post-parts.php');
+require_once( TEMPLATE_MODALS_DIR . 'modal-default.php');

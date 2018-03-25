@@ -111,22 +111,34 @@ abstract class ProMXFormAbstract {
 		$request = $fetcher->getRequest($input_data, $this->getDBSettings());
 		//Log in file
 		ProMXFormsManager::logInFile('ProMXFormAbstract_getResult_request', json_encode($request));
-		var_dump($request);
+		//var_dump($request);
 		if($fetcher->hasErrors() || !$request){
 			return $this->createResponse('error', $fetcher->getErrorsInString());
 		}
 
-		return $this->createResponse('ok', 'Fetcher does not have errors.');
+		$success_message = $this->getOneDBSetting('form_success_message');
+		if(!$success_message){
+			$success_message = $this->getOneGlobalSetting('forms_default_success_message_' . CURRENT_LANG_CODE);
+		}
+
+		$button_text = $this->getOneDBSetting('form_success_message_button');
+
+		return $this->createResponse('ok', $success_message, $button_text);
 	}
 
-	public function createResponse($status, $message)
+	public function createResponse($status, $message, $button = '')
 	{
+		if(!$button){
+			$button = $this->getOneGlobalSetting('forms_default_success_button_' . CURRENT_LANG_CODE);
+		}
+
 		$responce = [
 			'status' => 'none',
-			'message' => ''
+			'message' => '',
+			'button' => $button
 		];
 
-		if(empty($status) || empty($message) || !is_string($message)){
+		if(empty($status) || !is_string($message)){
 			return $responce;
 		}
 
@@ -136,7 +148,8 @@ abstract class ProMXFormAbstract {
 
 		$responce = [
 			'status' => $status,
-			'message' => $message
+			'message' => $message,
+			'button' => $button
 		];
 
 		return $responce;

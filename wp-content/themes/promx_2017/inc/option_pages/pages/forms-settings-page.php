@@ -51,6 +51,51 @@ $options_storage->addSubpageToPromxOptionPages(
                 ),
             ),
 
+	        array(
+		        'id'	=> 'forms_modal_settings_data',
+		        'title'	=> 'Forms modal settings data ',
+	        	'fields' => array(
+
+			        array(
+				        'id'	=> 'forms_default_success_message_de',
+				        'title'	=> 'forms default success message DE',
+				        'type'	=> 'textarea',
+				        'description' => 'If form does not have a success message, this message will appear on the modal window',
+				        'value' => 'Thank you!',
+				        'args' => array(
+					        'html' => true
+				        )
+			        ),
+
+			        array(
+				        'id'	=> 'forms_default_success_message_en',
+				        'title'	=> 'forms default success message EN',
+				        'type'	=> 'textarea',
+				        'description' => 'if form does not have a success message, this message will appear on the modal window',
+				        'value' => 'Thank you!',
+				        'args' => array(
+					        'html' => true
+				        )
+			        ),
+
+			        array(
+				        'id'	=> 'forms_default_success_button_de',
+				        'title'	=> 'forms default success button DE',
+				        'type'	=> 'text',
+				        'value' => 'OK',
+			        ),
+
+			        array(
+				        'id'	=> 'forms_default_success_button_en',
+				        'title'	=> 'forms default success button EN',
+				        'type'	=> 'text',
+				        'value' => 'OK',
+			        ),
+
+		        ),
+
+	        ),
+
 
         ),
 

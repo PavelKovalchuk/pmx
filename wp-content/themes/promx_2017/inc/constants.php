@@ -20,6 +20,7 @@ define("INCLUDES_CLASSES_DIR", INCLUDES_DIR . "classes/");
 
 define("TEMPLATE_PARTS_MAIN_DIR", TEMPLATE_DIR . "template_parts/");
 define("TEMPLATE_PARTS_DIR", TEMPLATE_PARTS_MAIN_DIR . "parts/");
+define("TEMPLATE_MODALS_DIR", TEMPLATE_PARTS_DIR . "modals/");
 
 define("IMAGES_DIR", TEMPLATE_URI . "images/");
 

@@ -60,11 +60,10 @@ function promx_form_ajax_handler(){
 	}
 
 	$result = $form_object->getResult($forms_data);
-	//$result = $form_object->getResult(false);
 
 	//TODO = handle errors
-	echo 'Result:';
-	var_dump($result);
+	//echo 'Result:';
+	//var_dump($result);
 	if($result['status'] == 'error'){
 		ProMXFormsManager::logInFile('ERROR forms_handler', $result['message']);
 	}
@@ -74,6 +73,9 @@ function promx_form_ajax_handler(){
 	}
 
 	ProMXFormsManager::logInFile('forms_handler', '_____FINISH____');
+
+	echo json_encode($result);
+
 	exit;
 
 }
