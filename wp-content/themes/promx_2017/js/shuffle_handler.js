@@ -6,10 +6,9 @@
         var Container = shuffle_element;
         var sizer = $('.shuffle_sizer');
         var options = $('.js-filter-option');
-
         var btnMore = $('#js_more_posts');
         var btnMoreText = btnMore.text();
-
+        var langCode = SiteParams.CurrentLangCode;
         var readMoreText = Container.data('read-more-text');
         var defaultImage = Container.data('default-thumbnail');
         var loadingText = Container.data('loading-text');
@@ -52,7 +51,6 @@
 
         };
 
-
         var listen = function() {
 
             // Get all images inside shuffle
@@ -83,6 +81,7 @@
                         'action': 'loadmore',
                         //'query': blog_loadmore_params.posts, // that's how we get params from wp_localize_script() function
                         'paged' : blog_loadmore_params.current_page,
+                        'lang' : langCode,
                         'readMoreText' : readMoreText,
                         'defaultImage' : defaultImage
                     };
@@ -129,7 +128,6 @@
                             imagesLoaded */
                             Container.imagesLoaded()
                                 .always(function (instance) {
-                                    console.log('all images loaded');
 
                                     shuffleInstance.add(newPosts);
 

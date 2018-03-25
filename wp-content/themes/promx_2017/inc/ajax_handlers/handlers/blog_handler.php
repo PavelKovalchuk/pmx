@@ -14,10 +14,14 @@ function blog_loadmore_ajax_handler(){
 
 	// prepare our arguments for the query
 	$data_args = json_decode( stripslashes( $_POST['paged'] ), true );
+	$blog_lang = trim($_POST['lang']);
+	if(!$blog_lang){
+		die;
+	}
 
 	$args = array(
 		'posts_per_page' => get_option('posts_per_page'),
-        'lang'           => CURRENT_LANG_CODE,
+        'lang' => $blog_lang,
 		'orderby' => 'date',
 		'post_status' => 'publish',
 		'paged' => intval($data_args) + 1
