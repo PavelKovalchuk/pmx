@@ -9,7 +9,6 @@
     <meta name="language" content="<?php echo pll_current_language('slug'); ?>"/>
     <link rel="profile" href="http://gmpg.org/xfn/11">
     <link href="<?php echo get_stylesheet_directory_uri(); ?>/favicon/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-    <!--<title>Home page</title>-->
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->

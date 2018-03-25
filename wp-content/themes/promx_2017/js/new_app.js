@@ -69,7 +69,6 @@ jQuery(document).ready(function($){
             transitionDuration : 1200
         });
     }
-    
     function initFormEventChecker() {
 
         var checkers = $('.js-form-select-checker');

@@ -10,7 +10,40 @@ get_header(); ?>
 
 <section id="slider-section">
 
-  <?php get_template_main_slider($data['slides_items']); ?>
+  <?php
+  if($data['featured_banner_is_video']){
+
+	  if($data['featured_banner_tricky_header']){
+
+		  $featured_banner_header = [
+			  'title' => $data['featured_banner_tricky_header_title'],
+			  'subtitle' => $data['featured_banner_tricky_header_subtitle'],
+			  'subsubtitle' => $data['featured_banner_tricky_header_subsubtitle'],
+			  'icon' => $data['featured_banner_tricky_header_icon']
+		  ];
+	  }else{
+		  $featured_banner_header = $data['featured_banner_title'];
+	  }
+
+	  get_template_featured_banner(
+		  $featured_banner_header,
+		  $data['featured_banner_text'],
+		  $data['featured_banner_image'],
+		  $data['featured_banner_link_target'],
+		  $data['featured_banner_link_text'],
+		  $data['featured_banner_image_subject'],
+		  $data['featured_banner_image_subject_alt'],
+		  $data['featured_banner_tricky_header'],
+		  $data['featured_banner_is_video'],
+		  $data['featured_banner_video'],
+		  $data['featured_banner_subtitle']
+	  );
+
+  }else{
+	  get_template_main_slider($data['slides_items']);
+  }
+
+  ?>
 
 </section>
 

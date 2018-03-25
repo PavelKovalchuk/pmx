@@ -6,28 +6,52 @@
  * Time: 19:53
  */
 
-function get_template_featured_banner($title, $text, $image, $link_target, $link_text, $image_subject, $image_subject_alt, $is_tricky_header = false){
-
-	if( !$text|| !$image ){
-		return false;
-	}
-
+function get_template_featured_banner($title, $text, $image, $link_target, $link_text, $image_subject, $image_subject_alt, $is_tricky_header = false, $is_video = false, $video = false, $subtitle = false){
 	?>
 
 	<section id="banner">
-		<div class="featured-banner">
-			<div class="fullwidth" style="background-image: url('<?php echo $image; ?>');">
-				<div class="container">
+		<div class="featured-banner <?php if($is_video){ echo 'featured-banner-video'; } ?>">
+
+			<?php if($is_video && is_array($video)){
+
+				if( $video['type'] == 'video'){
+					?>
+                    <!-- The video -->
+                    <video id="js-video" class="video-background js-video"  frameborder="0" allowfullscreen autoplay loop >
+                        <source src="<?php echo $video['url']; ?>" type="<?php echo $video['mime_type']; ?>">
+                    </video>
+
+				<?php }
+
+			}else{
+			?>
+            <div class="fullwidth" <?php if($image){ ?> style="background-image: url(<?php echo $image; ?>);" <?php } ?> >
+			<?php } ?>
+
+				<div class="container <?php if($is_video){ echo 'video-content'; } ?>">
 
 					<div class="row d-flex-row">
 
 						<div class="col-sm-7 d-flex">
 
-                            <?php if(is_string($title) && !$is_tricky_header){ ?>
+                            <?php if(is_string($title) && !$is_tricky_header && !$subtitle){ ?>
                                 <h2 class="subtitle light">
 		                            <?php echo $title; ?>
                                 </h2>
                             <?php } ?>
+
+							<?php if(is_string($title) && is_string($subtitle) && !$is_tricky_header ){ ?>
+                                <h2 class="slider-title">
+
+                                    <span class="title-part"><?php echo $title ; ?></span>
+
+                                    <span class="subtitle-part">
+
+                                     <span class="slider-title-text"><?php echo $subtitle ; ?></span>
+                                    </span>
+
+                                </h2>
+							<?php } ?>
 
 							<?php if(is_array($title) && $is_tricky_header){ ?>
                                 <div class="icontitle">
@@ -43,8 +67,6 @@ function get_template_featured_banner($title, $text, $image, $link_target, $link
 							<?php } ?>
 
 							<p class="slider-text"><?php echo $text; ?></p>
-
-
 
 						</div>
 
@@ -75,8 +97,11 @@ function get_template_featured_banner($title, $text, $image, $link_target, $link
 
                     </div>
 			</div>
-		</div>
+	    <?php if(!$is_video){ ?>
+            </div>
+		<?php } ?>
         </div>
+
 	</section>
 	<?php
 }
