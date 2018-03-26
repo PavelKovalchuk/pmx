@@ -58,7 +58,7 @@ function get_template_testimonial_intro($text, $logo, $company){
 
 	?>
 
-	<section>
+	<section id="testimonialIntro">
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-12">

@@ -79,13 +79,20 @@ function get_template_featured_banner($title, $text, $image, $link_target, $link
                     <div class="row">
 
                         <div class="col-sm-7 ">
+
+                            <div class="hidden-xs">
 	                        <?php
-	                        if($link_target){
-		                        ?>
-                                <div class="hidden-xs">
+
+	                        if($link_target){ ?>
+
                                     <a href="<?php echo $link_target; ?>" type="button" class="btn btn-primary btn-htransp"><?php print_button_text($link_text); ?></a>
-                                </div>
-	                        <?php } ?>
+
+	                        <?php }else{ ?>
+
+                                    <a href="#firstSection" type="button" class="btn btn-primary btn-htransp js-anchor-banner"><?php print_button_text($link_text); ?></a>
+
+                            <?php } ?>
+                            </div>
                         </div>
 
                         <div class="col-sm-5">

@@ -68,6 +68,36 @@ jQuery(document).ready(function($){
         $('a.js-anchor[href*=#]').anchor({
             transitionDuration : 1200
         });
+
+        //Banners anchor
+        var bannerLinkClass = '.js-anchor-banner';
+        var bannerLinkObject = $('a' + bannerLinkClass);
+        var bannerLink = bannerLinkObject.attr('href');
+
+        if(bannerLink != '#firstSection'){
+            return;
+        }
+
+        var sections = $('main section');
+
+        if(! sections.length > 0){
+            return;
+        }
+
+        var firstSection = sections[0];
+        var target =  $(firstSection).attr('id');
+
+        if(!target){
+            return;
+        }
+
+        bannerLinkObject.attr('href', '#' + target);
+
+        console.log('firstSection', target);
+
+        bannerLinkObject.anchor({
+            transitionDuration : 1200
+        });
     }
     function initFormEventChecker() {
 
