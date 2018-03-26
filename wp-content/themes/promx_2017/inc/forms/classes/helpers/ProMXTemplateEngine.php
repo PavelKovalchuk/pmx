@@ -97,7 +97,7 @@ class ProMXTemplateEngine {
 		<?php
 	}
 
-	public static function radioField($name_attr, $placeholder, $is_required = false, $id_attr = '',  $field_class = '', $parent_class = '')
+	public static function radioField($name_attr, $placeholder, $is_required = false, $id_attr = '',  $field_class = '', $parent_class = '', $value = '')
 	{
 		if(!$name_attr || !$placeholder){
 			return;
@@ -110,9 +110,9 @@ class ProMXTemplateEngine {
 	                <?php if($id_attr){	?>
                     id="<?php echo $id_attr; ?>"
 	                <?php }	?>
-                    value="<?php echo strtolower($placeholder); ?>"
+                    value="<?php if($value){ echo $value; }elseif($placeholder){echo strtolower($placeholder); }?>"
                     class="radio-input js-contact-form-field <?php if($field_class){echo $field_class; }?>"
-                    data-max-length = "<?php echo self::getFieldMaxLength($name_attr) ?>"
+                    <?php if(self::getFieldMaxLength($name_attr)){ $max_length = self::getFieldMaxLength($name_attr);}else{ $max_length = 100; }?> data-max-length = "<?php echo $max_length; ?>"
             >
             <label   class="radio-label js-radio-label"
                     <?php if($id_attr){	?>

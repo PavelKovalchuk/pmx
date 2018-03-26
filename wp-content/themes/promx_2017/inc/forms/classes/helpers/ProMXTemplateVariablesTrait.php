@@ -25,9 +25,9 @@ trait ProMXTemplateVariablesTrait {
 
 	protected static $formSuccessMessage = '';
 
-	protected static $fieldsSettings = [];
+	protected static $formPrivacyPolicyMessage = '';
 
-	//protected static $localDbSettings = [];
+	protected static $fieldsSettings = [];
 
 	protected static $globalDbSettings = [];
 
@@ -40,6 +40,7 @@ trait ProMXTemplateVariablesTrait {
 
 		if(!self::getGlobalDbSettings() && is_array($global_db_settings)){
 			self::setGlobalDbSettings($global_db_settings);
+			self::setFormPrivacyPolicyMessage(self::getGlobalDbSettings()['forms_privacy_policy_message']);
 		}
 
 		if(!is_array($local_db_settings)){
@@ -53,6 +54,7 @@ trait ProMXTemplateVariablesTrait {
 		if(!empty($local_db_settings["allowed_formats_text"])){
 			self::setUploadAllowedFormatsText($local_db_settings["allowed_formats_text"]);
 		}
+
 	}
 
 	public static function finish()
@@ -264,6 +266,20 @@ trait ProMXTemplateVariablesTrait {
 	 */
 	protected static function setUploadAllowedFormatsText( $uploadAllowedFormatsText ) {
 		self::$uploadAllowedFormatsText = $uploadAllowedFormatsText;
+	}
+
+	/**
+	 * @return string
+	 */
+	public static function getFormPrivacyPolicyMessage() {
+		return self::$formPrivacyPolicyMessage;
+	}
+
+	/**
+	 * @param string $formPrivacyPolicyMessage
+	 */
+	protected static function setFormPrivacyPolicyMessage( $formPrivacyPolicyMessage ) {
+		self::$formPrivacyPolicyMessage = $formPrivacyPolicyMessage;
 	}
 
 }

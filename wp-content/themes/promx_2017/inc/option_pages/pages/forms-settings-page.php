@@ -96,6 +96,29 @@ $options_storage->addSubpageToPromxOptionPages(
 
 	        ),
 
+	        array(
+		        'id'	=> 'forms_privacy_policy_data',
+		        'title'	=> 'Forms privacy policy data ',
+		        'fields' => array(
+
+			        array(
+				        'id'	=> 'forms_privacy_policy_message_de',
+				        'title'	=> 'forms privacy policy message DE',
+				        'type'	=> 'text',
+				        'value' => 'Wenn Sie uns diese Nachricht senden, erklären Sie sich mit unseren Datenschutzbedingungen einverstanden.',
+			        ),
+
+			        array(
+				        'id'	=> 'forms_privacy_policy_message_en',
+				        'title'	=> 'forms privacy policy message EN',
+				        'type'	=> 'text',
+				        'value' => 'By sending us this message you agree to our privacy policy.',
+			        ),
+
+		        ),
+
+	        ),
+
 
         ),
 
