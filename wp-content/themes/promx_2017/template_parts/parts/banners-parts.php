@@ -38,9 +38,7 @@ function get_template_featured_banner($title, $text, $image, $link_target, $link
                                 <h2 class="subtitle light">
 		                            <?php echo $title; ?>
                                 </h2>
-                            <?php } ?>
-
-							<?php if(is_string($title) && is_string($subtitle) && !$is_tricky_header ){ ?>
+                            <?php } elseif(is_string($title) && is_string($subtitle) && !$is_tricky_header ){ ?>
                                 <h2 class="slider-title">
 
                                     <span class="title-part"><?php echo $title ; ?></span>
@@ -51,9 +49,7 @@ function get_template_featured_banner($title, $text, $image, $link_target, $link
                                     </span>
 
                                 </h2>
-							<?php } ?>
-
-							<?php if(is_array($title) && $is_tricky_header){ ?>
+							<?php } elseif(is_array($title) && $is_tricky_header){ ?>
                                 <div class="icontitle">
                                     <div class="icontitle__icon">
                                         <?php __get_fa_icon_html($title['icon']); ?>
