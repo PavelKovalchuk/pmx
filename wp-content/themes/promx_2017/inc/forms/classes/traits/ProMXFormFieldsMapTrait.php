@@ -320,6 +320,12 @@ trait ProMXFormFieldsMapTrait {
 
 	);
 
+    /**
+     * Holder for empty fields, which will be added later to Azure parameter
+     * @var array
+     */
+	protected $emptyFieldsMap = [];
+
 	// Fields - will be displayed on the frontend
 	protected $displayedFields = [];
 
@@ -358,6 +364,7 @@ trait ProMXFormFieldsMapTrait {
         foreach ($this->getFieldsMap() as $field => $data){
 
             if(! in_array($field, $this->getDisplayedFields())){
+                $this->addToEmptyFieldsMap($data['azure_parameter']);
                 unset($this->fieldsMap[$field]);
             }
 
@@ -537,6 +544,32 @@ trait ProMXFormFieldsMapTrait {
 		$this->fieldsMap[$field_name][$key][CURRENT_LANG_CODE] = $value;
 
 	}
+
+    /**
+     * @return array
+     */
+    protected function getEmptyFieldsMap()
+    {
+        return $this->emptyFieldsMap;
+    }
+
+    /**
+     * @param array $emptyFieldsMap
+     */
+    protected function setEmptyFieldsMap($emptyFieldsMap)
+    {
+        $this->emptyFieldsMap = $emptyFieldsMap;
+    }
+
+    protected function addToEmptyFieldsMap($emptyField)
+    {
+        if(!is_string($emptyField)){
+            return false;
+        }
+        $this->emptyFieldsMap[$emptyField] = '';
+
+        return true;
+    }
 
 
 }

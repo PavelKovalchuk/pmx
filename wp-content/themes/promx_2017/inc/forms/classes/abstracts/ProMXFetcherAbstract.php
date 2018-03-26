@@ -47,7 +47,8 @@ abstract class ProMXFetcherAbstract {
 
 	}
 
-	public function getRequest($input_data, $db_settings){
+	public function getRequest($input_data, $db_settings)
+    {
 
 		if(!$this->checkIsArray($input_data) || !$this->checkIsArray($db_settings)){
 			$this->addSystemError('data_format_error');
@@ -118,7 +119,8 @@ abstract class ProMXFetcherAbstract {
 			return false;
 		}
 
-		return $request;
+        $request_with_empty = array_merge( $request, $this->getEmptyFieldsMap());
+		return $request_with_empty;
 
 	}
 
