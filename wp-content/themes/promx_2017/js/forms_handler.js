@@ -115,7 +115,7 @@
                 },
                 success: function(response){
 
-                    console.log('response: ', response);
+                    //console.log('response: ', response);
 
                     if(__isJSON(response) == false){
 
@@ -123,7 +123,7 @@
                     }
 
                     var data = JSON.parse(response);
-                    console.log('data: ', data);
+                   // console.log('data: ', data);
 
                     if(data.status == 'ok'){
                         __showModal(data.message, data.button, 'success');

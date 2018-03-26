@@ -203,7 +203,7 @@ function get_template_menu_blocks($pages_id_arr, $menu_map){
                              alt="<?php echo $response['pages'][$child_id]['image_alt'] ; ?>"
                              class="menu-page-image" />
 
-                    </div>
+
 
                     <?php if( array_key_exists($child_id, $menu_map['submenus']) ){
                         $custom_article = true;
@@ -224,7 +224,7 @@ function get_template_menu_blocks($pages_id_arr, $menu_map){
 	                    <?php __get_seo_link_html($child_data['current'],  $child_data['page_link'], "menu-page-link", $link_text); ?>
 
                     <?php } ?>
-
+                    </div>
                 </div>
 
             </div>
