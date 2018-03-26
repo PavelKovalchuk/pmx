@@ -149,7 +149,7 @@ function get_template_product_promo($title, $image, $image_alt, $link_target, $l
 	<?php
 }
 
-function get_template_our_numbers($title, $items){
+function get_template_our_numbers($title, $items, $text = false){
 
 	if( !$title || empty($items)){
 		return false;
@@ -165,6 +165,13 @@ function get_template_our_numbers($title, $items){
                         <header>
                             <h2 class="header-title"><?php echo $title; ?></h2>
                         </header>
+
+                        <?php if($text){ ?>
+                            <div class="text-center our-numbers-text">
+                                <p><?php echo $text; ?></p>
+                            </div>
+                        <?php } ?>
+
                         <div class="numbers-wrap">
 
 			                <?php

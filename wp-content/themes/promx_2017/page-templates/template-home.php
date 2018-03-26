@@ -83,7 +83,7 @@ get_header(); ?>
                                          $events
 	 );
 
-	 get_template_our_numbers($data['our_numbers_title'], $data['our_numbers_items']); ?>
+	 get_template_our_numbers($data['our_numbers_title'], $data['our_numbers_items'], $data['our_numbers_text']); ?>
 
 
     <section id="contactUs" class="contact-us-section">
