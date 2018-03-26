@@ -147,6 +147,11 @@ if(!empty($additional_products)){
 				?>
 			</div>
 		</div>
+        <div class="row">
+            <div class="col-sm-12">
+				<?php ProMXTemplateEngine::privacyPolicyField(); ?>
+            </div>
+        </div>
 		<div class="row">
 			<div class="col-sm-12">
 				<?php

@@ -33,6 +33,9 @@ $field_email = 'email';
                     false,false, false);
                 ?>
 			</div>
+            <div class="col-sm-12 black-color">
+				<?php ProMXTemplateEngine::privacyPolicyField('_sidebar'); ?>
+            </div>
 			<div class="col-sm-12 button-div">
                 <?php
                 ProMXTemplateEngine::button(

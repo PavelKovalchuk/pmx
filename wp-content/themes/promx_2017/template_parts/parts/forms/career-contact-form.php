@@ -53,6 +53,11 @@ $field_file = 'file_url';
 			ProMXTemplateEngine::getPlaceholder($field_message),
 			false,false, false);
 		?>
+        <div class="row">
+            <div class="col-sm-12">
+	            <?php ProMXTemplateEngine::privacyPolicyField(); ?>
+            </div>
+        </div>
 		<div class="row">
 			<div class="col-sm-6">
 				<?php

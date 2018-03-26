@@ -17,7 +17,6 @@ $field_last_name = 'last_name';
 $field_email = 'email';
 $field_company = 'company';
 $field_message = 'message';
-$field_privacy_policy = 'privacy_policy';
 
 	?>
 
@@ -98,14 +97,7 @@ $field_privacy_policy = 'privacy_policy';
                     ProMXTemplateEngine::getPlaceholder($field_message),
                     false,false, false);
                 ?>
-                <?php
-                    ProMXTemplateEngine::radioField(
-	                    $field_privacy_policy,
-	                    ProMXTemplateEngine::getFormPrivacyPolicyMessage(),
-	                    true,
-	                    $field_privacy_policy,
-	                    false,false, 'true');
-                ?>
+                <?php ProMXTemplateEngine::privacyPolicyField(); ?>
                 <?php
                 ProMXTemplateEngine::button(
                     false

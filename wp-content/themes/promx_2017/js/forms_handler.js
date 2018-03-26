@@ -829,7 +829,6 @@
         var form = $(this).parents('.js-contact-form');
 
         if(form.length > 0){
-            //formOptions.mainButton = this;
             initFormHandler(form);
         }
 

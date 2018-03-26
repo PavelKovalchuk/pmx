@@ -222,6 +222,103 @@ textarea.form-control {
   display: none;
 }
 
+form.contact-form{
+  .form-group{
+
+    &.form-group-textarea{
+      margin-bottom: $form-base-size;
+    }
+
+  }
+
+}
+
+
+.privacy_policy.promx-radio{
+
+  margin-bottom: 20px;
+  margin-top: 0;
+  font-size: $base-size;
+
+  [type="radio"]:not(:checked)+label,
+  [type="radio"]:checked+label {
+
+    line-height: 1.2;
+
+    &::before {
+      // radio aspect
+      border-radius: 4px;
+      width: 1.05em;
+      height: 1.05em;
+    } // checked mark aspect
+    &:after {
+      border-radius: 3px;
+      width: 0.77em;
+      height: 0.77em;
+      top: .1367em;
+      left: .1367em;
+    }
+  }
+
+  a{
+    color: $color-white;
+    text-decoration: underline;
+
+    &:hover{
+      color: $color-white;
+      text-decoration: underline;
+    }
+  }
+
+  label{
+    font-size: $base-size;
+  }
+
+}
+
+.black-color{
+
+  .privacy_policy.promx-radio{
+
+    [type="radio"]:not(:checked)+label,
+    [type="radio"]:checked+label {
+
+      color: $color-black-text;
+
+      &::before {
+        // radio aspect
+        border: 1px solid $color-black-text;
+
+      } // checked mark aspect
+      &:after {
+        color: $color-black-text;
+      }
+
+      a{
+        color: $color-black-text;
+
+        &:hover{
+          color: $color-black-text;
+        }
+      }
+
+    }
+
+    // checked mark aspect changes
+    [type="radio"]:not(:checked)+label:after {
+      background: transparent;
+    }
+
+    [type="radio"]:checked+label:after {
+      background-color: $color-black-text;
+      box-shadow: inset 0 1px 3px rgba(255, 255, 255, 0.1);
+    }
+
+  }
+
+}
+
+
 //Form validation
 
 label.c-file{
@@ -250,6 +347,14 @@ label.c-file{
 
   }
 
+  &.promx-radio{
+    .help-block{
+
+      padding-left: 0;
+
+    }
+  }
+
   .form-field-error{
     border-bottom: 1px solid $main-error-color;
   }
@@ -273,6 +378,17 @@ label.c-file{
   :-ms-input-placeholder,
   .form-control:-ms-input-placeholder {
     color: $main-error-color;
+  }
+
+  &.privacy_policy.promx-radio{
+
+    a{
+      color: $main-error-color;
+      &:hover{
+        color: $main-error-color;
+      }
+    }
+
   }
 
   [type=radio]:not(:checked)+label.radio-label{

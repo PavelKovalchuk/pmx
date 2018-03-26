@@ -97,6 +97,19 @@ class ProMXTemplateEngine {
 		<?php
 	}
 
+	public static function privacyPolicyField($additional = '')
+    {
+	    $field_privacy_policy = 'privacy_policy';
+
+	    ProMXTemplateEngine::radioField(
+		    $field_privacy_policy . $additional,
+		    ProMXTemplateEngine::getFormPrivacyPolicyMessage(),
+		    true,
+		    $field_privacy_policy . $additional,
+		    false, $field_privacy_policy, 'true');
+
+    }
+
 	public static function radioField($name_attr, $placeholder, $is_required = false, $id_attr = '',  $field_class = '', $parent_class = '', $value = '')
 	{
 		if(!$name_attr || !$placeholder){
@@ -201,7 +214,7 @@ class ProMXTemplateEngine {
 			return;
 		}
 		?>
-		<div class="form-group <?php if($parent_class){echo $parent_class; }?> <?php if($is_required){echo self::getRequiredClass(); }?>">
+		<div class="form-group form-group-textarea <?php if($parent_class){echo $parent_class; }?> <?php if($is_required){echo self::getRequiredClass(); }?>">
 			<textarea
 				rows="<?php if($rows){echo $rows; }?>"
 				name="<?php echo $name_attr; ?>"
