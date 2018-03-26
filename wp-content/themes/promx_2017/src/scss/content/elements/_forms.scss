@@ -250,12 +250,32 @@ label.c-file{
   }
 
   .form-field-error{
-    border: 1px solid $main-error-color;
-    box-shadow: 0 0 10px $main-box-shadow-error-color;
+    border-bottom: 1px solid $main-error-color;
+  }
+
+  // Placeholders
+  ::-webkit-input-placeholder,
+  .form-control::-webkit-input-placeholder {
+    color: $main-error-color;
+  }
+
+  :-moz-placeholder,
+  .form-control:-moz-placeholder {
+    color: $main-error-color;
+  }
+
+  ::-moz-placeholder,
+  .form-control::-moz-placeholder {
+    color: $main-error-color;
+  }
+
+  :-ms-input-placeholder,
+  .form-control:-ms-input-placeholder {
+    color: $main-error-color;
   }
 
   [type=radio]:not(:checked)+label.radio-label{
-    //color: $main-error-color;
+    color: $main-error-color;
 
     &:before{
       border: 1px solid $main-error-color;
@@ -265,13 +285,19 @@ label.c-file{
 
   .select2-container{
 
-    border: 1px solid $main-error-color;
-    box-shadow: 0 0 10px $main-box-shadow-error-color;
-
     &.select2-container--default{
 
       .select2-selection--single{
-        border-bottom: none;
+        border-bottom: 1px solid $main-error-color;
+
+        .select2-selection__placeholder{
+          color: $main-error-color;
+        }
+
+        .select2-selection__arrow b{
+          border-color: $main-error-color transparent transparent;
+        }
+
       }
 
     }
