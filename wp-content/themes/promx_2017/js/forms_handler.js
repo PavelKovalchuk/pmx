@@ -311,6 +311,21 @@
                         return;
                     }
                     var radioResult = checkRadioField($_this, force);
+
+                    var radioParent = $_this.parents('.' + formOptions.radioGroupClass);
+                    var radioFeldName = $_this.attr('name');
+                    var radioSiblings = radioParent.find('[name = ' + radioFeldName + ']');
+
+
+                    //For privacy policy start
+                    if( radioSiblings.length == 1 && radioResult == false ){
+                        formOptions.isFormValid = false;
+                        return;
+                    }else if( radioSiblings.length == 1 && radioResult == true){
+                        return;
+                    }
+                    //For privacy policy end
+
                     if(radioResult == false && typeof radioHolder[radioName] == 'undefined'){
                         formOptions.isFormValid = false;
                     }else if(radioResult == true){

@@ -33,7 +33,7 @@ $field_email = 'email';
                     false,false, false);
                 ?>
 			</div>
-            <div class="col-sm-12 black-color">
+            <div class="col-sm-12 js-radio-group black-color">
 				<?php ProMXTemplateEngine::privacyPolicyField('_sidebar'); ?>
             </div>
 			<div class="col-sm-12 button-div">
