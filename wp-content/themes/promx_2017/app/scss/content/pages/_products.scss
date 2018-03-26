@@ -130,7 +130,7 @@
     &_block {
       display: flex;
       flex-direction: row;
-      align-items: center;
+      align-items: flex-start;
       &_content {
         // padding-bottom: 6%;
         // padding-top: 6.5%;
@@ -155,6 +155,8 @@
         padding-left: $base-gap / 2;
         position: relative;
         z-index: 1;
+        margin-top: 0;
+        line-height: 0.8;
         @include media-breakpoint-up(sm) {
           padding-left: $base-gap / 2;
         }

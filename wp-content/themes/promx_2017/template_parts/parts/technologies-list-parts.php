@@ -11,7 +11,9 @@ function __get_tech_image_part($data){
 	?>
 
 	<div class="col-md-6 hidden-sm hidden-xs whatYouGet-section_row_blank">
-		<img src="<?php echo $data['image']; ?>" alt="<?php print_image_alt($data['image_alt']); ?>" class="img-responsive">
+        <?php if($data['image']){ ?>
+		    <img src="<?php echo $data['image']; ?>" alt="<?php print_image_alt($data['image_alt']); ?>" class="img-responsive">
+        <?php } ?>
 	</div>
 
 	<?php

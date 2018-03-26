@@ -173,7 +173,7 @@ function get_template_our_numbers($title, $items){
 				                $i++; ?>
 
                                 <div class="numbers-item">
-                                    <div id="number<?php echo $i; ?>" data-number-block-item="<?php echo $item['number']; ?>">
+                                    <div id="number<?php echo $i; ?>" <?php if($item['number']){ ?>data-number-block-item="<?php echo $item['number']; ?>"  <?php } ?>  <?php if($item['sign']){ ?> data-sign-block-item="<?php echo $item['sign']; ?>" <?php } ?> >
                                         <p></p>
                                     </div>
                                     <span><?php echo $item['text']; ?></span>
