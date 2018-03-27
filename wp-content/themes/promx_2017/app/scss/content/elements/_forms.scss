@@ -248,15 +248,15 @@ form.contact-form{
     &::before {
       // radio aspect
       border-radius: 4px;
-      width: 1.05em;
-      height: 1.05em;
+      width: 16px;
+      height: 16px;
     } // checked mark aspect
     &:after {
       border-radius: 3px;
-      width: 0.77em;
-      height: 0.77em;
-      top: .1367em;
-      left: .1367em;
+      width: 12px;
+      height: 12px;
+      top: 2px;
+      left: 2px;
     }
   }
 
@@ -285,6 +285,7 @@ form.contact-form{
 
       color: $color-black-text;
 
+
       &::before {
         // radio aspect
         border: 1px solid $color-black-text;
@@ -292,6 +293,8 @@ form.contact-form{
       } // checked mark aspect
       &:after {
         color: $color-black-text;
+        /*top: .1367em;
+        left: .1667em;*/
       }
 
       a{

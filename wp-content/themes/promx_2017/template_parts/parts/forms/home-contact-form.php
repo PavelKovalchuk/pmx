@@ -89,7 +89,7 @@ $field_message = 'message';
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-sm-12">
+			<div class="col-sm-12  <?php echo ProMXTemplateEngine::getJSRadioGroupClass(); ?>">
                 <?php
                 ProMXTemplateEngine::textareaField(
                     $field_message,

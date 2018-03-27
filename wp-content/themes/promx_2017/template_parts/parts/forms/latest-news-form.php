@@ -46,7 +46,7 @@ $field_email = 'email';
                 ?>
 			</div>
             <div class="row">
-                <div class="col-sm-12 js-radio-group">
+                <div class="col-sm-12 <?php echo ProMXTemplateEngine::getJSRadioGroupClass(); ?>">
 					<?php ProMXTemplateEngine::privacyPolicyField(); ?>
                 </div>
             </div>

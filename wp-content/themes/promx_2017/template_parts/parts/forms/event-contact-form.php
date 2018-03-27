@@ -113,7 +113,7 @@ $field_event = 'event';
 			</div>
 		</div>
         <div class="row">
-            <div class="col-sm-12">
+            <div class="col-sm-12 <?php echo ProMXTemplateEngine::getJSRadioGroupClass(); ?>">
 				<?php ProMXTemplateEngine::privacyPolicyField(); ?>
             </div>
         </div>

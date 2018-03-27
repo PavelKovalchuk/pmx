@@ -54,7 +54,7 @@ $field_file = 'file_url';
 			false,false, false);
 		?>
         <div class="row">
-            <div class="col-sm-12">
+            <div class="col-sm-12  <?php echo ProMXTemplateEngine::getJSRadioGroupClass(); ?>">
 	            <?php ProMXTemplateEngine::privacyPolicyField(); ?>
             </div>
         </div>

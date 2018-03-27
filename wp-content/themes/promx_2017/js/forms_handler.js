@@ -313,24 +313,24 @@
                     var radioResult = checkRadioField($_this, force);
 
                     var radioParent = $_this.parents('.' + formOptions.radioGroupClass);
-                    var radioFeldName = $_this.attr('name');
-                    var radioSiblings = radioParent.find('[name = ' + radioFeldName + ']');
+                    var radioFieldName = $_this.attr('name');
+                    var radioSiblings = radioParent.find('[name = ' + radioFieldName + ']');
 
 
                     //For privacy policy start
-                    if( radioSiblings.length == 1 && radioResult == false ){
+                    /*if( radioSiblings.length == 1 && radioResult == false ){
                         formOptions.isFormValid = false;
                         return;
                     }else if( radioSiblings.length == 1 && radioResult == true){
                         return;
-                    }
+                    }*/
                     //For privacy policy end
 
                     if(radioResult == false && typeof radioHolder[radioName] == 'undefined'){
                         formOptions.isFormValid = false;
                     }else if(radioResult == true){
                         radioHolder[radioName] = true;
-                        formOptions.isFormValid = true;
+                        //formOptions.isFormValid = true;
                     }
 
                 }
@@ -411,18 +411,27 @@
             var doChecking = function () {
 
                 var value = __stripTags(field);
+                var radioGroupParent = field.parents('.' + formOptions.radioGroupClass);
+                var radioFieldName = field.attr('name');
+                var radioSiblings = radioGroupParent.find('[name = ' + radioFieldName + ']');
 
-                var isCheckedRequired = checkRequiredRadio(field, value, parent, messageBlock);
+                if(radioSiblings.length == 1){
+                    var isCheckedRequired = checkAloneRequiredRadio(field, value, parent, messageBlock);
+                }else{
+                    var isCheckedRequired = checkRequiredRadio(field, value, parent, messageBlock);
+                }
+
+
                 if(isCheckedRequired === false){
                     return false;
                 }
 
-                var isEmpty = __isFieldEmpty(value);
+               /* var isEmpty = __isFieldEmpty(value);
                 if(isEmpty){
                     __addErrorClass(field, parent);
                     __addMessage(messageBlock, formOptions.textRequired);
                     return false;
-                }
+                }*/
 
                 var isValidMaxLength = checkMaxLength(field, value, parent, messageBlock);
                 if(isValidMaxLength === false){
@@ -572,15 +581,15 @@
 
     };
 
-    var checkRequiredRadio = function (field, value, parent, messageBlock) {
+    var checkAloneRequiredRadio = function (field, value, parent, messageBlock) {
 
         var isRequired = __isFieldRequired(parent);
 
         if(isRequired){
+            var isCheckedAloneRadio = field.prop("checked");
 
-            var isCheckedRadio = field.prop("checked");
-            if(isCheckedRadio){
-                //is not empty
+            if(isCheckedAloneRadio){
+
                 __removeErrorClass(field, parent);
                 __removeMessage(messageBlock);
                 return true;
@@ -588,8 +597,56 @@
 
             __addErrorClass(field, parent);
             __addMessage(messageBlock, formOptions.textRequired);
-            return false;
 
+            return false;
+        }
+
+        return null;
+
+
+    };
+
+    var checkRequiredRadio = function (field, value, parent, messageBlock) {
+
+        var isRequired = __isFieldRequired(parent);
+
+        if(isRequired){
+
+            var radioGroupParent = field.parents('.' + formOptions.radioGroupClass);
+            var radioFieldName = field.attr('name');
+            var radioSiblings = radioGroupParent.find('[name = ' + radioFieldName + ']');
+
+            var resultCheckedRadio = false;
+
+            //Is Something checked ?
+            $.each( radioSiblings, function( key, sibling ) {
+                var $this_sibling = $(sibling);
+                var isCheckedRadio = $this_sibling.prop("checked");
+
+                if(isCheckedRadio){
+                    resultCheckedRadio = true;
+                }
+
+            });
+
+            $.each( radioSiblings, function( key, sibling ) {
+                var $this_sibling = $(sibling);
+                var siblingParent = $($this_sibling).parent();
+                var siblingMessageBlock = $($this_sibling).siblings('.' + formOptions.messageBlockClass);
+
+                if(resultCheckedRadio){
+
+                    __removeErrorClass($this_sibling, siblingParent);
+                    __removeMessage(siblingMessageBlock);
+
+                }
+
+                __addErrorClass($this_sibling, siblingParent);
+                __addMessage(siblingMessageBlock, formOptions.textRequired);
+
+            });
+
+            return resultCheckedRadio;
         }
 
         return null;
