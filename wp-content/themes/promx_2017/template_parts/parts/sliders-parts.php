@@ -64,15 +64,23 @@ function get_template_main_slider($sliders){
                     <div class="row">
 
                         <div class="col-sm-7 col-md-12 col-lg-7">
+                            <div class="hidden-xs">
 	                        <?php
-	                        if($slider['link_target']){
-		                        ?>
-                                <div class="hidden-xs">
-                                    <a href="<?php echo $slider['link_target'] ; ?>" type="button" class="btn btn-primary btn-htransp">
-				                        <?php print_button_text($slider['link_text']); ?>
-                                    </a>
+	                        if($slider['link_target'] && $slider['link_text']){ ?>
+
+                                <a href="<?php echo $slider['link_target'] ; ?>" type="button" class="btn btn-primary btn-htransp">
+                                    <?php print_button_text($slider['link_text']); ?>
+                                </a>
+
+                            <?php }elseif(!$slider['link_target'] && $slider['link_text']){ ?>
+
+                                <a href="#firstSection" type="button" class="btn btn-primary btn-htransp js-anchor-banner"><?php print_button_text($slider['link_text']); ?></a>
+
+                            <?php }elseif(!$slider['link_text']){ ?>
+                                <span class="empty-hidden-block"></span>
+                            <?php } ?>
+
                                 </div>
-	                        <?php } ?>
                         </div>
 
                         <div class="col-sm-5 col-md-12 col-lg-5 d-flex slider-extra-img">
