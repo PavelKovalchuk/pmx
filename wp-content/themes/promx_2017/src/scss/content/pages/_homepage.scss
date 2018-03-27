@@ -572,15 +572,20 @@
   }
 }
 
+#numbers{
+  .our-numbers-text{
+    padding-bottom: $section-padding;
+  }
+}
+
+
 .numbers-wrap {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
 
-  .our-numbers-text{
-    padding-bottom: $section-padding;
-  }
+
 
   .numbers-item {
     flex: 0 1 266px;
