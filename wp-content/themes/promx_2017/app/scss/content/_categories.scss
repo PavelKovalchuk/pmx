@@ -2,12 +2,15 @@
 #blog {
   article.post {
     font-family: $medium-font;
-    figure img {
-      @include media-breakpoint-down(xs) {
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-      }
+    figure{
+      position: relative;
+      img {
+        @include media-breakpoint-down(xs) {
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
+        }
+    }
     }
     & + article {
       @include media-breakpoint-down(xs) {
@@ -32,6 +35,17 @@
       @include media-breakpoint-only(md) {
         font-size: $base-size * 2;
       }
+
+      .entry-title-link{
+        color: inherit;
+        text-decoration: none;
+
+        &:hover{
+          color: inherit;
+          text-decoration: none;
+        }
+      }
+
     }
     .entry-meta {
       color: $text-grey;
@@ -170,6 +184,15 @@
 
   .shuffle-item{
     width: 100%;
+  }
+
+  .blog_item_img_link{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    color: transparent;
+    left: 0;
+    top: 0;
   }
 
 }

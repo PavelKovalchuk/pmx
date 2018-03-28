@@ -76,6 +76,7 @@ function get_template_article_preview_string($post_item, $link_text, $default_im
 
     $cat_data = get_the_category( $post_item->ID );
     $cat_name = $cat_data[0]->cat_name;
+    $post_link = get_permalink($post_item->ID);
 
     $html = "";
 
@@ -98,7 +99,7 @@ function get_template_article_preview_string($post_item, $link_text, $default_im
                 }
 
                 if($img){
-                    $html .= "<img class='blog_item_img' src='$img' alt='$post_item->post_title' />";
+                    $html .= "<a href='$post_link' class='blog_item_img_link'>$link_text</a><img class='blog_item_img' src='$img' alt='$post_item->post_title' />";
                 }
 
                 $html .= "</figure>";
@@ -112,7 +113,7 @@ function get_template_article_preview_string($post_item, $link_text, $default_im
 
                     $html .= "<header>";
 
-                        $html .= "<h3 class='entry-title'>$post_item->post_title</h3>";
+                        $html .= "<h3 class='entry-title'><a href='$post_link' class='entry-title-link'>$post_item->post_title</a></h3>";
                         $html .= "<div class='entry-meta'><span class='category-name'>$cat_name</span> / " .  get_posted_on($post_item->ID) . "</div>";
 
                     $html .= "</header>";
@@ -123,7 +124,7 @@ function get_template_article_preview_string($post_item, $link_text, $default_im
                             $html .= "<p>$post_item->post_excerpt</p>";
                         }
 
-                        $html .= "<a href='" . get_permalink($post_item->ID) . "' class='btn btn-primary read-more'>";
+                        $html .= "<a href='" . $post_link . "' class='btn btn-primary read-more'>";
 
                             $html .= get_button_text($link_text);
 

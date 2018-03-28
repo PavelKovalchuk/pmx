@@ -84,15 +84,21 @@ $options_storage->addSubpageToPromxOptionPages(
 					array(
 						'id'	=> 'copyright_de',
 						'title'	=> 'Copyright text DE',
-						'type'	=> 'text',
+						'type'	=> 'textarea',
 						'value' => '&copy; proMX Gmbh 1994, 2017. All Rights Reserved. Terms of Use Privacy Policy',
+						'args' => array(
+							'html' => true
+						)
 					),
 
 					array(
 						'id'	=> 'copyright_en',
 						'title'	=> 'Copyright text EN',
-						'type'	=> 'text',
+						'type'	=> 'textarea',
 						'value' => '&copy; proMX Gmbh 1994, 2017. All Rights Reserved. Terms of Use Privacy Policy',
+						'args' => array(
+							'html' => true
+						)
 					),
 
 
