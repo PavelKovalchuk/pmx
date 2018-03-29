@@ -9,8 +9,8 @@
 
 function __get_services_image_part($data){
 ?>
-	<div class="image-part second-flex">
-		<img src="<?php echo $data['image']; ?>" alt="<?php print_image_alt($data['image_alt']); ?>" class="img-responsive">
+	<div class="image-part image-bg second-flex" style="background-image: url(<?php echo $data['image'] ; ?>);">
+		<!--<img src="<?php /*echo $data['image']; */?>" alt="<?php /*print_image_alt($data['image_alt']); */?>" class="img-responsive">-->
 	</div>
 
 	<?php
