@@ -164,6 +164,10 @@
             top: 45px;
 
             @include media-breakpoint-down(lg) {
+              right: -15px;
+            }
+
+            @include media-breakpoint-down(lg) {
              /* border-top: $arrow-width solid $secondary-color;
               border-left: $arrow-width solid transparent;
               border-right: $arrow-width solid transparent;
