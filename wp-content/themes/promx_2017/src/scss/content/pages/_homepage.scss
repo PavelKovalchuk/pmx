@@ -54,6 +54,11 @@
 .services_article {
   background-color: $primary-color;
 
+  @include media-breakpoint-down(md) {
+    width: 778px;
+    margin: auto;
+  }
+
   &_row {
     display: flex;
     flex-direction: row;
@@ -66,6 +71,11 @@
 
       @include media-breakpoint-only(lg) {
         //flex-basis: 20%;
+      }
+
+      @include media-breakpoint-down(md) {
+        flex: 1 1 100%;
+        padding-right: 0;
       }
 
       @include media-breakpoint-down(xs) {
@@ -83,12 +93,6 @@
 
         .image-part {
           flex: 1 1 61%;
-          @include media-breakpoint-down(md) {
-            order: 2;
-          }
-          @include media-breakpoint-only(lg) {
-            //flex-basis: 100%;
-          }
         }
 
         .text-part {
@@ -97,10 +101,6 @@
 
           @include media-breakpoint-down(lg) {
             padding: $base-size;
-          }
-
-          @include media-breakpoint-only(lg) {
-            //max-width: 468px;
           }
 
           &:before {
@@ -115,22 +115,20 @@
               left: -15px;
             }
 
-            @include media-breakpoint-down(lg) {
-             /* border-bottom: $arrow-width solid $dark-color;
-              border-left: $arrow-width solid transparent;
-              border-right: $arrow-width solid transparent;
-              border-top: 0;
-              left: 80%;
-              top: -16px;*/
-            }
-
             @include media-breakpoint-down(md) {
-              border-bottom: 0;
+             /* border-bottom: 0;
               border-top: $arrow-width solid $dark-color;
               border-left: $arrow-width solid transparent;
               border-right: $arrow-width solid transparent;
               right: 35px;
-              top: 100%;
+              top: 100%;*/
+
+              /*border-top: $arrow-width solid transparent;
+              border-right: $arrow-width solid $dark-color;
+              border-bottom: $arrow-width solid transparent;*/
+              //left: -$arrow-width;
+              //top: 45px;
+
             }
 
           }
@@ -143,6 +141,10 @@
         display: flex;
         flex-direction: row;
         flex-wrap: nowrap;
+
+        @include media-breakpoint-down(md) {
+          margin-bottom: $elements-gap/2;
+        }
 
         .image-part {
           flex: 1 1 60%;
@@ -187,6 +189,10 @@
       flex-direction: row;
       padding-left: $elements-gap/4;
 
+      @include media-breakpoint-down(md) {
+        padding-left: 0;
+      }
+
       @include media-breakpoint-down(xs) {
         flex-basis: 100%;
         max-width: 369px;
@@ -199,6 +205,12 @@
         flex-direction: row;
         flex-wrap: wrap;
         height: 100%;
+
+        @include media-breakpoint-down(md) {
+          justify-content: space-between;
+          align-items: stretch;
+        }
+
       }
 
       &_first {
@@ -213,8 +225,8 @@
           flex-direction: row;
           flex-wrap: wrap;
           padding-right: 0;
-          max-width: 369px;
-          margin-bottom: $elements-gap/2;
+          max-width: 378px;
+          margin-bottom: 0;
         }
 
         .image-part {
@@ -222,15 +234,23 @@
           position: relative;
           overflow: hidden;
           height: 60%;
+          min-height: 400px;
 
           @include media-breakpoint-down(md) {
-            order: 2;
+            height: 350px;
           }
         }
 
         .text-part {
           flex: 0 1 auto;
           padding: $elements-gap/2;
+          display: flex;
+          flex-direction: column;
+
+          p{
+            height: 100%;
+            display: flex;
+          }
 
           @include media-breakpoint-down(lg) {
             padding: $base-size;
@@ -248,12 +268,12 @@
             }
 
             @include media-breakpoint-down(md) {
-              border-bottom: 0;
-              border-top: $arrow-width solid $dark-color;
+             // border-bottom: 0;
+              border-bottom: $arrow-width solid $dark-color;
               border-left: $arrow-width solid transparent;
               border-right: $arrow-width solid transparent;
               right: 35px;
-              top: 100%;
+              top: -15px;
             }
           }
         }
@@ -270,12 +290,13 @@
           flex: 1 1 100%;
           flex-direction: row;
           padding-left: 0;
-          max-width: 369px;
+          max-width: 378px;
         }
 
         .image-part {
           flex: 1 1 394px;
           height: 60%;
+          min-height: 400px;
         }
 
         .text-part {
