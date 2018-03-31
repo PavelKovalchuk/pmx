@@ -616,7 +616,7 @@ function get_template_product_description_section($title, $text, $image, $image_
 	<?php
 }
 
-function get_template_product_zoom_image_section($items){
+function get_template_product_zoom_image_section($items, $title){
 
 	if( empty($items)){
 		return false;
@@ -629,6 +629,12 @@ function get_template_product_zoom_image_section($items){
             <div class="row">
                 <div class="col-sm-12">
                     <article class="b-pic-s-text-article">
+
+                        <?php if($title){ ?>
+                        <header>
+                            <h2 class="header-title text-center"><?php echo $title; ?></h2>
+                        </header>
+                        <?php } ?>
 
 	                    <?php foreach ($items as $item){ ?>
 

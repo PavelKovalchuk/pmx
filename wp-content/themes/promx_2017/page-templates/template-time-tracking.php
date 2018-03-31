@@ -40,7 +40,7 @@ get_template_featured_banner(
 
 		get_template_assignments_section($data['assignments_items'], $data['assignments_section_title']);
 
-		get_template_product_zoom_image_section($data['zoom_image_items']);
+		get_template_product_zoom_image_section($data['zoom_image_items'], $data['zoom_image_title']);
 
 		$testimonials_related_items = get_data_cpt_from_array($data['testimonials_related_items']);
 		get_template_testimonials_section(
