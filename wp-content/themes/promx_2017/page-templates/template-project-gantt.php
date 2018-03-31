@@ -36,12 +36,14 @@ get_template_featured_banner(
 
 	<main>
 
-        <section id="ganttProject" class="gantt-project bg-primary">
+        <?php get_template_assignments_section($data['assignments_items'], $data['assignments_section_title']); ?>
+
+        <!--<section id="ganttProject" class="gantt-project">
             <div class="container">
                 <div class="row">
                     <div class="col-sm-12">
 
-                        <?php get_template_instruction_image_block(
+                        <?php /*get_template_instruction_image_block(
                                     $data['instuction_product_block_title'],
                                     $data['instuction_product_block_text_first'],
                                     $data['instuction_product_block_image'],
@@ -49,20 +51,28 @@ get_template_featured_banner(
                                     $data['instuction_product_block_text_second'],
                                     $data['instuction_product_block_image_alt']
                             );
-                        ?>
+                        */?>
 
                     </div>
                 </div>
             </div>
-        </section>
+        </section>-->
 
         <?php
 
-        get_template_product_description_section(
+        get_template_instruction_video_section(
+	        $data['instruction_video_section_title'],
+	        $data['instruction_video_section_text'],
+	        $data['instruction_video_section_youtube_link']
+        );
+
+       /* get_template_product_description_section(
                     $data['product_description_section_title'],
                     $data['product_description_section_text'],
                     $data['product_description_section_image'],
-                    $data['product_description_section_image_alt']);
+                    $data['product_description_section_image_alt']);*/
+
+        get_template_image_tab($data['image_tabs_title'], $data['image_tabs_text'], $data['image_tabs_items']);
 
 		$testimonials_related_items = get_data_cpt_from_array($data['testimonials_related_items']);
 		get_template_testimonials_section(

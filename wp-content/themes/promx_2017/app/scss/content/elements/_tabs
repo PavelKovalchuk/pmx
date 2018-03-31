@@ -1,0 +1,148 @@
+
+.image-tabs-section{
+
+  .entry-content{
+    margin-bottom: $elements-gap;
+  }
+
+  .image-tabs-block{
+
+    @include media-breakpoint-down(md) {
+      display: flex;
+    }
+
+    @include media-breakpoint-down(sm) {
+      flex-direction: column;
+    }
+
+  }
+
+
+  .hr {
+    &.grey_hr{
+      left: 0;
+      right: 0;
+      width: 100%;
+      margin: 0;
+      top: -$elements-gap;
+
+      @include media-breakpoint-down(md) {
+        display: none;
+      }
+
+    }
+  }
+
+  .image-tabs-nav.nav-tabs{
+
+    margin-bottom: $elements-gap;
+    border-bottom: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    @include media-breakpoint-down(md) {
+      flex-direction: column;
+      flex-basis: 30%;
+      margin-bottom: 0;
+      justify-content: flex-start;
+    }
+
+    @include media-breakpoint-down(sm) {
+      flex-basis: 100%;
+    }
+
+    li{
+
+      float: none;
+      display: flex;
+
+      @include media-breakpoint-down(md) {
+        flex-basis: 100%;
+        align-items: center;
+        justify-content: center;
+      }
+
+      a{
+
+        color: $color-black-text-2;
+        background-color: transparent;
+        border: none;
+        border-bottom-color: transparent;
+        padding: 0 $base-gap $form-base-size $base-gap;
+        position: relative;
+
+      }
+
+      &.active{
+
+        a{
+          color: $secondary-color;
+
+          &:after{
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            margin-left: auto;
+            margin-right: auto;
+            bottom: -7px;
+            z-index: 2;
+            height: 8px;
+            width: 24px;
+            background-image: url(../images/arrow_green_2-min.png);
+            background-size: contain;
+            background-repeat: no-repeat;
+
+            @include media-breakpoint-down(md) {
+              display: none;
+            }
+
+          }
+
+          &:before{
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -1px;
+            background-color: $lazure-color-4;
+            width: 100%;
+            height: 2px;
+            z-index: 1;
+
+            @include media-breakpoint-down(md) {
+              display: none;
+            }
+
+          }
+
+        }
+
+      }
+
+    }
+
+  }
+
+  .tab-content{
+
+    display: flex;
+    justify-content: center;
+
+    @include media-breakpoint-down(md) {
+      flex-basis: 70%;
+    }
+
+    @include media-breakpoint-down(sm) {
+      flex-basis: 100%;
+    }
+
+
+  }
+
+  .tab-image{
+    //margin: auto;
+  }
+
+
+}

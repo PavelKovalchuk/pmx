@@ -99,3 +99,97 @@ function get_template_main_slider($sliders){
 
 <?php
 }
+
+
+function get_template_image_tab($title, $text, $items){
+
+	if(empty($items)){
+		return false;
+	}
+
+	?>
+
+    <section id="timeTracking" class="bg-light image-tabs-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <article class="">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <?php if($title){ ?>
+                                    <header>
+                                        <h2 class="header-title text-center"><?php echo $title; ?></h2>
+                                    </header>
+                                <?php } ?>
+                                <div class="entry-content">
+                                    <p class="text-center"><?php echo $text; ?></p>
+                                </div>
+
+                                <div class="image-tabs-block text-center">
+
+                                    <!-- Nav tabs -->
+                                    <ul class="nav nav-tabs image-tabs-nav" role="tablist">
+
+	                                    <?php
+                                        $i = 0;
+                                        foreach ($items as $item){
+                                            $i++;
+                                            if($i == 1){
+                                                $tab_control_class = 'active';
+                                            }else{
+	                                            $tab_control_class = '';
+                                            }
+	                                        $tab_name = 'tab_' . $i;
+                                            ?>
+
+                                            <li role="presentation" class="<?php echo $tab_control_class; ?>">
+                                                <a href="#<?php echo $tab_name; ?>" aria-controls="<?php echo $tab_name; ?>" role="tab" data-toggle="tab">
+                                                    <?php echo $item['title']; ?>
+                                                </a>
+                                            </li>
+
+	                                    <?php } ?>
+
+                                    </ul>
+
+                                    <div class="hr grey_hr">&nbsp;</div>
+
+                                    <!-- Tab panes -->
+                                    <div class="tab-content">
+
+                                        <?php
+                                        $k = 0;
+                                        foreach ($items as $item){
+
+	                                        $k++;
+	                                        if($k == 1){
+		                                        $tab_class = 'active';
+	                                        }else{
+		                                        $tab_class = '';
+	                                        }
+	                                        $tab_name = 'tab_' . $k;
+
+                                            ?>
+
+
+                                            <div role="tabpanel" class="tab-pane fade in <?php echo $tab_class; ?>" id="<?php echo $tab_name; ?>">
+
+                                                <img src="<?php echo $item['image']; ?>" alt="<?php print_image_alt($item['image_alt']); ?>" class="img-responsive tab-image">
+                                            </div>
+
+                                        <?php } ?>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
+
+	<?php
+}
