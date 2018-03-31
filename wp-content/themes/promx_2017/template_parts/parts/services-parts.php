@@ -20,7 +20,7 @@ function __get_services_text_part($data, $class){
 	?>
 	<div class="text-part <?php echo $class; ?> ">
 		<h3><?php echo $data['title']; ?></h3>
-		<p class="text-justify"><?php echo $data['text']; ?>
+		<p><?php echo $data['text']; ?>
 		</p>
 	</div>
 

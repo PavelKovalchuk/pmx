@@ -64,6 +64,11 @@
     flex-direction: row;
     flex-wrap: wrap;
     margin-top: $elements-gap/2;
+    min-height: 670px;
+
+    @include media-breakpoint-only(lg) {
+      min-height: 570px;
+    }
 
     &_left {
       flex: 1 1 50%;
@@ -89,7 +94,9 @@
         display: flex;
         flex-direction: row;
         flex-wrap: nowrap;
-        margin-bottom: $elements-gap/2;
+        height: 50%;
+        padding-bottom: $elements-gap/4;
+        overflow: hidden;
 
         .image-part {
           flex: 1 1 61%;
@@ -141,6 +148,9 @@
         display: flex;
         flex-direction: row;
         flex-wrap: nowrap;
+        height: 50%;
+        overflow: hidden;
+        padding-top: $elements-gap/4;
 
         @include media-breakpoint-down(md) {
           margin-bottom: $elements-gap/2;
@@ -185,9 +195,12 @@
     }
 
     &_right {
+      display: flex;
       flex: 1 1 50%;
       flex-direction: row;
       padding-left: $elements-gap/4;
+      height: auto;
+
 
       @include media-breakpoint-down(md) {
         padding-left: 0;
@@ -204,7 +217,7 @@
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
-        height: 100%;
+        //height: 100%;
 
         @include media-breakpoint-down(md) {
           justify-content: space-between;
@@ -218,6 +231,7 @@
         flex-direction: column;
         flex-wrap: wrap;
         padding-right: $elements-gap/4;
+        overflow: hidden;
 
         @include media-breakpoint-down(md) {
           display: flex;
@@ -230,11 +244,13 @@
         }
 
         .image-part {
-          flex: 1 1 394px;
+          //flex: 1 1 394px;
           position: relative;
-          overflow: hidden;
-          height: 60%;
-          min-height: 400px;
+          //overflow: hidden;
+          //height: 60%;
+          //min-height: 400px;
+          min-height: 60%;
+
 
           @include media-breakpoint-down(md) {
             height: 350px;
@@ -285,6 +301,7 @@
         flex-direction: column;
         flex-wrap: wrap;
         padding-left: $elements-gap/4;
+        overflow: hidden;
 
         @include media-breakpoint-down(md) {
           flex: 1 1 100%;
@@ -294,9 +311,10 @@
         }
 
         .image-part {
-          flex: 1 1 394px;
-          height: 60%;
-          min-height: 400px;
+          //flex: 1 1 394px;
+          /*height: 60%;
+          min-height: 400px;*/
+          min-height: 60%;
         }
 
         .text-part {
@@ -328,7 +346,8 @@
   }
   .text-part {
     position: relative;
-    height: 40%;
+    min-height: 40%;
+    height: auto;
 
     h3 {
       color: $color-white;
@@ -354,6 +373,11 @@
   .image-bg{
     background-repeat: no-repeat;
     background-size: cover;
+    display: flex;
+
+    @include media-breakpoint-only(lg) {
+      background-position: 90% 0;
+    }
   }
 
 }
