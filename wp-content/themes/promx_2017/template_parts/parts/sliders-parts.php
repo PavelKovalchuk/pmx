@@ -122,7 +122,9 @@ function get_template_image_tab($title, $text, $items){
                                     </header>
                                 <?php } ?>
                                 <div class="entry-content">
+	                                <?php if($text){ ?>
                                     <p class="text-center"><?php echo $text; ?></p>
+	                                <?php } ?>
                                 </div>
 
                                 <div class="image-tabs-block text-center">
