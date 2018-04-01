@@ -139,12 +139,12 @@
             border-top: $arrow-width solid transparent;
             border-right: $arrow-width solid $dark-color;
             border-bottom: $arrow-width solid transparent;
-            left: -$arrow-width;
+            left: -15px;
             top: 45px;
 
-            @include media-breakpoint-down(lg) {
+            /*@include media-breakpoint-down(lg) {
               left: -15px;
-            }
+            }*/
 
             @include media-breakpoint-down(xs) {
               border-bottom: $arrow-width solid $dark-color;
@@ -153,22 +153,6 @@
               right: 35px;
               top: -31px;
               left: auto;
-            }
-
-            @include media-breakpoint-down(md) {
-             /* border-bottom: 0;
-              border-top: $arrow-width solid $dark-color;
-              border-left: $arrow-width solid transparent;
-              border-right: $arrow-width solid transparent;
-              right: 35px;
-              top: 100%;*/
-
-              /*border-top: $arrow-width solid transparent;
-              border-right: $arrow-width solid $dark-color;
-              border-bottom: $arrow-width solid transparent;*/
-              //left: -$arrow-width;
-              //top: 45px;
-
             }
 
           }
@@ -221,12 +205,12 @@
             border-top: $arrow-width solid transparent;
             border-left: $arrow-width solid $secondary-color;
             border-bottom: $arrow-width solid transparent;
-            right: -$arrow-width;
+            right: -15px;
             top: 45px;
 
-            @include media-breakpoint-down(lg) {
+            /*@include media-breakpoint-down(lg) {
               right: -15px;
-            }
+            }*/
 
             @include media-breakpoint-down(xs) {
 
@@ -347,14 +331,13 @@
             border-left: $arrow-width solid transparent;
             border-right: $arrow-width solid transparent;
             right: 50px;
-            top: -$arrow-width;
+            top: -15px;
 
-            @include media-breakpoint-down(lg) {
+            /*@include media-breakpoint-down(lg) {
               top: -15px;
-            }
+            }*/
 
             @include media-breakpoint-down(md) {
-             // border-bottom: 0;
               border-bottom: $arrow-width solid $dark-color;
               border-left: $arrow-width solid transparent;
               border-right: $arrow-width solid transparent;
@@ -426,11 +409,11 @@
             border-left: $arrow-width solid transparent;
             border-right: $arrow-width solid transparent;
             right: 35px;
-            top: 100%;
+            top: calc(100% - 1px);
 
-            @include media-breakpoint-down(lg) {
+            /*@include media-breakpoint-down(lg) {
               top: calc(100% - 1px);
-            }
+            }*/
 
             @include media-breakpoint-down(xs) {
               border-bottom: $arrow-width solid $secondary-color;
