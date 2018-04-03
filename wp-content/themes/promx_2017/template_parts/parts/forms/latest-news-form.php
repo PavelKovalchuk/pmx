@@ -34,22 +34,25 @@ $field_email = 'email';
                     false,false, 'subscribe-parent');
                 ?>
 			</div>
-			<div class="col-sm-12 col-lg-4 button-div">
-                <?php
-                ProMXTemplateEngine::button(
-                    false
-                    , false
-                    , 'btn-primary btn-outline-inverted'
-                    , 'subscribe-parent subscribe-parent-button'
+            <div class="button-div-outer">
+                <div class="col-sm-12 col-lg-4 button-div">
+                    <?php
+                    ProMXTemplateEngine::button(
+                        false
+                        , false
+                        , 'btn-primary btn-outline-inverted'
+                        , 'subscribe-parent subscribe-parent-button'
 
-                );
-                ?>
-			</div>
-            <div class="row">
-                <div class="col-sm-12 <?php echo ProMXTemplateEngine::getJSRadioGroupClass(); ?>">
-					<?php ProMXTemplateEngine::privacyPolicyField(); ?>
+                    );
+                    ?>
+                </div>
+                <div class="subscribe-privacy-policy">
+                    <div class="col-sm-12 <?php echo ProMXTemplateEngine::getJSRadioGroupClass(); ?>">
+                        <?php ProMXTemplateEngine::privacyPolicyField(); ?>
+                    </div>
                 </div>
             </div>
+
 		</div>
 	</form>
 

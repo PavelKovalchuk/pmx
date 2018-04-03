@@ -72,14 +72,19 @@ textarea.form-control {
     position: relative;
     padding-left: 2em;
     line-height: 1.8;
+
+    @include media-breakpoint-down(xs) {
+      padding-left: 2.5em;
+    }
+
     &::before {
       // radio aspect
       content: '';
       border: 1px solid $color-white;
       background: transparent;
       border-radius: 8px;
-      width: 1.75em;
-      height: 1.75em;
+      width: 32px;
+      height: 32px;
       position: absolute;
       left: 0;
       top: 0;
@@ -87,11 +92,11 @@ textarea.form-control {
     &:after {
       content: '';
       border-radius: 6px;
-      width: 1.417em;
-      height: 1.417em;
+      width: 28px;
+      height: 28px;
       position: absolute;
-      top: .1667em;
-      left: .1667em;
+      top: 2px;
+      left: 2px;
       line-height: 0.8;
       color: $color-white;
       transition: all .2s;
@@ -158,7 +163,7 @@ textarea.form-control {
     margin-right: -16px;
   }
   .form-group {
-    margin-bottom: $elements-gap/1.5
+    margin-bottom: $elements-gap/1.5;
   }
 
   & .contact-form-title {

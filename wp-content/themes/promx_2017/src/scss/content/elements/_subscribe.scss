@@ -39,6 +39,11 @@
 
       }
 
+      @include media-breakpoint-down(sm) {
+        margin-top: 0;
+
+      }
+
       @include media-breakpoint-down(xs) {
         padding-left: 0;
 
@@ -55,20 +60,66 @@
     }
 
   }
+
+  .subscribe-blog{
+
+    .subscribe-privacy-policy{
+
+      @include media-breakpoint-down(md) {
+        display: flex;
+        order: 1;
+      }
+
+      .js-radio-group{
+        @include media-breakpoint-down(xs) {
+          padding-left: 0;
+          margin-bottom: 0;
+        }
+      }
+
+      .promx-radio{
+
+        @include media-breakpoint-down(md) {
+          margin-bottom: 0;
+        }
+
+      }
+
+    }
+
+  }
+
+
   .form-control {
     padding-left: 0;
     &:focus {
       padding-left: 1em;
     }
   }
+
+  .button-div-outer{
+
+    @include media-breakpoint-down(md) {
+      display: flex;
+      width: 100%;
+      flex-direction: column;
+    }
+
+  }
+
   .button-div {
     @include media-breakpoint-only(xs) {
       text-align: center;
       margin-top: $base-size *2;
     }
-    @include media-breakpoint-only(sm) {
+    @include media-breakpoint-down(sm) {
       text-align: center;
       margin-top: $base-size *2;
+    }
+    @include media-breakpoint-down(md) {
+      display: flex;
+      justify-content: center;
+      order: 2;
     }
     @include media-breakpoint-only(md) {
       text-align: center;

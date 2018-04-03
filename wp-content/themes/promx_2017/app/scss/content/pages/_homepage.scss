@@ -911,6 +911,20 @@
 .page-template-template-home{
   .fullwidth.bg-primary{
     overflow: hidden;
+
+    background-image: url($bg_primary_blocks_image);
+    background-repeat:repeat;
+
   }
+
+  .blogEvents_article{
+    background-image: url($bg_primary_blocks_image);
+    background-repeat:repeat;
+  }
+  .services_article{
+    background-image: url($bg_primary_blocks_image);
+    background-repeat:repeat;
+  }
+
 }
 
