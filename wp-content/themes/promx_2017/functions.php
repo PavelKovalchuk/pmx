@@ -104,8 +104,7 @@ add_action( 'after_setup_theme', 'promx_wp_setup' );
 
 
 //Customizations of WP behaviour
-
-add_post_type_support( 'page', 'excerpt' );
+require_once( CORE_CHANGES_MAIN_DIR . 'core-changes-index.php');
 
 /**
  * Add classes
